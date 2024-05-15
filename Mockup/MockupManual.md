@@ -6,24 +6,27 @@
 <br>
 
 - [2023-2024-project-5-flutter-team-3](#2023-2024-project-5-flutter-team-3)
-  - [Introduction](#introduction)
-  - [Features](#features)
+- [Introduction](#introduction)
+- [Features](#features)
   - [Login / Subscribe](#login--subscribe)
+    - [From the Job Seeker point of view](#from-the-job-seeker-point-of-view)
+    - [From the HR point of view](#from-the-hr-point-of-view)
   - [Term of use / legal paperwork / GDPR](#term-of-use--legal-paperwork--gdpr)
     - [Company](#company)
     - [Job Seeker](#job-seeker)
   - [Profile Page](#profile-page)
+    - [From the HR Point Of View](#from-the-hr-point-of-view-1)
+      - [New Job Offer](#new-job-offer)
+    - [From The Job Seeker Point Of View](#from-the-job-seeker-point-of-view-1)
+  - [Swipe Page](#swipe-page)
     - [Company](#company-1)
     - [Job Seeker](#job-seeker-1)
-  - [Swipe Page](#swipe-page)
+  - [Chat Box](#chat-box)
     - [Company](#company-2)
     - [Job Seeker](#job-seeker-2)
-  - [Chat Box](#chat-box)
-    - [Company](#company-3)
-    - [Job Seeker](#job-seeker-3)
-  - [Loading Screen](#loading-screen)
   - [Splash Screen](#splash-screen)
   - [General Settings](#general-settings)
+- [Conclusion](#conclusion)
 
 </details>
 
@@ -67,7 +70,31 @@ Outlined below are the main Features that we have decided to include in our appl
 
 ## Login / Subscribe
 
+This page will represent the login and subscribe page of the application. The user will be able to login or subscribe to the application. The user will be able to login with his email and password. If the user doesn't have an account, he will be able to create one by clicking on the subscribe button. The user will have to fill in the following information to create an account:
+
+### From the Job Seeker point of view
+
+- First name
+- Last name
+- Date of birth
+- City
+- Email
+- Password
+- Confirm password
+
+### From the HR point of view
+
+- Company name
+- Company's field of activity
+- Company's location
+- Description of the company
+- Email
+- Password
+- Confirm password
+
 ## Term of use / legal paperwork / GDPR
+
+
 
 ### Company
 
