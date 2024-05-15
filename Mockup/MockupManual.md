@@ -30,35 +30,6 @@
 
 </details>
 
-
-
-Adopt A Candidate
-
-- Login / Subscribe
-- Term of use / legal paperwork / GDPR
-
-- Company:
-  - Profile
-    - Edit profile
-    - Create a new job offer
-      - Edit job offer
-    - chat for multiple job offer
-  - Swipe page:
-    - NICE TO HAVE: Filter / settings (to see the most relevant job seekers)
-  - General Settings
-
-- Job seeker:
-  - Profile
-    - Edit profile
-  - Swipe page:
-    - NICE TO HAVE: Filter / settings (same as company)
-  - General Settings
-  - Chat Box (cannot start the conversation - can only answer if a company has sent a message)
-
-- Loading screen
-
-- Splash screen
-
 # Introduction
 
 This document is destined to We Are Evolution. It outlines the key features we have establish into our project and our application, providing you with an overview of our final product. We kindly request from you a feedback whether our idea is validate or not.
@@ -94,8 +65,6 @@ This page will represent the login and subscribe page of the application. The us
 
 ## Term of use / legal paperwork / GDPR
 
-
-
 ### Company
 
 ### Job Seeker
@@ -112,7 +81,6 @@ In this page the person responsible for the company will be able to insert:
 - Company's field of activity
 - Company's location
 - Description of the company
-- 
 - Create a new job offer, directly from the profile page (button)
 - job offer(s) available (will be done automatically)
 
@@ -138,22 +106,42 @@ Note that information can be edited at any time.
 
 ### From The Job Seeker Point Of View
 
+In this page, the user will find all the information that he has inserted during the registration process. The information that the user will be able to insert are:
+
 - A small sentence to define the job seeker
 - 5 primary soft skills
 - Sub skills
-- 
+- Position (Job title)
+- Preferences in term of company:
+  - Field of activity
+  - Location (won't be available to the public)
+  - Type of contract
+  - Job title
+
+Information will be displayed to the public in the swipe page. \
+Each information on the profile page will be editable. \
 
 ## Swipe Page
 
-### Company
+One of our product's key features is to help job seekers and employers find companies that match the individual's skills and the job requirements. To achieve this, we use a Tinder-style card interface that briefly describes the job seeker's skills or the employer's requirement. Users have two options:
 
-### Job Seeker
+- Swipe left to express interest in the profile. If the other party also expresses interest, both users will be connected and can arrange an interview.
+- Swipe right to indicate disinterest in the profile, which will no longer be recommended.
 
 ## Chat Box
 
+The Chat box is the place where both the companies' representative and the job seeker will be able to communicate. After a match, the chat box will be available to the company only in the first place, they are the one that will be responsible for starting the conversation. The job seeker will only be able to answer to the company's message, once he received it.
+
 ### Company
 
+When matching, the company has the choice to start messaging right away, or to wait to take a decision on whether or not they want to start communicating with the candidate right away. \
+The company will be able to see the job seeker's profile and the job offer that the job seeker has applied to. The company will also be able to see the job seeker's preferences and skills.
+
+The chat box will be organized by job offer. The company will be able to see all the matches they have got for a specific job offer, to improve readability and organization.
+
 ### Job Seeker
+
+Upon receiving a message from a company, it is now the job seeker's turn to decide whether they want to keep the communication going or not. The job seeker will have the possibility to see the company's profile.
 
 ## Splash Screen
 
