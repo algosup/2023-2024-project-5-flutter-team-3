@@ -19,11 +19,9 @@
       - [New Job Offer](#new-job-offer)
     - [From The Job Seeker Point Of View](#from-the-job-seeker-point-of-view-1)
   - [Swipe Page](#swipe-page)
+  - [Chat Box](#chat-box)
     - [Company](#company-1)
     - [Job Seeker](#job-seeker-1)
-  - [Chat Box](#chat-box)
-    - [Company](#company-2)
-    - [Job Seeker](#job-seeker-2)
   - [Splash Screen](#splash-screen)
   - [General Settings](#general-settings)
 - [Conclusion](#conclusion)
@@ -160,4 +158,6 @@ This page will represent the settings of the application. The job seeker and the
 
 # Conclusion
 
-In conclusion, the features outlined in this document represent our strategic decisions for the development of our project and application. We believe these features are essential to achieving our goals and creating a successful final product. Your feedback and validation are invaluable to us as we move forward in this endeavor. Thank you for your time and consideration.
+
+In conclusion, the features outlined in this document represent our strategic decisions for the development of our project and application. We believe these features are essential to achieving our goals and creating a successful final product. Your feedback and validation are valuable to us as we move forward in this endeavor. Thank you for your time and consideration.
+
