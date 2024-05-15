@@ -22,6 +22,7 @@
     - [Job Seeker](#job-seeker)
   - [Splash Screen](#splash-screen)
   - [General Settings](#general-settings)
+  - [Color Palette](#color-palette)
   - [Conclusion](#conclusion)
 
 </details>
@@ -45,8 +46,6 @@ If the user doesn't have an account, they will be able to create one by clicking
 
 - First name
 - Last name
-- Date of birth
-- City
 - Email
 - Password
 - Confirm password
@@ -55,8 +54,6 @@ If the user doesn't have an account, they will be able to create one by clicking
 
 - Company name
 - Company's field of activity
-- Company's location
-- Description of the company
 - Email
 - Password
 - Confirm password
@@ -97,7 +94,7 @@ In this page, the user will be able to create a new job offer. It will contain t
 - Additional skills for the job
 - Type of contract
 - Number of hours per week
-- (Salary) -> TO CONFIRM WITH THE CLIENT
+- (Salary) -> TO CONFIRM
 
 Information will then be displayed to the public on the swipe page once the HR has validated and created it. \
 Note that information can be edited at any time.
@@ -153,6 +150,12 @@ This page will represent the settings of the application. The job seeker and the
 - Privacy settings
 - Terms of use
 - Delete account
+
+## Color Palette
+
+The color palette we have chosen for our application is as it follows:
+
+![Color Palette](img\ColorPalette.png)
 
 ## Conclusion
 
