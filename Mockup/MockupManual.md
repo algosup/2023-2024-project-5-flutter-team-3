@@ -220,10 +220,11 @@ This page will represent the settings of the application. The job seeker and the
 The color palettes we have chosen for our application are as follows:
 
 - For mockup 1:
-![Color Palette](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/ColorPalette.png)
+<img src="./img/ColorPalette.png">
 
 - For mockup 2:
-![Color Palette 2](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/ColorPalette2.png)
+
+<img src="./img/ColorPalette2.png">
 
 ## Conclusion
 
