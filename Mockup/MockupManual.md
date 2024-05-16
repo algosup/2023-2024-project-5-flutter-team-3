@@ -11,6 +11,7 @@
     - [Tutorial](#tutorial)
       - [For mockup 1](#for-mockup-1)
       - [For mockup 2](#for-mockup-2)
+    - [More information](#more-information)
   - [Features](#features)
   - [Login / Subscribe](#login--subscribe)
     - [From The Job Seeker's point of view](#from-the-job-seekers-point-of-view)
