@@ -155,7 +155,7 @@ This page will represent the settings of the application. The job seeker and the
 
 The color palette we have chosen for our application is as it follows:
 
-![Color Palette](img\ColorPalette.png)
+![Color Palette](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/ColorPalette.png)
 
 ## Conclusion
 
