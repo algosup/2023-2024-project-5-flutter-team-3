@@ -48,7 +48,7 @@ This tutorial will help you to start the mockup on Figma.
 
 After following the previous link, here's what you will encounter:
 
-![Figma main](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/figmamenu.png)
+<img src="./img/figmamenu.png">
 
 You now are on the main Figma page.
 You'll notice that there are two mockups, be sure to check **both**!
@@ -58,33 +58,33 @@ You'll notice that there are two mockups, be sure to check **both**!
 - Click on "Mockup 1"
 - Check the top right of the page, you'll see a button named "Present"
 
-![present button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/menu2.png)
+<img src="./img/menu2.png">
 
 - Click on the arrow next to it
 
-![preview button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/preview.png)
+<img src="./img/preview.png">
 
 - Click on "Preview" to start the mockup
 
 The mockup is now running!
 
-![mockup started](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/darkmockuprunning.png)
+<img src="./img/darkmockuprunning.png">
 
 #### For mockup 2
 
 - Click on "Mockup 2"
 - Check the top right of the page, you'll see a button named "Present"
 
-![present button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/menumockup2.png)
+<img src="./img/menumockup2.png">
 
 - Click on the arrow next to it
 - Click on "Preview" to start the mockup
 
-![Preview white](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/clickpreviewwhite.png)
+<img src="./img/clickpreviewwhite.png">
 
 The mockup two is now running!
 
-![mockup started](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/mockupwhiterunning.png)
+<img src="./img/mockupwhiterunning.png">
 
 ### More information
 
