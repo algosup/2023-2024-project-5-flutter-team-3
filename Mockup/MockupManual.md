@@ -92,7 +92,7 @@ If you click somewhere on the screen, but you don't get redirected, you might ha
 If so, simply click once more and you'll see the available buttons will be highlighted in blue for a short period, it will help you to identify the clickable buttons.
 
 If you have any questions or if you encounter any issues, feel free to ask us! \
-For feedback and assistance: <lucas.aubard@algosup.com>
+For feedback and assistance: <habi.cailleau@algosup.com>
 
 ## Features
 
@@ -216,9 +216,11 @@ This page will represent the settings of the application. The job seeker and the
 
 ## Color Palette
 
-The color palette we have chosen for our application is as follows:
+The color palettes we have chosen for our application are as follows:
 
 ![Color Palette](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/ColorPalette.png)
+
+![Color Palette 2](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/ColorPalette2.png)
 
 ## Conclusion
 
