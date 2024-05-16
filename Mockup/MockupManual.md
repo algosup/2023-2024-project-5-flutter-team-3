@@ -31,6 +31,53 @@
 
 This document is destined for We Are Evolution. It outlines the key features we have established in our project and application, providing you with an overview of our final product. We kindly request your feedback to validate our idea.
 
+## Figma
+
+The mockup will be developped on Figma. \
+[Click here to access the mockup](https://www.figma.com/design/U34VY3z7ifzQCtJTrQ1dnu/Adopt-a-candidate?node-id=0%3A1&t=aX8WZ9z9eStg1wuD-1
+)
+
+### Tutorial
+
+This tutorial will help you to start the mockup on Figma.
+
+After following the previous link, here's what you will encounter:
+
+![Figma main](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/figma.png)
+
+You now are on the main figma page.
+You'll notice that there are two mockups, be sure to check **both** !
+
+#### For mockup 1
+
+- Click on "Mockup 1"
+- Click on "prototype" at the top right of the page
+
+![Figma prototype](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/startprototype.png)
+
+- Click on the button as shown below
+
+![Click on button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/clickonButtonDark.png)
+
+- The mockup is now running, you can click on the different buttons to see the transitions
+
+![Mockup running](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/prototypeStart.png)
+
+#### For mockup 2
+
+- Click on "Mockup 2"
+- Click on "prototype" at the top right of the page
+- - Click on the button as shown below
+
+![Click on button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/clickonButtonWhite.png)
+
+- The mockup is now running, you can click on the different buttons to see the transitions
+
+![Mockup running](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/protostartWhite.png)
+
+If you encounter any issues, feel free to contact us. We will be happy to help you. \
+For assistance: <lucas.aubard@algosup.com>
+
 ## Features
 
 Outlined below are the main features that we have decided to include in our application.
