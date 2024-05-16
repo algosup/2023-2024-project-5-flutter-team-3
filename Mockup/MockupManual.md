@@ -7,15 +7,19 @@
 
 - [2023-2024-project-5-flutter-team-3](#2023-2024-project-5-flutter-team-3)
 - [Introduction](#introduction)
+  - [Figma](#figma)
+    - [Tutorial](#tutorial)
+      - [For mockup 1](#for-mockup-1)
+      - [For mockup 2](#for-mockup-2)
   - [Features](#features)
   - [Login / Subscribe](#login--subscribe)
-    - [From The Job Seeker point of view](#from-the-job-seeker-point-of-view)
+    - [From The Job Seeker's point of view](#from-the-job-seekers-point-of-view)
     - [From the HR point of view](#from-the-hr-point-of-view)
   - [Terms Of Use / Legal Paperwork / GDPR](#terms-of-use--legal-paperwork--gdpr)
   - [Profile Page](#profile-page)
     - [From The HR Point Of View](#from-the-hr-point-of-view-1)
       - [New Job Offer](#new-job-offer)
-    - [From The Job Seeker Point Of View](#from-the-job-seeker-point-of-view-1)
+    - [From The Job Seeker's Point Of View](#from-the-job-seekers-point-of-view-1)
   - [Swipe Page](#swipe-page)
   - [Chat Box](#chat-box)
     - [Company](#company)
@@ -33,7 +37,7 @@ This document is destined for We Are Evolution. It outlines the key features we 
 
 ## Figma
 
-The mockup will be developped on Figma. \
+The mockup will be developed on Figma. \
 [Click here to access the mockup](https://www.figma.com/design/U34VY3z7ifzQCtJTrQ1dnu/Adopt-a-candidate?node-id=0%3A1&t=aX8WZ9z9eStg1wuD-1
 )
 
@@ -45,38 +49,18 @@ After following the previous link, here's what you will encounter:
 
 ![Figma main](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/figma.png)
 
-You now are on the main figma page.
-You'll notice that there are two mockups, be sure to check **both** !
+You now are on the main Figma page.
+You'll notice that there are two mockups, be sure to check **both**!
 
 #### For mockup 1
 
 - Click on "Mockup 1"
-- Click on "prototype" at the top right of the page
 
-![Figma prototype](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/startprototype.png)
-
-- Click on the button as shown below
-
-![Click on button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/clickonButtonDark.png)
-
-- The mockup is now running, you can click on the different buttons to see the transitions
-
-![Mockup running](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/prototypeStart.png)
 
 #### For mockup 2
 
 - Click on "Mockup 2"
-- Click on "prototype" at the top right of the page
-- - Click on the button as shown below
 
-![Click on button](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/clickonButtonWhite.png)
-
-- The mockup is now running, you can click on the different buttons to see the transitions
-
-![Mockup running](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/protostartWhite.png)
-
-If you encounter any issues, feel free to contact us. We will be happy to help you. \
-For assistance: <lucas.aubard@algosup.com>
 
 ## Features
 
@@ -89,7 +73,7 @@ The user will be able to log in or subscribe to the application.
 The user will be able to log in with their email and password.
 If the user doesn't have an account, they will be able to create one by clicking on the subscribe button. The user will have to fill in the following information to create an account:
 
-### From The Job Seeker point of view
+### From The Job Seeker's point of view
 
 - First name
 - Last name
@@ -119,7 +103,7 @@ This page will represent the user's profile. The user will be able to see and ed
 
 On this page, the person responsible for the company will be able to insert:
 
-- Company type
+- Company Type
 - Company's field of activity
 - Company's location
 - Description of the company
@@ -132,7 +116,7 @@ Information will be displayed to the public on the swipe page, but not all of it
 
 #### New Job Offer
 
-In this page, the user will be able to create a new job offer. It will contain these information:
+On this page, the user will be able to create a new job offer. It will contain these informations:
 
 - Description of the job offer
 - Position of the job offer
@@ -146,7 +130,7 @@ In this page, the user will be able to create a new job offer. It will contain t
 Information will then be displayed to the public on the swipe page once the HR has validated and created it. \
 Note that information can be edited at any time.
 
-### From The Job Seeker Point Of View
+### From The Job Seeker's Point Of View
 
 On this page, the user will find all the information that they have inserted during the registration process. The information that the user will be able to insert includes:
 
@@ -154,7 +138,7 @@ On this page, the user will find all the information that they have inserted dur
 - 5 primary soft skills
 - Sub skills
 - Position (Job title)
-- Preferences in term of company:
+- Preferences in terms of company:
   - Field of activity
   - Location (won't be available to the public)
   - Type of contract
@@ -200,7 +184,7 @@ This page will represent the settings of the application. The job seeker and the
 
 ## Color Palette
 
-The color palette we have chosen for our application is as it follows:
+The color palette we have chosen for our application is as follows:
 
 ![Color Palette](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/img/ColorPalette.png)
 
