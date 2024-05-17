@@ -1,42 +1,67 @@
 # Functional Specification
 
-## Approvals
+## I. Introduction
 
-# 1. Introduction
+### 1. Stakeholders
 
-## Stakeholders
+#### A. Project team
 
-## Project team
+#### B. Stakeholders
 
-## Overview
+### 2. Overview
+Provide a brief description of the application, highlighting its key objective.
 
-## Purpose 
+### 3. Scope
+Scope of the project.
 
-## Milestones
+### 4. Purpose 
+Clarify the specific goals of the document and how it will guide the development and deployment of the application.
 
+### 5. Milestones
+List critical milestones, including major development phases, testing, and deployment dates.
 
-# 2. Personas and use cases
+## II. Personas and use cases
 
-## Personas
+### 1. Personas
+ 
+### 2. Use cases
 
-## Use cases
+## III. Functionalities 
 
-# 3. Functionalities 
+### 1. Design
+Detail the design requirements including the user interface for different platforms (mobile, tablet, desktop). Ensure accessibility and usability are emphasized.
 
-## Design
+#### A. logo
+Include specifications for logo design that reflects the app's focus on fairness and opportunity.
 
-### logo
+#### B. Application 
+Describe the layout, navigation, color schemes, and themes that enhance the user experience while ensuring it supports anonymity and easy interaction.
 
-### application 
+### 2. Constraints 
+Note any technical or legal constraints, such as data protection laws (GDPR, etc.), technology stack limitations, or integration requirements with other systems. + Flutter...
 
-## Constraints 
+## IV. Application's features
+- List all the key features such as:
+    - Anonymized profiles for candidates and companies.
+    - Profile creation and management.
+    - Job offer creation.
+    - Soft skills inventory and selection interface.
+    - Matching algorithm.
+    - Communication tools (e.g., messaging system).
+    - Settings
+    - Reporting and analytics.
 
-# 4. Targeted features
+## V. Non-Functional Requirements
+Include requirements such as performance, security, scalability, compatibility...
 
-# 5. Non-Functional Requirements
+## VI. Assumptions
+project assumptions...
 
-# Conclusion 
+## VII. Conclusion 
+Summarize the document’s key points and how it will contribute to the successful completion of the project.
 
-# Future improvements 
+## VIII. Future improvements 
+Suggest potential areas for future enhancements, such as the introduction of AI for better matching or expanded feature sets.
 
-## Glossary
+## IX. Glossary
+Define all technical terms, acronyms, and jargon that appear in the document to ensure clarity for all readers.
