@@ -47,7 +47,7 @@
       - [**B. Goals and Objectives**](#b-goals-and-objectives)
         - [➭ General Features:](#-general-features)
         - [➭ Company Side:](#-company-side)
-        - [➭ Job Seeker Side: ](#-job-seeker-side-)
+        - [➭ Job Seeker Side:](#-job-seeker-side)
       - [**C. Future Improvements**](#c-future-improvements)
       - [**D. Assumptions**](#d-assumptions)
   - [II. Technology Presentation](#ii-technology-presentation)
@@ -57,11 +57,13 @@
         - [➭ Development Packages:](#-development-packages)
         - [➭ Testing Packages:](#-testing-packages)
       - [**C. Working Environment**](#c-working-environment)
+          - [➭ Usage:](#-usage)
+          - [➭ Installation:](#-installation)
     - [2. Firebase](#2-firebase)
       - [**A. Definition and Usage**](#a-definition-and-usage-1)
         - [➭ Definition:](#-definition)
-        - [➭ Usage:](#-usage)
-      - [**B. Working environment**](#b-working-environment)
+        - [➭ Usage:](#-usage-1)
+      - [**B. Working Environment**](#b-working-environment)
   - [III. Technical Specification](#iii-technical-specification)
     - [1. Coding Conventions](#1-coding-conventions)
       - [A. Folder Structure](#a-folder-structure)
@@ -71,7 +73,7 @@
       - [B. Comments](#b-comments)
         - [➭ Comments at File Beginning:](#-comments-at-file-beginning)
         - [➭ Comments in the Code:](#-comments-in-the-code)
-      - [C. Code Structuration](#c-code-structuration)
+      - [C. Code Structure](#c-code-structure)
         - [➭ Indentation:](#-indentation)
         - [➭ Spacing:](#-spacing)
         - [➭ Naming Conventions:](#-naming-conventions)
@@ -126,53 +128,48 @@ Additionally, it provides resources on coding conventions, database structure, g
 
 The ultimate goal is to provide We Are Evolution, the client of the project, with a clear understanding of how the application functions and how it can be further developed and maintained.
 
-
-
-
 ### 3. Project Definition
 
-The project is a mobile application that aims to connect job seekers with companies. The application is supposed to be a "Tinder" like application where job seekers and companies can swipe on each other to match. The application will also have a chat feature to allow the matched users to communicate.
+The project is a mobile and web application that aims to connect job seekers with companies. The application is designed to be similar to "Tinder," where job seekers and companies can swipe on each other to match. The application will also include a chat feature to allow matched users to communicate.
 
-This application will be developed for We Are Evolution, with the only requirement to use Flutter and do a "Tinder" like application.
+This application will be developed for We Are Evolution, with the primary requirement being to use Flutter and create a "Tinder"-like application.
 
 #### **A. Vision**
 
-As the client gave us a lot of freedom in the application design and features, we decided to create an application outside the box. Most job-seeking applications are boring, with a cold design and are not user-friendly. We want to create a fun and easy-to-use application that will make the job-seeking process more enjoyable.
+As the client has given us considerable freedom in the application design and features, we decided to create an application that is innovative and engaging. Most job-seeking applications are boring, have a cold design, and are not user-friendly. We aim to create a fun and easy-to-use application that will make the job-seeking process more enjoyable.
 
 #### **B. Goals and Objectives**
-Our main goals are to create a Flutter application that will allow job seekers and companies to match with each other.
 
-The application will have the following contain 2 different sides:
-- The company side, where companies can create a profile, set their preferences and swipe on job seekers.
-- The job seeker side, where job seekers can create a profile, set their preferences and swipe on companies.
-</br>
-</br>
+Our main goal is to create a Flutter application that allows job seekers and companies to match with each other. The usage of Flutter allows us to export the project as a web application after the mobile application is done.
+
+The application will have two distinct sides:
+- The company side, where companies can create a profile, set their preferences, add job offers, and swipe on job seekers.
+- The job seeker side, where job seekers can create a profile, set their preferences, and swipe on companies.
 
 ##### ➭ <ins>General Features:</ins>
-- Account settings: Job seekers can change their account settings.
-- Algorithm: The application will have a matching algorithm to match job seekers and companies.
+- Account settings: Job seekers and companies can change their account settings.
+- Algorithm: The application must include a matching algorithm to match job seekers and companies.
 
 ##### ➭ <ins>Company Side:</ins>
 
 The company side will have the following features:
-- Profile: Companies can create a profile with the ability to administrate the various job offers they have.
-- Swap Area: Companies can swipe on job seekers.
+- Profile: Companies can create a profile with the ability to manage various job offers they have.
+- Swipe Area: Companies can swipe on job seekers.
 - Chat: Companies can chat with job seekers they are matched with and differentiate them through the job offers they have matched with.
-</br>
-</br>
 
-##### ➭ <ins>Job Seeker Side: </ins>
+##### ➭ <ins>Job Seeker Side:</ins>
 
 The job seeker side will have the following features:
 - Profile: Job seekers can create a profile with various fields to personalize their profile.
-- Swap Area: Job seekers can swipe on companies.
+- Swipe Area: Job seekers can swipe on companies.
 - Chat: Job seekers can chat with companies they are matched with.
+
 
 #### **C. Future Improvements**
 
 The first version of the application will not contain all the features we would like to implement. Here are some of the features we would like to add in the future:
 - An API to allow the application to interact with a database.
-- Tests to ensure that every information given by the user is correct like testing if the company is real or if the job seeker is a real person.
+- Tests to ensure that every information given by the user is correct like testing if the company is real or if the job seeker is a real person.Testing job seekers' skills to ensure that they are qualified for the job they are applying for.
 
 #### **D. Assumptions**
 
@@ -186,13 +183,14 @@ We are assuming that the application will be used by real companies and job seek
 
 For this project, it's mandatory to use Flutter. Flutter is an open-source UI software development kit created by Google. It is used to develop applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.
 
-We will use Flutter to create the mobile application for We Are Evolution. Flutter is a great tool for creating mobile applications as it allows to creation of a single codebase for both Android and iOS applications. It also allows to creation of beautiful and responsive applications.
+We will use Flutter to create the mobile application for We Are Evolution. Flutter is a great tool for creating mobile applications as it allows the creation of a single codebase for both Android and iOS applications. It also allows the creation of beautiful and responsive applications.
 
 #### **B. Used Packages**
 
 To create the application, we will need to use some packages.
 
 ##### ➭ <ins>Development Packages:</ins>
+- List development packages here...
 
 ##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
@@ -203,10 +201,15 @@ To create the application, we will need to use some packages.
 
 #### **C. Working Environment**
 
-To work on the project, we will need to have a working environment. Here is the working environment we will use:
-- Flutter SDK: The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK to create the application.
-- Visual Studio Code: Visual Studio Code is the integrated development environment that allows us to create Flutter applications.
-- Android Studio: Android Studio is the integrated development environment that allows us to create Android applications. We will use Android Studio to create various virtual devices to test the application.
+###### ➭ <ins>Usage:</ins>
+
+To work on the project, we will need to have a suitable working environment. Here is the working environment we will use:
+- **Flutter SDK:** The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK to create the application.
+- **Visual Studio Code:** Visual Studio Code is the integrated development environment that allows us to create Flutter applications.
+- **Android Studio:** Android Studio is the integrated development environment that allows us to create Android applications. We will use Android Studio to create various virtual devices to test the application.
+
+
+###### ➭ <ins>Installation:</ins>
 
 For a complete installation guide, please refer to the [Flutter documentation](https://flutter.dev/docs/get-started/install).
 Or follow the following video tutorials: 
@@ -224,7 +227,7 @@ Firebase is a comprehensive app development platform by Google that provides a v
 - **Real-time Database:** Firebase Realtime Database stores and syncs data in real-time across all clients. This is particularly useful for applications that require frequent updates, such as chat apps or collaborative tools.
 - **Authentication:** Firebase Authentication provides easy-to-use SDKs and backend services to authenticate users with passwords, phone numbers, and popular federated identity providers like Google, Facebook, and Twitter.
 
-#### **B. Working environment**
+#### **B. Working Environment**
 
 Firebase integrates seamlessly with your existing working environment, whether you are developing for mobile (iOS, Android) or web applications. Here’s a brief overview of setting up and working with Firebase:
 
@@ -258,7 +261,7 @@ By leveraging Firebase’s comprehensive suite of services, development teams ca
 #### A. Folder Structure
 
 ##### ➭ <ins>Structure:</ins>
-The folder structure of the project will be as follows:
+The project's folder structure provides a foundational framework for organizing code files. While it may evolve, the initial structure serves as a solid starting point:
 ```plaintext
 lib/
   ├── main.dart
@@ -297,7 +300,7 @@ lib/
   │     │     ├── chat.dart
   ├── matching_algorithm.dart
 ```
-This folder structure will probably change as the project evolves however it provides a good starting point for the project. 
+This structured layout facilitates code organization and enhances project maintainability.
 
 ##### ➭ <ins>Files and Folders Naming Conventions:</ins>
 To maintain consistency and make it easier to navigate through the code, we will use the same naming conventions as the one used by default in Flutter. We will use snake_case for files and folder names. This will make it easier to read and understand the code.
@@ -311,29 +314,28 @@ To maintain consistency and make it easier to navigate through the code, we will
 
 #### B. Comments
 
-Comments are an essential part of the code as they help to understand the code better. We will use comments to explain the code and make it easier to understand. We will use comments to explain the purpose of the code, the logic behind it, and any other relevant information.
+Effective comments provide insights into the purpose and functionality of code segments. We adhere to clear commenting conventions to aid understanding and collaboration:
 
 ##### ➭ <ins>Comments at File Beginning:</ins>
-At the beginning of each file, we will add a comment that explains the purpose of the file. This comment will provide a brief overview of the file and its contents. This will help to understand the file better and make it easier to navigate through the code.
+At the beginning of each file, a concise comment provides an overview of its contents and purpose:
 
 *Example:*
 ```dart
-// This file contains the model for the user.
-// The user model contains all the information about the user.
+// User model: Contains user-related data and functionality.
 ```
 
 ##### ➭ <ins>Comments in the Code:</ins>
-We will also use comments in the code to explain the logic behind the code. We will use comments to explain the purpose of each function, the parameters it takes, and the return value. This will help to understand the code better and make it easier to maintain.
+Throughout the codebase, comments elucidate logic, function purpose, parameters, and return values, fostering comprehension and ease of maintenance:
 
 *Example:*
 
 **Before a function:**
 ```dart
-// This function adds two numbers and returns the result.
+// Adds two numbers and returns the result.
 // Parameters:
-// - num1: The first number to add.
-// - num2: The second number to add.
-// Returns: The sum of the two numbers.
+// - num1: The first number.
+// - num2: The second number.
+// Returns: The sum of num1 and num2.
 int add(int num1, int num2) {
   return num1 + num2;
 }
@@ -351,12 +353,12 @@ if (isAuthenticated) {
 }
 ```
 
-#### C. Code Structuration
+#### C. Code Structure
 
-The code will be structured in a way that makes it easy to read and maintain. We will use proper indentation, spacing, and naming conventions to make the code more readable. We will also use meaningful variable names and function names to make it easier to understand the code.
+Structured code enhances readability and maintainability. We employ consistent indentation, spacing, and naming conventions:
 
 ##### ➭ <ins>Indentation:</ins>
-We will use proper indentation to make the code more readable. We will use 2 spaces for indentation. This will make the code easier to read and understand.
+We use 2-space indentation to ensure clear code hierarchy and readability:
 
 *Example:*
 ```dart
@@ -365,7 +367,7 @@ void main() {
 }
 ```
 ##### ➭ <ins>Spacing:</ins>
-We will use proper spacing to make the code more readable. We will use a space after each comma and operator. This will make the code easier to read and understand.
+Consistent spacing around commas and operators aids code legibility:
 
 *Example:*
 ```dart
@@ -375,7 +377,14 @@ int add(int num1, int num2) {
 ```
 
 ##### ➭ <ins>Naming Conventions:</ins>
-We will use meaningful variable names and function names to make the code more understandable. We will use camelCase for variable names and function names. This will make the code easier to read and maintain.
+We adopt camelCase for variable and function names, promoting clarity and consistency:
+
+*Example:*
+```dart
+int calculateTotalPrice(int unitPrice, int quantity) {
+  return unitPrice * quantity;
+}
+```
 
 ### 2. Database
 
