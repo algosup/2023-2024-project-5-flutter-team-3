@@ -52,14 +52,16 @@
       - [**D. Assumptions**](#d-assumptions)
   - [II. Technology Presentation](#ii-technology-presentation)
     - [1. Flutter](#1-flutter)
-      - [A. Definition and Usage](#a-definition-and-usage)
-      - [B. Used Packages](#b-used-packages)
-        - [➭ Development packages:](#-development-packages)
-        - [➭ Testing packages:](#-testing-packages)
-      - [C. Working environment](#c-working-environment)
+      - [**A. Definition and Usage**](#a-definition-and-usage)
+      - [**B. Used Packages**](#b-used-packages)
+        - [➭ Development Packages:](#-development-packages)
+        - [➭ Testing Packages:](#-testing-packages)
+      - [**C. Working Environment**](#c-working-environment)
     - [2. Firebase](#2-firebase)
-      - [A. Definition and usage](#a-definition-and-usage-1)
-      - [B. Working environment](#b-working-environment)
+      - [**A. Definition and Usage**](#a-definition-and-usage-1)
+        - [➭ Definition:](#-definition)
+        - [➭ Usage:](#-usage)
+      - [**B. Working environment**](#b-working-environment)
   - [III. Technical Specification](#iii-technical-specification)
     - [1. Coding Conventions](#1-coding-conventions)
       - [A. Folder Structure](#a-folder-structure)
@@ -172,26 +174,26 @@ We are assuming that the application will be used by real companies and job seek
 
 ### 1. Flutter
 
-#### A. Definition and Usage
+#### **A. Definition and Usage**
 
 For this project, it's mandatory to use Flutter. Flutter is an open-source UI software development kit created by Google. It is used to develop applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.
 
 We will use Flutter to create the mobile application for We Are Evolution. Flutter is a great tool for creating mobile applications as it allows to creation of a single codebase for both Android and iOS applications. It also allows to creation of beautiful and responsive applications.
 
-#### B. Used Packages
+#### **B. Used Packages**
 
 To create the application, we will need to use some packages.
 
-##### ➭ <ins>Development packages:</ins>
+##### ➭ <ins>Development Packages:</ins>
 
-##### ➭ <ins>Testing packages:</ins>
+##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
 - `mockito`: A package that provides a mock library for Dart.
 - `flutter_test`: A package that provides unit testing for Flutter applications.
 - `flutter_driver`: A package that provides integration testing for Flutter applications.
 - `widget_tester`: A package that provides widget testing for Flutter applications.
 
-#### C. Working environment
+#### **C. Working Environment**
 
 To work on the project, we will need to have a working environment. Here is the working environment we will use:
 - Flutter SDK: The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK to create the application.
@@ -205,15 +207,88 @@ Or follow the following video tutorials:
 
 ### 2. Firebase
 
-#### A. Definition and usage
+#### **A. Definition and Usage**
 
-#### B. Working environment
+##### ➭ <ins>Definition:</ins>
+Firebase is a comprehensive app development platform by Google that provides a variety of tools and services to help developers build high-quality applications quickly. It offers backend services such as real-time databases, authentication, crash reporting, analytics, cloud storage, and hosting, among others.
+
+##### ➭ <ins>Usage:</ins>
+- **Real-time Database:** Firebase Realtime Database stores and syncs data in real-time across all clients. This is particularly useful for applications that require frequent updates, such as chat apps or collaborative tools.
+- **Authentication:** Firebase Authentication provides easy-to-use SDKs and backend services to authenticate users with passwords, phone numbers, and popular federated identity providers like Google, Facebook, and Twitter.
+
+#### **B. Working environment**
+
+Firebase integrates seamlessly with your existing working environment, whether you are developing for mobile (iOS, Android) or web applications. Here’s a brief overview of setting up and working with Firebase:
+
+1. **Project Setup:**
+   - Create a new project in the [Firebase Console](https://console.firebase.google.com/).
+   - Add your app to the Firebase project by following the step-by-step instructions for your platform (iOS, Android, Web).
+
+2. **SDK Integration:**
+   - For **Android**, add the Firebase SDK to your `build.gradle` files.
+   - For **iOS**, add Firebase via CocoaPods in your `Podfile`.
+   - For **Web**, include Firebase via npm or by adding the Firebase scripts directly in your HTML.
+
+3. **Configuration:**
+   - Download the `google-services.json` (for Android) or `GoogleService-Info.plist` (for iOS) file from the Firebase Console and add it to your project.
+   - Initialize Firebase in your application code.
+
+4. **Development Tools:**
+   - Use Firebase’s emulators for real-time databases, Firestore, and other services to develop and test your app locally before deploying.
+   - Monitor performance and logs through the Firebase Console, which provides a detailed overview of your app’s activity.
+
+5. **Collaboration:**
+   - Firebase supports role-based access control (RBAC), allowing team members to collaborate with appropriate permissions.
+   - Integration with other Google Cloud services can enhance collaboration and expand functionality.
+
+By leveraging Firebase’s comprehensive suite of services, development teams can streamline their workflow, enhance application performance, and improve user experience across platforms.
 
 ## III. Technical Specification
 
 ### 1. Coding Conventions
 
 #### A. Folder Structure
+
+The folder structure of the project will be as follows:
+
+```plaintext
+lib/
+  ├── main.dart
+  ├── models/
+  │     ├── user.dart
+  │     ├── company.dart
+  │     ├── chat.dart
+  │     ├── message.dart
+  ├── services/
+  │     ├── authentication.dart
+  │     ├── database.dart
+  │     ├── matching.dart
+  ├── widgets/
+  │     ├── buttons/
+  │     │     ├── text_button.dart
+  │     │     ├── icon_button.dart
+  │     ├── fields/
+  │     │     ├── text_field.dart
+  │     │     ├── localization_field.dart
+  │     │     ├── tag_field.dart
+  │     ├── menus/
+  │     │     ├── menu.dart
+  │     │     ├── dropdown_menu.dart
+  ├── pages/
+  │     ├── login.dart
+  │     ├── subscription.dart
+  │     ├── company/
+  │     │     ├── profile.dart
+  │     │     ├── settings.dart
+  │     │     ├── swap_area.dart
+  │     │     ├── chat.dart
+  │     ├── job_seeker/
+  │     │     ├── profile.dart
+  │     │     ├── settings.dart
+  │     │     ├── swap_area.dart
+  │     │     ├── chat.dart
+  ├── matching_algorithm.dart
+```
 
 #### B. Comments
 
