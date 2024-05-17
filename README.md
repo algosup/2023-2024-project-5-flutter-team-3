@@ -4,6 +4,16 @@
 
 For the final project of the 2023-2024 school year, we are working for a company named **[We Are Evolution](https://www.we-are-evolution.com)**, which is an employer branding agency. The goal of this project is to create a mobile/computer application, in Flutter, that will directly links the job seekers with the companies, in a Tinder-like way. The application will be named **Adopte un candidat** or **Adopt a candidate** in English.
 
+## Key Features
+
+For this project, we have to develop the following features:
+
+- **User Registration**: The user can register with an email address and a password. 📝
+- **Swapping System**: The user can swipe right or left to like or dislike a candidate / a company. 👍👎
+  - Everything is anonymous to avoid any discrimination. 🎭
+- **Matching System**: If two users like each other, they will be matched.🤝
+- **Chat System**: Once matched, the users can chat with each other. 💬
+
 ## Technologies Used
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
