@@ -10,6 +10,9 @@ assignees: ''
 **Describe the bug**
 A clear and concise description of what the bug is.
 
+**Related files**
+A link to the file(s) that probably contain the bug.
+
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
