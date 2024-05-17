@@ -65,8 +65,16 @@
   - [III. Technical Specification](#iii-technical-specification)
     - [1. Coding Conventions](#1-coding-conventions)
       - [A. Folder Structure](#a-folder-structure)
+        - [➭ Structure:](#-structure)
+        - [➭ Files and Folders Naming Conventions:](#-files-and-folders-naming-conventions)
+        - [➭ Folder details:](#-folder-details)
       - [B. Comments](#b-comments)
+        - [➭ Comments at File Beginning:](#-comments-at-file-beginning)
+        - [➭ Comments in the Code:](#-comments-in-the-code)
       - [C. Code Structuration](#c-code-structuration)
+        - [➭ Indentation:](#-indentation)
+        - [➭ Spacing:](#-spacing)
+        - [➭ Naming Conventions:](#-naming-conventions)
     - [2. Database](#2-database)
       - [A. Data Model Overview](#a-data-model-overview)
       - [B. Tables Details and Usage](#b-tables-details-and-usage)
@@ -249,8 +257,8 @@ By leveraging Firebase’s comprehensive suite of services, development teams ca
 
 #### A. Folder Structure
 
+##### ➭ <ins>Structure:</ins>
 The folder structure of the project will be as follows:
-
 ```plaintext
 lib/
   ├── main.dart
@@ -289,10 +297,85 @@ lib/
   │     │     ├── chat.dart
   ├── matching_algorithm.dart
 ```
+This folder structure will probably change as the project evolves however it provides a good starting point for the project. 
+
+##### ➭ <ins>Files and Folders Naming Conventions:</ins>
+To maintain consistency and make it easier to navigate through the code, we will use the same naming conventions as the one used by default in Flutter. We will use snake_case for files and folder names. This will make it easier to read and understand the code.
+
+##### ➭ <ins>Folder details:</ins>
+
+- **`models/`:** This folder will contain all the models used in the application. Each model will be in a separate file.
+- **`services/`:** This folder will contain all the services used in the application. Each service will be in a separate file.
+- **`widgets/`:** This folder will contain all the widgets used in the application. Each widget will be in a separate file.
+- **`pages/`:** This folder will contain all the pages used in the application. Each page will be in a separate file.
 
 #### B. Comments
 
+Comments are an essential part of the code as they help to understand the code better. We will use comments to explain the code and make it easier to understand. We will use comments to explain the purpose of the code, the logic behind it, and any other relevant information.
+
+##### ➭ <ins>Comments at File Beginning:</ins>
+At the beginning of each file, we will add a comment that explains the purpose of the file. This comment will provide a brief overview of the file and its contents. This will help to understand the file better and make it easier to navigate through the code.
+
+*Example:*
+```dart
+// This file contains the model for the user.
+// The user model contains all the information about the user.
+```
+
+##### ➭ <ins>Comments in the Code:</ins>
+We will also use comments in the code to explain the logic behind the code. We will use comments to explain the purpose of each function, the parameters it takes, and the return value. This will help to understand the code better and make it easier to maintain.
+
+*Example:*
+
+**Before a function:**
+```dart
+// This function adds two numbers and returns the result.
+// Parameters:
+// - num1: The first number to add.
+// - num2: The second number to add.
+// Returns: The sum of the two numbers.
+int add(int num1, int num2) {
+  return num1 + num2;
+}
+```
+
+**Inside a function:**
+```dart
+// Check if the user is authenticated.
+if (isAuthenticated) {
+  // If the user is authenticated, show the home page.
+  showHomePage();
+} else {
+  // If the user is not authenticated, show the login page.
+  showLoginPage();
+}
+```
+
 #### C. Code Structuration
+
+The code will be structured in a way that makes it easy to read and maintain. We will use proper indentation, spacing, and naming conventions to make the code more readable. We will also use meaningful variable names and function names to make it easier to understand the code.
+
+##### ➭ <ins>Indentation:</ins>
+We will use proper indentation to make the code more readable. We will use 2 spaces for indentation. This will make the code easier to read and understand.
+
+*Example:*
+```dart
+void main() {
+  print('Hello, World!');
+}
+```
+##### ➭ <ins>Spacing:</ins>
+We will use proper spacing to make the code more readable. We will use a space after each comma and operator. This will make the code easier to read and understand.
+
+*Example:*
+```dart
+int add(int num1, int num2) {
+  return num1 + num2;
+}
+```
+
+##### ➭ <ins>Naming Conventions:</ins>
+We will use meaningful variable names and function names to make the code more understandable. We will use camelCase for variable names and function names. This will make the code easier to read and maintain.
 
 ### 2. Database
 
