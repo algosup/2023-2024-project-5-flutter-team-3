@@ -6,6 +6,7 @@ import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
