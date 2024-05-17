@@ -33,7 +33,6 @@ No real issues were faced during the week. The team was able to work efficiently
 - Finish the Functional Specification Document
 - Continue working on the Technical Specification Document
 - Start working on the code of the project
--  
 
 ## Week 1 Conclusion
 
