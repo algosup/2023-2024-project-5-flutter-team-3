@@ -1,25 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:adopte_a_candidate/pages/logIn.dart';
 
 void main() {
-  runApp(const MyApp());
+    runApp(const LogIn(
+    ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Test'),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Text('Hello you'),
-        ),
-      ),
-    );
-  }
-}
