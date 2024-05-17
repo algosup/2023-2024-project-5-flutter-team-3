@@ -390,6 +390,10 @@ int calculateTotalPrice(int unitPrice, int quantity) {
 
 #### A. Data Model Overview
 
+The application will use Firebase Realtime Database to store and sync data in real-time across all clients. The data model will consist of the following tables:
+![Data Model Overview](TechnicalSpecificationPicture/Database_V1_UML.svg)
+
+(See it bigger [here](TechnicalSpecificationPicture/Database_V1_UML.svg))
 #### B. Tables Details and Usage
 
 #### C. Interaction From the Application 
