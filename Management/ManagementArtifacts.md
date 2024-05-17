@@ -10,6 +10,12 @@ The Project Charter outlines the project's objectives, scope, deliverables, and 
 
 You can find the Project Charter [here](ManagementArtifacts/ProjectCharter.md).
 
+## Code of Conduct
+
+The Code of Conduct establishes the guidelines and expectations for team members' behavior and interactions. It promotes a positive and inclusive work environment, fostering collaboration, respect, and professionalism among team members.
+
+You can find the Code of Conduct [here](ManagementArtifacts/CodeOfConduct.md).
+
 ## Kpis
 
 The Key Performance Indicators (KPIs) document defines the metrics and targets that Team 3 will use to measure the project's success. These KPIs help track progress, identify areas for improvement, and ensure alignment with project goals.

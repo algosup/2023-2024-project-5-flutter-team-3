@@ -2,14 +2,14 @@
 
 ## Document Approval
 
-| Role              | Date | Approval |
-| ----------------- | :--: | -------- |
-| Project Manager   |      |          |
-| Program Manager   |      |          |
-| Technical Leader  |      |          |
-| Software Engineer |      |          |
-| Technical Writer  |      |          |
-| Quality Assurance |      |          |
+| Role              |    Date    | Approval |
+| :-----------------: | :--------: | :--------: |
+| Project Manager   | 05/16/2024 | ✅       |
+| Program Manager   | 05/17/2024 | ✅       |
+| Technical Leader  | 05/17/2024 | ✅       |
+| Software Engineer | 05/17/2024 | ✅       |
+| Technical Writer  | 05/17/2024 | ✅       |
+| Quality Assurance | 05/17/2024 | ✅       |
 
 ---
 
@@ -26,7 +26,6 @@ All team members must treat each other with respect, kindness, and consideration
 ### Communication
 
 Effective communication is essential for successful collaboration. Team members must communicate openly, honestly, and transparently. This includes sharing updates, progress, challenges, and feedback in a timely manner.
-
 
 ## Prohibited Behavior
 
@@ -49,4 +48,3 @@ If a team member violates the code of conduct, the following warning system will
 - **First Warning**: The team member will receive a verbal warning from the project manager.
 - **Second Warning**: The team member will receive a written warning from the project manager.
 - **Third Warning**: The project manager will send a message to Franck JEANNIN, to plan a meeting with the team member to speak about the situation.
-

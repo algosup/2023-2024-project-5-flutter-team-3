@@ -21,14 +21,14 @@
 
 ## Document Approval
 
-| Role              | Date | Approval |
-| ----------------- | :--: | -------- |
-| Project Manager   |      |          |
-| Program Manager   |      |          |
-| Technical Leader  |      |          |
-| Software Engineer |      |          |
-| Technical Writer  |      |          |
-| Quality Assurance |      |          |
+|       Role        |    Date    | Approval |
+| :---------------: | :--------: | :------: |
+|  Project Manager  | 05/16/2024 |    ✅    |
+|  Program Manager  | 05/17/2024 |    ✅    |
+| Technical Leader  | 05/17/2024 |    ✅    |
+| Software Engineer | 05/17/2024 |    ✅    |
+| Technical Writer  | 05/17/2024 |    ✅    |
+| Quality Assurance | 05/17/2024 |    ✅    |
 
 ---
 
