@@ -79,9 +79,21 @@
         - [➭ Naming Conventions:](#-naming-conventions)
     - [2. Database](#2-database)
       - [A. Data Model Overview](#a-data-model-overview)
-      - [B. Tables Details and Usage](#b-tables-details-and-usage)
+      - [B. Table Details and Usage](#b-table-details-and-usage)
+        - [➭ User:](#-user)
+        - [➭ SeekerProfile:](#-seekerprofile)
+        - [➭ OfferProfile:](#-offerprofile)
+        - [➭ SeekerMainSkill:](#-seekermainskill)
+        - [➭ SeekerSideSkill:](#-seekersideskill)
+        - [➭ OfferMainSkill:](#-offermainskill)
+        - [➭ OfferSideSkill:](#-offersideskill)
+        - [➭ Skill:](#-skill)
+        - [➭ Conversation:](#-conversation)
+        - [➭ Message:](#-message)
       - [C. Interaction From the Application](#c-interaction-from-the-application)
-      - [D. Future Improvements with API](#d-future-improvements-with-api)
+        - [➭ Interaction Times:](#-interaction-times)
+        - [➭ Ways to interact:](#-ways-to-interact)
+      - [D. Future Improvements of the Database](#d-future-improvements-of-the-database)
     - [3. Graphic Conventions](#3-graphic-conventions)
       - [A. Colors](#a-colors)
       - [B. Typography](#b-typography)
@@ -169,7 +181,9 @@ The job seeker side will have the following features:
 
 The first version of the application will not contain all the features we would like to implement. Here are some of the features we would like to add in the future:
 - An API to allow the application to interact with a database.
-- Tests to ensure that every information given by the user is correct like testing if the company is real or if the job seeker is a real person.Testing job seekers' skills to ensure that they are qualified for the job they are applying for.
+- Email verification to ensure that every user is a real person.
+- Tests to ensure that every information given by the user is correct like testing if the company is real or if the job seeker is a real person.
+- Testing job seekers' skills to ensure that they are qualified for the job they are applying for.
 
 #### **D. Assumptions**
 
@@ -391,14 +405,110 @@ int calculateTotalPrice(int unitPrice, int quantity) {
 #### A. Data Model Overview
 
 The application will use Firebase Realtime Database to store and sync data in real-time across all clients. The data model will consist of the following tables:
-![Data Model Overview](TechnicalSpecificationPicture/Database_V1_UML.svg)
 
-(See it bigger [here](TechnicalSpecificationPicture/Database_V1_UML.svg))
-#### B. Tables Details and Usage
+![Data Model Overview](TechnicalSpecificationPicture/Database_V2_UML.svg)
+
+(See a larger version [here](TechnicalSpecificationAppendix/Database_V2_UML.pdf))
+
+#### B. Table Details and Usage
+
+##### ➭ <ins>User:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the user.
+  - `name`: Name of the user.
+  - `email`: Email of the user.
+  - `password`: Password of the user.
+  - `isCompany`: User type (company or job seeker).
+
+##### ➭ <ins>SeekerProfile:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the seeker profile.
+  - `userId`: Unique identifier of the user.
+  - `localization`: Localization of the job seeker.
+
+##### ➭ <ins>OfferProfile:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the offer profile.
+  - `userId`: Unique identifier of the user.
+  - `title`: Title of the job offer.
+  - `description`: Description of the job offer.
+  - `localization`: Localization of the job offer.
+
+##### ➭ <ins>SeekerMainSkill:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the seeker main skill.
+  - `seekerProfileId`: Unique identifier of the job seeker profile.
+  - `skillId`: Unique identifier of the skill.
+
+##### ➭ <ins>SeekerSideSkill:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the seeker side skill.
+  - `seekerProfileId`: Unique identifier of the job seeker profile.
+  - `skillId`: Unique identifier of the skill.
+
+##### ➭ <ins>OfferMainSkill:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the offer main skill.
+  - `offerProfileId`: Unique identifier of the job offer profile.
+  - `skillId`: Unique identifier of the skill.
+
+##### ➭ <ins>OfferSideSkill:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the offer side skill.
+  - `offerProfileId`: Unique identifier of the job offer profile.
+  - `skillId`: Unique identifier of the skill.
+
+##### ➭ <ins>Skill:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the skill.
+  - `name`: Name of the skill.
+  - `description`: Description of the skill.
+
+##### ➭ <ins>Conversation:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the conversation.
+  - `seekerId`: Unique identifier of the job seeker.
+  - `offerId`: Unique identifier of the job offer.
+
+##### ➭ <ins>Message:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the message.
+  - `conversationId`: Unique identifier of the conversation.
+  - `senderId`: Unique identifier of the user who sent the message.
+  - `content`: Content of the message.
 
 #### C. Interaction From the Application 
 
-#### D. Future Improvements with API
+##### ➭ <ins>Interaction Times:</ins>
+
+The application will interact with the database at the following moments:
+- **Authentication:** The application will use Firebase Authentication to:
+  - Sign in users.
+  - Sign out users.
+  - Create new user accounts.
+- **App Launch:** Once the user is authenticated, the application will use the database to:
+  - Retrieve user profiles.
+  - Retrieve seeker profiles.
+  - Retrieve offer profiles.
+- **Profile Update:** The application will use the database to:
+  - Update user profiles.
+  - Update seeker profiles.
+  - Update offer profiles.
+- **Swipe Proposals:** The matching algorithm will use the database to:
+  - Propose job offers to job seekers.
+  - Propose job seekers to companies.
+- **Chat:** The application will use the database to:
+  - Create conversations.
+  - Send messages.
+  - Retrieve messages.
+
+##### ➭ <ins>Ways to interact:</ins>
+
+
+
+#### D. Future Improvements of the Database
+The project is currently a proof of concept for a company, which is why we are using Firebase as a prototype database. In the future, the company will be free to use any other database with any other API to meet the evolving requirements of the application.
+
 
 ### 3. Graphic Conventions 
 
