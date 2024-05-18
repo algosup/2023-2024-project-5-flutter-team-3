@@ -99,6 +99,9 @@
       - [A. Colors](#a-colors)
       - [B. Typography](#b-typography)
     - [4. Widgets](#4-widgets)
+      - [A. Logo and Icons](#a-logo-and-icons)
+        - [➭ Logo:](#-logo)
+        - [➭ Icons:](#-icons)
       - [A. Buttons](#a-buttons)
       - [B. Fields](#b-fields)
       - [C. Menus](#c-menus)
@@ -527,13 +530,42 @@ The project is currently a proof of concept for a company, which is why we are u
 ### 3. Graphic Conventions 
 
 #### A. Colors
-// TODO: Define the color palette of the application and how each color will be used.
+The chosen colors for this application are the following:
+
+| Color                                                               | Color Name | Hex Code |
+| ------------------------------------------------------------------- | ---------- | -------- |
+| <span style="color: #FFFFFF; background-color: #FFFFFF;">tex</span> | White      | #FFFFFF  |
+| <span style="color: #F5F5F5; background-color: #F5F5F5;">tex</span> | Light Grey | #F5F5F5  |
+| <span style="color: #000000; background-color: #000000;">tex</span> | Black      | #000000  |
+| <span style="color: #C8553D; background-color: #C8553D;">tex</span> | Red        | #C8553D  |
+| <span style="color: #FF0000; background-color: #FF0000;">tex</span> | Flash Red  | #FF0000  |
+| <span style="color: #FFBABA; background-color: #FFBABA;">tex</span> | Light Red  | #FFBABA  |
+| <span style="color: #FFD5C2; background-color: #FFD5C2;">tex</span> | Pink       | #FFD5C2  |
+| <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange     | #F28F3B  |
+| <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green| #51C66A  |
+
+*To keep the document clear, the usage of each color will be defined below in the Widgets section.*
 
 #### B. Typography
-// TODO: Define the typography of the application and how each font will be used.
+For the various elements of the application, the chosen typographies are the following:
+| Font name    | Name     | Weight    | Size | Google font link |
+| ------------ | -------- | --------- | ---- | ---------------- |
+| Josefin sans | JS-R-20  | Regular   | 20 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-R-16  | Regular   | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-SB-16 | Semi Bold | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+
+*To keep the document clear, the usage of each font will be defined below in the Widgets section.*
 
 ### 4. Widgets
 
+#### A. Logo and Icons
+
+##### ➭ <ins>Logo:</ins>
+The logo is one provided by the client. In the application, the logo is always visible on the top left corner of the screen. It is used to identify the application and provide a visual representation of the brand.
+
+##### ➭ <ins>Icons:</ins>
 
 #### A. Buttons
 - Text Buttons
