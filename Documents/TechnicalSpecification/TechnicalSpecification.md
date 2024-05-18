@@ -92,6 +92,7 @@
         - [➭ Message:](#-message)
       - [C. Interaction From the Application](#c-interaction-from-the-application)
         - [➭ Interaction Times:](#-interaction-times)
+        - [➭ Data structurations:](#-data-structurations)
         - [➭ Ways to interact:](#-ways-to-interact)
       - [D. Future Improvements of the Database](#d-future-improvements-of-the-database)
     - [3. Graphic Conventions](#3-graphic-conventions)
@@ -204,7 +205,10 @@ We will use Flutter to create the mobile application for We Are Evolution. Flutt
 To create the application, we will need to use some packages.
 
 ##### ➭ <ins>Development Packages:</ins>
-- List development packages here...
+- `flutter/material.dart`: The Flutter material package provides a set of widgets that implement the Material Design guidelines. These widgets are used to create the user interface of the application.
+- `firebase_core/firebase_core.dart`: The Firebase Core package provides the core functionality of Firebase services. It is used to initialize Firebase in the application.
+- `firebase_database/firebase_database.dart`: The Firebase Database package provides access to the Firebase Realtime Database. It is used to interact with the database in the application.
+- `firebase_auth/firebase_auth.dart`: The Firebase Auth package provides access to Firebase Authentication. It is used to authenticate users in the application.
 
 ##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
@@ -246,27 +250,34 @@ Firebase is a comprehensive app development platform by Google that provides a v
 Firebase integrates seamlessly with your existing working environment, whether you are developing for mobile (iOS, Android) or web applications. Here’s a brief overview of setting up and working with Firebase:
 
 1. **Project Setup:**
-   - Create a new project in the [Firebase Console](https://console.firebase.google.com/).
-   - Add your app to the Firebase project by following the step-by-step instructions for your platform (iOS, Android, Web).
+  - Sign into Firebase using a Google account.
+    - *Notice: that you need to accept the Firebase terms and conditions before proceeding ([here](https://console.cloud.google.com/)).*
+  - Install Firebase CLI to manage your Firebase projects from the command line (more details [here](https://firebase.google.com/docs/cli#setup_update_cli)).
+    - *Notice: that it is easier for later use to install it with npm: `npm install -g firebase-tools`.*
+  - Login to Firebase CLI using `firebase login`.
+    - *Notice: that you don't need to do it if you haven’t already during the installation process.*
+  - Install FlutterFire CLI by running `flutter pub global activate flutterfire_cli` in your terminal.
+    - *More details [here](https://firebase.google.com/docs/flutter/setup?platform=android).*
+  - Configure your app to use Firebase by running `flutterfire configure` in a terminal in your project directory.
+    - *Notice: that you may need to restart your computer before running this to ensure that your PATH variables are up-to-date.*
+  - From your Flutter project directory, install the core plugin by running `flutter pub add firebase_core`.
+  - From your Flutter project directory, ensure that your Flutter app's Firebase configuration is up-to-date by running `flutterfire configure`.
+  - In your lib/main.dart file, import the Firebase core plugin and the configuration file you generated earlier:
+     ```dart
+     import 'package:firebase_core/firebase_core.dart';
+     import 'firebase_options.dart';
+     ```
+  - Also in your lib/main.dart file, initialize Firebase using the DefaultFirebaseOptions object exported by the configuration file:
+      ```dart
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+      ```
+  - Run your app to ensure that Firebase is correctly initialized.
 
-2. **SDK Integration:**
-   - For **Android**, add the Firebase SDK to your `build.gradle` files.
-   - For **iOS**, add Firebase via CocoaPods in your `Podfile`.
-   - For **Web**, include Firebase via npm or by adding the Firebase scripts directly in your HTML.
+</br>
 
-3. **Configuration:**
-   - Download the `google-services.json` (for Android) or `GoogleService-Info.plist` (for iOS) file from the Firebase Console and add it to your project.
-   - Initialize Firebase in your application code.
-
-4. **Development Tools:**
-   - Use Firebase’s emulators for real-time databases, Firestore, and other services to develop and test your app locally before deploying.
-   - Monitor performance and logs through the Firebase Console, which provides a detailed overview of your app’s activity.
-
-5. **Collaboration:**
-   - Firebase supports role-based access control (RBAC), allowing team members to collaborate with appropriate permissions.
-   - Integration with other Google Cloud services can enhance collaboration and expand functionality.
-
-By leveraging Firebase’s comprehensive suite of services, development teams can streamline their workflow, enhance application performance, and improve user experience across platforms.
+*Complete installation and setup instructions can be found in the [Firebase documentation](https://firebase.google.com/docs/flutter/setup?platform=android).*
 
 ## III. Technical Specification
 
@@ -502,9 +513,12 @@ The application will interact with the database at the following moments:
   - Send messages.
   - Retrieve messages.
 
+##### ➭ <ins>Data structurations:</ins>
+// TODO: Add more details about how the data will be structured in the database.
+
 ##### ➭ <ins>Ways to interact:</ins>
 
-
+// TODO: Add more details about how the application will interact with the database.
 
 #### D. Future Improvements of the Database
 The project is currently a proof of concept for a company, which is why we are using Firebase as a prototype database. In the future, the company will be free to use any other database with any other API to meet the evolving requirements of the application.
@@ -513,10 +527,13 @@ The project is currently a proof of concept for a company, which is why we are u
 ### 3. Graphic Conventions 
 
 #### A. Colors
+// TODO: Define the color palette of the application and how each color will be used.
 
 #### B. Typography
+// TODO: Define the typography of the application and how each font will be used.
 
 ### 4. Widgets
+
 
 #### A. Buttons
 - Text Buttons
