@@ -8,14 +8,15 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/05/17  |
+| Last Update Date  | 2024/05/21  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
 
 | Version n°  | Author       | Date       | Description of edits |
 | ----------- | ------------ | ---------- | -------------------- |
-| 0.01        | Maxime CARON | 11/08/2023 | Initial Version with plan and basics |
+| 0.01        | Maxime CARON | 2024/05/15 | Initial Version with plan and basics |
+| 0.02        | Maxime CARON | 2024/05/21 | Added the first part of the document |
 
 ### Document Approvals
 | Role               | Name             | Date  |
@@ -99,17 +100,27 @@
       - [A. Colors](#a-colors)
       - [B. Typography](#b-typography)
     - [4. Widgets](#4-widgets)
-      - [A. Logo and Icons](#a-logo-and-icons)
-        - [➭ Logo:](#-logo)
-        - [➭ Icons:](#-icons)
-      - [A. Buttons](#a-buttons)
-      - [B. Fields](#b-fields)
-      - [C. Menus](#c-menus)
+      - [A. Fields](#a-fields)
+        - [➭ Text Field:](#-text-field)
+        - [➭ Text Field:](#-text-field-1)
+        - [➭ Localization Field:](#-localization-field)
+        - [➭ Tag Field:](#-tag-field)
+      - [B. Buttons](#b-buttons)
+        - [➭ Text Button:](#-text-button)
+        - [➭ Icon Button:](#-icon-button)
     - [5. Pages](#5-pages)
-      - [A. Login and Subscription](#a-login-and-subscription)
-      - [B. Company Side](#b-company-side)
-      - [C. Job Seeker Side](#c-job-seeker-side)
-    - [6. Matching Algorithm](#6-matching-algorithm)
+      - [A. Description](#a-description)
+        - [➭ Login:](#-login)
+        - [➭ Subscription:](#-subscription)
+        - [➭ Settings:](#-settings)
+        - [➭ Job Seeker Profile:](#-job-seeker-profile)
+        - [➭ Company Profile:](#-company-profile)
+        - [➭ Company Offer Creation/Edition:](#-company-offer-creationedition)
+        - [➭ Swipe Area:](#-swipe-area)
+        - [➭ Chat List:](#-chat-list)
+        - [➭ Conversation:](#-conversation-1)
+      - [B. Page navigation](#b-page-navigation)
+    - [5. Matching Algorithm](#5-matching-algorithm)
   - [IV. Further Considerations](#iv-further-considerations)
     - [1. Issues and Impact](#1-issues-and-impact)
     - [2. Considerations](#2-considerations)
@@ -544,7 +555,7 @@ The chosen colors for this application are the following:
 | <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange     | #F28F3B  |
 | <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green| #51C66A  |
 
-*To keep the document clear, the usage of each color will be defined below in the Widgets section.*
+*To keep the document clear, the good usage of_ each color will be defined in the [graphic charter]().*
 
 #### B. Typography
 For the various elements of the application, the chosen typographies are the following:
@@ -556,41 +567,311 @@ For the various elements of the application, the chosen typographies are the fol
 | Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 | Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 
-*To keep the document clear, the usage of each font will be defined below in the Widgets section.*
+*To keep the document clear, the good usage of each font will be defined in the [graphic charter]().*
 
 ### 4. Widgets
+#### A. Fields
 
-#### A. Logo and Icons
+##### ➭ <ins>Text Field:</ins>
+**Description:**</br>
+A text field is a field where the user can enter text. It is used to collect or show information.
 
-##### ➭ <ins>Logo:</ins>
-The logo is one provided by the client. In the application, the logo is always visible on the top left corner of the screen. It is used to identify the application and provide a visual representation of the brand.
+##### ➭ <ins>Text Field:</ins>
 
-##### ➭ <ins>Icons:</ins>
+**Description:**  
+A text field is a field where the user can enter text. It is used to collect or show information.
 
-#### A. Buttons
-- Text Buttons
-- Icon Buttons
-#### B. Fields
-- Text Field
-- Localization Field
-- Tag Field
-#### C. Menus
+**Properties:**
+
+| Property                    | Description                       | Required |
+|-----------------------------|---------------------------------- | -------- |
+| **Required/Optional**       | The text field is set as mandatory for the user to fill out or optional. | Yes |
+| **Read-only/Editable**      | The text field is read-only or editable. | Yes |
+| **Maximum Length**          | The text field restrict the number of characters entered to a maximum limit. | Yes |
+| **Minimum Length**          | The text field enforce a minimum number of characters that must be entered. | No  |
+| **Placeholder Text**        | The text field display placeholder text when it is empty, providing a hint to the user. | No  |
+| **Label**                   | The text field be accompanied by a label that describes its purpose. | No  |
+| **Helper Text**             | The text field include helper text that provides additional guidance to the user. | No  |
+
+
+
+##### ➭ <ins>Localization Field:</ins>
+**Description:**</br>
+A localization field is a field where the user can enter a localization. It is used to collect or show a localization.
+
+**Properties:**</br>
+| Property                    | Description                       | Required |
+|-----------------------------|---------------------------------- | -------- |
+| **Required/Optional**       | The localization field is set as mandatory for the user to fill out or optional. | Yes |
+| **Read-only/Editable**      | The localization field is read-only (not editable) or editable. | Yes |
+| **Label**                   | The localization field is accompanied by a label that describes its purpose. | No  |
+| **Helper Text**             | The localization field include helper text that provides additional guidance to the user. | No  |
+| **Placeholder Text**        | The localization field display placeholder text when it is empty, providing a hint to the user. | No  |
+| **Button**                  | The localization field contain a button to access to automatically set the localization. | No  |
+
+##### ➭ <ins>Tag Field:</ins>
+**Description:**</br>
+A tag field is a field where the user can select tags. It is used to collect or show tags.
+
+**Properties:**</br>
+| Property                    | Description                       | Required |
+|-----------------------------|---------------------------------- | -------- |
+| **Required/Optional**       | The tag field is set as mandatory for the user to fill out or optional. | Yes |
+| **Read-only/Editable**      | The tag field is read-only (not editable) or editable. | Yes |
+| **Maximum Number**          | The tag field restrict the number of tags that can be selected to a maximum limit. | Yes |
+| **Minimum Number**          | The tag field enforce a minimum number of tags that must be selected.   | No  |
+| **Add Button**              | The tag field contain an "Add" button to add new tags.                  | No  |
+| **Remove Button**           | The tag field contain a "Remove" button to remove tags.                 | No  |
+| **Label**                   | The tag field is accompanied by a label that describes its purpose.     | No  |
+| **Helper Text**             | The tag field include helper text that provides additional guidance to the user. | No  |
+| **Placeholder Text**        | The tag field display placeholder text when it is empty, providing a hint to the user. | No  |
+
+
+#### B. Buttons
+
+##### ➭ <ins>Text Button:</ins>
+**Description:**</br>
+A text button is a button that contains text. It is used to trigger an action when clicked.
+
+**Properties:**</br>
+| Property                    | Description                       | Required |
+|-----------------------------|---------------------------------- | -------- |
+| **Text**                    | The text displayed on the button. | Yes      |
+| **Color**                   | The color of the button.          | Yes      |
+| **Size**                    | The size of the button.           | Yes      |
+| **On Click**                | The action is triggered when the button is clicked. | Yes |
+| **Disabled**                | The button is disabled to prevent user interaction. | No  |
+| **Hover Effect**            | The button have a hover effect to provide visual feedback. | No |
+
+##### ➭ <ins>Icon Button:</ins>
+**Description:**</br>
+An icon button is a button that contains an icon. It is used to trigger an action when clicked.
+
+**Properties:**</br>
+| Property                    | Description                       | Required |
+|-----------------------------|---------------------------------- | -------- |
+| **Icon**                    | The icon displayed on the button. | Yes      |
+| **Color**                   | The color of the button.          | Yes      |
+| **Size**                    | The size of the button.           | Yes      |
+| **On Click**                | The action is triggered when the button is clicked. | Yes |
+| **Disabled**                | The button is disabled to prevent user interaction. | No  |
+| **Hover Effect**            | The button have a hover effect to provide visual feedback. | No |
 
 ### 5. Pages
+#### A. Description
 
-#### A. Login and Subscription
+##### ➭ <ins>Login:</ins>
+**Description:**</br>
+The login page allows users to sign in, be redirected to the subscription page if they don't have an account, and declare a forgotten password.
 
-#### B. Company Side
-- Profile
-- Settings
-- Swap Area
-- Chat
-#### C. Job Seeker Side
-- Profile
-- Settings
-- Swap Area
-- Chat
-### 6. Matching Algorithm
+**Capabilities:**</br>
+The login page allows users to:
+- Sign in.
+- Be redirected to the subscription page if they don't have an account.
+- Declare a forgotten password.
+
+**Fields and Elements:**</br>
+The login page contains the following elements:
+| Field/Element      | Description              | Type       | Rights    | Behavior             |
+| ------------------ | ------------------------ | ---------- | --------- | -------------------- |
+| Email              | The email of the user    | Text field | Editable  |                      |
+| Password           | The password of the user | Text field | Editable  |                      |
+| Sign in            | A button to sign in      | Button     | Clickable | Validate the email and the password and redirect the user to his profile page |
+| Forgotten password | A button to declare a forgotten password | Button | Clickable | Send an email to the user to reset his password |
+| Subscription       | A button to be redirected to the subscription page | Button | Clickable | Redirect the user to the subscription page |
+
+##### ➭ <ins>Subscription:</ins>
+**Description:**</br>
+The subscription page allows users to create an account, be redirected to the login page if they already have an account, and declare a forgotten password.
+
+**Capabilities:**</br>
+The subscription page allows users to:
+- Create an account.
+- Be redirected to the login page if they already have an account.
+
+**Fields and Elements:**</br>
+The subscription page contains the following elements:
+| Field/Element      | Description              | Type       | Rights   | Behavior               |
+| ------------------ | ------------------------ | ---------- | -------- | ---------------------- |
+| Name               | The name of the user     | Text field | Editable |                        |
+| Email              | The email of the user    | Text field | Editable |                        |
+| Password           | The password of the user | Text field | Editable |                        |
+| Confirm password   | The confirmation of the password of the user | Text field | Editable |    |
+| Job seeker or company | A button to choose between a job seeker or a company | Radio button | Clickable | Clicking on the button will change the user type |
+| Subscription       | A button to create an account | Button | Clickable | Validate the email and the password and redirect the user to his profile page |
+| Login              | A button to be redirected to the login page | Button | Clickable | Redirect the user to the login page |
+
+##### ➭ <ins>Settings:</ins>
+**Description:**</br>
+The settings page allows users to change their account settings.
+
+**Capabilities:**</br>
+The settings page allows users to:
+- See the name and the email of the user.
+- Change the password of the user.
+- Change the localization of the user.
+- Change the language of the application.
+- See the terms and conditions of the application.
+- Delete the account of the user.
+- Log out.
+
+**Fields and Elements:**</br>
+The settings page contains the following elements:
+| Field/Element      | Description              | Type       | Rights    | Behavior  |
+| ------------------ | ------------------------ | ---------- | --------- | --------- |
+| Name               | The name of the user     | Text field | Read-only |           |
+| Email              | The email of the user    | Text field | Read-only |           |
+| Password           | Change the password of the user | Button | Clickable | Send an email to the user to reset his password |
+| Localization       | Field to change the localization of the user | Text field | Editable | |
+| Language           | Field to change the language of the application | Dropdown menu | Clickable | Change the language of the application |
+| Terms and conditions | A button to show the terms and conditions of the application | Button | Clickable | Show the terms and conditions of the application |
+| Delete account     | A button to delete the account of the user | Button | Clickable | Delete the account of the user |
+| Log out            | A button to log out      | Button     | Clickable | Log out the user |
+| Back               | A button to go back to the profile page | Button | Clickable | Go back to the profile page |
+
+##### ➭ <ins>Job Seeker Profile:</ins>
+**Description:**</br>
+The job seeker profile page allows job seekers to create or edit their profile with various fields to personalize their profile.
+
+**Capabilities:**</br>
+The job seeker profile page allows users to:
+- Create or change their description.
+- Select their main skills.
+- Select their side skills.
+- Access the app settings.
+- Access to the swipe area.
+- Access to the chat.
+
+**Fields and Elements:**</br>
+The job seeker profile page contains the following elements:
+| Field/Element      | Description                       | Type       | Rights    | Behavior  |
+| ------------------ | --------------------------------- | ---------- | --------- | --------- |
+| Description        | The description of the job seeker | Text field | Editable  |           |
+| Main skills        | The main skills of the job seeker | Tag field  | Editable  |           |
+| Side skills        | The side skills of the job seeker | Tag field  | Editable  |           |
+| Settings           | A button to access the app settings | Button   | Clickable | Redirect the user to the settings page |
+| Swipe area         | A button to access the swipe area | Navbar button | Clickable | Redirect the user to the swipe area |
+| Chat               | A button to access the chat       | Navbar button | Clickable | Redirect the user to the chat |
+
+##### ➭ <ins>Company Profile:</ins>
+**Description:**</br>
+The company profile page allows companies to create or see their offers profile with various fields to personalize their profile.
+
+**Capabilities:**</br>
+The company profile page allows users to:
+- See their offers.
+- Create their offers.
+- Change their offers.
+- Delete their offers.
+- Access the app settings.
+- Access to the swipe area.
+- Access to the chat.
+
+**Fields and Elements:**</br>
+The company profile page contains the following elements:
+| Field/Element      | Description                       | Type       | Rights    | Behavior  |
+| ------------------ | --------------------------------- | ---------- | --------- | --------- |
+| Offers             | The offers of the company         | List       | Clickable | Redirect the user to the offer profile page |
+| Create offer       | A button to create an offer       | Button     | Clickable | Redirect the user to the offer creation page |
+| Edit offer         | A button to edit an offer         | Button     | Clickable | Allow user to delete offers |
+| Delete offer       | A button to delete an offer       | Button     | Clickable | Remove the offer from the list |
+| Settings           | A button to access the app settings | Button   | Clickable | Redirect the user to the settings page |
+| Swipe area         | A button to access the swipe area | Navbar button | Clickable | Redirect the user to the swipe area |
+| Chat               | A button to access the chat       | Navbar button | Clickable | Redirect the user to the chat |
+
+##### ➭ <ins>Company Offer Creation/Edition:</ins>
+**Description:**</br>
+The company offer edition page allows companies to create or edit their offers with various fields to personalize their offers.
+
+**Capabilities:**</br>
+The company offer edition page allows the company to:
+- Create or change the title of the offer.
+- Create or change the description of the offer.
+- Create or change the localization of the offer.
+- Add or change the main skills of the offer.
+- Add or change the side skills of the offer.
+- Save the offer.
+- Back to the company profile page.
+
+**Fields and Elements:**</br>
+The company offer edition page contains the following elements:
+| Field/Element      | Description                       | Type       | Rights    | Behavior  |
+| ------------------ | --------------------------------- | ---------- | --------- | --------- |
+| Title              | The title of the offer            | Text field | Editable  |           |
+| Description        | The description of the offer      | Text field | Editable  |           |
+| Localization       | The localization of the offer     | Text field | Editable  |           |
+| Main skills        | The main skills of the offer      | Tag field  | Editable  |           |
+| Side skills        | The side skills of the offer      | Tag field  | Editable  |           |
+| Save               | A button to save the offer        | Button     | Clickable | Save the offer and redirect the user to the company profile page |
+| Back               | A button to go back to the company profile page | Button | Clickable | Go back to the company profile page |
+
+##### ➭ <ins>Swipe Area:</ins>
+**Description:**</br>
+The swipe area page allows users to swipe on companies or job seekers.
+
+**Capabilities:**</br>
+The swipe area page allows users to:
+- Swipe on companies or job seekers.
+- View more information about the company or job seeker.
+- Access the chat.
+- Access the profile.
+
+**Fields and Elements:**</br>
+The swipe area page contains the following elements:
+| Field/Element      | Description                       | Type       | Rights    | Behavior  |
+| ------------------ | --------------------------------- | ---------- | --------- | --------- |
+| Swipe card         | Show job offer or job seeker information | Card | Swipable | Validate a job offer or a job seeker if you swipe right or reject a job offer or a job seeker if you swipe left |
+| More information   | A button to see more information about the job offer or job seeker | Button | Clickable | Redirect the user to the job offer or job seeker profile page |
+| Validate           | A button to validate the job offer or job seeker | Button | Clickable | Validate the job offer or job seeker |
+| Reject             | A button to reject the job offer or job seeker | Button | Clickable | Reject the job offer or job seeker |
+| Chat               | A button to access the chat       | Navbar button | Clickable | Redirect the user to the chat |
+| Profile            | A button to access the profile    | Navbar button | Clickable | Redirect the user to the profile |
+
+##### ➭ <ins>Chat List:</ins>
+**Description:**</br>
+The chat list page allows users to see all the conversations they have.
+
+**Capabilities:**</br>
+The chat list page allows users to:
+- See all the conversations they have.
+- Access a conversation.
+- Delete a conversation.
+- Access the profile.
+- Access the swipe area.
+
+**Fields and Elements:**</br>
+The chat list page contains the following elements:
+| Field/Element      | Description                       | Type       | Rights    | Behavior  |
+| ------------------ | --------------------------------- | ---------- | --------- | --------- |
+| Conversations      | The conversations of the user     | List       | Clickable | Redirect the user to the chat page |
+| Delete conversation | A button to delete a conversation | Button    | Clickable | Delete the conversation |
+| Profile            | A button to access the profile    | Navbar button | Clickable | Redirect the user to the profile |
+| Swipe area         | A button to access the swipe area | Navbar button | Clickable | Redirect the user to the swipe area |
+
+##### ➭ <ins>Conversation:</ins>
+**Description:**</br>
+The conversation page allows users to chat with other users.
+
+**Capabilities:**</br>
+The conversation page allows users to:
+- Send messages.
+- Receive messages.
+- See previous messages.
+- Access the chat list.
+
+**Fields and Elements:**</br>
+The conversation page contains the following elements:
+| Field/Element      | Description                       | Type       | Rights    | Behavior  |
+| ------------------ | --------------------------------- | ---------- | --------- | --------- |
+| Messages           | The messages of the conversation  | List       | Read-only |           |
+| Send message       | A field to send a message         | Text field | Editable  |           |
+| Send               | A button to send the message      | Button     | Clickable | Send the message |
+| Back               | A button to go back to the chat list page | Button | Clickable | Go back to the chat list page |
+
+
+#### B. Page navigation
+
+### 5. Matching Algorithm
 
 ## IV. Further Considerations
 
