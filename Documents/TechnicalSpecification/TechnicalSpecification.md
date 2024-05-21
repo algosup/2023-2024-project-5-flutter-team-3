@@ -102,12 +102,13 @@
     - [4. Widgets](#4-widgets)
       - [A. Fields](#a-fields)
         - [➭ Text Field:](#-text-field)
-        - [➭ Text Field:](#-text-field-1)
         - [➭ Localization Field:](#-localization-field)
         - [➭ Tag Field:](#-tag-field)
       - [B. Buttons](#b-buttons)
         - [➭ Text Button:](#-text-button)
         - [➭ Icon Button:](#-icon-button)
+        - [➭ Radio Button:](#-radio-button)
+        - [➭ Big Button:](#-big-button)
     - [5. Pages](#5-pages)
       - [A. Description](#a-description)
         - [➭ Login:](#-login)
@@ -119,7 +120,7 @@
         - [➭ Swipe Area:](#-swipe-area)
         - [➭ Chat List:](#-chat-list)
         - [➭ Conversation:](#-conversation-1)
-      - [B. Page navigation](#b-page-navigation)
+      - [B. Navigation](#b-navigation)
     - [5. Matching Algorithm](#5-matching-algorithm)
   - [IV. Further Considerations](#iv-further-considerations)
     - [1. Issues and Impact](#1-issues-and-impact)
@@ -573,217 +574,251 @@ For the various elements of the application, the chosen typographies are the fol
 #### A. Fields
 
 ##### ➭ <ins>Text Field:</ins>
-**Description:**</br>
-A text field is a field where the user can enter text. It is used to collect or show information.
-
-##### ➭ <ins>Text Field:</ins>
-
 **Description:**  
-A text field is a field where the user can enter text. It is used to collect or show information.
+A text field is a field where the user enters text. It is used to collect or show information.
 
 **Properties:**
 
-| Property                    | Description                       | Required |
-|-----------------------------|---------------------------------- | -------- |
-| **Required/Optional**       | The text field is set as mandatory for the user to fill out or optional. | Yes |
-| **Read-only/Editable**      | The text field is read-only or editable. | Yes |
-| **Maximum Length**          | The text field restrict the number of characters entered to a maximum limit. | Yes |
-| **Minimum Length**          | The text field enforce a minimum number of characters that must be entered. | No  |
-| **Placeholder Text**        | The text field display placeholder text when it is empty, providing a hint to the user. | No  |
-| **Label**                   | The text field be accompanied by a label that describes its purpose. | No  |
-| **Helper Text**             | The text field include helper text that provides additional guidance to the user. | No  |
-
-
+| Property                    | Description                                                                              | Required |
+|-----------------------------|----------------------------------------------------------------------------------------- | -------- |
+| **Required/Optional**       | The text field is set as mandatory for the user to fill out or optional.                 | Yes |
+| **Read-only/Editable**      | The text field is read-only or editable.                                                 | Yes |
+| **Maximum Length**          | The text field restricts the number of characters entered to a maximum limit.            | Yes |
+| **Minimum Length**          | The text field enforces a minimum number of characters that must be entered.             | No  |
+| **Placeholder Text**        | The text field displays placeholder text when it is empty, providing a hint to the user. | No  |
+| **Label**                   | The text field is accompanied by a label that describes its purpose.                     | No  |
+| **Helper Text**             | The text field includes helper text that provides additional guidance to the user.       | No  |
 
 ##### ➭ <ins>Localization Field:</ins>
-**Description:**</br>
-A localization field is a field where the user can enter a localization. It is used to collect or show a localization.
+**Description:**  
+A localization field is a field where the user enters a localization. It is used to collect or show a localization.
 
-**Properties:**</br>
-| Property                    | Description                       | Required |
-|-----------------------------|---------------------------------- | -------- |
-| **Required/Optional**       | The localization field is set as mandatory for the user to fill out or optional. | Yes |
-| **Read-only/Editable**      | The localization field is read-only (not editable) or editable. | Yes |
-| **Label**                   | The localization field is accompanied by a label that describes its purpose. | No  |
-| **Helper Text**             | The localization field include helper text that provides additional guidance to the user. | No  |
-| **Placeholder Text**        | The localization field display placeholder text when it is empty, providing a hint to the user. | No  |
-| **Button**                  | The localization field contain a button to access to automatically set the localization. | No  |
+**Properties:**
+
+| Property                    | Description                                                                                      | Required |
+|-----------------------------|------------------------------------------------------------------------------------------------- | -------- |
+| **Required/Optional**       | The localization field is set as mandatory for the user to fill out or optional.                 | Yes |
+| **Read-only/Editable**      | The localization field is read-only (not editable) or editable.                                  | Yes |
+| **Label**                   | The localization field is accompanied by a label that describes its purpose.                     | No  |
+| **Helper Text**             | The localization field includes helper text that provides additional guidance to the user.       | No  |
+| **Placeholder Text**        | The localization field displays placeholder text when it is empty, providing a hint to the user. | No  |
+| **Button**                  | The localization field contains a button to automatically set the localization.                  | No  |
 
 ##### ➭ <ins>Tag Field:</ins>
-**Description:**</br>
-A tag field is a field where the user can select tags. It is used to collect or show tags.
+**Description:**  
+A tag field is a field where the user selects tags. It is used to collect or show tags.
 
-**Properties:**</br>
-| Property                    | Description                       | Required |
-|-----------------------------|---------------------------------- | -------- |
-| **Required/Optional**       | The tag field is set as mandatory for the user to fill out or optional. | Yes |
-| **Read-only/Editable**      | The tag field is read-only (not editable) or editable. | Yes |
-| **Maximum Number**          | The tag field restrict the number of tags that can be selected to a maximum limit. | Yes |
-| **Minimum Number**          | The tag field enforce a minimum number of tags that must be selected.   | No  |
-| **Add Button**              | The tag field contain an "Add" button to add new tags.                  | No  |
-| **Remove Button**           | The tag field contain a "Remove" button to remove tags.                 | No  |
-| **Label**                   | The tag field is accompanied by a label that describes its purpose.     | No  |
-| **Helper Text**             | The tag field include helper text that provides additional guidance to the user. | No  |
-| **Placeholder Text**        | The tag field display placeholder text when it is empty, providing a hint to the user. | No  |
+**Properties:**
 
+| Property                    | Description                                                                             | Required |
+|-----------------------------|---------------------------------------------------------------------------------------- | -------- |
+| **Required/Optional**       | The tag field is set as mandatory for the user to fill out or optional.                 | Yes      |
+| **Read-only/Editable**      | The tag field is read-only (not editable) or editable.                                  | Yes      |
+| **Maximum Number**          | The tag field restricts the number of tags that can be selected to a maximum limit.     | Yes      |
+| **Minimum Number**          | The tag field enforces a minimum number of tags that must be selected.                  | No       |
+| **Add Button**              | The tag field contains an "Add" button to add new tags.                                 | No       |
+| **Remove Button**           | The tag field contains a "Remove" button to remove tags.                                | No       |
+| **Label**                   | The tag field is accompanied by a label that describes its purpose.                     | No       |
+| **Helper Text**             | The tag field includes helper text that provides additional guidance to the user.       | No       |
+| **Placeholder Text**        | The tag field displays placeholder text when it is empty, providing a hint to the user. | No       |
 
 #### B. Buttons
 
 ##### ➭ <ins>Text Button:</ins>
-**Description:**</br>
+**Description:**  
 A text button is a button that contains text. It is used to trigger an action when clicked.
 
-**Properties:**</br>
-| Property                    | Description                       | Required |
-|-----------------------------|---------------------------------- | -------- |
-| **Text**                    | The text displayed on the button. | Yes      |
-| **Color**                   | The color of the button.          | Yes      |
-| **Size**                    | The size of the button.           | Yes      |
-| **On Click**                | The action is triggered when the button is clicked. | Yes |
-| **Disabled**                | The button is disabled to prevent user interaction. | No  |
-| **Hover Effect**            | The button have a hover effect to provide visual feedback. | No |
+**Properties:**
+
+| Property          | Description                                      | Required |
+|-------------------|------------------------------------------------- | -------- |
+| **Text**          | The text displayed on the button.                | Yes      |
+| **Color**         | The color of the button.                         | Yes      |
+| **Size**          | The size of the button.                          | Yes      |
+| **On Click**      | The action triggered when the button is clicked. | Yes      |
+| **Disabled**      | Disables the button to prevent user interaction. | No       |
+| **Hover Effect**  | Provides a hover effect for visual feedback.     | No       |
 
 ##### ➭ <ins>Icon Button:</ins>
-**Description:**</br>
+**Description:**  
 An icon button is a button that contains an icon. It is used to trigger an action when clicked.
 
-**Properties:**</br>
-| Property                    | Description                       | Required |
-|-----------------------------|---------------------------------- | -------- |
-| **Icon**                    | The icon displayed on the button. | Yes      |
-| **Color**                   | The color of the button.          | Yes      |
-| **Size**                    | The size of the button.           | Yes      |
-| **On Click**                | The action is triggered when the button is clicked. | Yes |
-| **Disabled**                | The button is disabled to prevent user interaction. | No  |
-| **Hover Effect**            | The button have a hover effect to provide visual feedback. | No |
+**Properties:**
+
+| Property          | Description                                      | Required |
+|-------------------|------------------------------------------------- | -------- |
+| **Icon**          | The icon displayed on the button.                | Yes      |
+| **Color**         | The color of the button.                         | Yes      |
+| **Size**          | The size of the button.                          | Yes      |
+| **On Click**      | The action triggered when the button is clicked. | Yes      |
+| **Disabled**      | Disables the button to prevent user interaction. | No       |
+| **Hover Effect**  | Provides a hover effect for visual feedback.     | No       |
+
+##### ➭ <ins>Radio Button:</ins>
+**Description:**
+A radio button is a button that allows the user to select one option from a list of options. It is used to select a single option from a list of options.
+
+**Properties:**
+| Property          | Description                                            | Required |
+|-------------------|------------------------------------------------------- | -------- |
+| **Options**       | The list of options the user can select from.          | Yes      |
+| **Selected**      | The option selected by default.                        | Yes      |
+| **On Change**     | The action triggered when the selected option changes. | Yes      |
+| **Disabled**      | Disables the radio button to prevent user interaction. | No       |
+| **Hover Effect**  | Provides a hover effect for visual feedback.           | No       |
+
+
+##### ➭ <ins>Big Button:</ins>
+**Description:**  
+A big button is sized as a text field or bigger, containing text and/or an icon. It is used to trigger an action when clicked.
+
+**Properties:**
+
+| Property          | Description                                      | Required |
+|-------------------|------------------------------------------------- | -------- |
+| **Text**          | The text displayed on the button.                | Yes      |
+| **Icon**          | The icon displayed on the button.                | No       |
+| **Text color**    | The color of the text in the button.             | Yes      |
+| **Color**         | The color of the button.                         | Yes      |
+| **Size**          | The size of the button.                          | Yes      |
+| **On Click**      | The action triggered when the button is clicked. | Yes      |
+| **Disabled**      | Disables the button to prevent user interaction. | No       |
+| **Hover Effect**  | Provides a hover effect for visual feedback.     | No       |
+
 
 ### 5. Pages
 #### A. Description
 
 ##### ➭ <ins>Login:</ins>
-**Description:**</br>
+**Description:**  
 The login page allows users to sign in, be redirected to the subscription page if they don't have an account, and declare a forgotten password.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The login page allows users to:
 - Sign in.
 - Be redirected to the subscription page if they don't have an account.
 - Declare a forgotten password.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The login page contains the following elements:
-| Field/Element      | Description              | Type       | Rights    | Behavior             |
-| ------------------ | ------------------------ | ---------- | --------- | -------------------- |
-| Email              | The email of the user    | Text field | Editable  |                      |
-| Password           | The password of the user | Text field | Editable  |                      |
-| Sign in            | A button to sign in      | Button     | Clickable | Validate the email and the password and redirect the user to his profile page |
-| Forgotten password | A button to declare a forgotten password | Button | Clickable | Send an email to the user to reset his password |
-| Subscription       | A button to be redirected to the subscription page | Button | Clickable | Redirect the user to the subscription page |
+
+| Field/Element      | Description                      | Type         | Rights      | Behavior                                                     |
+| ------------------ | -------------------------------- | ------------ | ----------- | ------------------------------------------------------------ |
+| Email              | The user's email.                | Text field   | Editable    |                                                              |
+| Password           | The user's password.             | Text field   | Editable    |                                                              |
+| Sign in            | Button to sign in.               | Button       | Clickable   | Validate email and password, redirect user to their profile. |
+| Forgotten password | Button to reset password.        | Button       | Clickable   | Send password reset email to user.                           |
+| Subscription       | Button to go to subscription.    | Button       | Clickable   | Redirect user to subscription page.                          |
 
 ##### ➭ <ins>Subscription:</ins>
-**Description:**</br>
+**Description:**  
 The subscription page allows users to create an account, be redirected to the login page if they already have an account, and declare a forgotten password.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The subscription page allows users to:
 - Create an account.
 - Be redirected to the login page if they already have an account.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The subscription page contains the following elements:
-| Field/Element      | Description              | Type       | Rights   | Behavior               |
-| ------------------ | ------------------------ | ---------- | -------- | ---------------------- |
-| Name               | The name of the user     | Text field | Editable |                        |
-| Email              | The email of the user    | Text field | Editable |                        |
-| Password           | The password of the user | Text field | Editable |                        |
-| Confirm password   | The confirmation of the password of the user | Text field | Editable |    |
-| Job seeker or company | A button to choose between a job seeker or a company | Radio button | Clickable | Clicking on the button will change the user type |
-| Subscription       | A button to create an account | Button | Clickable | Validate the email and the password and redirect the user to his profile page |
-| Login              | A button to be redirected to the login page | Button | Clickable | Redirect the user to the login page |
+
+| Field/Element      | Description                         | Type           | Rights      | Behavior                                                       |
+| ------------------ | ----------------------------------- | -------------- | ----------- | -------------------------------------------------------------- |
+| Name               | The user's name.                    | Text field     | Editable    |                                                                |
+| Email              | The user's email.                   | Text field     | Editable    |                                                                |
+| Password           | The user's password.                | Text field     | Editable    |                                                                |
+| Confirm password   | Confirmation of user's password.    | Text field     | Editable    |                                                                |
+| Job seeker/company| Button to choose user type.          | Radio button   | Clickable   | Switch between job seeker and company user types.              |
+| Subscription       | Button to create account.           | Button         | Clickable   | Validate email and password, redirect user to their profile.   |
+| Login              | Button to go to login page.         | Button         | Clickable   | Redirect user to login page.                                   |
 
 ##### ➭ <ins>Settings:</ins>
-**Description:**</br>
+**Description:**  
 The settings page allows users to change their account settings.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The settings page allows users to:
-- See the name and the email of the user.
-- Change the password of the user.
-- Change the localization of the user.
+- View their name and email.
+- Change their password.
+- Change their localization.
 - Change the language of the application.
-- See the terms and conditions of the application.
-- Delete the account of the user.
+- View the terms and conditions of the application.
+- Delete their account.
 - Log out.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The settings page contains the following elements:
-| Field/Element      | Description              | Type       | Rights    | Behavior  |
-| ------------------ | ------------------------ | ---------- | --------- | --------- |
-| Name               | The name of the user     | Text field | Read-only |           |
-| Email              | The email of the user    | Text field | Read-only |           |
-| Password           | Change the password of the user | Button | Clickable | Send an email to the user to reset his password |
-| Localization       | Field to change the localization of the user | Text field | Editable | |
-| Language           | Field to change the language of the application | Dropdown menu | Clickable | Change the language of the application |
-| Terms and conditions | A button to show the terms and conditions of the application | Button | Clickable | Show the terms and conditions of the application |
-| Delete account     | A button to delete the account of the user | Button | Clickable | Delete the account of the user |
-| Log out            | A button to log out      | Button     | Clickable | Log out the user |
-| Back               | A button to go back to the profile page | Button | Clickable | Go back to the profile page |
+
+| Field/Element       | Description                                 | Type           | Rights      | Behavior                               |
+| ------------------- | ------------------------------------------- | -------------- | ----------- | -------------------------------------- |
+| Name                | User's name.                                | Text field     | Read-only   |                                        |
+| Email               | User's email.                               | Text field     | Read-only   |                                        |
+| Change Password     | Button to change password.                  | Button         | Clickable   | Send password reset email to user.     |
+| Localization        | Field to change user's localization.        | Text field     | Editable    |                                        |
+| Language            | Field to change application language.       | Dropdown menu  | Clickable   | Change application language.           |
+| Terms and Conditions| Button to view application terms and conditions. | Button    | Clickable   | Show application terms and conditions. |
+| Delete Account      | Button to delete user's account.            | Button         | Clickable   | Delete user's account.                 |
+| Log Out             | Button to log out.                          | Button         | Clickable   | Log out user.                          |
+| Back                | Button to go back to profile page.          | Button         | Clickable   | Go back to profile page.               |
+
 
 ##### ➭ <ins>Job Seeker Profile:</ins>
-**Description:**</br>
-The job seeker profile page allows job seekers to create or edit their profile with various fields to personalize their profile.
+**Description:**  
+The job seeker profile page allows job seekers to create or edit their profiles with various fields to personalize them.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The job seeker profile page allows users to:
-- Create or change their description.
+- Create or edit their description.
 - Select their main skills.
 - Select their side skills.
 - Access the app settings.
-- Access to the swipe area.
-- Access to the chat.
+- Access the swipe area.
+- Access the chat.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The job seeker profile page contains the following elements:
-| Field/Element      | Description                       | Type       | Rights    | Behavior  |
-| ------------------ | --------------------------------- | ---------- | --------- | --------- |
-| Description        | The description of the job seeker | Text field | Editable  |           |
-| Main skills        | The main skills of the job seeker | Tag field  | Editable  |           |
-| Side skills        | The side skills of the job seeker | Tag field  | Editable  |           |
-| Settings           | A button to access the app settings | Button   | Clickable | Redirect the user to the settings page |
-| Swipe area         | A button to access the swipe area | Navbar button | Clickable | Redirect the user to the swipe area |
-| Chat               | A button to access the chat       | Navbar button | Clickable | Redirect the user to the chat |
+
+| Field/Element      | Description                            | Type           | Rights      | Behavior                             |
+| ------------------ | -------------------------------------- | -------------- | ----------- | ------------------------------------ |
+| Description        | Description of the job seeker.         | Text field     | Editable    |                                      |
+| Main skills        | Main skills of the job seeker.         | Tag field      | Editable    |                                      |
+| Side skills        | Side skills of the job seeker.         | Tag field      | Editable    |                                      |
+| Settings           | Button to access app settings.         | Button         | Clickable   | Redirects user to the settings page. |
+| Swipe area         | Button to access the swipe area.       | Navbar button  | Clickable   | Redirects user to the swipe area.    |
+| Chat               | Button to access the chat.             | Navbar button  | Clickable   | Redirects user to the chat.          |
 
 ##### ➭ <ins>Company Profile:</ins>
-**Description:**</br>
-The company profile page allows companies to create or see their offers profile with various fields to personalize their profile.
+**Description:**  
+The company profile page allows companies to create or view their offers profile with various fields to personalize it.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The company profile page allows users to:
-- See their offers.
-- Create their offers.
-- Change their offers.
-- Delete their offers.
+- View their offers.
+- Create offers.
+- Edit offers.
+- Delete offers.
 - Access the app settings.
-- Access to the swipe area.
-- Access to the chat.
+- Access the swipe area.
+- Access the chat.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The company profile page contains the following elements:
-| Field/Element      | Description                       | Type       | Rights    | Behavior  |
-| ------------------ | --------------------------------- | ---------- | --------- | --------- |
-| Offers             | The offers of the company         | List       | Clickable | Redirect the user to the offer profile page |
-| Create offer       | A button to create an offer       | Button     | Clickable | Redirect the user to the offer creation page |
-| Edit offer         | A button to edit an offer         | Button     | Clickable | Allow user to delete offers |
-| Delete offer       | A button to delete an offer       | Button     | Clickable | Remove the offer from the list |
-| Settings           | A button to access the app settings | Button   | Clickable | Redirect the user to the settings page |
-| Swipe area         | A button to access the swipe area | Navbar button | Clickable | Redirect the user to the swipe area |
-| Chat               | A button to access the chat       | Navbar button | Clickable | Redirect the user to the chat |
+
+| Field/Element      | Description                            | Type           | Rights      | Behavior                                   |
+| ------------------ | -------------------------------------- | -------------- | ----------- | ------------------------------------------ |
+| Offers             | Offers of the company.                 | List           | Clickable   | Redirects user to the offer profile page.  |
+| Create offer       | Button to create an offer.             | Button         | Clickable   | Redirects user to the offer creation page. |
+| Edit offer         | Button to edit an offer.               | Button         | Clickable   | Allows user to edit offers.                |
+| Delete offer       | Button to delete an offer.             | Button         | Clickable   | Removes the offer from the list.           |
+| Settings           | Button to access app settings.         | Button         | Clickable   | Redirects user to the settings page.       |
+| Swipe area         | Button to access the swipe area.       | Navbar button  | Clickable   | Redirects user to the swipe area.          |
+| Chat               | Button to access the chat.             | Navbar button  | Clickable   | Redirects user to the chat.                |
 
 ##### ➭ <ins>Company Offer Creation/Edition:</ins>
-**Description:**</br>
-The company offer edition page allows companies to create or edit their offers with various fields to personalize their offers.
+**Description:**  
+The company offer edition page allows companies to create or edit their offers with various fields to personalize them.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The company offer edition page allows the company to:
 - Create or change the title of the offer.
 - Create or change the description of the offer.
@@ -791,85 +826,90 @@ The company offer edition page allows the company to:
 - Add or change the main skills of the offer.
 - Add or change the side skills of the offer.
 - Save the offer.
-- Back to the company profile page.
+- Return to the company profile page.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The company offer edition page contains the following elements:
-| Field/Element      | Description                       | Type       | Rights    | Behavior  |
-| ------------------ | --------------------------------- | ---------- | --------- | --------- |
-| Title              | The title of the offer            | Text field | Editable  |           |
-| Description        | The description of the offer      | Text field | Editable  |           |
-| Localization       | The localization of the offer     | Text field | Editable  |           |
-| Main skills        | The main skills of the offer      | Tag field  | Editable  |           |
-| Side skills        | The side skills of the offer      | Tag field  | Editable  |           |
-| Save               | A button to save the offer        | Button     | Clickable | Save the offer and redirect the user to the company profile page |
-| Back               | A button to go back to the company profile page | Button | Clickable | Go back to the company profile page |
+
+| Field/Element      | Description                                    | Type         | Rights    | Behavior                                                          |
+| ------------------ | ---------------------------------------------- | ------------ | --------- | ----------------------------------------------------------------- |
+| Title              | Title of the offer.                            | Text field   | Editable  |                                                                   |
+| Description        | Description of the offer.                      | Text field   | Editable  |                                                                   |
+| Localization       | Localization of the offer.                     | Text field   | Editable  |                                                                   |
+| Main skills        | Main skills of the offer.                      | Tag field    | Editable  |                                                                   |
+| Side skills        | Side skills of the offer.                      | Tag field    | Editable  |                                                                   |
+| Save               | Button to save the offer.                      | Button       | Clickable | Save the offer and redirect the user to the company profile page. |
+| Back               | Button to go back to the company profile page. | Button       | Clickable | Return to the company profile page.                               |
 
 ##### ➭ <ins>Swipe Area:</ins>
-**Description:**</br>
+**Description:**  
 The swipe area page allows users to swipe on companies or job seekers.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The swipe area page allows users to:
 - Swipe on companies or job seekers.
 - View more information about the company or job seeker.
 - Access the chat.
 - Access the profile.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The swipe area page contains the following elements:
-| Field/Element      | Description                       | Type       | Rights    | Behavior  |
-| ------------------ | --------------------------------- | ---------- | --------- | --------- |
-| Swipe card         | Show job offer or job seeker information | Card | Swipable | Validate a job offer or a job seeker if you swipe right or reject a job offer or a job seeker if you swipe left |
-| More information   | A button to see more information about the job offer or job seeker | Button | Clickable | Redirect the user to the job offer or job seeker profile page |
-| Validate           | A button to validate the job offer or job seeker | Button | Clickable | Validate the job offer or job seeker |
-| Reject             | A button to reject the job offer or job seeker | Button | Clickable | Reject the job offer or job seeker |
-| Chat               | A button to access the chat       | Navbar button | Clickable | Redirect the user to the chat |
-| Profile            | A button to access the profile    | Navbar button | Clickable | Redirect the user to the profile |
+
+| Field/Element    | Description                                     | Type          | Rights    | Behavior                                                       |
+| ---------------- | ----------------------------------------------- | ------------- | --------- | -------------------------------------------------------------- |
+| Swipe card       | Display job offer or job seeker information.    | Card          | Swipable  | Validate a job offer or job seeker if swiped right or reject a job offer or job seeker if swiped left. |
+| More information | Button to see more information about the job offer or job seeker. | Button  | Clickable | Redirect the user to the job offer or job seeker profile page. |
+| Validate         | Button to validate the job offer or job seeker. | Button        | Clickable | Validate the job offer or job seeker.                          |
+| Reject           | Button to reject the job offer or job seeker.   | Button        | Clickable | Reject the job offer or job seeker.                            |
+| Chat             | Button to access the chat.                      | Navbar button | Clickable | Redirect the user to the chat.                                 |
+| Profile          | Button to access the profile.                   | Navbar button | Clickable | Redirect the user to the profile.                              |
 
 ##### ➭ <ins>Chat List:</ins>
-**Description:**</br>
+**Description:**  
 The chat list page allows users to see all the conversations they have.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The chat list page allows users to:
-- See all the conversations they have.
+- View all the conversations they have.
 - Access a conversation.
 - Delete a conversation.
 - Access the profile.
 - Access the swipe area.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The chat list page contains the following elements:
-| Field/Element      | Description                       | Type       | Rights    | Behavior  |
-| ------------------ | --------------------------------- | ---------- | --------- | --------- |
-| Conversations      | The conversations of the user     | List       | Clickable | Redirect the user to the chat page |
-| Delete conversation | A button to delete a conversation | Button    | Clickable | Delete the conversation |
-| Profile            | A button to access the profile    | Navbar button | Clickable | Redirect the user to the profile |
-| Swipe area         | A button to access the swipe area | Navbar button | Clickable | Redirect the user to the swipe area |
+
+| Field/Element      | Description                             | Type          | Rights    | Behavior                             |
+| ------------------ | --------------------------------------- | ------------- | --------- | ------------------------------------ |
+| Conversations      | Conversations of the user.              | List          | Clickable | Redirect the user to the chat page.  |
+| Delete conversation | Button to delete a conversation.       | Button        | Clickable | Delete the conversation.             |
+| Profile            | Button to access the profile.           | Navbar button | Clickable | Redirect the user to the profile.    |
+| Swipe area         | Button to access the swipe area.        | Navbar button | Clickable | Redirect the user to the swipe area. |
 
 ##### ➭ <ins>Conversation:</ins>
-**Description:**</br>
+**Description:**  
 The conversation page allows users to chat with other users.
 
-**Capabilities:**</br>
+**Capabilities:**  
 The conversation page allows users to:
 - Send messages.
 - Receive messages.
 - See previous messages.
 - Access the chat list.
 
-**Fields and Elements:**</br>
+**Fields and Elements:**  
 The conversation page contains the following elements:
-| Field/Element      | Description                       | Type       | Rights    | Behavior  |
-| ------------------ | --------------------------------- | ---------- | --------- | --------- |
-| Messages           | The messages of the conversation  | List       | Read-only |           |
-| Send message       | A field to send a message         | Text field | Editable  |           |
-| Send               | A button to send the message      | Button     | Clickable | Send the message |
-| Back               | A button to go back to the chat list page | Button | Clickable | Go back to the chat list page |
+
+| Field/Element      | Description                              | Type        | Rights     | Behavior                      |
+| ------------------ | ---------------------------------------- | ----------- | ---------- | ------------------------------|
+| Messages           | Messages of the conversation.            | List        | Read-only  |                               |
+| Send message       | Field to send a message.                 | Text field  | Editable   |                               |
+| Send               | Button to send the message.              | Button      | Clickable  | Send the message.             |
+| Back               | Button to go back to the chat list page. | Button      | Clickable  | Return to the chat list page. |
 
 
-#### B. Page navigation
+
+#### B. Navigation
 
 ### 5. Matching Algorithm
 
