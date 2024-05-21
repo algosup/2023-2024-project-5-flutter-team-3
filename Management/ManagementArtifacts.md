@@ -21,3 +21,16 @@ You can find the Code of Conduct [here](ManagementArtifacts/CodeOfConduct.md).
 The Key Performance Indicators (KPIs) document defines the metrics and targets that Team 3 will use to measure the project's success. These KPIs help track progress, identify areas for improvement, and ensure alignment with project goals.
 
 You can find the KPIs document [here](https://docs.google.com/spreadsheets/d/1CWBUmIxUPAOFh-lBtmhJOA6S4YUIVxvC1ms07QLXeyM/edit?usp=sharing).
+
+
+## Weekly Reports
+
+The Weekly Reports provide a summary of the team's progress, achievements, issues, and objectives for the upcoming week. These reports help track the project's status, identify challenges, and ensure continuous improvement in project management and execution.
+
+You can find the Weekly Reports [here](Management/WeeklyReports).
+
+## Gantt Chart
+
+The Gantt Chart visualizes the project timeline, milestones, and dependencies. It helps the team plan and track project activities, allocate resources effectively, and ensure timely delivery of project deliverables.
+
+You can find the Gantt Chart [here](https://docs.google.com/spreadsheets/d/16nZ7NnlbWonwxpdrqTKeNKlEg4DzgAToOoZ_Sj7gxq0/edit?hl=fr#gid=0).
