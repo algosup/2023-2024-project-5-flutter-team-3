@@ -9,6 +9,7 @@ Widget buildRoundCheckBox({
   required Color checkedColor,
   required Color uncheckedColor,
   required double size,
+  required Widget? checkedWidget,
 }) {
   return RoundCheckBox(
     isChecked: isChecked,
@@ -17,5 +18,7 @@ Widget buildRoundCheckBox({
     checkedColor: checkedColor,
     uncheckedColor: uncheckedColor,
     size: size,
+    checkedWidget: checkedWidget,
+
   );
 }
