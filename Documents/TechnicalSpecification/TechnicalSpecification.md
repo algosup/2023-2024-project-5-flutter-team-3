@@ -8,7 +8,7 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/05/21  |
+| Last Update Date  | 2024/05/22  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
@@ -65,6 +65,9 @@
         - [➭ Definition:](#-definition)
         - [➭ Usage:](#-usage-1)
       - [**B. Working Environment**](#b-working-environment)
+    - [3. Minimum Required Versions for Android and iOS](#3-minimum-required-versions-for-android-and-ios)
+      - [**A. Android**](#a-android)
+      - [**B. iOS**](#b-ios)
   - [III. Technical Specification](#iii-technical-specification)
     - [1. Coding Conventions](#1-coding-conventions)
       - [A. Folder Structure](#a-folder-structure)
@@ -128,9 +131,9 @@
         - [➭ Chat List:](#-chat-list)
         - [➭ Conversation:](#-conversation-1)
       - [B. Navigation](#b-navigation)
+        - [➭ Set Up:](#-set-up)
     - [5. Authentication](#5-authentication)
       - [A. Firebase Authentication](#a-firebase-authentication)
-      - [B. User Rights](#b-user-rights)
     - [6. Translation](#6-translation)
     - [7. Matching Algorithm](#7-matching-algorithm)
   - [IV. Further Considerations](#iv-further-considerations)
@@ -235,6 +238,7 @@ To create the application, we will need to use some packages.
 - `firebase_core/firebase_core.dart`: The Firebase Core package provides the core functionality of Firebase services. It is used to initialize Firebase in the application.
 - `firebase_database/firebase_database.dart`: The Firebase Database package provides access to the Firebase Realtime Database. It is used to interact with the database in the application.
 - `firebase_auth/firebase_auth.dart`: The Firebase Auth package provides access to Firebase Authentication. It is used to authenticate users in the application.
+- `go_router/go_router.dart`: The Go Router package provides a declarative router for Flutter applications. It is used to manage the navigation in the application.
 
 ##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
@@ -305,6 +309,27 @@ Firebase integrates seamlessly with your existing working environment, whether y
 
 *Complete installation and setup instructions can be found in the [Firebase documentation](https://firebase.google.com/docs/flutter/setup?platform=android).*
 
+### 3. Minimum Required Versions for Android and iOS
+
+#### **A. Android**
+The minimum required version for Android is 10.0 (API level 29) or higher. This requirement ensures compatibility with the majority of modern Android devices, providing better performance, security features, and access to the latest APIs. Android 10.0 introduced several important features, including:
+
+- **Privacy Enhancements**: Improved privacy controls, such as restricting access to location data when apps are running in the background.
+- **Gesture Navigation**: A new gesture-based navigation system for a more intuitive user experience.
+- **Dark Theme**: System-wide dark theme support to reduce eye strain and save battery life.
+- **Smart Replies and Actions**: Enhanced machine learning for predictive responses and suggested actions.
+
+#### **B. iOS**
+The minimum required version for iOS is 11.0 or higher. This requirement ensures that users benefit from enhanced functionality, security updates, and performance improvements. iOS 11 introduced several key features, including:
+
+- **ARKit**: Augmented Reality (AR) capabilities for creating immersive app experiences.
+- **Core ML**: A machine learning framework for integrating intelligent features into apps.
+- **Files App**: A new file management system for better organization and access to documents.
+- **Drag and Drop**: Enhanced multitasking with drag-and-drop functionality across apps.
+- **Updated Control Center**: A customizable control center for quicker access to frequently used settings.
+
+
+
 ## III. Technical Specification
 
 ### 1. Coding Conventions
@@ -350,6 +375,7 @@ lib/
   │     │     ├── swap_area.dart
   │     │     ├── chat.dart
   ├── matching_algorithm.dart
+  ├── routes.dart
 ```
 This structured layout facilitates code organization and enhances project maintainability.
 
@@ -1040,17 +1066,56 @@ The conversation page contains the following elements:
 | Send               | Button to send the message.              | Button      | Clickable  | Send the message.             |
 | Back               | Button to go back to the chat list page. | Button      | Clickable  | Return to the chat list page. |
 
-
-
 #### B. Navigation
+To navigate between pages, the application uses a navigation package named `go_router`. This package allows the application to navigate between pages with a simple and efficient API.
 
+##### ➭ <ins>Set Up:</ins>
+To set up the navigation, the application must:
+- Add the `go_router` package to the `pubspec.yaml` file.
+- Create a `router.dart` file to define the routes of the application (refer to the [folder structure](#folder-structure) for more information).
+- Define the routes of the application in the `router.dart` file.
+*Example:*
+```dart
+import 'package:project-name/settings.dart';
+import 'package:project-name/main.dart';
+import 'package:go_router/go_router.dart';
+
+final GoRouter router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      name: 'home',
+      builder: (BuildContext context, GoRouterState state) {
+        return const RootPage();
+      },
+    ),
+    GoRoute(
+      path: '/settings',
+      name: 'settings',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SettingPage();
+      },
+    ),
+  ],
+);
+```
+- Use the `GoRouter` widget in the `main.dart` file to navigate between pages.
+*Example:*
+```dart
+// Short example of how to use the GoRouter widget in icon button
+IconButton(
+              color: Colors.white,
+              icon: const Icon(Icons.settings, size: 40),
+              onPressed: () {
+                context.pushNamed('settings');
+              },
+            ),
+```
+
+
+Read [go_router documentation](https://pub.dev/packages/go_router) for more information.
 ### 5. Authentication
 #### A. Firebase Authentication
-
-#### B. User Rights
-
-
-
 
 ### 6. Translation
 
