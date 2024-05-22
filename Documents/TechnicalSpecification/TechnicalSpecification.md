@@ -131,11 +131,20 @@
         - [➭ Chat List:](#-chat-list)
         - [➭ Conversation:](#-conversation-1)
       - [B. Navigation](#b-navigation)
-        - [➭ Set Up:](#-set-up)
+        - [➭ Install and import:](#-install-and-import)
+        - [➭ Set Up for App:](#-set-up-for-app)
     - [5. Authentication](#5-authentication)
       - [A. Firebase Authentication](#a-firebase-authentication)
+        - [➭ Install and import:](#-install-and-import-1)
+        - [➭ Set Upfor App:](#-set-upfor-app)
     - [6. Translation](#6-translation)
+      - [A. Install and import](#a-install-and-import)
+      - [B. Set Up for App](#b-set-up-for-app)
     - [7. Matching Algorithm](#7-matching-algorithm)
+      - [A. Scoring System](#a-scoring-system)
+      - [B. Location-based Adjustments](#b-location-based-adjustments)
+      - [C. Matching and Presentation](#c-matching-and-presentation)
+      - [D. Re-Matching](#d-re-matching)
   - [IV. Further Considerations](#iv-further-considerations)
     - [1. Issues and Impact](#1-issues-and-impact)
     - [2. Considerations](#2-considerations)
@@ -1069,11 +1078,23 @@ The conversation page contains the following elements:
 #### B. Navigation
 To navigate between pages, the application uses a navigation package named `go_router`. This package allows the application to navigate between pages with a simple and efficient API.
 
-##### ➭ <ins>Set Up:</ins>
+##### ➭ <ins>Install and import:</ins>
+To install the `go_router` package, the application must:
+- Add the `go_router` package to the `pubspec.yaml` file by running the following command:
+```bash
+flutter pub add go_router
+```
+- Import the package in the `router.dart` file by adding the following line:
+```dart
+import 'package:go_router/go_router.dart';
+```
+
+
+##### ➭ <ins>Set Up for App:</ins>
 To set up the navigation, the application must:
-- Add the `go_router` package to the `pubspec.yaml` file.
-- Create a `router.dart` file to define the routes of the application (refer to the [folder structure](#folder-structure) for more information).
+- Create a `router.dart` file to define the routes of the application (refer to the [folder structure](#a-folder-structure) for more information).
 - Define the routes of the application in the `router.dart` file.
+
 *Example:*
 ```dart
 import 'package:project-name/settings.dart';
@@ -1111,15 +1132,209 @@ IconButton(
               },
             ),
 ```
-
-
 Read [go_router documentation](https://pub.dev/packages/go_router) for more information.
+
 ### 5. Authentication
 #### A. Firebase Authentication
+The application uses Firebase Authentication to authenticate users. Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to the application.
+
+##### ➭ <ins>Install and import:</ins>
+To install the Firebase Authentication package, the application must:
+- Add the Firebase Authentication package to the `pubspec.yaml` file by running the following command:
+```bash
+flutter pub add firebase_auth
+```
+- Import the package in the `main.dart` file by adding the following line:
+```dart
+import 'package:firebase_auth/firebase_auth.dart';
+```
+
+##### ➭ <ins>Set Upfor App:</ins>
+- Initialize Firebase in your main.dart file.
+```dart
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
+```
+- Example of Sign Up with email and password:
+
+*Example:*
+```dart
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+class SignUpPage extends StatefulWidget {
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _signUp() async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      // Sign up successful
+    } catch (e) {
+      // Handle error
+      print(e.toString());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Sign Up')),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _emailController,
+              decoration: InputDecoration(labelText: 'Email'),
+            ),
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(labelText: 'Password'),
+              obscureText: true,
+            ),
+            ElevatedButton(
+              onPressed: _signUp,
+              child: Text('Sign Up'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+- Example of Sign In with email and password:
+
+*Example:* 
+```dart
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+class SignInPage extends StatefulWidget {
+  @override
+  _SignInPageState createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _signIn() async {
+    try {
+      await _auth.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      // Sign in successful
+    } catch (e) {
+      // Handle error
+      print(e.toString());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Sign In')),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _emailController,
+              decoration: InputDecoration(labelText: 'Email'),
+            ),
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(labelText: 'Password'),
+              obscureText: true,
+            ),
+            ElevatedButton(
+              onPressed: _signIn,
+              child: Text('Sign In'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+- To enable authentication providers in Firebase: go to the Firebase Console, navigate to "Authentication" and enable the desired sign-in methods (e.g., Email/Password).
+- Ensure your Firestore database rules allow authenticated users to read and write data.
+
+Update your Firestore rules as needed:
+```json
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+```
+
+Read [Firebase Authentication documentation](https://firebase.flutter.dev/docs/auth/start) for more information.
 
 ### 6. Translation
+The application uses the `flutter_localizations` package to provide internationalization and localization support. This package provides a set of classes that define localized messages and a mechanism to retrieve them.
+
+#### A. Install and import
+To install the `flutter_localizations` package, the application must:
+- Add the `flutter_localizations` package to the `pubspec.yaml` file by running the following command:
+```bash
+flutter pub add flutter_localizations
+flutter pub add intl:any
+```
+- Import the package in the `main.dart` file by adding the following line:
+```dart
+import 'package:flutter_localizations/flutter_localizations.dart';
+```
+
+#### B. Set Up for App
+// TODO: install and try the package to create a good example
 
 ### 7. Matching Algorithm
+
+The matching algorithm is a core feature of the application that enables users to find the most suitable job offers or job seekers based on their skills and preferences. The algorithm utilizes a scoring system to match users with the most relevant opportunities or candidates.
+
+#### A. Scoring System
+The algorithm considers both primary and secondary skills possessed by companies and job seekers to calculate a matching score. The score is determined by the number of overlapping skills between the user and the job offer or job seeker.
+
+The scoring mechanism is as follows:
+- For each matching main skill, the score is increased by 1.
+- For each matching side skill, the score is increased by 0.2.
+- The total score is the sum of the main and side skills scores.
+
+#### B. Location-based Adjustments
+Once the initial score is calculated, the matching algorithm takes into account the user's location and the job offer or job seeker's location. It then adjusts the score based on the proximity between the two locations
+
+The location-based score adjustments are:
+- If the locations are in the same city, the score is increased by 1 point.
+- If the locations are within the same region, the score is increased by 0.5 points.
+
+#### C. Matching and Presentation
+The algorithm then matches the user with the job offer or job seeker based on the final calculated score. The results are sorted in descending order, displaying the best matches at the top. If both job offers and job seekers are matched, the application allows them to connect and communicate.
+
+#### D. Re-Matching
+The matching algorithm also enables users to re-match with job offers or job seekers based on updated preferences. Users can adjust their criteria, and the algorithm will generate new matches accordingly.
 
 ## IV. Further Considerations
 
