@@ -1,0 +1,230 @@
+// import 'package:adopte_a_candidate/services/user_Services.dart';
+// import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+import 'package:adopte_a_candidate/pages/log_in.dart';
+import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
+import 'package:flutter/material.dart';
+import 'package:adopte_a_candidate/widgets/logo/logo.dart';
+import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';
+
+class Home extends StatelessWidget {
+  const Home({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AskIfCompany(),
+    );
+  }
+}
+
+class AskIfCompany extends StatefulWidget {
+  const AskIfCompany({Key? key});
+
+  @override
+  State<AskIfCompany> createState() => _AskIfCompanyState();
+}
+
+class _AskIfCompanyState extends State<AskIfCompany> {
+  bool isJobSeeker = false;
+  bool isCompany = false;
+
+  void _handleCheckBoxChange(bool? selected, String type) {
+    setState(() {
+      if (type == 'jobSeeker') {
+        isJobSeeker = selected ?? false;
+        if (isJobSeeker) {
+          isCompany = false;
+        }
+      } else if (type == 'company') {
+        isCompany = selected ?? false;
+        if (isCompany) {
+          isJobSeeker = false;
+        }
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Start by asking the dimension of the native device for scaling
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                children: <Widget>[
+                  buildLogo(screenWidth, screenHeight),
+                ],
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.15),
+                  const Text(
+                    'Nom entier:',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 5),
+              SizedBox(
+                child: buildTextField(
+                  context: context,
+                  controller: nameController,
+                  hinttext: 'Entrez votre nom et prénom',
+                ),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.15),
+                  const Text(
+                    'Email:',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 5),
+              SizedBox(
+                child: buildTextField(
+                  context: context,
+                  controller: mailController,
+                  hinttext: 'Entrez votre mail',
+                ),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.15),
+                  const Text(
+                    'Mot de passe:',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 5),
+              SizedBox(
+                child: buildTextFieldPassword(
+                  context: context,
+                  controller: passwordController,
+                  hinttext: 'Entrez votre mot de passe',
+                ),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.15),
+                  const Text(
+                    'Confirmez votre mot de passe:',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 5),
+              SizedBox(
+                child: buildTextFieldPassword(
+                  context: context,
+                  controller: passwordConfirmController,
+                  hinttext: 'Confirmez votre mot de passe',
+                ),
+              ),
+              const SizedBox(height: 15),
+              Row(
+                children: [
+                  SizedBox(
+                    width: screenWidth * 0.15,
+                  ),
+                  buildRoundCheckBox(
+                    isChecked: isJobSeeker,
+                    onChanged: (selected) =>
+                        _handleCheckBoxChange(selected, 'jobSeeker'),
+                    borderColor: Colors.grey,
+                    checkedColor: Colors.blue,
+                    uncheckedColor: Colors.white,
+                    size: 24,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Je suis un candidat',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.15),
+                  buildRoundCheckBox(
+                    isChecked: isCompany,
+                    onChanged: (selected) =>
+                        _handleCheckBoxChange(selected, 'company'),
+                    borderColor: Colors.grey,
+                    checkedColor: Colors.blue,
+                    uncheckedColor: Colors.white,
+                    size: 24,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Je suis une entreprise (HR)',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  buildElevatedButton(
+                      buttonText: 'S"inscrire', onPressed: () {}),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LogIn()),
+                      );
+                    },
+                    child: const Text(
+                      'Déja un compte? Se connecter',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.underline,
+                        height: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

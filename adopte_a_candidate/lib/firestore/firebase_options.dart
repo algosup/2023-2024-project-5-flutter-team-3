@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '88063366957',
     projectId: 'adopteacandidat3',
     authDomain: 'adopteacandidat3.firebaseapp.com',
+    databaseURL: 'https://adopteacandidat3-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'adopteacandidat3.appspot.com',
     measurementId: 'G-JP5EPJLN9T',
   );
@@ -55,6 +56,7 @@ class DefaultFirebaseOptions {
     appId: '1:88063366957:android:f69efbbe61e2d8dccae5a4',
     messagingSenderId: '88063366957',
     projectId: 'adopteacandidat3',
+    databaseURL: 'https://adopteacandidat3-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'adopteacandidat3.appspot.com',
   );
 
@@ -63,7 +65,9 @@ class DefaultFirebaseOptions {
     appId: '1:88063366957:ios:8945be2bbf686dd0cae5a4',
     messagingSenderId: '88063366957',
     projectId: 'adopteacandidat3',
+    databaseURL: 'https://adopteacandidat3-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'adopteacandidat3.appspot.com',
+    iosClientId: '88063366957-4mr3af4f3ae4f2f13pkc3le68t64llmi.apps.googleusercontent.com',
     iosBundleId: 'com.example.adopteACandidate',
   );
 
@@ -72,7 +76,9 @@ class DefaultFirebaseOptions {
     appId: '1:88063366957:ios:8945be2bbf686dd0cae5a4',
     messagingSenderId: '88063366957',
     projectId: 'adopteacandidat3',
+    databaseURL: 'https://adopteacandidat3-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'adopteacandidat3.appspot.com',
+    iosClientId: '88063366957-4mr3af4f3ae4f2f13pkc3le68t64llmi.apps.googleusercontent.com',
     iosBundleId: 'com.example.adopteACandidate',
   );
 
@@ -82,6 +88,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '88063366957',
     projectId: 'adopteacandidat3',
     authDomain: 'adopteacandidat3.firebaseapp.com',
+    databaseURL: 'https://adopteacandidat3-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'adopteacandidat3.appspot.com',
     measurementId: 'G-J8GXSZZDQ8',
   );

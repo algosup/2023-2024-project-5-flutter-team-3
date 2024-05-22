@@ -1,13 +1,21 @@
+// import 'package:adopte_a_candidate/pages/log_in.dart';
+import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:flutter/material.dart';
-import 'package:adopte_a_candidate/pages/logIn.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'firestore/firebase_options.dart';
 
-void main()  async {
+void main()  {
 
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-    );
-
-    runApp(const LogIn());
+    InitializeDataBase(
+        runApp(const Home())
+        );
 }
+
+void InitializeDataBase(void runApp) async {
+    await Firebase.initializeApp(
+       options: DefaultFirebaseOptions.currentPlatform,
+    );
+}
+
+
+
