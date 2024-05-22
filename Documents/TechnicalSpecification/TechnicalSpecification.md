@@ -557,15 +557,15 @@ The chosen colors for this application are the following:
 
 | Color                                                                                       | Color Name | Hex Code |
 | ------------------------------------------------------------------------------------------- | ---------- | -------- |
-| <img src="TechnicalSpecificationPicture/colors/white.png" width="30px" height="30px">       | White      | #FFFFFF  |
-| <img src="TechnicalSpecificationPicture/colors/light-grey.png" width="30px" height="30px">  | Light Grey | #F5F5F5  |
-| <img src="TechnicalSpecificationPicture/colors/black.png" width="30px" height="30px">       | Black      | #000000  |
-| <img src="TechnicalSpecificationPicture/colors/red.png" width="30px" height="30px">         | Red        | #C8553D  |
-| <img src="TechnicalSpecificationPicture/colors/flash-red.png" width="30px" height="30px">   | Flash Red  | #FF0000  |
-| <img src="TechnicalSpecificationPicture/colors/light-red.png" width="30px" height="30px">   | Light Red  | #FFBABA  |
-| <img src="TechnicalSpecificationPicture/colors/pink.png" width="30px" height="30px">        | Pink       | #FFD5C2  |
-| <img src="TechnicalSpecificationPicture/colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
-| <img src="TechnicalSpecificationPicture/colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
+| <img src="TechnicalSpecificationPicture/Colors/white.png" width="30px" height="30px">       | White      | #FFFFFF  |
+| <img src="TechnicalSpecificationPicture/Colors/light-grey.png" width="30px" height="30px">  | Light Grey | #F5F5F5  |
+| <img src="TechnicalSpecificationPicture/Colors/black.png" width="30px" height="30px">       | Black      | #000000  |
+| <img src="TechnicalSpecificationPicture/Colors/red.png" width="30px" height="30px">         | Red        | #C8553D  |
+| <img src="TechnicalSpecificationPicture/Colors/flash-red.png" width="30px" height="30px">   | Flash Red  | #FF0000  |
+| <img src="TechnicalSpecificationPicture/Colors/light-red.png" width="30px" height="30px">   | Light Red  | #FFBABA  |
+| <img src="TechnicalSpecificationPicture/Colors/pink.png" width="30px" height="30px">        | Pink       | #FFD5C2  |
+| <img src="TechnicalSpecificationPicture/Colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
+| <img src="TechnicalSpecificationPicture/Colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
 
 *To keep the document clear, the good usage of_ each color will be defined in the [graphic charter]().*
 
