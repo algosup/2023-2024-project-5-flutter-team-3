@@ -102,7 +102,6 @@
     - [4. Widgets](#4-widgets)
       - [A. Fields](#a-fields)
         - [➭ Text Field:](#-text-field)
-        - [➭ Messaging Field:](#-messaging-field)
         - [➭ Localization Field:](#-localization-field)
         - [➭ Tag Field:](#-tag-field)
         - [➭ Select Field:](#-select-field)
@@ -111,10 +110,9 @@
         - [➭ Icon Button:](#-icon-button)
         - [➭ Radio Button:](#-radio-button)
         - [➭ Big Button:](#-big-button)
-        - [➭ Navbar Button:](#-navbar-button)
+        - [➭ Navbar:](#-navbar)
       - [C. Lists](#c-lists)
         - [➭ Clickable List:](#-clickable-list)
-        - [➭ Editable List:](#-editable-list)
       - [D. Cards](#d-cards)
         - [➭ Swipe Card:](#-swipe-card)
         - [➭ Chat Card:](#-chat-card)
@@ -130,7 +128,11 @@
         - [➭ Chat List:](#-chat-list)
         - [➭ Conversation:](#-conversation-1)
       - [B. Navigation](#b-navigation)
-    - [5. Matching Algorithm](#5-matching-algorithm)
+    - [5. Authentication](#5-authentication)
+      - [A. Firebase Authentication](#a-firebase-authentication)
+      - [B. User Rights](#b-user-rights)
+    - [6. Translation](#6-translation)
+    - [7. Matching Algorithm](#7-matching-algorithm)
   - [IV. Further Considerations](#iv-further-considerations)
     - [1. Issues and Impact](#1-issues-and-impact)
     - [2. Considerations](#2-considerations)
@@ -553,17 +555,17 @@ The project is currently a proof of concept for a company, which is why we are u
 #### A. Colors
 The chosen colors for this application are the following:
 
-| Color                                                               | Color Name | Hex Code |
-| ------------------------------------------------------------------- | ---------- | -------- |
-| <span style="color: #FFFFFF; background-color: #FFFFFF;">tex</span> | White      | #FFFFFF  |
-| <span style="color: #F5F5F5; background-color: #F5F5F5;">tex</span> | Light Grey | #F5F5F5  |
-| <span style="color: #000000; background-color: #000000;">tex</span> | Black      | #000000  |
-| <span style="color: #C8553D; background-color: #C8553D;">tex</span> | Red        | #C8553D  |
-| <span style="color: #FF0000; background-color: #FF0000;">tex</span> | Flash Red  | #FF0000  |
-| <span style="color: #FFBABA; background-color: #FFBABA;">tex</span> | Light Red  | #FFBABA  |
-| <span style="color: #FFD5C2; background-color: #FFD5C2;">tex</span> | Pink       | #FFD5C2  |
-| <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange     | #F28F3B  |
-| <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green| #51C66A  |
+| Color                                                                                       | Color Name | Hex Code |
+| ------------------------------------------------------------------------------------------- | ---------- | -------- |
+| <img src="TechnicalSpecificationPicture/colors/white.png" width="30px" height="30px">       | White      | #FFFFFF  |
+| <img src="TechnicalSpecificationPicture/colors/light-grey.png" width="30px" height="30px">  | Light Grey | #F5F5F5  |
+| <img src="TechnicalSpecificationPicture/colors/black.png" width="30px" height="30px">       | Black      | #000000  |
+| <img src="TechnicalSpecificationPicture/colors/red.png" width="30px" height="30px">         | Red        | #C8553D  |
+| <img src="TechnicalSpecificationPicture/colors/flash-red.png" width="30px" height="30px">   | Flash Red  | #FF0000  |
+| <img src="TechnicalSpecificationPicture/colors/light-red.png" width="30px" height="30px">   | Light Red  | #FFBABA  |
+| <img src="TechnicalSpecificationPicture/colors/pink.png" width="30px" height="30px">        | Pink       | #FFD5C2  |
+| <img src="TechnicalSpecificationPicture/colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
+| <img src="TechnicalSpecificationPicture/colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
 
 *To keep the document clear, the good usage of_ each color will be defined in the [graphic charter]().*
 
@@ -597,18 +599,13 @@ A text field is a field where the user enters text. It is used to collect or sho
 | **Read-only/Editable**      | The text field is read-only or editable.                                                 | Yes      |
 | **Maximum Length**          | The text field restricts the number of characters entered to a maximum limit.            | Yes      |
 | **Minimum Length**          | The text field enforces a minimum number of characters that must be entered.             | No       |
-| **Placeholder Text**        | The text field displays placeholder text when it is empty, providing a hint to the user. | No       |
 | **Label**                   | The text field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The text field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                             | No       |
 
-##### ➭ <ins>Messaging Field:</ins>
-// Todo: Add description of messaging field
-
-
 ##### ➭ <ins>Localization Field:</ins>
 **Description:**</br>
-A localization field is a field where the user enters a localization. It is used to collect or show a localization.
+A localization field is a field where the user enters a localization. It also contains a button to automatically set the localization. It is used to collect or show localizations.
 
 **Example of Visual Representation:**</br>
 <img alt="Example of localization field" src="TechnicalSpecificationPicture/Widgets/localization-field.png" width="300px"></img>
@@ -619,10 +616,9 @@ A localization field is a field where the user enters a localization. It is used
 |-----------------------------|------------------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The localization field is set as mandatory for the user to fill out or optional.                 | Yes      |
 | **Read-only/Editable**      | The localization field is read-only (not editable) or editable.                                  | Yes      |
+| **Button**                  | The localization field contains a button to automatically set the localization.                  | No       |
 | **Label**                   | The localization field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The localization field includes helper text that provides additional guidance to the user.       | No       |
-| **Placeholder Text**        | The localization field displays placeholder text when it is empty, providing a hint to the user. | No       |
-| **Button**                  | The localization field contains a button to automatically set the localization.                  | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                                     | No       |
 
 ##### ➭ <ins>Tag Field:</ins>
@@ -636,6 +632,9 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 *Editable Tag Field:*</br>
 <img alt="Example of tag field" src="TechnicalSpecificationPicture/Widgets/tag-field-enabled.png" width="300px"></img>
 
+*Tag _Field when the user wants to add a new tag:*</br>
+<img alt="Example of tag field" src="TechnicalSpecificationPicture/Widgets/select-field-add.png" width="300px"></img>
+
 **Properties:**</br>
 
 | Property                    | Description                                                                             | Required |
@@ -648,7 +647,6 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 | **Remove Button**           | The tag field contains a "Remove" button to remove tags.                                | No       |
 | **Label**                   | The tag field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The tag field includes helper text that provides additional guidance to the user.       | No       |
-| **Placeholder Text**        | The tag field displays placeholder text when it is empty, providing a hint to the user. | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                            | No       |
 
 ##### ➭ <ins>Select Field:</ins>
@@ -659,8 +657,8 @@ A select field is a field where the user selects an option from a list of option
 *Select Field:*</br>
 <img alt="Example of select field" src="TechnicalSpecificationPicture/Widgets/select-field.png" width="300px"></img>
 
-*Select Field selection dropdown:*</br>
-// TODO: Add image of select field menu with selection dropdown opened
+*Select Field with selection dropdown:*</br>
+<img alt="Example of select field" src="TechnicalSpecificationPicture/Widgets/select-field-opened.png" width="300px"></img>
 
 **Properties:**</br>
 | Property                    | Description                                                                                      | Required |
@@ -673,7 +671,6 @@ A select field is a field where the user selects an option from a list of option
 | **Can Add**                 | The select field allows the user to add new options.                                             | No       |
 | **Label**                   | The select field is accompanied by a label that describes its purpose.                           | No       |
 | **Helper Text**             | The select field includes helper text that provides additional guidance to the user.             | No       |
-| **Placeholder Text**        | The select field displays placeholder text when it is empty, providing a hint to the user.       | No       |
 
 #### B. Buttons
 
@@ -737,7 +734,7 @@ A big button is sized as a text field or bigger, containing text and/or an icon.
 
 **Properties:**</br>
 | Property          | Description                                         | Required |
-|-------------------|------------------------------------------------=--- | -------- |
+|-------------------|---------------------------------------------------- | -------- |
 | **Text**          | The text displayed on the button.                   | Yes      |
 | **Icon**          | The icon is displayed on the button.                | No       |
 | **Text color**    | The color of the text in the button.                | Yes      |
@@ -747,25 +744,80 @@ A big button is sized as a text field or bigger, containing text and/or an icon.
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
 
-##### ➭ <ins>Navbar Button:</ins>
-// TODO: Add description and visual representation of navbar button.
+##### ➭ <ins>Navbar:</ins>
+**Description:**</br>
+A navbar is a bar that contains icon buttons. It is used to navigate between pages. The selected page is highlighted by a halo effect.
+
+**Example Visual of Representation:**</br>
+<img alt="Example of navbar" src="TechnicalSpecificationPicture/Widgets/navbar-buttons.png" width="300px"></img>
+
+**Properties:**</br>
+| Property          | Description                                             | Required |
+|-------------------|-------------------------------------------------------- | -------- |
+| **Pages**         | The list of pages the user can select from.             | Yes      |
+| **Selected**      | The page selected by default.                           | Yes      |
+| **On Change**     | The action is triggered when the selected page changes. | Yes      |
+| **Disabled**      | Disables the navbar to prevent user interaction.        | No       |
 
 #### C. Lists
 
 ##### ➭ <ins>Clickable List:</ins>
-// TODO: Add description and visual representation of clickable list.
+**Description:**</br>
+A clickable list is a list where each item can be clicked. It is used to display a list of items that can be selected. The list widget also allows the user to remove items and must be scrollable to show all the items in a short space.
 
+**Example Visual of Representation:**</br>
+*Clickable List:*</br>
+<img alt="Example of clickable list" src="TechnicalSpecificationPicture/Widgets/clickable-list.png" width="300px"></img>
 
-##### ➭ <ins>Editable List:</ins>
-// TODO: Add description and visual representation of editable list.
+*Clickable List editing mode:*</br>
+<img alt="Example of clickable list" src="TechnicalSpecificationPicture/Widgets/editable-list.png" width="300px"></img>
+
+**Properties:**</br>
+| Property          | Description                                             | Required |
+|-------------------|-------------------------------------------------------- | -------- |
+| **Items**         | The list of items the user can select from.             | Yes      |
+| **Selected**      | The item selected by default.                           | Yes      |
+| **On Click**      | The action is triggered when an item is clicked.        | Yes      |
+| **On Remove**     | The action is triggered when an item is removed.        | Yes      |
+| **Editable**      | The list is in editing mode.                            | No       |
+| **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
 #### D. Cards
 
 ##### ➭ <ins>Swipe Card:</ins>
-// TODO: Add description and visual representation of swipe card.
+**Description:**</br>
+A swipe card is a card that contains information and can be swiped left or right. It is used to display information that can be accepted or rejected.
+
+**Example Visual of Representation:**</br>
+<img alt="Example of swipe card" src="TechnicalSpecificationPicture/Widgets/swipe-card.png" width="300px"></img>
+
+**Properties:**</br>
+| Property          | Description                                             | Required |
+|-------------------|-------------------------------------------------------- | -------- |
+| **Title**         | The title displayed on the card.                        | Yes      |
+| **Description**   | The description displayed on the card.                  | Yes      |
+| **Main skills**   | The main skills displayed on the card.                  | Yes      |
+| **Side skills**   | The side skills displayed on the card.                  | Yes      |
+| **Localization**  | The localization displayed on the card.                 | Yes      |
+| **On Accept**     | The action is triggered when the card is accepted.      | Yes      |
+| **On Reject**     | The action is triggered when the card is rejected.      | Yes      |
+| **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
 ##### ➭ <ins>Chat Card:</ins>
-// TODO: Add description and visual representation of chat card.
+**Description:**</br>
+A chat card is a card that contains a conversation. It is used to display a conversation between two users.
+
+**Example Visual of Representation:**</br>
+<img alt="Example of chat card" src="TechnicalSpecificationPicture/Widgets/chat-card.png" width="300px"></img>
+
+**Properties:**</br>
+| Property          | Description                                             | Required |
+|-------------------|-------------------------------------------------------- | -------- |
+| **User**          | The user displayed on the card.                         | Yes      |
+| **Messages**      | The messages displayed on the card.                     | Yes      |
+| **On Click**      | The action is triggered when the card is clicked.       | Yes      |
+| **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
+
 
 ### 5. Pages
 #### A. Description
@@ -992,7 +1044,17 @@ The conversation page contains the following elements:
 
 #### B. Navigation
 
-### 5. Matching Algorithm
+### 5. Authentication
+#### A. Firebase Authentication
+
+#### B. User Rights
+
+
+
+
+### 6. Translation
+
+### 7. Matching Algorithm
 
 ## IV. Further Considerations
 
