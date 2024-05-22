@@ -47,18 +47,18 @@ The primary purpose of this Functional Specification Document is to serve as a c
 ### 1. Personas
  
 #### First persona : 
-<img src="..\FunctionalSpecification\images\2.png" alt="Template ISSUE"/>
+<img src="..\FunctionalSpecification\images\2.png" alt="Persona 1"/>
 
 #### Second persona : 
-<img src="..\FunctionalSpecification\images\3.png" alt="Template ISSUE"/>
+<img src="..\FunctionalSpecification\images\3.png" alt="Persona 2"/>
 
 #### Third persona : 
-<img src="..\FunctionalSpecification\images\1.png" alt="Template ISSUE"/>
+<img src="..\FunctionalSpecification\images\1.png" alt="Persona 3"/>
 
 
 ### 2. Use cases
 
-#### Use Case 1: Candidate Creates Profile
+#### Use Case 1 : Candidate Creates Profile
 
 Title: Candidate Creates Profile
 
@@ -91,7 +91,7 @@ Extensions:
 - If required fields are missing, the system prompts the candidate to complete them before submission.
 - If documents are in an unsupported format, the system alerts the candidate to upload in the correct format.
 
-#### Use Case 2: Company Creates Profile
+#### Use Case 2 : Company Creates Profile
 
 Title: Company Creates Profile
 
@@ -124,7 +124,7 @@ Extensions:
 - If required fields are missing, the system prompts the recruiter to complete them before submission.
 - If documents are in an unsupported format, the system alerts the recruiter to upload in the correct format.
 
-#### Use Case 3: Candidate Searches for Jobs
+#### Use Case 3 : Candidate Searches for Jobs
 
 Title: Candidate Searches for Jobs
 
@@ -156,7 +156,7 @@ Extensions:
 - If no jobs meet the criteria, the candidate can broaden the search parameters or set up alerts for new matches.
 - If the candidate encounters issues during application, the system provides support options.
 
-#### Use Case 4: Company Searches for Candidates
+#### Use Case 4 : Company Searches for Candidates
 
 Title: Company Searches for Candidates
 
@@ -188,7 +188,7 @@ Extensions:
 - If no candidates meet the criteria, the recruiter can broaden the search parameters or set up alerts for new matches.
 - If a candidate is not responsive, the system can send reminders or suggest alternative candidates.
 
-#### Use Case 5: Candidate and Company Match
+#### Use Case 5 : Candidate and Company Match
 
 Title: Candidate and Company Match
 
@@ -221,7 +221,7 @@ Extensions:
 - If either party declines the match, the system records feedback and uses it to improve future matches.
 - If the interview leads to a job offer, the system can track the hiring process and provide status updates.
 
-#### Use Case 6: Candidate Receives Job Offer
+#### Use Case 6 : Candidate Receives Job Offer
 
 Title: Candidate Receives Job Offer
 
@@ -257,13 +257,63 @@ Extensions:
 ## III. Functionalities 
 
 ### 1. Design
-Detail the design requirements including the user interface for different platforms (mobile, tablet, desktop). Ensure accessibility and usability are emphasized.
 
+The design of the "Adopte Un Candidat" application is crucial to ensuring a seamless user experience across various platforms, including mobile, tablet, and desktop. This section details the design requirements, emphasizing accessibility and usability to cater to a diverse user base.
+        
 #### A. logo
-Include specifications for logo design that reflects the app's focus on fairness and opportunity.
+The logo of the application has been provided by WE ARE EVOLUTION :
+
+<img src="..\FunctionalSpecification\images\Logo.png" alt="Logo"/>
+
+- The typography of the logo is simple, the most significant things is the inclusion of the number "1" emphasizes the uniqueness and premier status of the platform. 
+  
+- The simplicity of the black and white design ensures that the logo can be easily adapted to different backgrounds and media without losing its impact.
+  
+- It can be effectively used in various formats, including digital interfaces, print materials, and promotional items, ensuring consistent branding.
+
+The logo is very important beacuse it will appear a lot in the application, at the top of all the pages :
+
+<img src="..\FunctionalSpecification\images\app.png" alt="app logo"/>
+
 
 #### B. Application 
-Describe the layout, navigation, color schemes, and themes that enhance the user experience while ensuring it supports anonymity and easy interaction.
+
+
+##### Overview            
+
+The application design must focus on user-friendliness, intuitive navigation, and maintaining anonymity while fostering interaction between candidates and companies. Here is the mockup of what we plan to do :
+
+<img src="..\FunctionalSpecification\images\Overview.png" alt="app overview"/>
+
+
+##### Colors
+
+The chosen colors for the application are the following:
+
+| Color                                                               | Color Name | Hex Code |
+| ------------------------------------------------------------------- | ---------- | -------- |
+| <span style="color: #FFFFFF; background-color: #FFFFFF;">tex</span> | White      | #FFFFFF  |
+| <span style="color: #F5F5F5; background-color: #F5F5F5;">tex</span> | Light Grey | #F5F5F5  |
+| <span style="color: #000000; background-color: #000000;">tex</span> | Black      | #000000  |
+| <span style="color: #C8553D; background-color: #C8553D;">tex</span> | Red        | #C8553D  |
+| <span style="color: #FF0000; background-color: #FF0000;">tex</span> | Flash Red  | #FF0000  |
+| <span style="color: #FFBABA; background-color: #FFBABA;">tex</span> | Light Red  | #FFBABA  |
+| <span style="color: #FFD5C2; background-color: #FFD5C2;">tex</span> | Pink       | #FFD5C2  |
+| <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange     | #F28F3B  |
+| <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green| #51C66A  |
+
+##### Typography
+
+For the various elements of the application, the chosen typographies are the following:
+
+| Font name    | Name     | Weight    | Size | Google font link |
+| ------------ | -------- | --------- | ---- | ---------------- |
+| Josefin sans | JS-R-20  | Regular   | 20 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-R-16  | Regular   | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-SB-16 | Semi Bold | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+
 
 ### 2. Constraints 
 Note any technical or legal constraints, such as data protection laws (GDPR, etc.), technology stack limitations, or integration requirements with other systems. + Flutter...
