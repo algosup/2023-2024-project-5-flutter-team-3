@@ -7,6 +7,7 @@ import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
@@ -14,7 +15,6 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -127,11 +127,7 @@ class LogIn extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AskIfCompany()),
-                          );
+                          context.goNamed('home');
                         },
                         child: const SizedBox(
                           child: Text(
