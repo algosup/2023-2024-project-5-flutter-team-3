@@ -1,18 +1,19 @@
-// import 'package:adopte_a_candidate/services/user_Services.dart';
-// import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
+import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';
+import 'package:get/get.dart';
+
 
 class Home extends StatelessWidget {
-  const Home({Key? key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: AskIfCompany(),
     );
@@ -20,15 +21,18 @@ class Home extends StatelessWidget {
 }
 
 class AskIfCompany extends StatefulWidget {
-  const AskIfCompany({Key? key});
+  const AskIfCompany({Key? key}) : super(key: key);
 
   @override
   State<AskIfCompany> createState() => _AskIfCompanyState();
 }
 
 class _AskIfCompanyState extends State<AskIfCompany> {
+  final _formKey = GlobalKey<FormState>();
+
   bool isJobSeeker = false;
   bool isCompany = false;
+
 
   void _handleCheckBoxChange(bool? selected, String type) {
     setState(() {
@@ -46,9 +50,12 @@ class _AskIfCompanyState extends State<AskIfCompany> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
-    // Start by asking the dimension of the native device for scaling
+    final controller = Get.put(SignUpController());
+
+
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
 
@@ -62,9 +69,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   buildLogo(screenWidth, screenHeight),
                 ],
               ),
-              const SizedBox(
-                height: 25,
-              ),
+              const SizedBox(height: 25),
               Row(
                 children: [
                   SizedBox(width: screenWidth * 0.15),
@@ -80,8 +85,8 @@ class _AskIfCompanyState extends State<AskIfCompany> {
               const SizedBox(height: 5),
               SizedBox(
                 child: buildTextField(
+                  controller: controller.name,
                   context: context,
-                  controller: nameController,
                   hinttext: 'Entrez votre nom et prénom',
                 ),
               ),
@@ -102,7 +107,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
               SizedBox(
                 child: buildTextField(
                   context: context,
-                  controller: mailController,
+                  controller: controller.email,
                   hinttext: 'Entrez votre mail',
                 ),
               ),
@@ -123,7 +128,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
               SizedBox(
                 child: buildTextFieldPassword(
                   context: context,
-                  controller: passwordController,
+                  controller: controller.password,
                   hinttext: 'Entrez votre mot de passe',
                 ),
               ),
@@ -143,17 +148,15 @@ class _AskIfCompanyState extends State<AskIfCompany> {
               const SizedBox(height: 5),
               SizedBox(
                 child: buildTextFieldPassword(
+                  controller: controller.confirmPassword,
                   context: context,
-                  controller: passwordConfirmController,
                   hinttext: 'Confirmez votre mot de passe',
                 ),
               ),
               const SizedBox(height: 15),
               Row(
                 children: [
-                  SizedBox(
-                    width: screenWidth * 0.15,
-                  ),
+                  SizedBox(width: screenWidth * 0.15),
                   buildRoundCheckBox(
                     isChecked: isJobSeeker,
                     onChanged: (selected) =>
@@ -197,7 +200,17 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   buildElevatedButton(
-                      buttonText: 'S"inscrire', onPressed: () {}),
+                    buttonText: 'S"inscrire',
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        SignUpController.instance.registerUser(
+                          controller.email.text.trim(),
+                          controller.password.text.trim(),
+                          controller.name.text.trim(),
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
               Row(

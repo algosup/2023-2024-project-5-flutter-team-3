@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 // Use camel case
 
-final passwordController = TextEditingController();
-final passwordConfirmController = TextEditingController();
 
 // This text field is in the log in page
 // TODO Add the method to gather user input and keep it in memory
-SizedBox buildTextFieldPassword({required BuildContext context,required TextEditingController controller, required String hinttext}) {
+SizedBox buildTextFieldPassword({required BuildContext context, required String hinttext, required TextEditingController controller}) {
   var screenWidth = MediaQuery.of(context).size.width;
   return SizedBox(
     width: screenWidth * 0.8,
@@ -30,16 +31,16 @@ SizedBox buildTextFieldPassword({required BuildContext context,required TextEdit
   );
 }
 
-final mailController = TextEditingController();
-final nameController = TextEditingController();
 
 // This text field is build to gather basic user data when subscribing
 // TODO Add the method to gather user input and keep it in memory
 SizedBox buildTextField({required BuildContext context,required TextEditingController controller, required String hinttext}) {
   var screenWidth = MediaQuery.of(context).size.width;
+  FocusNode _focusNode = FocusNode();
   return SizedBox(
     width: screenWidth * 0.8,
     child: TextField(
+      focusNode: _focusNode,
       controller: controller,
       decoration: InputDecoration(
         filled: true,
@@ -56,3 +57,11 @@ SizedBox buildTextField({required BuildContext context,required TextEditingContr
     ),
   );
 }
+
+
+// Localization field
+
+// Tag field (soft skills)
+
+// select field drag down menu basically
+

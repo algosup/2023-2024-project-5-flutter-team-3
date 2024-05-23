@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -53,7 +58,7 @@ class LogIn extends StatelessWidget {
                         Expanded(
                           child: buildTextField(
                             hinttext: 'Entrez votre mail',
-                            controller: mailController,
+                            controller: controller.email,
                             context: context,
                           ),
                         ),
@@ -81,7 +86,7 @@ class LogIn extends StatelessWidget {
                         Expanded(
                           child: buildTextFieldPassword(
                               context: context,
-                              controller: passwordController,
+                              controller: controller.password,
                               hinttext: 'Entrez votre mot de passe'),
                         ),
                       ],

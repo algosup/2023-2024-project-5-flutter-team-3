@@ -2,7 +2,7 @@
 class UserModel {
 
   final String? ID;
-  final String LANGUAGE;
+  final String? LANGUAGE;
   final String MAIL;
   final String NAME;
   final String PASSWORD;
@@ -12,7 +12,7 @@ class UserModel {
 
 
   UserModel({
-  this.ID, required this.LANGUAGE, required this.MAIL, required this.NAME,
+  this.ID, this.LANGUAGE, required this.MAIL, required this.NAME,
   required this.PASSWORD, required this.isCompany,});
 
   toJson() {
