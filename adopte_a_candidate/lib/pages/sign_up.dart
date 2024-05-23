@@ -64,10 +64,13 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: <Widget>[
-                  buildLogo(screenWidth, screenHeight),
-                ],
+              Form(
+                key: _formKey,
+                child: Row(
+                  children: <Widget>[
+                    buildLogo(screenWidth, screenHeight),
+                  ],
+                ),
               ),
               const SizedBox(height: 25),
               Row(
@@ -202,12 +205,14 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   buildElevatedButton(
                     buttonText: 'S"inscrire',
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+                      if (_formKey.currentState != null && _formKey.currentState!.validate()) {
                         SignUpController.instance.registerUser(
                           controller.email.text.trim(),
                           controller.password.text.trim(),
                           controller.name.text.trim(),
+                          isCompany,
                         );
+                        debugPrint('${isCompany}');
                       }
                     },
                   ),

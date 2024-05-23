@@ -3,6 +3,7 @@ import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/services/authentification/exceptions/signup_email_password_failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:get/get.dart';
 
@@ -50,5 +51,34 @@ class AuthentificationRepository extends GetxController {
 
   Future<void> logout() async => await _auth.signOut();
 
+}
+
+
+
+class FirebaseAuthService {
+  static Future<void> registerUser(String email, String password, String name, bool isCompany) async {
+    try {
+      // Create user with email and password
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Get the UID of the created user
+      String uid = userCredential.user?.uid ?? '';
+
+      // Save additional user information to Firestore
+      await FirebaseFirestore.instance.collection('users').doc(uid).set({
+        'name': name,
+        'email': email,
+        'password': password,
+        'company': isCompany,
+      });
+    } catch (e) {
+      // Handle and log the error
+      print('Error registering user: $e');
+      throw e; // Re-throw the error to be handled by the caller
+    }
+  }
 }
 
