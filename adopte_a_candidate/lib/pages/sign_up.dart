@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: AskIfCompany(),
     );
@@ -205,14 +205,14 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   buildElevatedButton(
                     buttonText: 'S"inscrire',
                     onPressed: () {
-                      if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                      if (_formKey.currentState != null &&
+                          _formKey.currentState!.validate()) {
                         SignUpController.instance.registerUser(
                           controller.email.text.trim(),
                           controller.password.text.trim(),
                           controller.name.text.trim(),
                           isCompany,
                         );
-                        debugPrint('${isCompany}');
                       }
                     },
                   ),
@@ -223,7 +223,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context.pushNamed('log_in');
+                      context.goNamed('log_in');
                     },
                     child: const Text(
                       'Déja un compte? Se connecter',
