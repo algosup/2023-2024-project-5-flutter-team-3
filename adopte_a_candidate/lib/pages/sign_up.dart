@@ -1,19 +1,22 @@
-import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
-import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
-import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:adopte_a_candidate/widgets/logo/logo.dart';
-import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';
 import 'package:get/get.dart';
 
+// Widgets package
+import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
+import 'package:adopte_a_candidate/widgets/logo/logo.dart';
+import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';
+
+// Routes package
+import 'package:go_router/go_router.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AskIfCompany(),
     );
@@ -21,7 +24,7 @@ class Home extends StatelessWidget {
 }
 
 class AskIfCompany extends StatefulWidget {
-  const AskIfCompany({Key? key}) : super(key: key);
+  const AskIfCompany({super.key});
 
   @override
   State<AskIfCompany> createState() => _AskIfCompanyState();
@@ -32,7 +35,6 @@ class _AskIfCompanyState extends State<AskIfCompany> {
 
   bool isJobSeeker = false;
   bool isCompany = false;
-
 
   void _handleCheckBoxChange(bool? selected, String type) {
     setState(() {
@@ -50,11 +52,9 @@ class _AskIfCompanyState extends State<AskIfCompany> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-
 
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
@@ -218,10 +218,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const LogIn()),
-                      );
+                      context.pushNamed('log_in');
                     },
                     child: const Text(
                       'Déja un compte? Se connecter',
