@@ -2,6 +2,7 @@ import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';
@@ -64,10 +65,13 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: <Widget>[
-                  buildLogo(screenWidth, screenHeight),
-                ],
+              Form(
+                key: _formKey,
+                child: Row(
+                  children: <Widget>[
+                    buildLogo(screenWidth, screenHeight),
+                  ],
+                ),
               ),
               const SizedBox(height: 25),
               Row(
@@ -202,12 +206,14 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   buildElevatedButton(
                     buttonText: 'S"inscrire',
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+                      if (_formKey.currentState != null && _formKey.currentState!.validate()) {
                         SignUpController.instance.registerUser(
                           controller.email.text.trim(),
                           controller.password.text.trim(),
                           controller.name.text.trim(),
+                          isCompany,
                         );
+                        debugPrint('${isCompany}');
                       }
                     },
                   ),
