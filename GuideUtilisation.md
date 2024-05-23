@@ -54,20 +54,20 @@ Pour savoir quelle version d'Android vous avez, suivez les étapes suivantes :
 
 1. Ouvrez l'application `Paramètres` de votre appareil.
 
-   <img src="./UMImages/FR/AndroidSettings.jpg" alt="Paramètres" width="55%" align="center">
+   <img src="./UMImages/FR/AndroidSettings.jpg" alt="Paramètres" width="50%" align="center">
 
 <div class="page"/>
 
 2. Faites défiler l'écran jusqu'à trouver l'option `À propos de l'appareil`.
 
-   <img src="./UMImages/FR/AndroidAboutDevice.jpg" alt="À propos de l'appareil" width="55%" align="center">
+   <img src="./UMImages/FR/AndroidAboutDevice.jpg" alt="À propos de l'appareil" width="50%" align="center">
 
 <div class="page"/>
 
 3. Faites défiler l'écran jusqu'à trouver l'option `Version d'Android`.
 4. La version de votre appareil s'affichera dans le champ `Version d'Android`.
 
-   <img src="./UMImages/FR/AndroidVersion.jpg" alt="Version d'Android" width="55%" align="center">
+   <img src="./UMImages/FR/AndroidVersion.jpg" alt="Version d'Android" width="50%" align="center">
 
 <div class="page"/>
 
@@ -77,25 +77,27 @@ Pour savoir quelle version d'iOS vous avez, suivez les étapes suivantes :
 
 1. Ouvrez l'application `Réglages` de votre appareil.
 
-   <img src="./UMImages/FR/iOSSettings.png" alt="Réglages" width="55%" align="center">
+   <img src="./UMImages/FR/iOSSettings.png" alt="Réglages" width="50%" align="center">
 
 <div class="page"/>
 
 2. Faites défiler l'écran jusqu'à trouver l'option `Général`.
 
-   <img src="./UMImages/FR/iOSGeneral.png" alt="Général" width="55%" align="center">
+   <img src="./UMImages/FR/iOSGeneral.png" alt="Général" width="50%" align="center">
 
 <div class="page"/>
 
 3. Faites défiler l'écran jusqu'à trouver l'option `Informations`.
 
-   <img src="./UMImages/FR/iOSAbout.png" alt="Informations" width="55%" align="center">
+   <img src="./UMImages/FR/iOSAbout.png" alt="Informations" width="50%" align="center">
 
 <div class="page"/>
 
 4. La version de votre appareil s'affichera dans le champ `Version d'iOS`.
 
-   <img src="./UMImages/FR/iOSVersion.png" alt="Version" width="55%" align="center">
+   <img src="./UMImages/FR/iOSVersion.png" alt="Version" width="50%" align="center">
+
+<div class="page"/>
 
 ## Installation de l'application
 
