@@ -145,11 +145,7 @@
       - [B. Location-based Adjustments](#b-location-based-adjustments)
       - [C. Matching and Presentation](#c-matching-and-presentation)
       - [D. Re-Matching](#d-re-matching)
-  - [IV. Further Considerations](#iv-further-considerations)
-    - [1. Issues and Impact](#1-issues-and-impact)
-    - [2. Considerations](#2-considerations)
-  - [V. Work](#v-work)
-    - [1. Work](#1-work)
+    - [8. Chat System](#8-chat-system)
 </details>
 
 ## I. Introduction
@@ -165,7 +161,9 @@
 | Widget           |            |        |
 | Page             |            |        |
 | Matching         |            |        |
-| Chat             |            |        |
+| Main Skills      |            |        |
+| Side Skills      |            |        |
+| We Are Evolution |            |        |
 
 ### 2. Document Purpose
 
@@ -1336,12 +1334,5 @@ The algorithm then matches the user with the job offer or job seeker based on th
 #### D. Re-Matching
 The matching algorithm also enables users to re-match with job offers or job seekers based on updated preferences. Users can adjust their criteria, and the algorithm will generate new matches accordingly.
 
-## IV. Further Considerations
-
-### 1. Issues and Impact
-
-### 2. Considerations
-
-## V. Work
-
-### 1. Work
+### 8. Chat System
+// TODO: Add chat system
