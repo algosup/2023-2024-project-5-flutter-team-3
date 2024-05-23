@@ -11,6 +11,7 @@
     - [Éligibilité](#éligibilité)
       - [Vérifier son éligibilité](#vérifier-son-éligibilité)
         - [Savoir sa version d'Android](#savoir-sa-version-dandroid)
+        - [Savoir sa version d'iOS](#savoir-sa-version-dios)
   - [Installation de l'application](#installation-de-lapplication)
   - [Premiers pas](#premiers-pas)
     - [Création de votre compte](#création-de-votre-compte)
@@ -69,6 +70,32 @@ Pour savoir quelle version d'Android vous avez, suivez les étapes suivantes :
    <img src="./UMImages/FR/AndroidVersion.jpg" alt="Version d'Android" width="55%" align="center">
 
 <div class="page"/>
+
+##### Savoir sa version d'iOS
+
+Pour savoir quelle version d'iOS vous avez, suivez les étapes suivantes :
+
+1. Ouvrez l'application `Réglages` de votre appareil.
+
+   <img src="./UMImages/FR/iOSSettings.png" alt="Réglages" width="55%" align="center">
+
+<div class="page"/>
+
+2. Faites défiler l'écran jusqu'à trouver l'option `Général`.
+
+   <img src="./UMImages/FR/iOSGeneral.png" alt="Général" width="55%" align="center">
+
+<div class="page"/>
+
+3. Faites défiler l'écran jusqu'à trouver l'option `Informations`.
+
+   <img src="./UMImages/FR/iOSAbout.png" alt="Informations" width="55%" align="center">
+
+<div class="page"/>
+
+4. La version de votre appareil s'affichera dans le champ `Version d'iOS`.
+
+   <img src="./UMImages/FR/iOSVersion.png" alt="Version" width="55%" align="center">
 
 ## Installation de l'application
 
