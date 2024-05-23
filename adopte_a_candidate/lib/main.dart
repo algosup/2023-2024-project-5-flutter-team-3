@@ -30,12 +30,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-/*void InitializeDataBase(void runApp) async {
-    await Firebase.initializeApp(
-       options: DefaultFirebaseOptions.currentPlatform,
-    );
+void InitializeDataBase(void runApp) async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
-*/
-
-
