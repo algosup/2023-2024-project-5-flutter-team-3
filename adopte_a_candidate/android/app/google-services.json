@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "88063366957",
+    "firebase_url": "https://adopteacandidat3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "adopteacandidat3",
+    "storage_bucket": "adopteacandidat3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88063366957:android:f69efbbe61e2d8dccae5a4",
+        "android_client_info": {
+          "package_name": "com.example.adopte_a_candidate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88063366957-hp3tfa5hshr5dqfpv31fqcjhpk4ofpj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHwYCOgi_dReGCSn2OA1_Mj9L1Xnxt27o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88063366957-hp3tfa5hshr5dqfpv31fqcjhpk4ofpj2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "88063366957-4mr3af4f3ae4f2f13pkc3le68t64llmi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.adopteACandidate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
