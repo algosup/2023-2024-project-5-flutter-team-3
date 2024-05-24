@@ -1,5 +1,40 @@
 # Functional Specification
 
+<details>
+<summary>Table of Content</summary>
+
+- [Functional Specification](#functional-specification)
+  - [I. Introduction](#i-introduction)
+    - [1. Stakeholders](#1-stakeholders)
+      - [A. Project team](#a-project-team)
+      - [B. Stakeholders](#b-stakeholders)
+    - [2. Overview](#2-overview)
+    - [3. Purpose](#3-purpose)
+    - [4. Milestones](#4-milestones)
+  - [II. Personas and use cases](#ii-personas-and-use-cases)
+    - [1. Personas](#1-personas)
+      - [First persona :](#first-persona-)
+      - [Second persona :](#second-persona-)
+      - [Third persona :](#third-persona-)
+    - [2. Use cases](#2-use-cases)
+      - [Use Case 1 : Candidate Creates Profile](#use-case-1--candidate-creates-profile)
+      - [Use Case 2 : Company Creates Profile](#use-case-2--company-creates-profile)
+      - [Use Case 3 : Candidate Searches for Jobs](#use-case-3--candidate-searches-for-jobs)
+      - [Use Case 4 : Company Searches for Candidates](#use-case-4--company-searches-for-candidates)
+      - [Use Case 5 : Candidate and Company Match](#use-case-5--candidate-and-company-match)
+      - [Use Case 6 : Candidate Receives Job Offer](#use-case-6--candidate-receives-job-offer)
+  - [III. Functionalities](#iii-functionalities)
+    - [1. Design](#1-design)
+      - [A. logo](#a-logo)
+      - [B. Application](#b-application)
+    - [2. Constraints](#2-constraints)
+  - [IV. Application's features](#iv-applications-features)
+  - [V. Non-Functional Requirements](#v-non-functional-requirements)
+  - [VI. Assumptions](#vi-assumptions)
+  - [VII. Conclusion](#vii-conclusion)
+  - [IX. Glossary](#ix-glossary)
+</details>
+
 ## I. Introduction
 
 ### 1. Stakeholders
@@ -451,15 +486,15 @@ In developing the "Adopte Un Candidat" application, several technical and legal 
 
 ## VI. Assumptions
 
-| Assumption                     | Details                                                                                                                                                                                             |
-|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. User Accessibility          | **Assumption:** Users will have access to stable internet connections. <br> **Justification:** The application is designed to be web-based and relies on internet connectivity for functionality such as profile creation, job searching, and messaging. |
-| 2. User Technology Proficiency | **Assumption:** Users will have a basic level of digital literacy. <br> **Justification:** The application interfaces are designed to be user-friendly and intuitive; however, users will need basic skills such as navigating a website, filling out forms, and using a messaging system.  |
-| 3. Device Availability         | **Assumption:** Users will have access to compatible devices such as smartphones, tablets, or computers. <br> **Justification:** The application is designed to be responsive and accessible across multiple device types and operating systems, ensuring broad usability.  |
-| 4. Market Demand               | **Assumption:** There is a significant demand for fair and anonymized recruitment platforms. <br> **Justification:** Trends in recruitment and job search show an increasing need for platforms that promote equality and minimize bias.  |
-| 5. Data Integrity and Privacy   | **Assumption:** Users will provide accurate and truthful information in their profiles and job postings. <br> **Justification:** The effectiveness of the matching algorithm and the overall success of the platform depend on the accuracy of the data provided by users.  |
-| 6. Legal and Regulatory Compliance | **Assumption:** The application will comply with all relevant data protection and employment regulations. <br> **Justification:** Compliance with laws such as GDPR and CCPA is essential to avoid legal repercussions and ensure user trust.  |
-| 7. User Engagement             | **Assumption:** Users will actively engage with the platform by creating profiles, searching for jobs, and responding to messages. <br> **Justification:** The platform’s success relies on active participation from both job seekers and employers to create a dynamic and effective recruitment environment.  |
+| Assumption                         | Details                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. User Accessibility              | **Assumption:** Users will have access to stable internet connections. <br> **Justification:** The application is designed to be web-based and relies on internet connectivity for functionality such as profile creation, job searching, and messaging.                                                        |
+| 2. User Technology Proficiency     | **Assumption:** Users will have a basic level of digital literacy. <br> **Justification:** The application interfaces are designed to be user-friendly and intuitive; however, users will need basic skills such as navigating a website, filling out forms, and using a messaging system.                      |
+| 3. Device Availability             | **Assumption:** Users will have access to compatible devices such as smartphones, tablets, or computers. <br> **Justification:** The application is designed to be responsive and accessible across multiple device types and operating systems, ensuring broad usability.                                      |
+| 4. Market Demand                   | **Assumption:** There is a significant demand for fair and anonymized recruitment platforms. <br> **Justification:** Trends in recruitment and job search show an increasing need for platforms that promote equality and minimize bias.                                                                        |
+| 5. Data Integrity and Privacy      | **Assumption:** Users will provide accurate and truthful information in their profiles and job postings. <br> **Justification:** The effectiveness of the matching algorithm and the overall success of the platform depend on the accuracy of the data provided by users.                                      |
+| 6. Legal and Regulatory Compliance | **Assumption:** The application will comply with all relevant data protection and employment regulations. <br> **Justification:** Compliance with laws such as GDPR and CCPA is essential to avoid legal repercussions and ensure user trust.                                                                   |
+| 7. User Engagement                 | **Assumption:** Users will actively engage with the platform by creating profiles, searching for jobs, and responding to messages. <br> **Justification:** The platform’s success relies on active participation from both job seekers and employers to create a dynamic and effective recruitment environment. |
 
 
 
@@ -469,3 +504,16 @@ In developing the "Adopte Un Candidat" application, several technical and legal 
 
 
 ## IX. Glossary
+
+| Term                 | Definition                                                                                                                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Stakeholders         | Individuals or groups with an interest in the outcome of the project, including the project team, clients, and developers.                                                                 |
+| Personas             | Fictional characters created to represent different user types that might use the application in a similar way.                                                                            |
+| Use Case             | A description of how a user will interact with the system to achieve a specific goal.                                                                                                      |
+| Anonymized Profiles  | User profiles that hide personal details to prevent bias, showing only relevant skills, experiences, and preferences.                                                                      |
+| Soft Skills          | Non-technical skills that relate to how one works, such as communication, teamwork, and problem-solving.                                                                                   |
+| Matching Algorithm   | A system that matches candidates with job offers based on overlapping skills and preferences.                                                                                              |
+| GDPR                 | General Data Protection Regulation, a legal framework that sets guidelines for the collection and processing of personal information from individuals who live in the European Union (EU). |
+| Encryption           | The process of converting information or data into a code, especially to prevent unauthorized access.                                                                                      |
+| Data Protection Laws | Regulations that govern the collection, storage, and use of personal data to protect individuals' privacy.                                                                                 |
+| Compliance           | The act of adhering to, and demonstrating adherence to, external laws and regulations, as well as corporate policies and procedures.                                                       |
