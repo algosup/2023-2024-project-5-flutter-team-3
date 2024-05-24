@@ -1,16 +1,11 @@
-
-<p style="text-align: center; font-size: 23px; font-weight: bold"> Flutter App Test Plan </p>
-<p style="text-align: center;"> for </p>
-<p style="text-align: center; font-size: 20px"> Adopt a Candidate</p>
-<p style="text-align: center;">Prototype</p>
-
-<hr>
+# Test Plan - Adopt A Candidate
 
 <br>
 
 <details>
     <summary>Table of content</summary>
 
+- [Test Plan - Adopt A Candidate](#test-plan---adopt-a-candidate)
 - [I - INTRODUCTION](#i---introduction)
   - [1 - System Overview](#1---system-overview)
   - [2 - Test Objectives](#2---test-objectives)
@@ -47,23 +42,29 @@
   - [3 - Build 3](#3---build-3)
     - [A - Company algorithm](#a---company-algorithm)
     - [B - Candidate algorithm](#b---candidate-algorithm)
-    - [C - Extra](#c---extra-1)
+    - [C - Settings](#c---settings)
+    - [D - Extra](#d---extra-1)
   - [4 - Build 4](#4---build-4)
     - [A - Company chat](#a---company-chat)
     - [B - Candidate chat](#b---candidate-chat)
-    - [C - Extra](#c---extra-2)
+    - [C - Extra](#c---extra-1)
 - [V - FEATURES NOT TO BE TESTED](#v---features-not-to-be-tested)
 - [VI - TESTING PROCEDURES](#vi---testing-procedures)
   - [1 - Test Execution](#1---test-execution)
     - [A - Test Cases](#a---test-cases)
     - [B - Order of Testing](#b---order-of-testing)
   - [2 - Pass / Fail Criteria](#2---pass--fail-criteria)
+    - [A - Pass Criteria](#a---pass-criteria)
+    - [B - Fail Criteria](#b---fail-criteria)
   - [3 - Suspension Criteria and Resumption Requirements](#3---suspension-criteria-and-resumption-requirements)
     - [A - Normal Criteria](#a---normal-criteria)
     - [B - Abnormal Criteria](#b---abnormal-criteria)
   - [4 - Defect Management](#4---defect-management)
+  - [5 - Defect Tracking](#5---defect-tracking)
+    - [A - GitHub Issues](#a---github-issues)
+    - [B - Workflow for Handling Issues](#b---workflow-for-handling-issues)
 - [VII - RISKS AND CONTINGENCIES](#vii---risks-and-contingencies)
-- [VIII - APPENDIX](#viii---appendix)
+- [VIII - REFERENCES](#viii---references)
 
 
 </details>
@@ -71,8 +72,6 @@
 <br>
 
 # I - INTRODUCTION
-
-// todo WHAT AND HOW
 
 Further information about the details of this project is available in the [Functional Specification](../FunctionalSpecification/FunctionalSpecification.md).
 
@@ -82,9 +81,11 @@ The "Adopt a Candidate" project is a cross-platform application.
 
 It's a recruitment platform inspired by Tinder, designed to match job seekers with companies based on soft skills rather than traditional metrics like age, gender, or academic background. 
 
-It operates on a unique model where both candidates and companies are anonymised to focus purely on the match of skills and company culture.
+It operates on a unique model where both candidates and companies are anonymised to focus purely on the match of skills and company culture. 
 
-// todo provide analytics to to We are evolution
+Additionally, we need to provide comprehensive analytics to our client, [We are evolution](https://www.we-are-evolution.com/), detailing the number of candidates, companies, and other key metrics to help them make informed decisions and improve their services.
+
+
 
 ## 2 - Test Objectives
 
@@ -122,6 +123,9 @@ The primary objectives of testing the “Adopt a Candidate” application are to
 | UX      | User Experience                    |
 | API     | Application Programming Interface  |
 | DB      | Database                           |
+| OFT     | Open For Testing                   |
+
+<br>
 
 # II - APPROACH
 
@@ -147,7 +151,7 @@ Test coverage will be measured by:
 - A completed matrix of testable requirements and test cases: 
   - This matrix will correlate specific requirements from the functional specification to individual test cases to ensure thorough coverage
 - A completed matrix of key features and test cases: 
-  - This matrix will connect important application features, such as anonymization, matching algorithms, and user interaction, to their respective test cases
+  - This matrix will connect important application features, such as anonymisation, matching algorithms, and user interaction, to their respective test cases
 
 If coverage levels fall short of expectations, the QA will assess whether the achieved coverage is acceptable based on the system’s risk profile.
 
@@ -171,18 +175,18 @@ If coverage levels fall short of expectations, the QA will assess whether the ac
 - Compatibility testing
   - To confirm the application works across all targeted devices
 - Regression testing
-  - To ensure that a change to the system does not introduce new defects
+  - To ensure that a change to the system does not introduce new issues
 
 ## 5 - Test Data
 
 - Synthetic Data
   - Generated data that mimic real user inputs for testing purposes
 - Anonymised Real Data
-  - Use of real data that has been anonymized to test system performance and functionality without compromising privacy
+  - Use of real data that has been anonymised to test system performance and functionality without compromising privacy
 - Boundary Test Data
   - Specific data sets designed to test system limits and boundary conditions
 
-// todo example of data or link to the data?
+<br>
 
 # III - PLAN
 
@@ -233,15 +237,15 @@ If coverage levels fall short of expectations, the QA will assess whether the ac
 ### D - Version Control
 - GitHub
 
+<br>
 
 # IV - FEATURES TO BE TESTED
 
-Build have been created to organise as much as possible the testing of the app. 
+Builds have been created to organise the testing of the app as much as possible
 
-Each build is a new version of the app with new features and bug fixes.
-<!-- not sur  -->
+Each build is a new version of the app that includes new features and bug fixes.
 
-These builds have been created this manner according to the timeline.
+These builds have been created in the following manner according to the [timeline](https://docs.google.com/spreadsheets/d/16nZ7NnlbWonwxpdrqTKeNKlEg4DzgAToOoZ_Sj7gxq0/edit?hl=fr#gid=1569421064).
 
 ## 1 - Build 1 
 
@@ -249,17 +253,21 @@ These builds have been created this manner according to the timeline.
 
 - Create a company account
 - Create a candidate account 
+- Delete account
+- DB correlation (verify database integrity and relationships)
 
 ### B - Log in 
 
-- Log to a company account
-- Log to a candidate account
+- Log into a company account
+- Log into a candidate account
 - Forget password
+- Change password
+- Log out
+- DB correlation
 
 ### C - Extra
 
-- Log out 
-- Try wrong data
+- Try boundary data
 - Responsiveness
 - Seamless navigation
 - Compatibility
@@ -267,49 +275,83 @@ These builds have been created this manner according to the timeline.
 ## 2 - Build 2 
 
 ### A - Company swiping
-- 
-- 
+
+- Right swipe
+- Left swipe
 
 ### B - Candidate swiping
 
+- Right swipe
+- Left swipe
+
 ### C - Match
 
+- DB correlation
+
 ### D - Extra
+
+- Responsiveness
+- Seamless navigation
+- Compatibility
 
 ## 3 - Build 3
 
 ### A - Company algorithm
+
+- Accuracy of the candidates
+- Score of the candidates
+
 ### B - Candidate algorithm
-### C - Extra
 
-Matching algorithm
+- Accuracy of the company
+- Score of the company
 
-Messaging system
-Advanced swiping system
-- no more swipe 
-- 
+### C - Settings
 
-responsiveness + Compatibility
+- Translation
+- Laws requirements
+
+### D - Extra
+
+- Advanced swiping system
+  - no more swipes 
+  - Fast swipes
+  - Swipes' direction
+- Responsiveness
+- Seamless navigation
+- Compatibility
 
 ## 4 - Build 4
 
 ### A - Company chat
+
+- Start conversation
+- Send messages
+- Receive messages
+
 ### B - Candidate chat
+
+- Cannot start conversation
+- Send messages
+- Receive messages
+
 ### C - Extra
 
-responsiveness + Compatibility
+- DB correlation
+- No sending of audio, pictures, etc.
+- Full company journey
+- Full candidate journey
 
-report and analytics
-
+<br>
 
 # V - FEATURES NOT TO BE TESTED
-
-// todo add?
 
 - Performance
 - Scalability 
 - Advanced security
   - File security procedure
+
+<br>
 
 # VI - TESTING PROCEDURES
 
@@ -319,13 +361,13 @@ report and analytics
 
 <h2>Title example [ID]</h2>
 
-Test Case ID: Unique identifier
+**Test Case ID:** Unique identifier
 
-Test Case Description: Detailed description of what the test case is designed to evaluate.
+**Test Case Description:** Detailed description of what the test case is designed to evaluate.
 
-Preconditions: List any prerequisites that must be met before executing the test case.
+**Preconditions:** List any prerequisites that must be met before executing the test case.
 
-Test Steps: Outline the specific steps to be followed during the test execution.
+**Test Steps:** Outline the specific steps to be followed during the test execution.
 
 |Step|Instructions|Expected behaviour|Working version|
 |---|---|---|---|
@@ -333,93 +375,141 @@ Test Steps: Outline the specific steps to be followed during the test execution.
 |02 |Do that |That should move  | 0.0.1 - 0.1.3 - 0.2.0|
 ...
 
-Expected Results: Clearly define the expected outcome at the end of those steps.
+**Expected Result:s** Clearly define the expected outcome at the end of those steps.
 
-Postconditions: Note any conditions that should be verified after the test case execution.
+**Postconditions:** Note any conditions that should be verified after the test case execution.
 
 ### B - Order of Testing
-
-// todo need list 
 
 The order of testing will be driven primarily by the build order. Within each build, the following order of testing will be followed:
 
 **Build 1**
 
-1. Candidate account
-2. Company account
-3. ...
+1. Candidate
+2. Company
+3. Extra all along
+  
 
 **Build 2**
 
 1. Candidate swiping
 2. Company swiping
-3. User-friendly
-4. ...
+3. Match
+4. Extra all along
 
 **Build 3**
 
-1. Candidate algo
-2. Company algo
-3. ...
+1. Candidate algorithm
+2. Company algorithm
+3. Settings
+4. Extra all along
 
 **Build 4**
 
-1. Message company
-2. Message candidate
-3. ...
+1. Company chat
+2. Candidate chat
+3. Extra all along
 
 ## 2 - Pass / Fail Criteria
 
-// todo complete
+### A - Pass Criteria
 
-To pass the system integration test, the following criteria must be met:
+- The feature functions as described in the requirements documentation.
+- No critical, major, or high-severity bugs are present.
+- The feature meets performance benchmarks (e.g., load time, responsiveness).
+- All user interface elements are displayed correctly and are functional.
+- Database operations (e.g., creation, deletion, updates) reflect accurately in the database.
+- Compatibility tests are successful across all supported devices, browsers, and operating systems.
+- All security requirements (e.g., password changes, data encryption) are met.
 
+### B - Fail Criteria
 
+- The feature does not function as described in the requirements documentation.
+- Critical, major, or high-severity bugs are present.
+- The feature fails to meet performance benchmarks.
+- User interface elements are missing, misaligned, or non-functional.
+- Database operations do not reflect accurately in the database.
+- Compatibility tests fail on any of the supported devices, browsers, or operating systems.
+- Security requirements are not met.
 
 ## 3 - Suspension Criteria and Resumption Requirements
 
 ### A - Normal Criteria
 
-// todo complete
+At the end of each project time of a day, testing will be suspended. At that time, all test cases executed during the day should be marked as such. The QA will initiate a backup routine to save the day’s updated test files.
 
-
-
+When all test cases have been executed, testing will be suspended, and the results will be documented for the Test Summary Report.
 
 ### B - Abnormal Criteria
 
-// todo complete
+If the number of GitHub issues continually increases over a 3 days period, testing should be suspended. This will allow the team time to fix existing issues without the pressure and confusion of new issues being added to the backlog.
 
+When a change is being migrated to the test environment, the QA must notify the developer in advance to schedule a time for the move. After the move has been completed, a retest of previously tested functions should be performed.
 
+If a critical processing unit is found to have severe issues (as defined by the defect management), testing should be suspended until the issues have been fixed. When the fixed unit is moved back into the test environment, any previously performed tests that affect the unit should be performed again to ensure new issues were not created as a result of the fix.
 
 ## 4 - Defect Management
 
-// todo complete
+It is the intention of the team to use GitHub Issues for reporting, maintaining, tracking, and overall management of issues in the project. 
 
-test report + github issues + resolved push as comment + only me can delete them
-record of the test
-test cases that have passed and failed 
+The assignment and description of defect severity levels will be as follows:
 
-OFT -> Open for testing tag 
-Merge to Dev branch to be tested 
--> Or Push with OFT 
--> Version tag 
+|ID|Severity|Description|
+|--|--------|-----------|
+|1|Critical|The defect causes the system to fail to function|
+|2|High    |Issues which prove to be detrimental to the system. Testing should not progress to the next build until corrective measures have been taken|
+|3|Medium  |Issues that provide invalid or incorrect information|
+|4|Low     |Aesthetic issues that do not impact functionality|
+|5|Info    |Observations during testing that may require further information or clarification of requirements|
 
+## 5 - Defect Tracking 
 
-En/Fr
+### A - GitHub Issues
 
-|Test Case ID|Test Case Description|Test Case Steps|Expected Result|Actual Result|Test Case Status|
-|---|---|---|---|---|---|
+- All issues will be logged and tracked using GitHub Issues.
+  - Types of issues: Documentation, bug, feature request.
+- Each issue will be tagged with the appropriate severity level.
+- Only the QA has the permission to close or delete issues after verifying the resolution.
 
+### B - Workflow for Handling Issues
 
+1. **Logging Issues:**
+   - The QA logs issues in GitHub during testing.
+   - Each issue is assigned a severity level and detailed description.
+
+2. **Tagging for Testing:**
+   - Once the developer believes an issue is fixed, they will update the issue with a comment and tag it with "OFT".
+
+4. **Verification and Closure:**
+   - The QA retests the issue in the new build.
+   - If the issue is resolved, the QA will close the GitHub Issue.
+   - Only the QA has the authority to delete resolved issues to maintain an accurate issue history.
+
+3. **Merging to Dev Branch:**
+   - The developer merges the fix into the development branch for integration.
+
+4. **Version Tagging:**
+   - Each build or release will be tagged with a version number in GitHub to maintain a record of changes and fixes.
+
+<br> 
 
 # VII - RISKS AND CONTINGENCIES
 
-// todo
+This section describes the system or project risks and the contingency plans that should take effect if the project experiences problems.
 
-# VIII - APPENDIX
+| Risk                            | Risk Level        | Contingency Plan|
+|---------------------------------|-------------------|-----------------|
+| Implementation delays| Moderate| Ensure extra time is included in the project timeline to accommodate potential delays. Prioritise critical features to ensure they are completed first|
+| Integration challenges| Moderate| Conduct thorough integration testing at regular intervals to identify and resolve issues early. Maintain clear documentation and communication between the QA and the developer|
+| Data security an privacy| High | Implement robust security measures, including encryption and access controls. Regularly audit security protocols and ensure compliance with relevant data protection regulations|
+| User acceptance and feedback | Moderate| Engage with users throughout the development process to gather feedback and ensure the application meets their needs. Plan for iterative updates based on user feedback|
+| GDPR compliance| High| Stay informed about relevant regulations and ensure the application complies with all legal requirements. Conduct regular compliance audits and update the application as needed|
+| Project scope creep| Moderate| Clearly define project scope and objectives at the outset. Use change management procedures to evaluate and approve any scope changes, ensuring they align with project goals and timelines|
 
-- Functional 
-- Technical
-- Test cases
-- timeline
+# VIII - REFERENCES
+
+- [Functional specification](../FunctionalSpecification/FunctionalSpecification.md) 
+- [Technical specification](../TechnicalSpecification/TechnicalSpecification.md)
+- [Test cases](./TestCases.md)
+- [Timeline](https://docs.google.com/spreadsheets/d/16nZ7NnlbWonwxpdrqTKeNKlEg4DzgAToOoZ_Sj7gxq0/edit?hl=fr#gid=1569421064)
 
