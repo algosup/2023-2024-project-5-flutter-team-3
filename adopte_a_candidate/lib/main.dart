@@ -4,11 +4,9 @@ import 'package:adopte_a_candidate/services/authentification/authentification_re
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'firestore/firebase_options.dart';
 
 // Routes package
-import 'package:go_router/go_router.dart';
 import 'package:adopte_a_candidate/routes.dart';
 
 void main() {
@@ -30,6 +28,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: non_constant_identifier_names
 void InitializeDataBase(void runApp) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

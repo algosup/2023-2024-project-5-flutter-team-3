@@ -1,13 +1,11 @@
-import 'package:adopte_a_candidate/pages/sign_up.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
+import 'package:adopte_a_candidate/widgets/fields/password_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:go_router/go_router.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
@@ -26,41 +24,16 @@ class LogIn extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/images/LogoAdopteACandidate.svg',
-                        semanticsLabel: 'Logo',
-                        width: 150,
-                        height: 125,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 150),
-                  const Row(
-                    children: [
-                      SizedBox(width: 60),
-                      Text(
-                        'Email:',
-                        style: TextStyle(
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  // Adding space between the email label and text field
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40.0),
                     child: Row(
-                      children: [
-                        Expanded(
-                          child: buildTextField(
-                            hinttext: 'Entrez votre mail',
-                            controller: controller.email,
-                            context: context,
-                          ),
+                      children: <Widget>[
+                        CustomTextField(
+                          controller: controller.email,
+                          title: 'Email:',
+                          hinttext: 'Entrez votre mail',
+                          isObscure: false,
+                          isEmail: true,
                         ),
                       ],
                     ),
@@ -94,53 +67,39 @@ class LogIn extends StatelessWidget {
                   ),
                   const Row(
                     children: [
-                      SizedBox(width: 160),
+                      SizedBox(width: 250),
                       SizedBox(
-                        child: Text(
-                          'Oups! J"ai oublié mon mot de passe',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            decoration: TextDecoration.underline,
-                            height: 0,
-                          ),
+                        child: CustomTextButton(
+                          text: 'Mot de passe oublié?',
+                          textWidth: 12,
+                          pageName: 'home',
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 50),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Center(
-                        child: buildElevatedButton(
-                          buttonText: 'Login',
-                          onPressed: () {},
+                        child: BigButton(
+                          text: 'Connexion',
+                          width: 200,
+                          heigth: 50,
+                          textWidth: 16,
+                          pageName: 'home',
                         ),
                       ),
                     ],
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          context.goNamed('home');
-                        },
-                        child: const SizedBox(
-                          child: Text(
-                            'Inscription',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              decoration: TextDecoration.underline,
-                              height: 0,
-                            ),
-                          ),
+                      Center(
+                        child: CustomTextButton(
+                          text: 'Pas encore de compte? S\'inscrire',
+                          textWidth: 12,
+                          pageName: 'home',
                         ),
                       ),
                     ],
