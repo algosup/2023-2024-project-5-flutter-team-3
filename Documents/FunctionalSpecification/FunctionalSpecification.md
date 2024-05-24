@@ -322,29 +322,29 @@ And here are the key elements of the application design :
 
 The chosen colors for the application are the following:
 
-| Color                                                               | Color Name | Hex Code |
-| ------------------------------------------------------------------- | ---------- | -------- |
-| <span style="color: #FFFFFF; background-color: #FFFFFF;">tex</span> | White      | #FFFFFF  |
-| <span style="color: #F5F5F5; background-color: #F5F5F5;">tex</span> | Light Grey | #F5F5F5  |
-| <span style="color: #000000; background-color: #000000;">tex</span> | Black      | #000000  |
-| <span style="color: #C8553D; background-color: #C8553D;">tex</span> | Red        | #C8553D  |
-| <span style="color: #FF0000; background-color: #FF0000;">tex</span> | Flash Red  | #FF0000  |
-| <span style="color: #FFBABA; background-color: #FFBABA;">tex</span> | Light Red  | #FFBABA  |
-| <span style="color: #FFD5C2; background-color: #FFD5C2;">tex</span> | Pink       | #FFD5C2  |
-| <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange     | #F28F3B  |
-| <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green| #51C66A  |
+| Color                                                               | Color Name  | Hex Code |
+| ------------------------------------------------------------------- | ----------- | -------- |
+| <span style="color: #FFFFFF; background-color: #FFFFFF;">tex</span> | White       | #FFFFFF  |
+| <span style="color: #F5F5F5; background-color: #F5F5F5;">tex</span> | Light Grey  | #F5F5F5  |
+| <span style="color: #000000; background-color: #000000;">tex</span> | Black       | #000000  |
+| <span style="color: #C8553D; background-color: #C8553D;">tex</span> | Red         | #C8553D  |
+| <span style="color: #FF0000; background-color: #FF0000;">tex</span> | Flash Red   | #FF0000  |
+| <span style="color: #FFBABA; background-color: #FFBABA;">tex</span> | Light Red   | #FFBABA  |
+| <span style="color: #FFD5C2; background-color: #FFD5C2;">tex</span> | Pink        | #FFD5C2  |
+| <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange      | #F28F3B  |
+| <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green | #51C66A  |
 
 7. Typography:
 
 For the various elements of the application, the chosen typographies are the following:
 
-| Font name    | Name     | Weight    | Size | Google font link |
-| ------------ | -------- | --------- | ---- | ---------------- |
-| Josefin sans | JS-R-20  | Regular   | 20 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
-| Josefin sans | JS-R-16  | Regular   | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
-| Josefin sans | JS-SB-16 | Semi Bold | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
-| Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
-| Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Font name    | Name     | Weight    | Size | Google font link                                               |
+| ------------ | -------- | --------- | ---- | -------------------------------------------------------------- |
+| Josefin sans | JS-R-20  | Regular   | 20   | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-R-16  | Regular   | 16   | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-SB-16 | Semi Bold | 16   | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-I-16  | Italic    | 16   | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
+| Josefin sans | JS-R-12  | Regular   | 12   | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 
 
 ### 2. Constraints 
@@ -388,108 +388,84 @@ In developing the "Adopte Un Candidat" application, several technical and legal 
 
 
 
-| Feature            | Purpose          | Functionality     | Implementation | Illustration |
-| ------------------ | ---------------- | ----------------- | -------------- | ------------ |
-| 1. Anonymized Profiles for Candidates and Companies | To eliminate biases based on personal information such as name, gender, age, and ethnicity.  | Profiles are anonymized by default, displaying only relevant skills, experiences, and preferences. Personal details are revealed only when both parties agree to a match. | Use placeholder names and avatars. Ensure secure storage and encryption of personal data to maintain anonymity and comply with data protection regulations. | <img src="..\FunctionalSpecification\images\swipe.png" alt="app"/> |
-| 2. Profile Creation and Management | To allow users to create detailed profiles that highlight their skills, experiences, and job preferences.  | Users can fill out personal details (anonymized), select their soft skills, upload portfolios, and set job preferences. | Provide an intuitive interface for profile setup, including guided steps and tips. Enable users to update and manage their profiles easily. | <img src="..\FunctionalSpecification\images\createjob.png" alt="app"/> |
-| 3. Job Offer Creation | To enable companies to create and post job offers that attract suitable candidates. | Companies can create job postings by specifying job titles, descriptions, required skills, and other relevant details. | Offer a structured form for job offer creation, ensuring all necessary information is collected. Allow companies to edit or remove job postings as needed. | <img src="..\FunctionalSpecification\images\createoffer.png" alt="app"/> |
-| 4. Soft Skills Inventory and Selection Interface | To emphasize the importance of soft skills in the recruitment process. | Candidates can select their soft skills from a predefined list during profile creation. Employers can specify the soft skills they are looking for in candidates. | Develop an easy-to-use interface with a searchable and categorized list of soft skills. Allow candidates to add multiple skills and rate their proficiency. | <img src="..\FunctionalSpecification\images\softskills.png" alt="app"/> |
-| 5. Matching Algorithm | To facilitate accurate matches between candidates and job offers based on skills and preferences. | The algorithm matches candidates with job offers by comparing selected soft skills and other criteria. A match occurs when there is a 50% or higher overlap in specified skills. | Use advanced matching algorithms that weigh various factors such as skill overlap, job preferences, and location. Continuously improve the algorithm based on user feedback and success rates. | <img src="..\FunctionalSpecification\images\anonyme.png" alt="app"/> |
-| 6. Communication Tools (e.g., Messaging System) | To facilitate secure and anonymous communication between candidates and recruiters. | Users can send and receive messages within the app, schedule interviews, and share additional information securely. | Develop a robust messaging system with features like real-time notifications, message history, and attachment support. Ensure messages are encrypted to maintain privacy. | <img src="..\FunctionalSpecification\images\chat.png" alt="app"/> |
-| 7. Settings | To provide users with control over their account preferences and privacy settings. | Users can manage their account details, notification preferences, and privacy settings. Options to deactivate or delete accounts are also available. | Create a comprehensive settings menu that is easy to navigate. Include toggles and drop-down menus for different settings, and ensure all changes are saved and applied instantly. | <img src="..\FunctionalSpecification\images\settings.png" alt="app"/> |
+| Feature                                             | Purpose                                                                                                   | Functionality                                                                                                                                                                    | Implementation                                                                                                                                                                                 | Illustration                                                             |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| 1. Anonymized Profiles for Candidates and Companies | To eliminate biases based on personal information such as name, gender, age, and ethnicity.               | Profiles are anonymized by default, displaying only relevant skills, experiences, and preferences. Personal details are revealed only when both parties agree to a match.        | Use placeholder names and avatars. Ensure secure storage and encryption of personal data to maintain anonymity and comply with data protection regulations.                                    | <img src="..\FunctionalSpecification\images\swipe.png" alt="app"/>       |
+| 2. Profile Creation and Management                  | To allow users to create detailed profiles that highlight their skills, experiences, and job preferences. | Users can fill out personal details (anonymized), select their soft skills, upload portfolios, and set job preferences.                                                          | Provide an intuitive interface for profile setup, including guided steps and tips. Enable users to update and manage their profiles easily.                                                    | <img src="..\FunctionalSpecification\images\createjob.png" alt="app"/>   |
+| 3. Job Offer Creation                               | To enable companies to create and post job offers that attract suitable candidates.                       | Companies can create job postings by specifying job titles, descriptions, required skills, and other relevant details.                                                           | Offer a structured form for job offer creation, ensuring all necessary information is collected. Allow companies to edit or remove job postings as needed.                                     | <img src="..\FunctionalSpecification\images\createoffer.png" alt="app"/> |
+| 4. Soft Skills Inventory and Selection Interface    | To emphasize the importance of soft skills in the recruitment process.                                    | Candidates can select their soft skills from a predefined list during profile creation. Employers can specify the soft skills they are looking for in candidates.                | Develop an easy-to-use interface with a searchable and categorized list of soft skills. Allow candidates to add multiple skills and rate their proficiency.                                    | <img src="..\FunctionalSpecification\images\softskills.png" alt="app"/>  |
+| 5. Matching Algorithm                               | To facilitate accurate matches between candidates and job offers based on skills and preferences.         | The algorithm matches candidates with job offers by comparing selected soft skills and other criteria. A match occurs when there is a 50% or higher overlap in specified skills. | Use advanced matching algorithms that weigh various factors such as skill overlap, job preferences, and location. Continuously improve the algorithm based on user feedback and success rates. | <img src="..\FunctionalSpecification\images\anonyme.png" alt="app"/>     |
+| 6. Communication Tools                              | To facilitate secure and anonymous communication between candidates and recruiters.                       | Users can send and receive messages within the app, schedule interviews, and share additional information securely.                                                              | Develop a robust messaging system with features like real-time notifications, message history, and attachment support. Ensure messages are encrypted to maintain privacy.                      | <img src="..\FunctionalSpecification\images\chat.png" alt="app"/>        |
+| 7. Settings                                         | To provide users with control over their account preferences and privacy settings.                        | Users can manage their account details, notification preferences, and privacy settings. Options to deactivate or delete accounts are also available.                             | Create a comprehensive settings menu that is easy to navigate. Include toggles and drop-down menus for different settings, and ensure all changes are saved and applied instantly.             | <img src="..\FunctionalSpecification\images\settings.png" alt="app"/>    |
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 1. Anonymized Profiles for Candidates and Companies
-
-Purpose: To eliminate biases based on personal information such as name, gender, age, and ethnicity.
-
-Functionality: Profiles are anonymized by default, displaying only relevant skills, experiences, and preferences. Personal details are revealed only when both parties agree to a match.
-
-Implementation: Use placeholder names and avatars. Ensure secure storage and encryption of personal data to maintain anonymity and comply with data protection regulations.
-
-### 2. Profile Creation and Management
-
-Purpose: To allow users to create detailed profiles that highlight their skills, experiences, and job preferences.
-
-Functionality: Users can fill out personal details (anonymized), select their soft skills, upload portfolios, and set job preferences.
-
-Implementation: Provide an intuitive interface for profile setup, including guided steps and tips. Enable users to update and manage their profiles easily.
-
-### 3. Job Offer Creation
-
-Purpose: To enable companies to create and post job offers that attract suitable candidates.
-
-Functionality: Companies can create job postings by specifying job titles, descriptions, required skills, and other relevant details.
-
-Implementation: Offer a structured form for job offer creation, ensuring all necessary information is collected. Allow companies to edit or remove job postings as needed.
-
-### 4. Soft Skills Inventory and Selection Interface
-
-Purpose: To emphasize the importance of soft skills in the recruitment process.
-
-Functionality: Candidates can select their soft skills from a predefined list during profile creation. Employers can specify the soft skills they are looking for in candidates.
-
-Implementation: Develop an easy-to-use interface with a searchable and categorized list of soft skills. Allow candidates to add multiple skills and rate their proficiency.
-
-### 5. Matching Algorithm
-
-Purpose: To facilitate accurate matches between candidates and job offers based on skills and preferences.
-
-Functionality: The algorithm matches candidates with job offers by comparing selected soft skills and other criteria. A match occurs when there is a 50% or higher overlap in specified skills.
-
-Implementation: Use advanced matching algorithms that weigh various factors such as skill overlap, job preferences, and location. Continuously improve the algorithm based on user feedback and success rates.
-
-### 6. Communication Tools (e.g., Messaging System)
-
-Purpose: To facilitate secure and anonymous communication between candidates and recruiters.
-
-Functionality: Users can send and receive messages within the app, schedule interviews, and share additional information securely.
-
-Implementation: Develop a robust messaging system with features like real-time notifications, message history, and attachment support. Ensure messages are encrypted to maintain privacy.
-
-### 7. Settings
-
-Purpose: To provide users with control over their account preferences and privacy settings.
-
-Functionality: Users can manage their account details, notification preferences, and privacy settings. Options to deactivate or delete accounts are also available.
-
-Implementation: Create a comprehensive settings menu that is easy to navigate. Include toggles and drop-down menus for different settings, and ensure all changes are saved and applied instantly.
-
-### 8. Reporting and Analytics
-
-Purpose: To provide insights into application usage, job match success rates, and user engagement.
-
-Functionality: Generate reports on various metrics such as the number of matches, message exchanges, profile views, and job applications. Offer analytics tools for companies to track the performance of their job postings.
-
-Implementation: Integrate analytics dashboards that display key metrics in a user-friendly format. Allow users to customize reports and export data as needed.
 
 ## V. Non-Functional Requirements
-Include requirements such as performance, security, scalability, compatibility...
+
+1. Security
+
+**Objective**: Protect user data and ensure the application is secure from unauthorized access and breaches.
+
+**Data Encryption**: All user data, including personal information and messages, should be encrypted both in transit and at rest using industry-standard encryption protocols.
+
+**Authorization**: We have to ensure users can only access features and data relevant to their role (e.g., candidate, recruiter, admin).
+
+**Data Privacy**: Comply with data protection regulations such as GDPR and CCPA. Ensure users have control over their personal data, including the ability to delete their accounts and data permanently.
+
+**Regular Security Audits**: Conduct regular security audits and vulnerability assessments to identify and mitigate potential security threats.
+
+
+2. Compatibility
+
+**Objective**: Ensure the application works seamlessly across different platforms, devices, and browsers.
+
+**Cross-Platform Support**: The application should be compatible with major operating systems, including Windows, macOS, iOS, and Android.
+
+**Browser Compatibility**: Ensure compatibility with the latest versions of major web browsers, including Chrome, Firefox, Safari, and Edge.
+
+**Responsive Design**: Implement a responsive design to ensure the application functions well on various screen sizes and devices, including smartphones, tablets, and desktops.
+
+
+3. Usability
+
+**Objective**: Provide a user-friendly and intuitive interface that enhances the user experience.
+
+**User Interface (UI)**: Design a clean, intuitive, and accessible user interface that follows best practices in UX design.
+
+**Localization**: Support multiple languages and regional settings to cater to a diverse user base. Ensure text, dates, and currencies are formatted correctly based on the user's locale.
+
+
+4. Compliance
+
+**Objective**: Ensure the application complies with relevant laws, regulations, and industry standards.
+
+**Data Protection Laws**: Comply with data protection laws such as GDPR, CCPA, and HIPAA, ensuring user data is handled and stored securely.
+
+**Industry Standards**: Adhere to industry standards and best practices in software development, security, and data privacy.
+
+**Legal Requirements**: Ensure the application includes necessary legal disclaimers, terms of service, and privacy policies that users must agree to.
+
+
 
 ## VI. Assumptions
-project assumptions...
+
+| Assumption                     | Details                                                                                                                                                                                             |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. User Accessibility          | **Assumption:** Users will have access to stable internet connections. <br> **Justification:** The application is designed to be web-based and relies on internet connectivity for functionality such as profile creation, job searching, and messaging. |
+| 2. User Technology Proficiency | **Assumption:** Users will have a basic level of digital literacy. <br> **Justification:** The application interfaces are designed to be user-friendly and intuitive; however, users will need basic skills such as navigating a website, filling out forms, and using a messaging system.  |
+| 3. Device Availability         | **Assumption:** Users will have access to compatible devices such as smartphones, tablets, or computers. <br> **Justification:** The application is designed to be responsive and accessible across multiple device types and operating systems, ensuring broad usability.  |
+| 4. Market Demand               | **Assumption:** There is a significant demand for fair and anonymized recruitment platforms. <br> **Justification:** Trends in recruitment and job search show an increasing need for platforms that promote equality and minimize bias.  |
+| 5. Data Integrity and Privacy   | **Assumption:** Users will provide accurate and truthful information in their profiles and job postings. <br> **Justification:** The effectiveness of the matching algorithm and the overall success of the platform depend on the accuracy of the data provided by users.  |
+| 6. Legal and Regulatory Compliance | **Assumption:** The application will comply with all relevant data protection and employment regulations. <br> **Justification:** Compliance with laws such as GDPR and CCPA is essential to avoid legal repercussions and ensure user trust.  |
+| 7. User Engagement             | **Assumption:** Users will actively engage with the platform by creating profiles, searching for jobs, and responding to messages. <br> **Justification:** The platform’s success relies on active participation from both job seekers and employers to create a dynamic and effective recruitment environment.  |
+
+
 
 ## VII. Conclusion 
-Summarize the document’s key points and how it will contribute to the successful completion of the project.
 
-## VIII. Future improvements 
-Suggest potential areas for future enhancements, such as the introduction of AI for better matching or expanded feature sets.
+"Adopte Un Candidat" aims to revolutionize recruitment by focusing on fairness, inclusivity, and soft skills. With anonymized profiles, a sophisticated matching algorithm, and a user-friendly interface, the platform promotes unbiased, skill-based hiring. Key features include profile and job offer creation, a soft skills inventory, secure messaging and customizable settings. The application ensures high performance, security, compatibility, usability, reliability, and compliance with relevant laws. Assumptions include stable internet access, basic digital literacy, compatible devices, and active user engagement. Success depends on collaboration, continuous improvement, and adherence to core values of fairness and opportunity.
+
 
 ## IX. Glossary
-Define all technical terms, acronyms, and jargon that appear in the document to ensure clarity for all readers.
