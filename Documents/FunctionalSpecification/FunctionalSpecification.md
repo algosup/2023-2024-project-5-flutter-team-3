@@ -315,7 +315,7 @@ The logo is very important beacuse it will appear a lot in the application, at t
 #### B. Application 
        
 
-The application design must focus on user-friendliness, intuitive navigation, and maintaining anonymity while fostering interaction between candidates and companies. Here is the mockup of what we plan to do in the application, they include Login, Profile Editing, Chatbox, and Settings :
+The application design must focus on user-friendliness, intuitive navigation, and maintaining anonymity while fostering interaction between candidates and companies. Here is the [mockup](https://github.com/algosup/2023-2024-project-5-flutter-team-3/blob/documents/Mockup/MockupManual.md) of what we plan to do in the application, they include Login, Profile Editing, Chatbox, and Settings :
 
 <img src="..\FunctionalSpecification\images\Overview.png" alt="app overview"/>
 
