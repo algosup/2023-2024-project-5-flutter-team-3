@@ -313,6 +313,7 @@ These builds have been created in the following manner according to the [timelin
 
 ### D - Extra
 
+- Accounts modification
 - Responsiveness
 - Seamless navigation
 - Compatibility
@@ -361,6 +362,7 @@ These builds have been created in the following manner according to the [timelin
 ### C - Extra
 
 - DB correlation
+- Settings
 - No sending of audio, pictures, etc.
 - Full company journey
 - Full candidate journey
