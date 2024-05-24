@@ -12,6 +12,7 @@
   - [3 - Scope of Testing](#3---scope-of-testing)
   - [4 - Definitions / Acronyms](#4---definitions--acronyms)
     - [A - Definitions](#a---definitions)
+    - [A - Definitions](#a---definitions-1)
     - [B - Acronyms](#b---acronyms)
 - [II - APPROACH](#ii---approach)
   - [1 - Assumptions \& Constraints](#1---assumptions--constraints)
@@ -27,7 +28,7 @@
   - [3 - Test Environment](#3---test-environment)
     - [A - Operating Systems](#a---operating-systems)
     - [B - Development Tools](#b---development-tools)
-    - [C - Simulators](#c---simulators)
+    - [C - Emulators](#c---emulators)
     - [D - Version Control](#d---version-control)
 - [IV - FEATURES TO BE TESTED](#iv---features-to-be-tested)
   - [1 - Build 1](#1---build-1)
@@ -71,6 +72,8 @@
 
 <br>
 
+<hr>
+
 # I - INTRODUCTION
 
 Further information about the details of this project is available in the [Functional Specification](../FunctionalSpecification/FunctionalSpecification.md).
@@ -111,8 +114,27 @@ The primary objectives of testing the “Adopt a Candidate” application are to
 |Anonymisation|The process of removing or encrypting personal identifiers|
 |Soft Skills  |Personal attributes that enable someone to interact effectively and harmoniously with other people, such as communication and teamwork|
 |GDPR         |Governs how we can use, process, and store personal data (information about an identifiable, living person)|
-|Tinder       | |
+|Tinder       ||
 |Match        ||
+
+### A - Definitions
+
+| Term          | Definition |
+| ------------- | ---------- |
+| Anonymisation | The process of removing or encrypting personal identifiers to protect the individual's identity |
+| Soft Skills   | Personal attributes that enable someone to interact effectively and harmoniously with other people, such as communication, teamwork, adaptability, problem-solving, and emotional intelligence |
+| GDPR          | General Data Protection Regulation, a legal framework that sets guidelines for the collection and processing of personal information from individuals who live in the European Union (EU) |
+| Tinder        | A popular dating app that allows users to swipe right to "like" or left to "pass" on other users' profiles, inspiring the matching algorithm used in the "Adopt a Candidate" project |
+| Match         | A successful pairing between a candidate and a company based on the matching algorithm that considers soft skills and company culture |
+| Integration Testing | Testing in which individual software modules are combined and tested as a group to ensure they work together properly |
+| Unit Testing  | Testing of individual units or components of a software |
+| Regression Testing | Testing existing software applications to ensure that a change or addition hasn’t broken any existing functionality |
+| Usability Testing | Testing to evaluate a product by testing it with representative users |
+| Security Testing | Testing to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders |
+| Compatibility Testing | Testing to ensure compatibility of the application with different environments, including browsers, operating systems, and devices |
+| Manual Testing | Testing of software manually without using any automated tools |
+| Synthetic Data | Data that is artificially generated rather than obtained by direct measurement |
+| Boundary Test Data | Data that is at the edge of the equivalence class partitions, used to test the boundary conditions |
 
 ### B - Acronyms
 
@@ -124,6 +146,8 @@ The primary objectives of testing the “Adopt a Candidate” application are to
 | API     | Application Programming Interface  |
 | DB      | Database                           |
 | OFT     | Open For Testing                   |
+| QA      | Quality Assurance                  |
+| KPI     | Key Performance Indicator          |
 
 <br>
 
@@ -134,7 +158,6 @@ The primary objectives of testing the “Adopt a Candidate” application are to
 ### A - Assumptions
 
 - Consistent and reliable internet connection
-- All documentation provided (functional and technical specifications) is complete and has been reviewed and approved
 - All testing tools and environments are available and configured for use throughout the testing phase
 - There will be no major changes to the application’s requirements during the testing phase
 
@@ -231,7 +254,7 @@ If coverage levels fall short of expectations, the QA will assess whether the ac
 ### B - Development Tools
 - Visual Studio Code: Version 1.89.1 or later
 - Xcode: Version 15.3 or later
-### C - Simulators
+### C - Emulators
 - iOS Simulator: 17.2 or later
 - Android Studio: 2023.3.1 or later
 ### D - Version Control
@@ -331,7 +354,7 @@ These builds have been created in the following manner according to the [timelin
 
 ### B - Candidate chat
 
-- Cannot start conversation
+- Cannot start a conversation
 - Send messages
 - Receive messages
 
@@ -442,7 +465,7 @@ When all test cases have been executed, testing will be suspended, and the resul
 
 ### B - Abnormal Criteria
 
-If the number of GitHub issues continually increases over a 3 days period, testing should be suspended. This will allow the team time to fix existing issues without the pressure and confusion of new issues being added to the backlog.
+If the number of GitHub issues continually increases over 3 days, testing should be suspended. This will allow the team time to fix existing issues without the pressure and confusion of new issues being added to the backlog.
 
 When a change is being migrated to the test environment, the QA must notify the developer in advance to schedule a time for the move. After the move has been completed, a retest of previously tested functions should be performed.
 
@@ -450,7 +473,7 @@ If a critical processing unit is found to have severe issues (as defined by the 
 
 ## 4 - Defect Management
 
-It is the intention of the team to use GitHub Issues for reporting, maintaining, tracking, and overall management of issues in the project. 
+The team intends to use GitHub Issues for reporting, maintaining, tracking, and overall management of issues in the project. 
 
 The assignment and description of defect severity levels will be as follows:
 
@@ -501,7 +524,7 @@ This section describes the system or project risks and the contingency plans tha
 |---------------------------------|-------------------|-----------------|
 | Implementation delays| Moderate| Ensure extra time is included in the project timeline to accommodate potential delays. Prioritise critical features to ensure they are completed first|
 | Integration challenges| Moderate| Conduct thorough integration testing at regular intervals to identify and resolve issues early. Maintain clear documentation and communication between the QA and the developer|
-| Data security an privacy| High | Implement robust security measures, including encryption and access controls. Regularly audit security protocols and ensure compliance with relevant data protection regulations|
+| Data security and privacy| High | Implement robust security measures, including encryption and access controls. Regularly audit security protocols and ensure compliance with relevant data protection regulations|
 | User acceptance and feedback | Moderate| Engage with users throughout the development process to gather feedback and ensure the application meets their needs. Plan for iterative updates based on user feedback|
 | GDPR compliance| High| Stay informed about relevant regulations and ensure the application complies with all legal requirements. Conduct regular compliance audits and update the application as needed|
 | Project scope creep| Moderate| Clearly define project scope and objectives at the outset. Use change management procedures to evaluate and approve any scope changes, ensuring they align with project goals and timelines|

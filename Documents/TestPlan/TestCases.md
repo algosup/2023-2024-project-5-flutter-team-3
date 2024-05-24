@@ -1,24 +1,30 @@
-
-<p style="text-align: center; font-size: 23px; font-weight: bold"> Test Cases </p>
-<p style="text-align: center;"> for </p>
-<p style="text-align: center; font-size: 20px"> Adopt a Candidate</p>
-<p style="text-align: center;">Prototype</p>
-
-<hr>
+# Test Cases - Adopt A Candidate
 
 <br>
 
 <details>
     <summary>Table of content</summary>
 
+- [Test Cases - Adopt A Candidate](#test-cases---adopt-a-candidate)
 - [Build 1](#build-1)
-  - [Section](#section)
+  - [Subscribe](#subscribe)
     - [Title 001](#title-001)
-  - [Section](#section-1)
-  - [Mixed](#mixed)
+  - [Log in](#log-in)
+  - [Extra](#extra)
 - [Build 2](#build-2)
+  - [Company swiping](#company-swiping)
+  - [Candidate swiping](#candidate-swiping)
+  - [Match](#match)
+  - [Extra](#extra-1)
 - [Build 3](#build-3)
+  - [Company algorithm](#company-algorithm)
+  - [Candidate algorithm](#candidate-algorithm)
+  - [Settings](#settings)
+  - [Extra](#extra-2)
 - [Build 4](#build-4)
+  - [Company chat](#company-chat)
+  - [Candidate chat](#candidate-chat)
+  - [Extra](#extra-3)
 
 </details>
 
@@ -26,7 +32,12 @@
 
 # Build 1
 
-## Section 
+## Subscribe
+
+- Create a company account
+- Create a candidate account 
+- Delete account
+- DB correlation (verify database integrity and relationships)
 
 ### Title 001
 
@@ -48,12 +59,88 @@ Expected Results: Clearly define the expected outcome at the end of those steps.
 
 Postconditions: Note any conditions that should be verified after the test case execution.
 
-## Section
+## Log in 
 
-## Mixed
+- Log into a company account
+- Log into a candidate account
+- Forget password
+- Change password
+- Log out
+- DB correlation
+
+## Extra
+
+- Try boundary data
+- Responsiveness
+- Seamless navigation
+- Compatibility
 
 # Build 2
 
+## Company swiping
+
+- Right swipe
+- Left swipe
+
+## Candidate swiping
+
+- Right swipe
+- Left swipe
+
+## Match
+
+- DB correlation
+
+## Extra
+
+- Responsiveness
+- Seamless navigation
+- Compatibility
+
 # Build 3
 
+## Company algorithm
+
+- Accuracy of the candidates
+- Score of the candidates
+
+## Candidate algorithm
+
+- Accuracy of the company
+- Score of the company
+
+## Settings
+
+- Translation
+- Laws requirements
+
+## Extra
+
+- Advanced swiping system
+  - no more swipes 
+  - Fast swipes
+  - Swipes' direction
+- Responsiveness
+- Seamless navigation
+- Compatibility
+
 # Build 4
+
+## Company chat
+
+- Start conversation
+- Send messages
+- Receive messages
+
+## Candidate chat
+
+- Cannot start conversation
+- Send messages
+- Receive messages
+
+## Extra
+
+- DB correlation
+- No sending of audio, pictures, etc.
+- Full company journey
+- Full candidate journey
