@@ -369,7 +369,7 @@ The chosen colors for the application are the following:
 | <img src="images/Colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
 | <img src="images/Colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
 
-1. Typography:
+7. Typography:
 
 For the various elements of the application, the chosen typographies are the following:
 
