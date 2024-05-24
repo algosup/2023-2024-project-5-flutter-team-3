@@ -60,7 +60,7 @@
 
 ### 2. Overview
 
-Adopte Un Candidat is an innovative recruitment platform designed to revolutionize the traditional hiring process by leveraging a 'Tinder-style' matching system. The primary objective of this application is to facilitate a fair and efficient job matching process by prioritizing the anonymization of candidates and companies, thereby focusing solely on skills and compatibility rather than demographic factors that can lead to bias.
+"Adopte Un Candidat" is an innovative recruitment platform designed to revolutionize the traditional hiring process by leveraging a 'Tinder-style' matching system. The primary objective of this application is to facilitate a fair and efficient job matching process by prioritizing the anonymization of candidates and companies, thereby focusing solely on skills and compatibility rather than demographic factors that can lead to bias.
 
 ### 3. Purpose 
 
@@ -103,12 +103,12 @@ Goal: To create a profile that highlights the candidate's skills, experiences, a
 
 Preconditions:
 
-- The candidate has downloaded and installed the Adopte Un Candidat application.
+- The candidate has downloaded and installed the "Adopte Un Candidat" application.
 - The candidate has registered an account on the platform.
 
 Main Success Scenario:
 
-1. The candidate logs into the Adopte Un Candidat application.
+1. The candidate logs into the "Adopte Un Candidat" application.
 2. They navigate to the "Create Profile" section.
 3. The candidate fills out personal details while the application ensures anonymity (e.g., username instead of real name).
 4. They select key soft skills from a predefined list.
@@ -136,12 +136,12 @@ Goal: To create a company profile that highlights the company’s culture, value
 
 Preconditions:
 
-- The recruiter has downloaded and installed the Adopte Un Candidat application.
+- The recruiter has downloaded and installed the "Adopte Un Candidat" application.
 - The recruiter has registered an account on the platform.
 
 Main Success Scenario:
 
-1. The recruiter logs into the Adopte Un Candidat application.
+1. The recruiter logs into the "Adopte Un Candidat" application.
 2. They navigate to the "Create Company Profile" section.
 3. The recruiter fills out company details while the application ensures anonymity (e.g., anonymized company name).
 4. They select desired soft skills for potential candidates from a predefined list.
@@ -169,11 +169,11 @@ Goal: To search for job opportunities that match the candidate’s skills and pr
 
 Preconditions:
 
-- The candidate has an active profile on Adopte Un Candidat.
+- The candidate has an active profile on "Adopte Un Candidat".
 
 Main Success Scenario:
 
-1. The candidate logs into the Adopte Un Candidat application.
+1. The candidate logs into the "Adopte Un Candidat" application.
 2. They navigate to the "Search Jobs" section.
 3. The candidate sets search criteria based on desired job roles, location, and company culture.
 4. They apply filters for required soft skills and other preferences.
@@ -201,12 +201,12 @@ Goal: To find candidates whose skills match the company’s requirements and cul
 
 Preconditions:
 
-- The recruiter has an active profile on Adopte Un Candidat.
+- The recruiter has an active profile on "Adopte Un Candidat".
 - The company profile is complete and active.
 
 Main Success Scenario:
 
-1. The recruiter logs into the Adopte Un Candidat application.
+1. The recruiter logs into the "Adopte Un Candidat" application.
 2. They navigate to the "Search Candidates" section.
 3. The recruiter sets search criteria based on desired soft skills, experience level, and location.
 4. They apply additional filters as needed.
@@ -233,7 +233,7 @@ Goal: To facilitate a match between the candidate and a company based on mutual 
 
 Preconditions:
 
-- Both the candidate and recruiter have active profiles on Adopte Un Candidat.
+- Both the candidate and recruiter have active profiles on "Adopte Un Candidat".
 - The system has identified potential matches based on overlapping skills and preferences.
 
 Main Success Scenario:
@@ -262,7 +262,7 @@ Title: Candidate Receives Job Offer
 
 Primary Actor: Job Candidate (e.g., Ahmed Al-Farsi)
 
-Goal: To receive and accept a job offer through the Adopte Un Candidat application.
+Goal: To receive and accept a job offer through the "Adopte Un Candidat" application.
 
 Preconditions:
 
@@ -271,7 +271,7 @@ Preconditions:
 
 Main Success Scenario:
 
-1. The candidate logs into the Adopte Un Candidat application.
+1. The candidate logs into the "Adopte Un Candidat" application.
 2. They receive a notification about a job offer.
 3. The candidate navigates to the "Job Offers" section.
 4. They review the details of the job offer, including position, salary, and benefits.
@@ -357,19 +357,19 @@ And here are the key elements of the application design :
 
 The chosen colors for the application are the following:
 
-| Color                                                               | Color Name  | Hex Code |
-| ------------------------------------------------------------------- | ----------- | -------- |
-| <span style="color: #FFFFFF; background-color: #FFFFFF;">tex</span> | White       | #FFFFFF  |
-| <span style="color: #F5F5F5; background-color: #F5F5F5;">tex</span> | Light Grey  | #F5F5F5  |
-| <span style="color: #000000; background-color: #000000;">tex</span> | Black       | #000000  |
-| <span style="color: #C8553D; background-color: #C8553D;">tex</span> | Red         | #C8553D  |
-| <span style="color: #FF0000; background-color: #FF0000;">tex</span> | Flash Red   | #FF0000  |
-| <span style="color: #FFBABA; background-color: #FFBABA;">tex</span> | Light Red   | #FFBABA  |
-| <span style="color: #FFD5C2; background-color: #FFD5C2;">tex</span> | Pink        | #FFD5C2  |
-| <span style="color: #F28F3B; background-color: #F28F3B;">tex</span> | Orange      | #F28F3B  |
-| <span style="color: #51C66A; background-color: #51C66A;">tex</span> | Flash Green | #51C66A  |
+| Color                                                                                       | Color Name | Hex Code |
+| ------------------------------------------------------------------------------------------- | ---------- | -------- |
+| <img src="images\Colors\white.png" width="30px" height="30px">       | White      | #FFFFFF  |
+| <img src="images/Colors/light-grey.png" width="30px" height="30px">  | Light Grey | #F5F5F5  |
+| <img src="images/Colors/black.png" width="30px" height="30px">       | Black      | #000000  |
+| <img src="images/Colors/red.png" width="30px" height="30px">         | Red        | #C8553D  |
+| <img src="images/Colors/flash-red.png" width="30px" height="30px">   | Flash Red  | #FF0000  |
+| <img src="images/Colors/light-red.png" width="30px" height="30px">   | Light Red  | #FFBABA  |
+| <img src="images/Colors/pink.png" width="30px" height="30px">        | Pink       | #FFD5C2  |
+| <img src="images/Colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
+| <img src="images/Colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
 
-7. Typography:
+1. Typography:
 
 For the various elements of the application, the chosen typographies are the following:
 
