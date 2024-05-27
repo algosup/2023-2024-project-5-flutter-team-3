@@ -4,12 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 // TODO Add the method to gather user input and keep it in memory
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+   const CustomTextField({
     required this.controller,
     required this.title,
     required this.hinttext,
     required this.isObscure,
     required this.isEmail,
+    required this.width,
+    required this.heigth,
     super.key,
   });
 
@@ -18,17 +20,21 @@ class CustomTextField extends StatelessWidget {
   final String hinttext;
   final bool isObscure;
   final bool isEmail;
+  final double width;
+  final double heigth;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Text(
+    return SizedBox(
+      width: width,
+      height: heigth,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0, bottom: 5.0, top: 10.0),
+            child: Text(
               title,
-              // textAlign: TextAlign.left,
               style: GoogleFonts.josefinSans(
                 textStyle: const TextStyle(
                   fontSize: 20,
@@ -36,33 +42,27 @@ class CustomTextField extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            SizedBox(
-              child: TextField(
-                obscureText: isObscure,
-                keyboardType:
-                    isEmail ? TextInputType.emailAddress : TextInputType.text,
-                controller: controller,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0xDDF5F5F5),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffffd5c2),
-                      width: 2.5,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  hintText: hinttext,
+          ), // Add some spacing between the title and the text field
+          TextField(
+            obscureText: isObscure,
+            keyboardType:
+                isEmail ? TextInputType.emailAddress : TextInputType.text,
+            controller: controller,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: const Color(0xDDF5F5F5),
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xffffd5c2),
+                  width: 2.5,
                 ),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
+              hintText: hinttext,
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
