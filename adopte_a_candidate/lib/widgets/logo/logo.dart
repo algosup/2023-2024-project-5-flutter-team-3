@@ -1,4 +1,4 @@
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget implements PreferredSizeWidget {
@@ -6,9 +6,12 @@ class Logo extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      'assets/images/LogoAdopteACandidate.svg',
-      height: 150,
+    return Padding(
+      padding: const EdgeInsets.only(top: 40.0, right: 170.0),
+      child: SvgPicture.asset(
+        'assets/images/LogoAdopteACandidate.svg',
+        height: 150,
+      ),
     );
   }
 
