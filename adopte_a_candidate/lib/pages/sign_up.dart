@@ -60,16 +60,10 @@ class _AskIfCompanyState extends State<AskIfCompany> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100.0),
-        child: AppBar(
-          backgroundColor: Colors.green,
-          // actions: <Widget>[
-          //   SvgPicture.asset(
-          //     'assets/images/LogoAdopteACandidate.svg',
-          //     semanticsLabel: 'Logo',
-          //     height: 200.0,
-          //   ),
-          // ],
+        preferredSize: const Size.fromHeight(150.0),
+        child: SvgPicture.asset(
+          'assets/images/LogoAdopteACandidate.svg',
+          height: 150,
         ),
       ),
       body: LayoutBuilder(
