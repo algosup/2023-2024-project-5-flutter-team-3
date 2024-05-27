@@ -2,64 +2,79 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({super.key});
+  final String currentRoute;
+  final void Function(int) onItemTapped;
+
+  const CustomBottomNavBar({
+    Key? key,
+    required this.currentRoute,
+    required this.onItemTapped,
+  }) : super(key: key);
 
   @override
   _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, '/profile');
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/swipe');
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/messages');
-        break;
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = _getSelectedIndex(widget.currentRoute);
+  }
+
+  int _getSelectedIndex(String routeName) {
+    switch (routeName) {
+      case '/profile':
+        return 0;
+      case '/swipe':
+        return 1;
+      case '/message':
+        return 2;
+      default:
+        return 0; // Default to the first index if not matched
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      elevation: 0,
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.black,
+      currentIndex: _selectedIndex,
+      onTap: (index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+        widget.onItemTapped(index);
+      },
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             'assets/images/profile.svg',
-            width: 50,
-            height: 60,
+            height: 50,
+            color: _selectedIndex == 0 ? Colors.black : Color(0xffffd5c2),
           ),
-          label: 'Profile',
+          label: 'profile',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             'assets/images/swipe.svg',
-            width: 50,
-            height: 60,
+            height: 50,
+            color: _selectedIndex == 1 ? Colors.black : Color(0xffffd5c2),
           ),
-          label: 'Swipe Page',
+          label: 'swipe',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             'assets/images/messages.svg',
-            width: 50,
-            height: 60,
+            height: 50,
+            color: _selectedIndex == 2 ? Colors.black : Color(0xffffd5c2),
           ),
-          label: 'Messages',
+          label: 'messages',
         ),
       ],
     );

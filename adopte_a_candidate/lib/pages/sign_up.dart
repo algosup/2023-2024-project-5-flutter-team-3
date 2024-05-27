@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 // Widgets package
-import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';

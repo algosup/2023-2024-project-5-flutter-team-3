@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:adopte_a_candidate/widgets/logo/logo.dart';
+import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
+import 'package:go_router/go_router.dart';
+
+class MessagePage extends StatelessWidget {
+  const MessagePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const Logo(),
+      body: Text('messages'),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentRoute: '/message', // Set the current route for MessagePage
+        onItemTapped: (index) {
+          switch (index) {
+            case 0:
+              context.goNamed('profile'); // Navigate to profile page
+              break;
+            case 1:
+              context.goNamed('swipe'); // Navigate to swipe page
+              break;
+            case 2:
+            // Already on the message page, no navigation needed
+              break;
+            default:
+              break;
+          }
+        },
+      ),
+    );
+  }
+}

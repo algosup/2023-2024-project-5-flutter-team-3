@@ -1,7 +1,7 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 // Custom widgets
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
