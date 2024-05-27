@@ -70,7 +70,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         builder: (context, constraints) {
           return Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 50.0),
+                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -79,18 +79,35 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                     children: [
                       Flexible(
                         child: CustomTextField(
-                          controller: controller.email,
+                          controller: controller.name,
                           title: 'Nom:',
                           hinttext: 'Entrez votre nom',
                           width: MediaQuery.of(context).size.width,
                           heigth: 108,
                           isObscure: false,
-                          isEmail: true,
+                          showToggle: false,
+                          isEmail: false,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 15),
+                  Row(
+                    children: [
+                      Flexible(
+                          child: CustomTextField(controller: controller.email,
+                              title: 'Mail:',
+                              hinttext: 'Entrez votre mail',
+                              isObscure: false,
+                              isEmail: true,
+                              width: MediaQuery.of(context).size.width,
+                              heigth: 108,
+                              showToggle: false
+                          ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
                   Row(
                     children: <Widget>[
                       CustomTextField(
@@ -99,12 +116,13 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                         hinttext: 'Entrez votre mot de passe',
                         width: MediaQuery.of(context).size.width - 80,
                         heigth: 108,
-                        isObscure: false,
+                        isObscure: true,
+                        showToggle: true,
                         isEmail: true,
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 15),
                   Row(
                     children: <Widget>[
                       CustomTextField(
@@ -113,11 +131,13 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                         hinttext: 'Confirmez votre mot de passe',
                         width: MediaQuery.of(context).size.width - 80,
                         heigth: 108,
-                        isObscure: false,
+                        isObscure: true,
+                        showToggle: true,
                         isEmail: true,
                       ),
                     ],
                   ),
+                  const SizedBox(height: 15),
                   Row(
                     children: [
                       buildRoundCheckBox(
@@ -138,7 +158,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 15),
                   Row(
                     children: [
                       buildRoundCheckBox(

@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 // This text field is build to gather basic user data when subscribing
 // TODO Add the method to gather user input and keep it in memory
 
-class CustomTextField extends StatelessWidget {
-   const CustomTextField({
+class CustomTextField extends StatefulWidget {
+  const CustomTextField({
     required this.controller,
     required this.title,
     required this.hinttext,
@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
     required this.width,
     required this.heigth,
     super.key,
+    required this.showToggle,
   });
 
   final TextEditingController controller;
@@ -20,21 +21,35 @@ class CustomTextField extends StatelessWidget {
   final String hinttext;
   final bool isObscure;
   final bool isEmail;
+  final bool showToggle;
   final double width;
   final double heigth;
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _isObscure;
+
+  @override
+  void initState() {
+    super.initState();
+    _isObscure = widget.isObscure;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
-      height: heigth,
+      width: widget.width,
+      height: widget.heigth,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(left: 30.0, bottom: 5.0, top: 10.0),
             child: Text(
-              title,
+              widget.title,
               style: GoogleFonts.josefinSans(
                 textStyle: const TextStyle(
                   fontSize: 20,
@@ -44,10 +59,11 @@ class CustomTextField extends StatelessWidget {
             ),
           ), // Add some spacing between the title and the text field
           TextField(
-            obscureText: isObscure,
-            keyboardType:
-                isEmail ? TextInputType.emailAddress : TextInputType.text,
-            controller: controller,
+            obscureText: _isObscure,
+            keyboardType: widget.isEmail
+                ? TextInputType.emailAddress
+                : TextInputType.text,
+            controller: widget.controller,
             decoration: InputDecoration(
               filled: true,
               fillColor: const Color(0xDDF5F5F5),
@@ -58,7 +74,19 @@ class CustomTextField extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
-              hintText: hinttext,
+              hintText: widget.hinttext,
+              suffixIcon: widget.showToggle
+                  ? IconButton(
+                      icon: Icon(
+                        _isObscure ? Icons.visibility : Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isObscure = !_isObscure;
+                        });
+                      },
+                    )
+                  : null,
             ),
           ),
         ],
