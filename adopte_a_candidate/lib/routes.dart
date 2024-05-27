@@ -2,6 +2,7 @@
 
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
+import 'package:adopte_a_candidate/pages/swipe.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,13 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return const LogIn();
       },
+    ),
+    GoRoute(
+      path: '/swipe',
+      name: 'swipe',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SwipePage();
+      }
     ),
   ],
 );

@@ -9,6 +9,7 @@ import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/check_boxes.dart';
+import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 
 // Controllers package
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
@@ -59,13 +60,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
     final controller = Get.put(SignUpController());
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(150.0),
-        child: SvgPicture.asset(
-          'assets/images/LogoAdopteACandidate.svg',
-          height: 150,
-        ),
-      ),
+      appBar: const Logo(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Padding(

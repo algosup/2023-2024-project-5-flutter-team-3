@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
+import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 
 // Custom controllers
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
@@ -18,13 +19,7 @@ class LogIn extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(150.0),
-        child: SvgPicture.asset(
-          'assets/images/LogoAdopteACandidate.svg',
-          height: 150,
-        ),
-      ),
+      appBar: const Logo(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Padding(
@@ -88,7 +83,7 @@ class LogIn extends StatelessWidget {
                             width: 200,
                             heigth: 50,
                             textWidth: 16,
-                            pageName: 'home',
+                            pageName: 'swipe',
                           ),
                         ),
                       ],
