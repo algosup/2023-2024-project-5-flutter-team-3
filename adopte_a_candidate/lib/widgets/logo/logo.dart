@@ -6,9 +6,15 @@ class Logo extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      'assets/images/LogoAdopteACandidate.svg',
-      height: 150,
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(150.0),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40.0, right: 170.0),
+        child: SvgPicture.asset(
+          'assets/images/LogoAdopteACandidate.svg',
+          height: 150,
+        ),
+      ),
     );
   }
 
