@@ -8,7 +8,7 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/05/22  |
+| Last Update Date  | 2024/05/29  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
@@ -17,16 +17,7 @@
 | ----------- | ------------ | ---------- | -------------------- |
 | 0.01        | Maxime CARON | 2024/05/15 | Initial Version with plan and basics |
 | 0.02        | Maxime CARON | 2024/05/21 | Added the first part of the document |
-
-### Document Approvals
-| Role               | Name             | Date  |
-| ------------------ | ---------------- | ----- |
-| Project Manager    | Lucas AUBARD     |       |
-| Technical Leader   | Maxime CARON     |       |
-| Program Manager    | Habi CAILLEAU    |       |
-| Quality Assurance  | Clémentine Curel |       |
-| Technical Writer   | Alexis LASSELIN  |       |
-| Software Engineer  | Thibaud MARLIER  |       |
+| 0.10        | Maxime CARON | 2024/05/29 | Added the last part of the document, missing spellcheck |
 
 
 ## Table of Contents
@@ -38,7 +29,6 @@
   - [Document Control](#document-control)
     - [Document Information](#document-information)
     - [Document Versions](#document-versions)
-    - [Document Approvals](#document-approvals)
   - [Table of Contents](#table-of-contents)
   - [I. Introduction](#i-introduction)
     - [1. Glossary](#1-glossary)
@@ -70,57 +60,56 @@
       - [**B. iOS**](#b-ios)
   - [III. Technical Specification](#iii-technical-specification)
     - [1. Coding Conventions](#1-coding-conventions)
-      - [A. Folder Structure](#a-folder-structure)
+      - [**A. Folder Structure**](#a-folder-structure)
         - [➭ Structure:](#-structure)
         - [➭ Files and Folders Naming Conventions:](#-files-and-folders-naming-conventions)
         - [➭ Folder details:](#-folder-details)
-      - [B. Comments](#b-comments)
+      - [**B. Comments**](#b-comments)
         - [➭ Comments at File Beginning:](#-comments-at-file-beginning)
         - [➭ Comments in the Code:](#-comments-in-the-code)
-      - [C. Code Structure](#c-code-structure)
+      - [**C. Code Structure**](#c-code-structure)
         - [➭ Indentation:](#-indentation)
         - [➭ Spacing:](#-spacing)
         - [➭ Naming Conventions:](#-naming-conventions)
     - [2. Database](#2-database)
-      - [A. Data Model Overview](#a-data-model-overview)
-      - [B. Table Details and Usage](#b-table-details-and-usage)
+      - [**A. Data Model Overview**](#a-data-model-overview)
+      - [**B. Table Details and Usage**](#b-table-details-and-usage)
         - [➭ User:](#-user)
         - [➭ SeekerProfile:](#-seekerprofile)
         - [➭ OfferProfile:](#-offerprofile)
-        - [➭ SeekerMainSkill:](#-seekermainskill)
-        - [➭ SeekerSideSkill:](#-seekersideskill)
-        - [➭ OfferMainSkill:](#-offermainskill)
-        - [➭ OfferSideSkill:](#-offersideskill)
+        - [➭ MatchProposal:](#-matchproposal)
         - [➭ Skill:](#-skill)
+        - [➭ SkillList:](#-skilllist)
         - [➭ Conversation:](#-conversation)
         - [➭ Message:](#-message)
-      - [C. Interaction From the Application](#c-interaction-from-the-application)
+      - [**C. Interaction From the Application**](#c-interaction-from-the-application)
         - [➭ Interaction Times:](#-interaction-times)
-        - [➭ Data structurations:](#-data-structurations)
-        - [➭ Ways to interact:](#-ways-to-interact)
-      - [D. Future Improvements of the Database](#d-future-improvements-of-the-database)
+        - [➭ Communication with database:](#-communication-with-database)
+      - [**D. Future Improvements of the Database**](#d-future-improvements-of-the-database)
     - [3. Graphic Conventions](#3-graphic-conventions)
-      - [A. Colors](#a-colors)
-      - [B. Typography](#b-typography)
+      - [**A. Colors**](#a-colors)
+      - [**B. Typography**](#b-typography)
+        - [➭ Fonts:](#-fonts)
+        - [➭ Google font package:](#-google-font-package)
     - [4. Widgets](#4-widgets)
-      - [A. Fields](#a-fields)
+      - [**A. Fields**](#a-fields)
         - [➭ Text Field:](#-text-field)
         - [➭ Localization Field:](#-localization-field)
         - [➭ Tag Field:](#-tag-field)
         - [➭ Select Field:](#-select-field)
-      - [B. Buttons](#b-buttons)
+      - [**B. Buttons**](#b-buttons)
         - [➭ Text Button:](#-text-button)
         - [➭ Icon Button:](#-icon-button)
         - [➭ Radio Button:](#-radio-button)
         - [➭ Big Button:](#-big-button)
         - [➭ Navbar:](#-navbar)
-      - [C. Lists](#c-lists)
+      - [**C. Lists**](#c-lists)
         - [➭ Clickable List:](#-clickable-list)
-      - [D. Cards](#d-cards)
+      - [**D. Cards**](#d-cards)
         - [➭ Swipe Card:](#-swipe-card)
         - [➭ Chat Card:](#-chat-card)
     - [5. Pages](#5-pages)
-      - [A. Description](#a-description)
+      - [**A. Description**](#a-description)
         - [➭ Login:](#-login)
         - [➭ Subscription:](#-subscription)
         - [➭ Settings:](#-settings)
@@ -130,22 +119,24 @@
         - [➭ Swipe Area:](#-swipe-area)
         - [➭ Chat List:](#-chat-list)
         - [➭ Conversation:](#-conversation-1)
-      - [B. Navigation](#b-navigation)
+      - [**B. Navigation**](#b-navigation)
         - [➭ Install and import:](#-install-and-import)
         - [➭ Set Up for App:](#-set-up-for-app)
-    - [5. Authentication](#5-authentication)
-      - [A. Firebase Authentication](#a-firebase-authentication)
-        - [➭ Install and import:](#-install-and-import-1)
-        - [➭ Set Upfor App:](#-set-upfor-app)
-    - [6. Translation](#6-translation)
-      - [A. Install and import](#a-install-and-import)
-      - [B. Set Up for App](#b-set-up-for-app)
-    - [7. Matching Algorithm](#7-matching-algorithm)
-      - [A. Scoring System](#a-scoring-system)
-      - [B. Location-based Adjustments](#b-location-based-adjustments)
-      - [C. Matching and Presentation](#c-matching-and-presentation)
-      - [D. Re-Matching](#d-re-matching)
-    - [8. Chat System](#8-chat-system)
+    - [6. Authentication](#6-authentication)
+      - [**A. Install and import**](#a-install-and-import)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage)
+    - [7. Translation](#7-translation)
+      - [**A. Install and import**](#a-install-and-import-1)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-1)
+    - [8. Matching Algorithm](#8-matching-algorithm)
+      - [**A. Scoring System**](#a-scoring-system)
+      - [**B. Location-based Adjustments**](#b-location-based-adjustments)
+      - [**C. Matching and Presentation**](#c-matching-and-presentation)
+      - [**D. Re-Matching**](#d-re-matching)
+    - [9. Chat System](#9-chat-system)
+      - [**A. Real-Time Messaging**](#a-real-time-messaging)
+      - [**B. Message History**](#b-message-history)
+      - [**C. Message Sending and Receiving**](#c-message-sending-and-receiving)
 </details>
 
 ## I. Introduction
@@ -246,6 +237,7 @@ To create the application, we will need to use some packages.
 - `firebase_database/firebase_database.dart`: The Firebase Database package provides access to the Firebase Realtime Database. It is used to interact with the database in the application.
 - `firebase_auth/firebase_auth.dart`: The Firebase Auth package provides access to Firebase Authentication. It is used to authenticate users in the application.
 - `go_router/go_router.dart`: The Go Router package provides a declarative router for Flutter applications. It is used to manage the navigation in the application.
+- `google_fonts/google_fonts.dart`: The Google Fonts package provides access to Google Fonts. It is used to load custom fonts in the application.
 
 ##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
@@ -259,9 +251,9 @@ To create the application, we will need to use some packages.
 ###### ➭ <ins>Usage:</ins>
 
 To work on the project, we will need to have a suitable working environment. Here is the working environment we will use:
-- **Flutter SDK:** The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK to create the application.
-- **Visual Studio Code:** Visual Studio Code is the integrated development environment that allows us to create Flutter applications.
-- **Android Studio:** Android Studio is the integrated development environment that allows us to create Android applications. We will use Android Studio to create various virtual devices to test the application.
+- **Flutter SDK:** The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK which is currently 3.22.1 (the version may change during the development process to ensure compatibility with the latest features and updates).
+- **Visual Studio Code:** Visual Studio Code is the integrated development environment that allows us to create Flutter applications (current version 1.89.1). We will use Visual Studio Code to write the code for the application and to run the application on various devices
+- **Android Studio:** Android Studio is the integrated development environment that allows us to create Android applications (current version Jellyfish 2023.3.1). We will use Android Studio to create various virtual devices to test the application.
 
 
 ###### ➭ <ins>Installation:</ins>
@@ -341,13 +333,14 @@ The minimum required version for iOS is 11.0 or higher. This requirement ensures
 
 ### 1. Coding Conventions
 
-#### A. Folder Structure
-
+#### **A. Folder Structure**
 ##### ➭ <ins>Structure:</ins>
 The project's folder structure provides a foundational framework for organizing code files. While it may evolve, the initial structure serves as a solid starting point:
 ```plaintext
 lib/
   ├── main.dart
+  ├── firestore/
+  │     ├── firebase_options.dart
   ├── models/
   │     ├── user.dart
   │     ├── company.dart
@@ -365,9 +358,15 @@ lib/
   │     │     ├── text_field.dart
   │     │     ├── localization_field.dart
   │     │     ├── tag_field.dart
-  │     ├── menus/
-  │     │     ├── menu.dart
-  │     │     ├── dropdown_menu.dart
+  │     ├── cards/
+  │     │     ├── swipe_card.dart
+  │     │     ├── chat_card.dart
+  │     ├── lists/
+  │     │     ├── clickable_list.dart
+  |     ├── navbar/
+  │     │     ├── navbar.dart
+  |     ├── logo/
+  │     │     ├── logo.dart
   ├── pages/
   │     ├── login.dart
   │     ├── subscription.dart
@@ -396,7 +395,7 @@ To maintain consistency and make it easier to navigate through the code, we will
 - **`widgets/`:** This folder will contain all the widgets used in the application. Each widget will be in a separate file.
 - **`pages/`:** This folder will contain all the pages used in the application. Each page will be in a separate file.
 
-#### B. Comments
+#### **B. Comments**
 
 Effective comments provide insights into the purpose and functionality of code segments. We adhere to clear commenting conventions to aid understanding and collaboration:
 
@@ -437,7 +436,7 @@ if (isAuthenticated) {
 }
 ```
 
-#### C. Code Structure
+#### **C. Code Structure**
 
 Structured code enhances readability and maintainability. We employ consistent indentation, spacing, and naming conventions:
 
@@ -472,15 +471,15 @@ int calculateTotalPrice(int unitPrice, int quantity) {
 
 ### 2. Database
 
-#### A. Data Model Overview
+#### **A. Data Model Overview**
 
 The application will use Firebase Realtime Database to store and sync data in real-time across all clients. The data model will consist of the following tables:
 
-![Data Model Overview](TechnicalSpecificationPicture/Database/Database_V2_UML.svg)
+![Data Model Overview](TechnicalSpecificationPicture/Database/Database_V3_UML.svg)
 
-(See a larger version [here](TechnicalSpecificationAppendix/Database/Database_V2_UML.pdf))
+(See a larger version [here](TechnicalSpecificationAppendix/Database/Database_V3_UML.pdf))
 
-#### B. Table Details and Usage
+#### **B. Table Details and Usage**
 
 ##### ➭ <ins>User:</ins>
 - **Fields:**
@@ -488,7 +487,7 @@ The application will use Firebase Realtime Database to store and sync data in re
   - `name`: Name of the user.
   - `email`: Email of the user.
   - `password`: Password of the user.
-  - `isCompany`: User type (company or job seeker).
+  - `isCompany`: Boolean to determine if the user is a company or a job seeker.
 
 ##### ➭ <ins>SeekerProfile:</ins>
 - **Fields:**
@@ -504,31 +503,23 @@ The application will use Firebase Realtime Database to store and sync data in re
   - `description`: Description of the job offer.
   - `localization`: Localization of the job offer.
 
-##### ➭ <ins>SeekerMainSkill:</ins>
+##### ➭ <ins>MatchProposal:</ins>
 - **Fields:**
-  - `id`: Unique identifier of the seeker main skill.
-  - `seekerProfileId`: Unique identifier of the job seeker profile.
-  - `skillId`: Unique identifier of the skill.
-
-##### ➭ <ins>SeekerSideSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the seeker side skill.
-  - `seekerProfileId`: Unique identifier of the job seeker profile.
-  - `skillId`: Unique identifier of the skill.
-
-##### ➭ <ins>OfferMainSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the offer main skill.
-  - `offerProfileId`: Unique identifier of the job offer profile.
-  - `skillId`: Unique identifier of the skill.
-
-##### ➭ <ins>OfferSideSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the offer side skill.
-  - `offerProfileId`: Unique identifier of the job offer profile.
-  - `skillId`: Unique identifier of the skill.
+  - `id`: Unique identifier of the match proposal.
+  - `seekerId`: Unique identifier of the job seeker.
+  - `offerId`: Unique identifier of the job offer.
+  - `isSeekerAccepted`: Boolean to determine if the job seeker has accepted the proposal.
+  - `isCompanyAccepted`: Boolean to determine if the company has accepted the proposal.
 
 ##### ➭ <ins>Skill:</ins>
+- **Fields:**
+  - `id`: Unique identifier of the skill.
+  - `profileId`: Unique identifier of the job seeker profile.
+  - `skillId`: Unique identifier of the skill.
+  - `isOfferSkill`: Boolean to determine if the skill is for a job offer or a job seeker.
+  - `isMainSkill`: Boolean to determine if the skill is a main skill or a side skill.
+
+##### ➭ <ins>SkillList:</ins>
 - **Fields:**
   - `id`: Unique identifier of the skill.
   - `name`: Name of the skill.
@@ -547,7 +538,7 @@ The application will use Firebase Realtime Database to store and sync data in re
   - `senderId`: Unique identifier of the user who sent the message.
   - `content`: Content of the message.
 
-#### C. Interaction From the Application 
+#### **C. Interaction From the Application**
 
 ##### ➭ <ins>Interaction Times:</ins>
 
@@ -572,20 +563,72 @@ The application will interact with the database at the following moments:
   - Send messages.
   - Retrieve messages.
 
-##### ➭ <ins>Data structurations:</ins>
-// TODO: Add more details about how the data will be structured in the database.
+##### ➭ <ins>Communication with database:</ins>
+The application will communicate with the database using the Firebase Realtime Database API. The API will be used to:
+- Read data from the database.
+- Write data to the database.
+- Update data in the database.
+- Delete data from the database.
+- Listen for changes in the database.
+  
+*Reading example:*
+```dart
+// Read data from the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.once().then((DataSnapshot snapshot) {
+  print('Data: ${snapshot.value}');
+});
+```
 
-##### ➭ <ins>Ways to interact:</ins>
+*Writing example:*
+```dart
+// Write data to the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.set({
+  'name': 'Alice',
+  'age': 30,
+});
+```
+*Updating example:*
+```dart
+// Update data in the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.update({
+  'name': 'Alice',
+  'age': 31,
+});
+```
 
-// TODO: Add more details about how the application will interact with the database.
+*Deleting example:*
+```dart
+// Delete data from the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.remove();
+```
+*Listening example:*
+```dart
+// Listen for changes in the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.onValue.listen((event) {
+  print('Data: ${event.snapshot.value}');
+});
+```
 
-#### D. Future Improvements of the Database
+
+
+
+#### **D. Future Improvements of the Database**
 The project is currently a proof of concept for a company, which is why we are using Firebase as a prototype database. In the future, the company will be free to use any other database with any other API to meet the evolving requirements of the application.
 
 
 ### 3. Graphic Conventions 
 
-#### A. Colors
+#### **A. Colors**
 The chosen colors for this application are the following:
 
 | Color                                                                                       | Color Name | Hex Code |
@@ -600,9 +643,9 @@ The chosen colors for this application are the following:
 | <img src="TechnicalSpecificationPicture/Colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
 | <img src="TechnicalSpecificationPicture/Colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
 
-*To keep the document clear, the good usage of_ each color will be defined in the [graphic charter]().*
+#### **B. Typography**
 
-#### B. Typography
+##### ➭ <ins>Fonts:</ins>
 For the various elements of the application, the chosen typographies are the following:
 | Font name    | Name     | Weight    | Size | Google font link |
 | ------------ | -------- | --------- | ---- | ---------------- |
@@ -612,10 +655,20 @@ For the various elements of the application, the chosen typographies are the fol
 | Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 | Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 
-*To keep the document clear, the good usage of each font will be defined in the [graphic charter]().*
+##### ➭ <ins>Google font package:</ins>
+To use the Google font package, you can run the following command in your terminal:
+```bash
+flutter pub add google_fonts
+```
+
+After adding the package, each time you need to specify the font import it in your Dart file:
+```dart
+import 'package:google_fonts/google_fonts.dart';
+```
+
 
 ### 4. Widgets
-#### A. Fields
+#### **A. Fields**
 
 ##### ➭ <ins>Text Field:</ins>
 **Description:**</br>
@@ -705,7 +758,7 @@ A select field is a field where the user selects an option from a list of option
 | **Label**                   | The select field is accompanied by a label that describes its purpose.                           | No       |
 | **Helper Text**             | The select field includes helper text that provides additional guidance to the user.             | No       |
 
-#### B. Buttons
+#### **B. Buttons**
 
 ##### ➭ <ins>Text Button:</ins>
 **Description:**</br>
@@ -726,7 +779,7 @@ A text button is a button that contains text. It is used to trigger an action wh
 
 ##### ➭ <ins>Icon Button:</ins>
 **Description:**</br>
-An icon button is a button that contains an icon. It is used to trigger an action when clicked.\
+An icon button is a button that contains an icon. It is used to trigger an action when clicked.
 
 **Example Visual of Representation:**</br>
 <img alt="Example of icon button" src="TechnicalSpecificationPicture/Widgets/icon-button.png" width="100px"></img>
@@ -792,7 +845,7 @@ A navbar is a bar that contains icon buttons. It is used to navigate between pag
 | **On Change**     | The action is triggered when the selected page changes. | Yes      |
 | **Disabled**      | Disables the navbar to prevent user interaction.        | No       |
 
-#### C. Lists
+#### **C. Lists**
 
 ##### ➭ <ins>Clickable List:</ins>
 **Description:**</br>
@@ -815,7 +868,7 @@ A clickable list is a list where each item can be clicked. It is used to display
 | **Editable**      | The list is in editing mode.                            | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
-#### D. Cards
+#### **D. Cards**
 
 ##### ➭ <ins>Swipe Card:</ins>
 **Description:**</br>
@@ -853,7 +906,7 @@ A chat card is a card that contains a conversation. It is used to display a conv
 
 
 ### 5. Pages
-#### A. Description
+#### **A. Description**
 
 ##### ➭ <ins>Login:</ins>
 **Description:**</br>
@@ -879,6 +932,8 @@ The login page contains the following elements:
 ##### ➭ <ins>Subscription:</ins>
 **Description:**</br>
 The subscription page allows users to create an account, be redirected to the login page if they already have an account, and declare a forgotten password.
+
+Consider that terms and conditions are not displayed on the subscription page for now because it's the role of the company to define and provide them, in conclusion for the moment the page and the system of validation are not yet implemented.
 
 **Capabilities:**</br>
 The subscription page allows users to:
@@ -1073,7 +1128,7 @@ The conversation page contains the following elements:
 | Send               | Button to send the message.              | Button      | Clickable  | Send the message.             |
 | Back               | Button to go back to the chat list page. | Button      | Clickable  | Return to the chat list page. |
 
-#### B. Navigation
+#### **B. Navigation**
 To navigate between pages, the application uses a navigation package named `go_router`. This package allows the application to navigate between pages with a simple and efficient API.
 
 ##### ➭ <ins>Install and import:</ins>
@@ -1132,11 +1187,10 @@ IconButton(
 ```
 Read [go_router documentation](https://pub.dev/packages/go_router) for more information.
 
-### 5. Authentication
-#### A. Firebase Authentication
+### 6. Authentication
 The application uses Firebase Authentication to authenticate users. Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to the application.
 
-##### ➭ <ins>Install and import:</ins>
+#### **A. Install and import**
 To install the Firebase Authentication package, the application must:
 - Add the Firebase Authentication package to the `pubspec.yaml` file by running the following command:
 ```bash
@@ -1147,7 +1201,7 @@ flutter pub add firebase_auth
 import 'package:firebase_auth/firebase_auth.dart';
 ```
 
-##### ➭ <ins>Set Upfor App:</ins>
+#### **B. Set Up for App and Usage**
 - Initialize Firebase in your main.dart file.
 ```dart
 import 'package:flutter/material.dart';
@@ -1291,10 +1345,10 @@ service cloud.firestore {
 
 Read [Firebase Authentication documentation](https://firebase.flutter.dev/docs/auth/start) for more information.
 
-### 6. Translation
+### 7. Translation
 The application uses the `flutter_localizations` package to provide internationalization and localization support. This package provides a set of classes that define localized messages and a mechanism to retrieve them.
 
-#### A. Install and import
+#### **A. Install and import**
 To install the `flutter_localizations` package, the application must:
 - Add the `flutter_localizations` package to the `pubspec.yaml` file by running the following command:
 ```bash
@@ -1306,14 +1360,63 @@ flutter pub add intl:any
 import 'package:flutter_localizations/flutter_localizations.dart';
 ```
 
-#### B. Set Up for App
-// TODO: install and try the package to create a good example
+#### **B. Set Up for App and Usage**
+The `flutter_localizations` package provides a set of classes that define localized messages and a mechanism to retrieve them. The application can use these classes to display messages in different languages based on the user's locale.
 
-### 7. Matching Algorithm
+*Example:*
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'),
+        const Locale('fr', 'FR'),
+      ],
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Localization Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              Intl.message('Hello World', name: 'helloWorld'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+### 8. Matching Algorithm
 
 The matching algorithm is a core feature of the application that enables users to find the most suitable job offers or job seekers based on their skills and preferences. The algorithm utilizes a scoring system to match users with the most relevant opportunities or candidates.
 
-#### A. Scoring System
+#### **A. Scoring System**
 The algorithm considers both primary and secondary skills possessed by companies and job seekers to calculate a matching score. The score is determined by the number of overlapping skills between the user and the job offer or job seeker.
 
 The scoring mechanism is as follows:
@@ -1321,18 +1424,35 @@ The scoring mechanism is as follows:
 - For each matching side skill, the score is increased by 0.2.
 - The total score is the sum of the main and side skills scores.
 
-#### B. Location-based Adjustments
+#### **B. Location-based Adjustments**
 Once the initial score is calculated, the matching algorithm takes into account the user's location and the job offer or job seeker's location. It then adjusts the score based on the proximity between the two locations
 
 The location-based score adjustments are:
 - If the locations are in the same city, the score is increased by 1 point.
 - If the locations are within the same region, the score is increased by 0.5 points.
 
-#### C. Matching and Presentation
+#### **C. Matching and Presentation**
 The algorithm then matches the user with the job offer or job seeker based on the final calculated score. The results are sorted in descending order, displaying the best matches at the top. If both job offers and job seekers are matched, the application allows them to connect and communicate.
 
-#### D. Re-Matching
+#### **D. Re-Matching**
 The matching algorithm also enables users to re-match with job offers or job seekers based on updated preferences. Users can adjust their criteria, and the algorithm will generate new matches accordingly.
 
-### 8. Chat System
-// TODO: Add chat system
+### 9. Chat System
+
+The chat system is a key feature of the application that allows after matching, job seekers and companies to communicate and discuss potential opportunities. The chat system provides a real-time messaging experience with features such as sending messages, receiving messages, and viewing previous conversations.
+
+#### **A. Real-Time Messaging**
+The chat system uses a real-time messaging service to enable instant communication between users. The system ensures that messages are delivered and received in real-time, providing a seamless chat experience.
+
+#### **B. Message History**
+The chat system maintains a history of messages exchanged between users. Users can view previous conversations, scroll through messages, and refer back to important information shared during the chat.
+
+#### **C. Message Sending and Receiving**
+Users can send messages to each other by typing in the chat input field and pressing the send button. The messages are displayed in real-time, allowing users to see when a message has been sent and received. The chat system also provides notifications for new messages.
+
+This UML sequence diagram illustrates the process of sending and receiving messages in the chat system:
+</br>
+</br>
+<img src="TechnicalSpecificationPicture/Algorithm/Chat_Sequence_UML_V1.svg" alt="Sequence diagram of the process of sending and receiving messages in the chat system"></img>
+
+(See a larger version [here](TechnicalSpecificationAppendix/Algorithm/Chat_Sequence_UML_V1.pdf))
