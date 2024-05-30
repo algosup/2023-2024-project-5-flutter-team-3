@@ -120,9 +120,9 @@ Pour créer votre compte, suivez les étapes suivantes :
    - Cochez la case correspondante à votre situation actuelle : `Je suis un candidat` ou `Je suis une entreprise`.
    - Cliquez ensuite sur le bouton `S'inscrire`.
 
-4. Vous êtes maintenant connecté à votre compte et vous pouvez commencer à utiliser l'application.
+<img src="./UMImages/FR/sign-up.png" alt="Inscription" width="50%" align="center">
 
-<!-- TODO: Insert image related to the sign in page -->
+4. Vous êtes maintenant connecté à votre compte et vous pouvez commencer à utiliser l'application.
 
 ### Connexion à votre compte
 
@@ -136,5 +136,7 @@ Si vous avez déjà un compte, vous pouvez vous connecter en suivant les étapes
    - Adresse courriel;
    - Mot de passe;
    - Cliquez ensuite sur le bouton `Se connecter`.
+
+   <img src="./UMImages/FR/login.png" alt="Connexion" width="50%" align="center">
 
 5. Vous êtes maintenant connecté à votre compte et vous pouvez commencer à utiliser l'application.
