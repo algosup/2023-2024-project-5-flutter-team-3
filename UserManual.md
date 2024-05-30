@@ -113,16 +113,16 @@ To create your account, follow these steps:
 2. If this is your first time using the application on this device, you will need to accept the terms of use and privacy policy.
 3. Fill in the following information:
 
-- Full name;
-- e-mail address
-- Password (for security reasons, we recommend a password of at least 12 characters, containing upper and lower case letters, numbers and special characters).
-- Repeat the password.
-- Check the box corresponding to your current situation: `I am a candidate` or `I am a company`.
-- Then click on the `Register` button.
+   - Full name;
+   - e-mail address
+   - Password (for security reasons, we recommend a password of at least 12 characters, containing upper and lower case letters, numbers and special characters).
+   - Repeat the password.
+   - Check the box corresponding to your current situation: `I am a candidate` or `I am a company`.
+   - Then click on the `Register` button.
+
+  <img src="./UMImages/EN/sign-up.png" alt="Sign up" width="50%" align="center">
 
 4. You are now logged in to your account and can start using the application.
-
-<!-- TODO: Insert image related to the sign-in page-->
 
 ### Login to your account
 
@@ -133,8 +133,10 @@ If you already have an account, you can log in by following these steps:
 3. Instead of entering your details, click on the `Login` button at the bottom of the screen, below the `Register` button.
 4. Fill in the following information:
 
-- E-mail address;
-- Password;
-- Then click on the `Login` button.
+   - E-mail address;
+   - Password;
+   - Then click on the `Login` button.
+
+  <img src="./UMImages/EN/login.png" alt="Login" width="50%" align="center">
 
 5. You are now connected to your account and can start using the application.
