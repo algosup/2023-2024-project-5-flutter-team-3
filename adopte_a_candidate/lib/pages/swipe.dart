@@ -1,13 +1,21 @@
+// Flutter base packages
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
-import 'package:adopte_a_candidate/widgets/logo/logo.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// Widgets package
+import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
+import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/card/cards.dart';
 import 'package:adopte_a_candidate/widgets/card/tags.dart';
+import 'package:adopte_a_candidate/widgets/buttons/localization_button.dart';
+
+
+
+
 
 class SwipePage extends StatefulWidget {
   const SwipePage({super.key});
@@ -66,8 +74,7 @@ class _SwipePageState extends State<SwipePage> {
       appBar: const Logo(),
       body: LayoutBuilder(
         builder: (context, constraints) {
-
-          return Row(
+          return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ConstrainedBox(
@@ -113,7 +120,7 @@ class _SwipePageState extends State<SwipePage> {
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                const CardLine(),
+                                const CardLineHorizontal(),
                                 const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 20.0),
                                   child: Text(
@@ -129,7 +136,7 @@ class _SwipePageState extends State<SwipePage> {
                                     ),
                                   ),
                                 ),
-                                const CardLine(),
+                                const CardLineHorizontal(),
                                 const SizedBox(height: 10), // Adjust spacing as needed
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
@@ -163,7 +170,7 @@ class _SwipePageState extends State<SwipePage> {
                                   ],
                                 ),
                                 const SizedBox(height: 10),
-                                const CardLine(),
+                                const CardLineHorizontal(),
                                 const SizedBox(height: 10),
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
@@ -193,14 +200,11 @@ class _SwipePageState extends State<SwipePage> {
                                   ],
                                 ),
                                 const SizedBox(height: 10),
-                                const CardLine(),
+                                const CardLineHorizontal(),
                                 const SizedBox(height: 2),
                                 Row(
                                   children: [
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.location_on),
-                                    ),
+                                    const localizationButton(),
                                     const SizedBox(width: 20),
                                     Text('18110, Vierzon, FRANCE',
                                     textAlign: TextAlign.center,
@@ -221,6 +225,33 @@ class _SwipePageState extends State<SwipePage> {
                   ),
                 ),
               ),
+              Visibility(
+                visible: !_isDragging,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            GestureDetector(
+                              onTap: (){},
+                              child: SvgPicture.asset('assets/images/close-circle.svg'),
+                            ),
+                            const CardLineVertical(),
+                            GestureDetector(
+                              onTap: (){},
+                                child: SvgPicture.asset('assets/images/check-circle.svg')),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
             ],
           );
         },
@@ -246,3 +277,5 @@ class _SwipePageState extends State<SwipePage> {
     );
   }
 }
+
+
