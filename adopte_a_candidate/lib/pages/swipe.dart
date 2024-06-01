@@ -16,7 +16,7 @@ import 'package:adopte_a_candidate/widgets/buttons/localization_button.dart';
 
 
 
-
+// Swipe page, the user can swipe profile or job that he likes
 class SwipePage extends StatefulWidget {
   const SwipePage({super.key});
 
@@ -26,10 +26,12 @@ class SwipePage extends StatefulWidget {
 
 class _SwipePageState extends State<SwipePage> {
 
+  // Initializing variables for the dragging effect (swipe)
   Offset _startDragOffset = Offset.zero;
   Offset _currentOffset = Offset.zero;
   bool _isDragging = false;
 
+  // detects the start of the swiping momentum
   void _onPanStart(DragStartDetails details) {
     _startDragOffset = details.localPosition;
     setState(() {
@@ -37,12 +39,14 @@ class _SwipePageState extends State<SwipePage> {
     });
   }
 
+  // updates the location of the element swiped
   void _onPanUpdate(DragUpdateDetails details) {
     setState(() {
       _currentOffset = details.localPosition - _startDragOffset;
     });
   }
 
+  // detects the end of the movement, sets the element to it's original place
   void _onPanEnd(DragEndDetails details) {
     setState(() {
       _isDragging = false;
@@ -50,33 +54,37 @@ class _SwipePageState extends State<SwipePage> {
     });
   }
 
+  // When reaching this threshold, detects the widget as selected by the user (swipe -> yes)
   bool _isSelected() {
     return _currentOffset.dx != 0 && _currentOffset.dx > 150;
   }
 
+  // When reaching this threshold, detects the widget as selected by the user (swipe -> no)
   bool _isRejected() {
     return _currentOffset.dx != 0 && _currentOffset.dx < -150;
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width; // get the screen width size of the native device
     final offset = _currentOffset;
     final rotation = offset.dx / screenWidth * 0.8; // Adjust rotation factor
     final colorValue = (offset.dx.abs() / screenWidth).clamp(0.0, 1.0);
     final color = offset.dx < 0
         ? Color.lerp(Colors.white, Colors.red, colorValue)
         : Color.lerp(Colors.white, Colors.green, colorValue);
+    // depending of the threshold and the offset set, change the color of the background either to red or green whether the user selects or rejects the offer
 
 
     return Scaffold(
-      backgroundColor: color,
-      appBar: const Logo(),
+      backgroundColor: color, // set the background color either to white, red, or green depending on the state
+      appBar: const Logo(), // displays the logo
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Creating the card box which contains the job offer, and is draggable by the user
               ConstrainedBox(
                 constraints: const BoxConstraints(),
                 child: GestureDetector(
@@ -108,6 +116,7 @@ class _SwipePageState extends State<SwipePage> {
                                   .start, // Align content to the start
                               children: [
                                 Center(
+                                  // Title of the job offer
                                   child: Text(
                                     'Nurse Practitioner',
                                     style: GoogleFonts.josefinSans(
@@ -120,7 +129,7 @@ class _SwipePageState extends State<SwipePage> {
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                const CardLineHorizontal(),
+                                const CardLineHorizontal(), // adds an horizontal line to separate elements
                                 const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 20.0),
                                   child: Text(
@@ -225,7 +234,7 @@ class _SwipePageState extends State<SwipePage> {
                   ),
                 ),
               ),
-              Visibility(
+              Visibility( // add visibility to the button check and cross below, when the card is being dragged, hide the button.
                 visible: !_isDragging,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

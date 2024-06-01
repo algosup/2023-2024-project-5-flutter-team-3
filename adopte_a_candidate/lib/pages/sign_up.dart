@@ -39,6 +39,9 @@ class _AskIfCompanyState extends State<AskIfCompany> {
   bool isCompany = false;
 
   void _handleCheckBoxChange(bool? selected, String type) {
+
+    // Retrieve if the user either is a jobseeker or a company
+    // acts as a switch, user can't be both state at once
     setState(() {
       if (type == 'jobSeeker') {
         isJobSeeker = selected ?? false;
@@ -54,11 +57,12 @@ class _AskIfCompanyState extends State<AskIfCompany> {
     });
   }
 
+  // french signup page
   Widget frenchPage() {
-    final controller = Get.put(SignUpController());
+    final controller = Get.put(SignUpController()); // retrives Text editing controllers
 
     return Scaffold(
-      appBar: const Logo(),
+      appBar: const Logo(), // Prints the logo widget
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Padding(
@@ -70,6 +74,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 Row(
                   children: [
                     Flexible(
+                      // Name Text field
                       child: CustomTextField(
                         controller: controller.name,
                         title: 'Nom:',
@@ -87,6 +92,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 Row(
                   children: [
                     Flexible(
+                      // email text field
                       child: CustomTextField(
                         controller: controller.email,
                         title: 'Mail:',
@@ -103,6 +109,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 const SizedBox(height: 15),
                 Row(
                   children: <Widget>[
+                    // Password textfields
                     CustomTextField(
                       controller: controller.password,
                       title: 'Mot de passe:',
@@ -118,6 +125,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 const SizedBox(height: 15),
                 Row(
                   children: <Widget>[
+                    // confirm password text field
                     CustomTextField(
                       controller: controller.confirmPassword,
                       title: 'Confirmez votre mot de passe:',
@@ -133,6 +141,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                 const SizedBox(height: 15),
                 Row(
                   children: [
+                    // Round box to retrieve whether the user is a jobseeker or part of a compnay
                     buildRoundCheckBox(
                       isChecked: isJobSeeker,
                       onChanged: (selected) =>
@@ -213,6 +222,8 @@ class _AskIfCompanyState extends State<AskIfCompany> {
     );
   }
 
+
+  // translated page to english
   Widget englishPage() {
     final controller = Get.put(SignUpController());
 

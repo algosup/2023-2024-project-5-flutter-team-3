@@ -11,6 +11,9 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 // Custom controllers
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 
+
+
+// This is the login page of the app
 class LogIn extends StatelessWidget {
   final bool isEnglish = true;
   const LogIn({super.key});
@@ -18,12 +21,12 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isEnglish ? englishPage() : frenchPage(),
+      body: isEnglish ? englishPage() : frenchPage(), // linked to the boolean value, prints the french page if isEnglish = false, otherwise prints the english page
     );
   }
 
   Widget frenchPage() {
-    final controller = Get.put(SignUpController());
+    final controller = Get.put(SignUpController()); // TextEditingControllers refer to the file for more information
     return Scaffold(
       appBar: const Logo(),
       body: LayoutBuilder(
@@ -39,6 +42,7 @@ class LogIn extends StatelessWidget {
                 children: <Widget>[
                   Row(
                     children: [
+                      // Text field for the email
                       CustomTextField(
                         controller: controller.email,
                         title: 'Email:',
@@ -54,6 +58,7 @@ class LogIn extends StatelessWidget {
                   const SizedBox(height: 20),
                   Row(
                     children: <Widget>[
+                      // Text field for the password
                       CustomTextField(
                         controller: controller.password,
                         title: 'Mot de passe:',
@@ -70,6 +75,7 @@ class LogIn extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      // Button that leads the user back to the signup page, TODO, make the password forgot page
                       CustomTextButton(
                         text: 'Mot de passe oublié ?',
                         textWidth: 12,
@@ -82,6 +88,7 @@ class LogIn extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Center(
+                        // Button for connexion, leads to the swipe page of the user once connected
                         child: BigButton(
                           text: 'Connexion',
                           width: 200,
@@ -95,6 +102,7 @@ class LogIn extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      // No account button, leads to the signup page
                       Center(
                         child: CustomTextButton(
                           text: 'Pas encore de compte? S\'inscrire',
@@ -114,6 +122,7 @@ class LogIn extends StatelessWidget {
   }
 }
 
+// Same page as above but in english, it does all the same, but has been manually translated to english.
 Widget englishPage() {
   final controller = Get.put(SignUpController());
   return Scaffold(

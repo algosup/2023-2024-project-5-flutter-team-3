@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 // Card line
 
+// Horizontal line, to separate elements
 class CardLineHorizontal extends StatelessWidget {
   const CardLineHorizontal({super.key});
 
@@ -27,6 +28,7 @@ class CardLineHorizontal extends StatelessWidget {
   }
 }
 
+// Vertical line present below the card in the swipe page to seperate both check and cross buttons
 class CardLineVertical extends StatelessWidget {
   const CardLineVertical({super.key});
 

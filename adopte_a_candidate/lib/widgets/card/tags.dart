@@ -7,9 +7,9 @@ class TagRequiredSkills extends StatelessWidget {
   final String text;
 
   const TagRequiredSkills({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +48,9 @@ class TagAppreciatedSkills extends StatelessWidget {
   final String text;
 
   const TagAppreciatedSkills({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
