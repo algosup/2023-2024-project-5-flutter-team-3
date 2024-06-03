@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/card/cards.dart';
-import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import '../widgets/card/tags.dart';
 import '../widgets/logo/logo.dart';
 import '../widgets/navbar/navigation_bar.dart';

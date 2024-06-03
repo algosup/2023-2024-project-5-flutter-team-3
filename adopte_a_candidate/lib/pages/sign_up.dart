@@ -59,7 +59,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
 
   // french signup page
   Widget frenchPage() {
-    final controller = Get.put(SignUpController()); // retrives Text editing controllers
+    final controller = Get.put(SignUpController()); // retrieves Text editing controllers
 
     return Scaffold(
       appBar: const Logo(), // Prints the logo widget
