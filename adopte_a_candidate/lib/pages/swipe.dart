@@ -76,6 +76,8 @@ class _SwipePageState extends State<SwipePage> {
     // depending of the threshold and the offset set, change the color of the background either to red or green whether the user selects or rejects the offer
 
 
+
+    // TODO if user == candidate, show this scaffold
     return Scaffold(
       backgroundColor: color, // set the background color either to white, red, or green depending on the state
       appBar: const Logo(), // displays the logo
@@ -99,7 +101,7 @@ class _SwipePageState extends State<SwipePage> {
                         duration: const Duration(seconds: 1),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 80,
-                          height: MediaQuery.of(context).size.height - 380,
+                          height: MediaQuery.of(context).size.height - 400,
                           decoration: BoxDecoration(
                             color: const Color(
                               0xffffd5c2,
@@ -109,7 +111,7 @@ class _SwipePageState extends State<SwipePage> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 20.0,
-                              vertical: 10.0,
+                              vertical: 5.0,
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment
@@ -128,7 +130,7 @@ class _SwipePageState extends State<SwipePage> {
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 5),
                                 const CardLineHorizontal(), // adds an horizontal line to separate elements
                                 const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 20.0),
@@ -146,7 +148,7 @@ class _SwipePageState extends State<SwipePage> {
                                   ),
                                 ),
                                 const CardLineHorizontal(),
-                                const SizedBox(height: 10), // Adjust spacing as needed
+                                const SizedBox(height: 5), // Adjust spacing as needed
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
                                   child: Text(
@@ -178,9 +180,9 @@ class _SwipePageState extends State<SwipePage> {
                                     TagRequiredSkills(text: 'Respect'),
                                   ],
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 5),
                                 const CardLineHorizontal(),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 5),
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
                                   child: Text(
