@@ -1,16 +1,15 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/card/cards.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
+import '../widgets/card/tags.dart';
 import '../widgets/logo/logo.dart';
 import '../widgets/navbar/navigation_bar.dart';
 import '../widgets/buttons/modifier_button.dart';
-
 
 // Profile Page, the user will be able to see his profile and modify his information.
 class ProfilePage extends StatelessWidget {
@@ -37,7 +36,7 @@ class ProfilePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomTextField(
-                // About Me text field, the user can make a small description about himself
+                  // About Me text field, the user can make a small description about himself
                   controller: controllerAboutMe,
                   title: 'Describe yourself',
                   hinttext: 'Write a short description about yourself',
@@ -81,6 +80,47 @@ class ProfilePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                        Wrap(
+                          children: [
+                            TagRequiredSkills(
+                            text: 'Adaptability',
+                          ),
+                            TagRequiredSkills(
+                              text: 'Adaptability',
+                            ),
+                            TagRequiredSkills(
+                              text: 'Adaptability',
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TagRequiredSkills(
+                            text: 'Adaptability',
+                          ),TagRequiredSkills(
+                            text: 'Adaptability',
+                          ),
+
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+
+
               ),
             ],
           ),
@@ -114,4 +154,3 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
-
