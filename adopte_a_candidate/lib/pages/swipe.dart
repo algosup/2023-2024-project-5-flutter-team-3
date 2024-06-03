@@ -150,7 +150,7 @@ class _SwipePageState extends State<SwipePage> {
                                 const CardLineHorizontal(),
                                 const SizedBox(height: 5), // Adjust spacing as needed
                                 Padding(
-                                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
+                                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                                   child: Text(
                                     'Required Skills:',
                                     style: GoogleFonts.josefinSans(
@@ -184,7 +184,7 @@ class _SwipePageState extends State<SwipePage> {
                                 const CardLineHorizontal(),
                                 const SizedBox(height: 5),
                                 Padding(
-                                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
+                                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                                   child: Text(
                                     'Appreciate Skills:',
                                     style: GoogleFonts.josefinSans(
@@ -210,13 +210,12 @@ class _SwipePageState extends State<SwipePage> {
                                     TagAppreciatedSkills(text: 'Networking'),
                                   ],
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 5),
                                 const CardLineHorizontal(),
                                 const SizedBox(height: 2),
                                 Row(
                                   children: [
                                     const localizationButton(),
-                                    const SizedBox(width: 20),
                                     Text('18110, Vierzon, FRANCE',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.josefinSans(
