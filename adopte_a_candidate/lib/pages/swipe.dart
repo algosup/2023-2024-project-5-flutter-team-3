@@ -84,7 +84,7 @@ class _SwipePageState extends State<SwipePage> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               // Creating the card box which contains the job offer, and is draggable by the user
               ConstrainedBox(
@@ -133,7 +133,7 @@ class _SwipePageState extends State<SwipePage> {
                                 const SizedBox(height: 5),
                                 const CardLineHorizontal(), // adds an horizontal line to separate elements
                                 const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                                  padding: EdgeInsets.symmetric(vertical: 10.0),
                                   child: Text(
                                     //required JobDescription
                                     'Join our team as a Nurse Practitioner (NP)! You’ll provide primary and specialty healthcare, diagnose and treat medical conditions, prescribe medications, perform procedures, and educate patients. Work autonomously or alongside physicians in a dynamic and supportive environment.',
@@ -171,7 +171,7 @@ class _SwipePageState extends State<SwipePage> {
                                     // Add more Tag widgets here as needed
                                   ],
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 5),
                                 const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
