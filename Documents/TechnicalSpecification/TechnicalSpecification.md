@@ -8,7 +8,7 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/05/29  |
+| Last Update Date  | 2024/06/03  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
@@ -18,6 +18,7 @@
 | 0.01        | Maxime CARON | 2024/05/15 | Initial Version with plan and basics |
 | 0.02        | Maxime CARON | 2024/05/21 | Added the first part of the document |
 | 0.10        | Maxime CARON | 2024/05/29 | Added the last part of the document, missing spellcheck |
+| 1.0         | Maxime CARON | 2024/06/03 | First finished version |
 
 
 ## Table of Contents
@@ -63,7 +64,7 @@
       - [**A. Folder Structure**](#a-folder-structure)
         - [➭ Structure:](#-structure)
         - [➭ Files and Folders Naming Conventions:](#-files-and-folders-naming-conventions)
-        - [➭ Folder details:](#-folder-details)
+        - [➭ Folder Details:](#-folder-details)
       - [**B. Comments**](#b-comments)
         - [➭ Comments at File Beginning:](#-comments-at-file-beginning)
         - [➭ Comments in the Code:](#-comments-in-the-code)
@@ -82,9 +83,9 @@
         - [➭ SkillList:](#-skilllist)
         - [➭ Conversation:](#-conversation)
         - [➭ Message:](#-message)
-      - [**C. Interaction From the Application**](#c-interaction-from-the-application)
+      - [**C. Interaction from the Application**](#c-interaction-from-the-application)
         - [➭ Interaction Times:](#-interaction-times)
-        - [➭ Communication with database:](#-communication-with-database)
+        - [➭ Communication with Database:](#-communication-with-database)
       - [**D. Future Improvements of the Database**](#d-future-improvements-of-the-database)
     - [3. Graphic Conventions](#3-graphic-conventions)
       - [**A. Colors**](#a-colors)
@@ -143,18 +144,30 @@
 
 ### 1. Glossary
 
-| Term             | Definition | Source |
-| ---------------- | ---------- | ------ |
-| Flutter          |            |        |
-| Firebase         |            |        |
-| API              |            |        |
-| Database         |            |        |
-| Widget           |            |        |
-| Page             |            |        |
-| Matching         |            |        |
-| Main Skills      |            |        |
-| Side Skills      |            |        |
-| We Are Evolution |            |        |
+| Term                | Definition                                                                 | Source            |
+|---------------------|----------------------------------------------------------------------------|-------------------|
+| Android             | The operating system developed by Google for mobile devices such as smartphones and tablets. | [Android](https://www.android.com/) |
+| API                 | Application Programming Interface - a set of rules and protocols for building and interacting with software applications. | [TechTerms](https://techterms.com/definition/api) |
+| Dart                | The programming language used for building applications in the Flutter framework. | [Dart](https://dart.dev/) |
+| Database            | A structured collection of data stored electronically in a computer system. | [Techopedia](https://www.techopedia.com/definition/18768/database) |
+| Drop-down Menu      | A graphical control element, typically a list of items that appear below a selected item when activated, allowing the user to choose from among predefined options. | [TechTerms](https://techterms.com/definition/dropdownmenu) |
+| Firebase            | A mobile and web application development platform developed by Firebase, Inc. It provides a variety of services such as real-time database, authentication, hosting, etc. | [Firebase](https://firebase.google.com/) |
+| Flutter             | A UI toolkit developed by Google for building natively compiled applications for mobile, web, and desktop from a single codebase. | [Flutter](https://flutter.dev/) |
+| Framework           | A software framework providing a foundation on which software developers can build and deploy applications. | [Techopedia](https://www.techopedia.com/definition/14356/framework) |
+| Integration Testing | Testing conducted to evaluate the integration or interaction between different components or systems of an application. | [Techopedia](https://www.techopedia.com/definition/16314/integration-testing) |
+| iOS                 | The operating system developed by Apple Inc. for its mobile devices like iPhone and iPad. | [Apple](https://www.apple.com/ios/) |
+| Main Skills         | Core skills or competencies essential for a particular job or role. | Personal knowledge |
+| Matching            | The process of pairing or connecting two entities based on predefined criteria. | Personal knowledge |
+| Mock Library        | A library or tool used in software development to create mock objects or simulate behaviors for testing purposes. | [Flutter](https://docs.flutter.dev/cookbook/testing/unit/mocking) |
+| Navbar              | A navigation bar, typically found at the top of a website or application interface, providing links to different sections or pages. | [Techopedia](https://www.techopedia.com/definition/30236/navigation-bar) |
+| Page                | A screen or view in a mobile or web application where content is displayed. | Personal knowledge |
+| Packages            | Collections of code and resources in Dart programming language, used to implement specific functionality in Flutter applications. | [Dart Packages](https://pub.dev/) |
+| Side Skills         | Additional or supplementary skills that complement main skills. | Personal knowledge |
+| Snake Case          | A naming convention in which words are written together and separated by underscores, often used in variable and function names. | [Wikipedia](https://en.wikipedia.org/wiki/Snake_case) |
+| Tinder              | A popular dating application known for its swiping-based user interface to match with other users. | [Tinder](https://www.tinder.com/) |
+| We Are Evolution    | A company that helps recruiters and jobseekers meet. | Personal knowledge |
+| Widget              | A basic building block of Flutter UI, representing a visual component such as a button, text input, etc. | [Flutter Widgets](https://flutter.dev/docs/development/ui/widgets) |
+
 
 ### 2. Document Purpose
 
@@ -342,14 +355,16 @@ lib/
   ├── firestore/
   │     ├── firebase_options.dart
   ├── models/
-  │     ├── user.dart
-  │     ├── company.dart
-  │     ├── chat.dart
-  │     ├── message.dart
+  │     ├── users.dart
+  │     ├── matches.dart
+  │     ├── messages.dart
   ├── services/
-  │     ├── authentication.dart
-  │     ├── database.dart
-  │     ├── matching.dart
+  │     ├── authentication/
+  │     │     ├── exceptions/
+  │     │     │     ├── signup _email_password_failure.dart
+  │     │     ├── signup/
+  │     │     │     ├── signup_controller.dart
+  │     │     ├── user_Services.dart
   ├── widgets/
   │     ├── buttons/
   │     │     ├── text_button.dart
@@ -368,8 +383,8 @@ lib/
   |     ├── logo/
   │     │     ├── logo.dart
   ├── pages/
-  │     ├── login.dart
-  │     ├── subscription.dart
+  │     ├── log_in.dart
+  │     ├── sign_up.dart
   │     ├── company/
   │     │     ├── profile.dart
   │     │     ├── settings.dart
@@ -380,15 +395,16 @@ lib/
   │     │     ├── settings.dart
   │     │     ├── swap_area.dart
   │     │     ├── chat.dart
-  ├── matching_algorithm.dart
+  ├── main.dart
   ├── routes.dart
 ```
+
 This structured layout facilitates code organization and enhances project maintainability.
 
 ##### ➭ <ins>Files and Folders Naming Conventions:</ins>
-To maintain consistency and make it easier to navigate through the code, we will use the same naming conventions as the one used by default in Flutter. We will use snake_case for files and folder names. This will make it easier to read and understand the code.
+To maintain consistency and make it easier to navigate through the code, we will use the same naming conventions as those used by default in Flutter. We will use snake_case for files and folder names. This will make it easier to read and understand the code.
 
-##### ➭ <ins>Folder details:</ins>
+##### ➭ <ins>Folder Details:</ins>
 
 - **`models/`:** This folder will contain all the models used in the application. Each model will be in a separate file.
 - **`services/`:** This folder will contain all the services used in the application. Each service will be in a separate file.
@@ -538,7 +554,7 @@ The application will use Firebase Realtime Database to store and sync data in re
   - `senderId`: Unique identifier of the user who sent the message.
   - `content`: Content of the message.
 
-#### **C. Interaction From the Application**
+#### **C. Interaction from the Application**
 
 ##### ➭ <ins>Interaction Times:</ins>
 
@@ -563,7 +579,7 @@ The application will interact with the database at the following moments:
   - Send messages.
   - Retrieve messages.
 
-##### ➭ <ins>Communication with database:</ins>
+##### ➭ <ins>Communication with Database:</ins>
 The application will communicate with the database using the Firebase Realtime Database API. The API will be used to:
 - Read data from the database.
 - Write data to the database.
@@ -841,7 +857,7 @@ A navbar is a bar that contains icon buttons. It is used to navigate between pag
 | Property          | Description                                             | Required |
 |-------------------|-------------------------------------------------------- | -------- |
 | **Pages**         | The list of pages the user can select from.             | Yes      |
-| **Selected**      | The page selected by default.                           | Yes      |
+| **Selected**      | The page which is selected by default.                  | Yes      |
 | **On Change**     | The action is triggered when the selected page changes. | Yes      |
 | **Disabled**      | Disables the navbar to prevent user interaction.        | No       |
 
@@ -949,7 +965,7 @@ The subscription page contains the following elements:
 | Email              | The user's email.                   | Text field     | Editable    |                                                                |
 | Password           | The user's password.                | Text field     | Editable    |                                                                |
 | Confirm password   | Confirmation of user's password.    | Text field     | Editable    |                                                                |
-| Job seeker/company| Button to choose user type.          | Radio button   | Clickable   | Switch between job seeker and company user types.              |
+| Job seeker/company | Button to choose user type.          | Radio button   | Clickable   | Switch between job seeker and company user types.              |
 | Subscription       | Button to create account.           | Button         | Clickable   | Validate email and password, redirect user to their profile.   |
 | Login              | Button to go to login page.         | Button         | Clickable   | Redirect user to login page.                                   |
 
