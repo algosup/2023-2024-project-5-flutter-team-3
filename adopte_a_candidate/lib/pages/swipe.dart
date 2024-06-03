@@ -110,7 +110,7 @@ class _SwipePageState extends State<SwipePage> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
+                              horizontal: 10.0,
                               vertical: 5.0,
                             ),
                             child: Column(
@@ -133,7 +133,7 @@ class _SwipePageState extends State<SwipePage> {
                                 const SizedBox(height: 5),
                                 const CardLineHorizontal(), // adds an horizontal line to separate elements
                                 const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                                  padding: EdgeInsets.symmetric(vertical: 5.0),
                                   child: Text(
                                     //required JobDescription
                                     'Join our team as a Nurse Practitioner (NP)! You’ll provide primary and specialty healthcare, diagnose and treat medical conditions, prescribe medications, perform procedures, and educate patients. Work autonomously or alongside physicians in a dynamic and supportive environment.',

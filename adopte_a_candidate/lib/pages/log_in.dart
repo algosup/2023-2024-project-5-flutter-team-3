@@ -131,7 +131,7 @@ Widget englishPage() {
       builder: (context, constraints) {
         return Padding(
           padding:
-              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 120.0),
+              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               minHeight: constraints.maxHeight,
