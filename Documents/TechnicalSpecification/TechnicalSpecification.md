@@ -129,15 +129,22 @@
     - [7. Translation](#7-translation)
       - [**A. Install and import**](#a-install-and-import-1)
       - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-1)
-    - [8. Matching Algorithm](#8-matching-algorithm)
+    - [8. Get User's Location](#8-get-users-location)
+      - [**A. Install and import**](#a-install-and-import-2)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-2)
+    - [9. Matching Algorithm](#9-matching-algorithm)
       - [**A. Scoring System**](#a-scoring-system)
       - [**B. Location-based Adjustments**](#b-location-based-adjustments)
       - [**C. Matching and Presentation**](#c-matching-and-presentation)
       - [**D. Re-Matching**](#d-re-matching)
-    - [9. Chat System](#9-chat-system)
+    - [10. Chat System](#10-chat-system)
       - [**A. Real-Time Messaging**](#a-real-time-messaging)
       - [**B. Message History**](#b-message-history)
       - [**C. Message Sending and Receiving**](#c-message-sending-and-receiving)
+    - [11. Data Privacy and Security](#11-data-privacy-and-security)
+      - [**A. Data Usage**](#a-data-usage)
+      - [**B. Data Storage**](#b-data-storage)
+      - [**C. Data Retrieving and Deleting**](#c-data-retrieving-and-deleting)
 </details>
 
 ## I. Introduction
@@ -251,6 +258,7 @@ To create the application, we will need to use some packages.
 - `firebase_auth/firebase_auth.dart`: The Firebase Auth package provides access to Firebase Authentication. It is used to authenticate users in the application.
 - `go_router/go_router.dart`: The Go Router package provides a declarative router for Flutter applications. It is used to manage the navigation in the application.
 - `google_fonts/google_fonts.dart`: The Google Fonts package provides access to Google Fonts. It is used to load custom fonts in the application.
+- `package:geolocator/geolocator.dart`: The Geolocator package provides access to the device's location. It is used to get the user's location in the application.
 
 ##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
@@ -693,17 +701,25 @@ A text field is a field where the user enters text. It is used to collect or sho
 **Example of Visual Representation:**</br>
 <img alt="Example of text field" src="TechnicalSpecificationPicture/Widgets/text-field.png" width="300px"></img>
 
-**Properties:**
+**Editable Properties:**
 
 | Property                    | Description                                                                              | Required |
 |-----------------------------|----------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The text field is set as mandatory for the user to fill out or optional.                 | Yes      |
 | **Read-only/Editable**      | The text field is read-only or editable.                                                 | Yes      |
 | **Maximum Length**          | The text field restricts the number of characters entered to a maximum limit.            | Yes      |
-| **Minimum Length**          | The text field enforces a minimum number of characters that must be entered.             | No       |
 | **Label**                   | The text field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The text field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                             | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum height**          | The minimum height of the field.                                                    | 50px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+| **Minimum length**          | The minimum number of characters that can be entered in the field.                  | 0             |
 
 ##### ➭ <ins>Localization Field:</ins>
 **Description:**</br>
@@ -722,6 +738,15 @@ A localization field is a field where the user enters a localization. It also co
 | **Label**                   | The localization field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The localization field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                                     | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum height**          | The minimum height of the field.                                                    | 50px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+| **Minimum length**          | The minimum number of characters that can be entered in the field.                  | 0             |
 
 ##### ➭ <ins>Tag Field:</ins>
 **Description:**</br>
@@ -751,6 +776,14 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 | **Helper Text**             | The tag field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                            | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum height**          | The minimum height of the field.                                                    | 100px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+
 ##### ➭ <ins>Select Field:</ins>
 **Description:**</br>
 A select field is a field where the user selects an option from a list of options. It is used to collect or show a single option.
@@ -774,6 +807,14 @@ A select field is a field where the user selects an option from a list of option
 | **Label**                   | The select field is accompanied by a label that describes its purpose.                           | No       |
 | **Helper Text**             | The select field includes helper text that provides additional guidance to the user.             | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum height**          | The minimum height of the field.                                                    | 50px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+
 #### **B. Buttons**
 
 ##### ➭ <ins>Text Button:</ins>
@@ -793,6 +834,15 @@ A text button is a button that contains text. It is used to trigger an action wh
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the button.                                                         | 50px          |
+| **Minimum height**          | The minimum height of the button.                                                        | 50px          |
+| **Border Radius**           | The border radius of the button.                                                         | 10px          |
+| **Minimum length**          | The minimum number of characters that can be entered in the button.                      | 0             |
+
 ##### ➭ <ins>Icon Button:</ins>
 **Description:**</br>
 An icon button is a button that contains an icon. It is used to trigger an action when clicked.
@@ -810,6 +860,14 @@ An icon button is a button that contains an icon. It is used to trigger an actio
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the button.                                                         | 50px          |
+| **Minimum height**          | The minimum height of the button.                                                        | 50px          |
+| **Border Radius**           | The border radius of the button.                                                         | 10px          |
+
 ##### ➭ <ins>Radio Button:</ins>
 **Description:**</br>
 A radio button is a button that allows the user to select one option from a list of options. It is used to select a single option from a list of options.
@@ -826,6 +884,12 @@ A radio button is a button that allows the user to select one option from a list
 | **Disabled**      | Disables the radio button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.              | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the button.                                                         | 30px          |
+| **Minimum height**          | The minimum height of the button.                                                        | 30px          |
 
 ##### ➭ <ins>Big Button:</ins>
 **Description:**</br>
@@ -846,6 +910,16 @@ A big button is sized as a text field or bigger, containing text and/or an icon.
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the button.                                                         | 300px         |
+| **Minimum height**          | The minimum height of the button.                                                        | 50px          |
+| **Border Radius**           | The border radius of the button.                                                         | 10px          |
+| **Minimum length**          | The minimum number of characters that can be entered in the button.                      | 0             |
+| **Text size**               | The size of the text in the button.                                                      | 20px          |
+
 ##### ➭ <ins>Navbar:</ins>
 **Description:**</br>
 A navbar is a bar that contains icon buttons. It is used to navigate between pages. The selected page is highlighted by a halo effect.
@@ -860,6 +934,11 @@ A navbar is a bar that contains icon buttons. It is used to navigate between pag
 | **Selected**      | The page which is selected by default.                  | Yes      |
 | **On Change**     | The action is triggered when the selected page changes. | Yes      |
 | **Disabled**      | Disables the navbar to prevent user interaction.        | No       |
+
+**Read-only Properties:**
+
+None
+
 
 #### **C. Lists**
 
@@ -884,6 +963,15 @@ A clickable list is a list where each item can be clicked. It is used to display
 | **Editable**      | The list is in editing mode.                            | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                            | Default value |
+|-----------------------------|--------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the list.                                                         | 300px         |
+| **Minimum height**          | The minimum height of the list.                                                        | 50px          |
+| **Border Radius**           | The border radius of the list.                                                         | 10px          |
+
+
 #### **D. Cards**
 
 ##### ➭ <ins>Swipe Card:</ins>
@@ -905,6 +993,14 @@ A swipe card is a card that contains information and can be swiped left or right
 | **On Reject**     | The action is triggered when the card is rejected.      | Yes      |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the card.                                                           | 300px         |
+| **Minimum height**          | The minimum height of the card.                                                          | 500px         |
+| **Border Radius**           | The border radius of the card.                                                           | 10px          |
+
 ##### ➭ <ins>Chat Card:</ins>
 **Description:**</br>
 A chat card is a card that contains a conversation. It is used to display a conversation between two users.
@@ -919,6 +1015,14 @@ A chat card is a card that contains a conversation. It is used to display a conv
 | **Messages**      | The messages displayed on the card.                     | Yes      |
 | **On Click**      | The action is triggered when the card is clicked.       | Yes      |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the card.                                                           | 50px          |
+| **Minimum height**          | The minimum height of the card.                                                          | 30px          |
+| **Border Radius**           | The border radius of the card.                                                           | 10px          |
 
 
 ### 5. Pages
@@ -1349,7 +1453,7 @@ class _SignInPageState extends State<SignInPage> {
 - Ensure your Firestore database rules allow authenticated users to read and write data.
 
 Update your Firestore rules as needed:
-```json
+```dart
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
@@ -1428,7 +1532,80 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 
-### 8. Matching Algorithm
+### 8. Get User's Location
+The application uses the `geolocator` package to get the user's location. This package provides a set of classes and methods to retrieve the user's location.
+
+#### **A. Install and import**
+To install the `geolocator` package, the application must:
+- Add the `geolocator` package to the `pubspec.yaml` file by running the following command:
+```bash
+flutter pub add geolocator
+```
+- Import the package in the file where the location is needed by adding the following line:
+```dart
+import 'package:geolocator/geolocator.dart';
+```
+
+#### **B. Set Up for App and Usage**
+The `geolocator` package provides a set of classes and methods to retrieve the user's location. The application can use these classes and methods to get the user's location and display it in the application.
+
+*Example:*
+```dart
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePage extends State<MyHomePage> {
+  String _location = '';
+
+  Future<void> _getLocation() async {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      _location = 'Latitude: ${position.latitude}, Longitude: ${position.longitude}';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Location Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(_location),
+            ElevatedButton(
+              onPressed: _getLocation,
+              child: Text('Get Location'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+### 9. Matching Algorithm
 
 The matching algorithm is a core feature of the application that enables users to find the most suitable job offers or job seekers based on their skills and preferences. The algorithm utilizes a scoring system to match users with the most relevant opportunities or candidates.
 
@@ -1453,7 +1630,7 @@ The algorithm then matches the user with the job offer or job seeker based on th
 #### **D. Re-Matching**
 The matching algorithm also enables users to re-match with job offers or job seekers based on updated preferences. Users can adjust their criteria, and the algorithm will generate new matches accordingly.
 
-### 9. Chat System
+### 10. Chat System
 
 The chat system is a key feature of the application that allows after matching, job seekers and companies to communicate and discuss potential opportunities. The chat system provides a real-time messaging experience with features such as sending messages, receiving messages, and viewing previous conversations.
 
@@ -1472,3 +1649,25 @@ This UML sequence diagram illustrates the process of sending and receiving messa
 <img src="TechnicalSpecificationPicture/Algorithm/Chat_Sequence_UML_V1.svg" alt="Sequence diagram of the process of sending and receiving messages in the chat system"></img>
 
 (See a larger version [here](TechnicalSpecificationAppendix/Algorithm/Chat_Sequence_UML_V1.pdf))
+
+### 11. Data Privacy and Security
+User data privacy and security are paramount in the application. The system ensures that user data is protected and handled in compliance with data protection regulations. The application follows best practices to safeguard user information and maintain data privacy.
+
+#### **A. Data Usage**
+The application collects user data to match job seekers with companies and vice versa. The data collected includes user profiles, skills, preferences, and location information. The application uses this data to generate matches and facilitate communication between users.
+
+No sensitive data, such as financial information or personal identification numbers, is stored in the application. The system only collects data necessary for matching and communication purposes.
+
+The application collects the following data:
+- User profiles: Name, email, description, skills, and preferences.
+- Location information: User's location and job offer or job seeker's location.
+- Chat history: Messages exchanged between users.
+- Matching scores: Scores that are calculated based on skills and location.
+
+#### **B. Data Storage**
+User data is stored securely in a cloud-based database. The application uses Firebase Firestore to store user profiles, chat history, and matching scores. Firebase Firestore provides a secure and scalable solution for storing and retrieving data.
+
+The data stored in Firebase Firestore is encrypted and protected using industry-standard security measures. Access to the database is restricted to authorized users, and data is transmitted securely over HTTPS.
+
+#### **C. Data Retrieving and Deleting**
+Users have the right to ask to know what data is stored about them and to request the deletion of their data. The application provides users with the ability to retrieve their data and delete their accounts.
