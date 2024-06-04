@@ -43,6 +43,7 @@ dependencies:
   roundcheckbox: ^2.0.3
   go_router: ^14.1.3
   google_fonts: ^6.2.1
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_test:

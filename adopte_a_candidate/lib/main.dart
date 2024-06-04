@@ -1,9 +1,11 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:adopte_a_candidate/services/authentification/authentification_repository.dart';
+import 'package:adopte_a_candidate/services/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'firestore/firebase_options.dart';
 
 // Routes package
@@ -13,7 +15,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthentificationRepository()));
-  runApp(const MyApp());
+  runApp( ChangeNotifierProvider(create: (BuildContext context) { return ProfileState();},
+  child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

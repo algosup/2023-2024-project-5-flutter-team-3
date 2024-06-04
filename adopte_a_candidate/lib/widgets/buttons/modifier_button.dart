@@ -3,8 +3,12 @@ import 'package:flutter_svg/svg.dart';
 
 // Modifier button widget, that allows the user to change his information
 class modifierButton extends StatelessWidget {
+  final VoidCallback onTap;
+
+
   const modifierButton({
     super.key,
+    required this.onTap,
   });
 
   @override
@@ -15,7 +19,7 @@ class modifierButton extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
           child: GestureDetector(
-            onTap: () {},
+            onTap: onTap,
             child: SvgPicture.asset('assets/images/pen.svg'),
           ),
         )
