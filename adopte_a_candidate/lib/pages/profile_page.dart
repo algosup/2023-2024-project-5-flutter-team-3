@@ -41,7 +41,9 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 // button leading to the setting page
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed('settings');
+                  },
                   icon: const Icon(Icons.settings),
                 ),
               ],
@@ -122,7 +124,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   decoration: ShapeDecoration(
                     color: const Color(0xFFF5F5F5),
                     shape: RoundedRectangleBorder(
-                      side: const BorderSide(width: 2, color: Color(0xFFFFD5C2)),
+                      side:
+                          const BorderSide(width: 2, color: Color(0xFFFFD5C2)),
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -159,7 +162,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       )
                     ],
-        
                   ),
                 ),
               ],
@@ -225,12 +227,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
             const Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: modifierButton()),
           ],
         ),
@@ -240,15 +241,15 @@ class _ProfilePageState extends State<ProfilePage> {
         onItemTapped: (index) {
           switch (index) {
             case 0:
-            // Logic for profile page
-            // You're already on the profile page, so no navigation needed
+              // Logic for profile page
+              // You're already on the profile page, so no navigation needed
               break;
             case 1:
-            // Logic for swipe page
+              // Logic for swipe page
               context.goNamed('swipe'); // Example navigation to the swipe page
               break;
             case 2:
-            // Logic for messages page
+              // Logic for messages page
               context.goNamed(
                   'message'); // Example navigation to the messages page
               break;
