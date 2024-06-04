@@ -261,7 +261,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    // Handle delete account
+                    context.goNamed('log_in'); // Navigate to terms page
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -303,7 +303,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goNamed('term_of_use'); // Navigate to terms page
+                    },
                     child: Text(
                       'Term of usage',
                       style: GoogleFonts.josefinSans(
