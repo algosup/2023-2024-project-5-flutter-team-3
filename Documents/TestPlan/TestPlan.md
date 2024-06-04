@@ -496,22 +496,23 @@ The assignment and description of defect severity levels will be as follows:
 
 ### B - Workflow for handling issues
 
-1. **Logging Issues:**
+1. **Logging issues:**
    - The QA logs issues in GitHub during testing
    - Each issue is assigned a severity level and detailed description
 
-2. **Tagging for Testing:**
+2. **Tagging for testing:**
    - Once the developer believes an issue is fixed, they will update the issue with a comment and tag it with "OFT"
+   - The developer should put the number of the GitHub issue on the commit of the fix
 
-4. **Verification and Closure:**
+4. **Verification and closure:**
    - The QA retests the issue in the new build
    - If the issue is resolved, the QA will close the GitHub Issue
    - Only the QA has the authority to delete resolved issues to maintain an accurate issue history
 
-3. **Merging to Dev Branch:**
+3. **Merging to dev branch:**
    - The developer merges the fix into the development branch for integration
 
-4. **Version Tagging:**
+4. **Version tagging:**
    - Each build or release will be tagged with a version number in GitHub to maintain a record of changes and fixes
 
 <br> 
