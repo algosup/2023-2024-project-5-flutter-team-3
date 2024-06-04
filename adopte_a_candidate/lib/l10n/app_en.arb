@@ -1,0 +1,15 @@
+{
+  "name": "Name",
+  "@name": {
+    "description": "Name in the sign up page"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password"
+  }
+}
+

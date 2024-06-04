@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// This text field is build to gather basic user data when subscribing
-// TODO Add the method to gather user input and keep it in memory
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -17,8 +15,8 @@ class CustomTextField extends StatefulWidget {
   });
 
   final TextEditingController controller;
-  final String title;
-  final String hinttext;
+  final String title; // Changed to String
+  final String hinttext; // Changed to String
   final bool isObscure;
   final bool isEmail;
   final bool showToggle;
@@ -57,7 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
               ),
             ),
-          ), // Add some spacing between the title and the text field
+          ),
           TextField(
             obscureText: _isObscure,
             keyboardType: widget.isEmail
