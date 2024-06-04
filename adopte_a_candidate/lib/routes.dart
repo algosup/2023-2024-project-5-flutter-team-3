@@ -1,6 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:adopte_a_candidate/pages/profile_page.dart';
+import 'package:adopte_a_candidate/pages/company/company_profile_page.dart';
+import 'package:adopte_a_candidate/pages/company/new_job_offer_page.dart';
+import 'package:adopte_a_candidate/pages/company/edit_job_offer_page.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/pages/swipe.dart';
@@ -45,6 +48,27 @@ final GoRouter router = GoRouter(
       pageBuilder: (BuildContext context, GoRouterState state) {
         return const MaterialPage(child: ProfilePage());
       }
-    )
+    ),
+    GoRoute(
+      path: '/company_profile',
+      name: 'company_profile',
+      builder: (BuildContext context, GoRouterState state) {
+        return const CompanyProfilePage();
+      }
+    ),
+    GoRoute(
+      path: '/new_job_offer',
+      name: 'new_job_offer',
+      builder: (BuildContext context, GoRouterState state) {
+        return const NewJobOfferPage();
+      }
+    ),
+    GoRoute(
+      path: '/edit_job_offer',
+      name: 'edit_job_offer',
+      builder: (BuildContext context, GoRouterState state) {
+        return const EditJobOfferPage();
+      }
+    ),
   ],
 );
