@@ -236,7 +236,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: _selectedLanguage,
-                    icon: const Icon(Icons.arrow_downward),
+                    icon: const Icon(Icons.expand_more),
                     iconSize: 24,
                     elevation: 16,
                     style: const TextStyle(color: Colors.black),
