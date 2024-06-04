@@ -4,6 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:geocoding/geocoding.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -76,10 +77,15 @@ class _SettingsPageState extends State<SettingsPage> {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
 
-    // Set the localization text
+    // Reverse geocode the coordinates to get the city
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+
+    // Set the city in the localization text
     setState(() {
-      _controllerLocalization.text =
-          'Latitude: ${position.latitude}, Longitude: ${position.longitude}';
+      _controllerLocalization.text = placemarks.isNotEmpty
+          ? placemarks[0].locality ?? '' // Get the city name if available
+          : 'City not found';
     });
   }
 
