@@ -16,6 +16,8 @@
   - [First steps](#first-steps)
     - [Creating your account](#creating-your-account)
     - [Login to your account](#login-to-your-account)
+  - [Create your profile](#create-your-profile)
+  - [Matching system](#matching-system)
 
 </summary>
 
@@ -140,3 +142,20 @@ If you already have an account, you can log in by following these steps:
   <img src="./UMImages/EN/login.png" alt="Login" width="50%" align="center">
 
 5. You are now connected to your account and can start using the application.
+
+## Create your profile
+
+<!-- TODO -->
+
+## Matching system
+
+Once your profile has been created, you can access the matching system. This will then suggest candidates or companies that match your search criteria.
+
+When you arrive on the matching page, you'll see a sheet presenting a candidate or a company. You can then :
+
+- Consult the information in the file by reading the different sections;
+- Drag the file to the left to reject the candidate or company, thus moving on to the next file;
+   <!-- TODO: Insert switch -->
+- Drag to the right to accept the candidate or company, thus moving on to the next form.
+
+To help the user avoid mistakes, the background colour changes according to the action performed. If the user rejects the file, the background turns red, and if the user tends to accept the file, the background turns green.

@@ -16,6 +16,8 @@
   - [Premiers pas](#premiers-pas)
     - [Création de votre compte](#création-de-votre-compte)
     - [Connexion à votre compte](#connexion-à-votre-compte)
+  - [Création de votre profil](#création-de-votre-profil)
+  - [Système de matching](#système-de-matching)
 
 </summary>
 
@@ -140,3 +142,20 @@ Si vous avez déjà un compte, vous pouvez vous connecter en suivant les étapes
    <img src="./UMImages/FR/login.png" alt="Connexion" width="50%" align="center">
 
 5. Vous êtes maintenant connecté à votre compte et vous pouvez commencer à utiliser l'application.
+
+## Création de votre profil
+
+<!-- TODO -->
+
+## Système de matching
+
+Une fois votre profil conçu, vous pourrez accéder au système de matching. Celui-ci proposera alors des candidats ou des entreprises qui correspondent à vos critères de recherche.
+
+Lorsque vous arriverez sur la page de matching, vous verrez une fiche présentant un candidat ou une entreprise. Vous pourrez alors :
+
+- Consulter les informations de la fiche en lisant les différentes sections;
+- Faire glisser la fiche vers la gauche pour rejeter le candidat ou l'entreprise, passant ainsi à la fiche suivante;
+   <!-- TODO: Insérer switch  -->
+- Faire glisser vers la droite pour accepter le candidat ou l'entreprise, passant ainsi à la fiche suivante.
+
+Afin d'aider l'utilisateur à ne pas se tromper, la couleur du fond change en fonction de l'action effectuée. Si l'utilisateur tend à rejeter la fiche, le fond devient rouge, et si l'utilisateur tend à accepter la fiche, le fond devient vert.
