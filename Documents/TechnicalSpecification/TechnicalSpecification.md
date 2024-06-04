@@ -88,12 +88,15 @@
         - [➭ Interaction Times:](#-interaction-times)
         - [➭ Communication with Database:](#-communication-with-database)
       - [**D. Future Improvements of the Database**](#d-future-improvements-of-the-database)
-    - [3. Graphic Conventions](#3-graphic-conventions)
+    - [3. Data Locally Stored](#3-data-locally-stored)
+      - [**A. Install and Import**](#a-install-and-import)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage)
+    - [4. Graphic Conventions](#4-graphic-conventions)
       - [**A. Colors**](#a-colors)
       - [**B. Typography**](#b-typography)
         - [➭ Fonts:](#-fonts)
         - [➭ Google font package:](#-google-font-package)
-    - [4. Widgets](#4-widgets)
+    - [5. Widgets](#5-widgets)
       - [**A. Fields**](#a-fields)
         - [➭ Text Field:](#-text-field)
         - [➭ Localization Field:](#-localization-field)
@@ -110,7 +113,7 @@
       - [**D. Cards**](#d-cards)
         - [➭ Swipe Card:](#-swipe-card)
         - [➭ Chat Card:](#-chat-card)
-    - [5. Pages](#5-pages)
+    - [6. Pages](#6-pages)
       - [**A. Description**](#a-description)
         - [➭ Login:](#-login)
         - [➭ Subscription:](#-subscription)
@@ -124,16 +127,16 @@
       - [**B. Navigation**](#b-navigation)
         - [➭ Install and import:](#-install-and-import)
         - [➭ Set Up for App:](#-set-up-for-app)
-    - [6. Authentication](#6-authentication)
-      - [**A. Install and import**](#a-install-and-import)
-      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage)
-    - [7. Translation](#7-translation)
+    - [7. Authentication](#7-authentication)
       - [**A. Install and import**](#a-install-and-import-1)
       - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-1)
-    - [8. Get User's Location](#8-get-users-location)
+    - [8. Translation](#8-translation)
       - [**A. Install and import**](#a-install-and-import-2)
       - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-2)
-    - [9. Matching Algorithm](#9-matching-algorithm)
+    - [9. Get User's Location](#9-get-users-location)
+      - [**A. Install and import**](#a-install-and-import-3)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-3)
+    - [10. Matching Algorithm](#10-matching-algorithm)
       - [**A. Scoring System**](#a-scoring-system)
       - [**B. Location-based Adjustments**](#b-location-based-adjustments)
       - [**C. Matching and Presentation**](#c-matching-and-presentation)
@@ -652,7 +655,37 @@ reference.onValue.listen((event) {
 The project is currently a proof of concept for a company, which is why we are using Firebase as a prototype database. In the future, the company will be free to use any other database with any other API to meet the evolving requirements of the application.
 
 
-### 3. Graphic Conventions 
+### 3. Data Locally Stored
+Some data will be stored locally to improve the user experience and reduce the number of requests to the database. The data that will be stored locally is the user's data, the user's profile, the user's localization, the user's skills, the user's matches, and the user's conversations.
+
+The data will be stored locally using the shared_preferences package. The shared_preferences package provides a persistent store for simple data. Data is persisted to disk automatically and asynchronously.
+
+The data will be stored locally when the user logs in and will be updated when the user's data is updated in the database. The data will be used to display the user's profile, the user's localization, the user's skills, the user's matches, and the user's conversations in the application.
+
+The data will be stored locally in the following the same structure as in the database.
+
+#### **A. Install and Import**
+
+To use the shared_preferences package, you need to install it in your Flutter project with the following command:
+```bash
+flutter pub add shared_preferences
+```
+
+After adding the package, you need to import it in your Dart file:
+```dart
+import 'package:shared_preferences/shared_preferences.dart';
+```
+
+#### **B. Set Up for App and Usage**
+To store data locally, you can use the following code:
+```dart
+// Store data locally.
+final preferences = await SharedPreferences.getInstance();
+preferences.setString('name', 'Alice');
+preferences.setInt('age', 30);
+```
+
+### 4. Graphic Conventions 
 
 #### **A. Colors**
 The chosen colors for this application are the following:
@@ -693,7 +726,7 @@ import 'package:google_fonts/google_fonts.dart';
 ```
 
 
-### 4. Widgets
+### 5. Widgets
 #### **A. Fields**
 
 ##### ➭ <ins>Text Field:</ins>
@@ -1027,7 +1060,7 @@ A chat card is a card that contains a conversation. It is used to display a conv
 | **Border Radius**           | The border radius of the card.                                                           | 10px          |
 
 
-### 5. Pages
+### 6. Pages
 #### **A. Description**
 
 ##### ➭ <ins>Login:</ins>
@@ -1309,7 +1342,7 @@ IconButton(
 ```
 Read [go_router documentation](https://pub.dev/packages/go_router) for more information.
 
-### 6. Authentication
+### 7. Authentication
 The application uses Firebase Authentication to authenticate users. Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to the application.
 
 #### **A. Install and import**
@@ -1467,7 +1500,7 @@ service cloud.firestore {
 
 Read [Firebase Authentication documentation](https://firebase.flutter.dev/docs/auth/start) for more information.
 
-### 7. Translation
+### 8. Translation
 The application uses the `flutter_localizations` package to provide internationalization and localization support. This package provides a set of classes that define localized messages and a mechanism to retrieve them.
 
 #### **A. Install and import**
@@ -1534,7 +1567,7 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 
-### 8. Get User's Location
+### 9. Get User's Location
 The application uses the `geolocator` package to get the user's location. This package provides a set of classes and methods to retrieve the user's location.
 
 #### **A. Install and import**
@@ -1607,7 +1640,7 @@ class _MyHomePage extends State<MyHomePage> {
 }
 ```
 
-### 9. Matching Algorithm
+### 10. Matching Algorithm
 
 The matching algorithm is a core feature of the application that enables users to find the most suitable job offers or job seekers based on their skills and preferences. The algorithm utilizes a scoring system to match users with the most relevant opportunities or candidates.
 
