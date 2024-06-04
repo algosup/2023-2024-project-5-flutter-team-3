@@ -5,7 +5,7 @@
 - Finsh the Functional Specification Document
 - Continue working on the Technical Specification Document
 - Start working on the code of the project
-- 
+
 
 ## Week 2 Achievements
 
