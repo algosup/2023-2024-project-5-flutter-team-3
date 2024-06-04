@@ -26,7 +26,7 @@
 ## Introduction
 
 Vous trouverez dans ce manuel d'instructions toutes les informations nécessaires pour utiliser Adopte1Candidat.
-De la création de votre compte à la publication de vos offres d'emploi, en passant par la recherche de candidats ou d'entreprise, vous saurez tout sur le fonctionnement de notre aplication.
+De la création de votre compte à la publication de vos offres d'emploi, en passant par la recherche de candidats ou d'entreprise, vous saurez tout sur le fonctionnement de notre application.
 
 ### Mise en contexte
 
@@ -117,7 +117,7 @@ Pour créer votre compte, suivez les étapes suivantes :
 
    - Nom complet;
    - Adresse courriel;
-   - Mot de passe; (pour des raisons de sécurité, nous vous recommandons de choisir un mot de passe d'au moins 12 caractères, contenant des lettres majuscules et minucules, des chiffres et des caractères spéciaux)
+   - Mot de passe; (pour des raisons de sécurité, nous vous recommandons de choisir un mot de passe d'au moins 12 caractères, contenant des lettres majuscules et minuscules, des chiffres et des caractères spéciaux)
    - Répétez le mot de passe.
    - Cochez la case correspondante à votre situation actuelle : `Je suis un candidat` ou `Je suis une entreprise`.
    - Cliquez ensuite sur le bouton `S'inscrire`.
