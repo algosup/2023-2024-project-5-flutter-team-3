@@ -8,7 +8,7 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/06/03  |
+| Last Update Date  | 2024/06/04  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
@@ -19,6 +19,7 @@
 | 0.02        | Maxime CARON | 2024/05/21 | Added the first part of the document |
 | 0.10        | Maxime CARON | 2024/05/29 | Added the last part of the document, missing spellcheck |
 | 1.0         | Maxime CARON | 2024/06/03 | First finished version |
+| 1.01        | Maxime CARON | 2024/06/04 | Corrected version |
 
 
 ## Table of Contents
@@ -144,7 +145,8 @@
     - [11. Data Privacy and Security](#11-data-privacy-and-security)
       - [**A. Data Usage**](#a-data-usage)
       - [**B. Data Storage**](#b-data-storage)
-      - [**C. Data Retrieving and Deleting**](#c-data-retrieving-and-deleting)
+      - [**C. Data Persistence**](#c-data-persistence)
+      - [**D. Data Retrieving and Deleting**](#d-data-retrieving-and-deleting)
 </details>
 
 ## I. Introduction
@@ -1669,5 +1671,12 @@ User data is stored securely in a cloud-based database. The application uses Fir
 
 The data stored in Firebase Firestore is encrypted and protected using industry-standard security measures. Access to the database is restricted to authorized users, and data is transmitted securely over HTTPS.
 
-#### **C. Data Retrieving and Deleting**
+#### **C. Data Persistence**
+User data is persisted in the database to ensure that matches and chat history are retained between sessions. The application stores user profiles, chat history, and matching scores in the database to provide a seamless user experience.
+
+The data persistence mechanism ensures that users can access their profiles, chat with matched users, and view previous conversations even after logging out and logging back in.
+
+#### **D. Data Retrieving and Deleting**
 Users have the right to ask to know what data is stored about them and to request the deletion of their data. The application provides users with the ability to retrieve their data and delete their accounts.
+
+Users can access their data through the settings page, where they can view their profiles, chat history, and matching scores. Users can also delete their accounts, which will remove all data associated with their profiles from the database.
