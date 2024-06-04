@@ -67,7 +67,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         builder: (context, constraints) {
           return Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
+                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -201,14 +201,17 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                       onTap: () {
                         context.goNamed('log_in');
                       },
-                      child: const Text(
-                        'Déja un compte? Se connecter',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.underline,
-                          height: 0,
+                      child: const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                        child: Text(
+                          'Déja un compte? Se connecter',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            decoration: TextDecoration.underline,
+                            height: 0,
+                          ),
                         ),
                       ),
                     ),
@@ -363,14 +366,17 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                           onTap: () {
                             context.goNamed('log_in');
                           },
-                          child: const Text(
-                            'Already have an account? Log in.',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              decoration: TextDecoration.underline,
-                              height: 0,
+                          child: const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                            child: Text(
+                              'Already have an account? Log in.',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.underline,
+                                height: 0,
+                              ),
                             ),
                           ),
                         ),

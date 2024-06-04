@@ -100,8 +100,8 @@ class _SwipePageState extends State<SwipePage> {
                       child: AnimatedContainer(
                         duration: const Duration(seconds: 1),
                         child: Container(
-                          width: MediaQuery.of(context).size.width - 80,
-                          height: MediaQuery.of(context).size.height - 430,
+                        width: MediaQuery.of(context).size.width * 0.75,
+                        height: MediaQuery.of(context).size.height * 0.55,
                           decoration: BoxDecoration(
                             color: const Color(
                               0xffffd5c2,
@@ -235,29 +235,32 @@ class _SwipePageState extends State<SwipePage> {
                   ),
                 ),
               ),
-              Visibility( // add visibility to the button check and cross below, when the card is being dragged, hide the button.
-                visible: !_isDragging,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            GestureDetector(
-                              onTap: (){},
-                              child: SvgPicture.asset('assets/images/close-circle.svg'),
-                            ),
-                            const CardLineVertical(),
-                            GestureDetector(
-                              onTap: (){},
-                                child: SvgPicture.asset('assets/images/check-circle.svg')),
-                          ],
-                        ),
-                      ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Visibility( // add visibility to the button check and cross below, when the card is being dragged, hide the button.
+                  visible: !_isDragging,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              GestureDetector(
+                                onTap: (){},
+                                child: SvgPicture.asset('assets/images/close-circle.svg'),
+                              ),
+                              const CardLineVertical(),
+                              GestureDetector(
+                                onTap: (){},
+                                  child: SvgPicture.asset('assets/images/check-circle.svg')),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
