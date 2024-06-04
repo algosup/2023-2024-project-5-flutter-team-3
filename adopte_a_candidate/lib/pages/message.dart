@@ -16,7 +16,7 @@ class MessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Logo(),
-      body: Text('messages'),
+      body: const Text('messages'),
       bottomNavigationBar: CustomBottomNavBar(
         currentRoute: '/message', // Set the current route for MessagePage
         onItemTapped: (index) {

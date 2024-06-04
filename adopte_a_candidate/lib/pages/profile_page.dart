@@ -9,6 +9,7 @@ import 'package:adopte_a_candidate/services/providers/providers.dart';
 import 'package:adopte_a_candidate/widgets/card/cards.dart';
 import 'package:provider/provider.dart';
 import '../widgets/card/tags.dart';
+import '../widgets/fields/text_field.dart';
 import '../widgets/logo/logo.dart';
 import '../widgets/navbar/navigation_bar.dart';
 import '../widgets/buttons/modifier_button.dart';
@@ -285,99 +286,5 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
-class NonWritableAboutMe extends StatelessWidget {
-  const NonWritableAboutMe({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    // Listen to changes in the ProfileState
-    var profileState = Provider.of<ProfileState>(context);
 
-    return Container(
-      height: 100,
-      width: MediaQuery.of(context).size.width - 50,
-      decoration: ShapeDecoration(
-        color: const Color(0xFFF5F5F5),
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(width: 2, color: Color(0xFFFFD5C2)),
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          profileState.aboutMeTexts.join("\n"), // Use the latest text from the ProfileState
-          style: const TextStyle(
-            fontSize: 20,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AboutMeTextField extends StatefulWidget {
-  const AboutMeTextField({
-    super.key,
-    required this.aboutMeTextNotifier,
-  });
-
-  final ValueNotifier<String> aboutMeTextNotifier;
-
-  @override
-  _AboutMeTextFieldState createState() => _AboutMeTextFieldState();
-}
-
-class _AboutMeTextFieldState extends State<AboutMeTextField> {
-  late final TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController(text: widget.aboutMeTextNotifier.value);
-
-    widget.aboutMeTextNotifier.addListener(() {
-      if (_controller.text != widget.aboutMeTextNotifier.value) {
-        _controller.text = widget.aboutMeTextNotifier.value;
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    widget.aboutMeTextNotifier.removeListener(() {
-      if (_controller.text != widget.aboutMeTextNotifier.value) {
-        _controller.text = widget.aboutMeTextNotifier.value;
-      }
-    });
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      width: MediaQuery.of(context).size.width - 50,
-      child: TextField(
-        controller: _controller,
-        onChanged: (text) => widget.aboutMeTextNotifier.value = text,
-        maxLines: 3,
-        decoration: const InputDecoration(
-          filled: true,
-          fillColor: Color(0xDDF5F5F5),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Color(0xffffd5c2),
-              width: 2.5,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-        ),
-        textDirection: TextDirection.ltr,
-      ),
-    );
-  }
-}

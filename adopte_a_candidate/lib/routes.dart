@@ -42,8 +42,8 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/profile',
       name: 'profile',
-      builder: (BuildContext context, GoRouterState state) {
-        return const ProfilePage();
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return const MaterialPage(child: ProfilePage());
       }
     )
   ],

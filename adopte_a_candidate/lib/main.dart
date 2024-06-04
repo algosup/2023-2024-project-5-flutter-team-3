@@ -1,5 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/services/authentification/authentification_repository.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+
     );
   }
 }

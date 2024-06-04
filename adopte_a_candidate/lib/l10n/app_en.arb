@@ -10,6 +10,50 @@
   "password": "Password",
   "@password": {
     "description": "Password"
-  }
+  },
+  "entername": "Enter your name",
+  "@entername": {
+    "description": "Enter your name"
+  },
+  "enteremail": "Enter your email",
+    "@enteremail": {
+        "description": "Enter your email"
+    },
+    "enterpassword": "Enter your password",
+    "@enterpassword": {
+        "description": "Enter your password"
+    },
+    "confirmpassword": "Confirm Password",
+    "@confirmpassword": {
+        "description": "Confirm Password"
+    },
+    "isCandidate": "I am a candidate",
+    "@isCandidate": {
+        "description": "Linked to the boxes in the sign up page"
+    },
+  "isCompany": "I am a company (HR)",
+    "@isCompany": {
+        "description": "Linked to the boxes in the sign up page"
+    },
+  "subscribe": "Subscribe",
+    "@subscribe": {
+        "description": "Subscribe button in the sign up page"
+    },
+  "alreadyhaveaccount": "Already have an account? Log in",
+    "@alreadyhaveaccount": {
+        "description": "Already have an account? text"
+    },
+  "forgotpassword": "Forgot password?",
+    "@forgotpassword": {
+        "description": "Forgot password? text"
+    },
+  "login": "Log in",
+    "@login": {
+        "description": "Log in button"
+    },
+  "noaccount": "Don't have an account? Sign up",
+    "@noaccount": {
+        "description": "Don't have an account? text"
+    }
 }
 

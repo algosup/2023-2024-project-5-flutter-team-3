@@ -1,6 +1,7 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // Custom widgets
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
@@ -13,7 +14,7 @@ import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 
 // This is the login page of the app
 class LogIn extends StatelessWidget {
-  const LogIn({super.key});
+  const LogIn({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,58 +28,53 @@ class LogIn extends StatelessWidget {
             padding:
                 const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
             child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: constraints.maxHeight,
-              ),
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    children: [
-                      CustomTextField(
-                        controller: controller.email,
-                        title: 'Email:',
-                        hinttext: 'Enter your email',
-                        width: MediaQuery.of(context).size.width - 80,
-                        heigth: 108,
-                        isObscure: false,
-                        showToggle: false,
-                        isEmail: true,
-                      ),
-                    ],
+                  CustomTextField(
+                    controller: controller.email,
+                    title: AppLocalizations.of(context)?.email ??
+                        'Email', // Use localization or fallback to 'Email'
+                    hinttext: AppLocalizations.of(context)?.enteremail ??
+                        'Enter Email', // Use localization or fallback to 'Enter Email'
+                    width: MediaQuery.of(context).size.width - 80,
+                    heigth: 108,
+                    isObscure: false,
+                    showToggle: false,
+                    isEmail: true,
                   ),
                   const SizedBox(height: 20),
-                  Row(
-                    children: <Widget>[
-                      CustomTextField(
-                        controller: controller.password,
-                        title: 'Password:',
-                        hinttext: 'Enter your password',
-                        width: MediaQuery.of(context).size.width - 80,
-                        heigth: 108,
-                        isObscure: true,
-                        showToggle: true,
-                        isEmail: false,
-                      ),
-                    ],
+                  CustomTextField(
+                    controller: controller.password,
+                    title: AppLocalizations.of(context)?.password ??
+                        'Password', // Use localization or fallback to 'Password'
+                    hinttext: AppLocalizations.of(context)?.enterpassword ??
+                        'Enter Password', // Use localization or fallback to 'Enter Password'
+                    width: MediaQuery.of(context).size.width - 80,
+                    heigth: 108,
+                    isObscure: true,
+                    showToggle: true,
+                    isEmail: false,
                   ),
                   const SizedBox(height: 5),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomTextButton(
-                        text: 'Forgot Password ?',
+                        text: 'Forgot Password ?', // Hardcoded string
                         textWidth: 12,
                         pageName: 'home',
                       ),
                     ],
                   ),
                   const SizedBox(height: 50),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Center(
                         child: BigButton(
-                          text: 'Connexion',
+                          text: AppLocalizations.of(context)?.login ??
+                              'Login', // Use localization or fallback to 'Login'
                           width: 200,
                           heigth: 50,
                           textWidth: 16,
@@ -87,12 +83,13 @@ class LogIn extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Center(
                         child: CustomTextButton(
-                          text: 'No account? Sign up',
+                          text: AppLocalizations.of(context)?.noaccount ??
+                              'No Account', // Use localization or fallback to 'No Account'
                           textWidth: 12,
                           pageName: 'home',
                         ),
