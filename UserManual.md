@@ -121,9 +121,12 @@ To create your account, follow these steps:
    - Repeat the password.
    - Check the box corresponding to your current situation: `I am a candidate` or `I am a company`.
    - Then click on the `Register` button.
+
      <img src="./UMImages/EN/sign-up.png" alt="Sign up" width="50%" align="center">
 
 4. You are now logged in to your account and can start using the application.
+
+<div class="page"/>
 
 ### Login to your account
 
@@ -137,13 +140,18 @@ If you already have an account, you can log in by following these steps:
    - E-mail address;
    - Password;
    - Then click on the `Login` button.
+
      <img src="./UMImages/EN/login.png" alt="Login" width="50%" align="center">
 
 5. You are now connected to your account and can start using the application.
 
+<div class="page"/>
+
 ## Create your profile
 
 <!-- TODO -->
+
+<div class="page"/>
 
 ## Matching system
 
@@ -152,10 +160,19 @@ Once your profile has been created, you can access the matching system. This wil
 When you arrive on the matching page, you'll see a sheet presenting a candidate or a company. You can then :
 
 - Consult the information in the file by reading the different sections;
+
   <img src="./UMImages/EN/card.png" alt="Fiche" width="50%" align="center">
+
+  <div class="page"/>
+
 - Drag the file to the left to reject the candidate or company, thus moving on to the next file;
+
   <img src="./UMImages/EN/pass.png" alt="Reject" width="50%" align="center">
+
+  <div class="page"/>
+
 - Drag to the right to accept the candidate or company, thus moving on to the next form.
+
   <img src="./UMImages/EN/approve.png" alt="Accept" width="50%" align="center">
 
 To help the user avoid mistakes, the background color changes according to the action performed. If the user rejects the file, the background turns red, and if the user tends to accept the file, the background turns green.
