@@ -121,8 +121,7 @@ Pour créer votre compte, suivez les étapes suivantes :
    - Répétez le mot de passe.
    - Cochez la case correspondante à votre situation actuelle : `Je suis un candidat` ou `Je suis une entreprise`.
    - Cliquez ensuite sur le bouton `S'inscrire`.
-
-<img src="./UMImages/FR/sign-up.png" alt="Inscription" width="50%" align="center">
+     <img src="./UMImages/FR/sign-up.png" alt="Inscription" width="50%" align="center">
 
 4. Vous êtes maintenant connecté à votre compte et vous pouvez commencer à utiliser l'application.
 
@@ -138,8 +137,7 @@ Si vous avez déjà un compte, vous pouvez vous connecter en suivant les étapes
    - Adresse courriel;
    - Mot de passe;
    - Cliquez ensuite sur le bouton `Se connecter`.
-
-   <img src="./UMImages/FR/login.png" alt="Connexion" width="50%" align="center">
+     <img src="./UMImages/FR/login.png" alt="Connexion" width="50%" align="center">
 
 5. Vous êtes maintenant connecté à votre compte et vous pouvez commencer à utiliser l'application.
 
@@ -154,8 +152,10 @@ Une fois votre profil conçu, vous pourrez accéder au système de matching. Cel
 Lorsque vous arriverez sur la page de matching, vous verrez une fiche présentant un candidat ou une entreprise. Vous pourrez alors :
 
 - Consulter les informations de la fiche en lisant les différentes sections;
+  <img src="./UMImages/FR/card.png" alt="Fiche" width="50%" align="center">
 - Faire glisser la fiche vers la gauche pour rejeter le candidat ou l'entreprise, passant ainsi à la fiche suivante;
-   <!-- TODO: Insérer switch  -->
+  <img src="./UMImages/FR/pass.png" alt="Rejeter" width="50%" align="center">
 - Faire glisser vers la droite pour accepter le candidat ou l'entreprise, passant ainsi à la fiche suivante.
+  <img src="./UMImages/FR/approve.png" alt="Approuver" width="50%" align="center">
 
 Afin d'aider l'utilisateur à ne pas se tromper, la couleur du fond change en fonction de l'action effectuée. Si l'utilisateur tend à rejeter la fiche, le fond devient rouge, et si l'utilisateur tend à accepter la fiche, le fond devient vert.
