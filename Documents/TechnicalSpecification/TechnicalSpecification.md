@@ -8,7 +8,7 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/06/04  |
+| Last Update Date  | 2024/06/06  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
@@ -20,6 +20,7 @@
 | 0.10        | Maxime CARON | 2024/05/29 | Added the last part of the document, missing spellcheck |
 | 1.0         | Maxime CARON | 2024/06/03 | First finished version |
 | 1.01        | Maxime CARON | 2024/06/04 | Corrected version |
+| 1.02        | Maxime CARON | 2024/06/06 | Rework of the data privacy part |
 
 
 ## Table of Contents
@@ -150,6 +151,7 @@
       - [**B. Data Storage**](#b-data-storage)
       - [**C. Data Persistence**](#c-data-persistence)
       - [**D. Data Retrieving and Deleting**](#d-data-retrieving-and-deleting)
+      - [**E. Data Sharing**](#e-data-sharing)
 </details>
 
 ## I. Introduction
@@ -166,6 +168,7 @@
 | Firebase            | A mobile and web application development platform developed by Firebase, Inc. It provides a variety of services such as real-time database, authentication, hosting, etc. | [Firebase](https://firebase.google.com/) |
 | Flutter             | A UI toolkit developed by Google for building natively compiled applications for mobile, web, and desktop from a single codebase. | [Flutter](https://flutter.dev/) |
 | Framework           | A software framework providing a foundation on which software developers can build and deploy applications. | [Techopedia](https://www.techopedia.com/definition/14356/framework) |
+| GDPR                | General Data Protection Regulation - a regulation in EU law on data protection and privacy in the European Union and the European Economic Area. | [Wikipedia](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) |
 | Integration Testing | Testing conducted to evaluate the integration or interaction between different components or systems of an application. | [Techopedia](https://www.techopedia.com/definition/16314/integration-testing) |
 | iOS                 | The operating system developed by Apple Inc. for its mobile devices like iPhone and iPad. | [Apple](https://www.apple.com/ios/) |
 | Main Skills         | Core skills or competencies essential for a particular job or role. | Personal knowledge |
@@ -240,7 +243,7 @@ The first version of the application will not contain all the features we would 
 
 #### **D. Assumptions**
 
-We are assuming that the application will be used by real companies and job seekers. We are also assuming that the application will be used professionally and that the users will not use the chat feature to send inappropriate messages.
+We are assuming that the application will be used by real companies and adult job seekers. We are also assuming that the application will be used professionally and that the users will not use the chat feature to send inappropriate messages.
 
 ## II. Technology Presentation
 
@@ -511,61 +514,76 @@ The application will use Firebase Realtime Database to store and sync data in re
 #### **B. Table Details and Usage**
 
 ##### ➭ <ins>User:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the user.
-  - `name`: Name of the user.
-  - `email`: Email of the user.
-  - `password`: Password of the user.
-  - `isCompany`: Boolean to determine if the user is a company or a job seeker.
+
+| Field       | Type                    | Description                                      |
+|-------------|-------------------------|--------------------------------------------------|
+| id          | long                    | Unique identifier of the user.                   |
+| name        | String (255 characters) | Name of the user.                                |
+| email       | String (255 characters) | Email of the user.                               |
+| password    | String (255 characters) | Password of the user.                            |
+| isCompany   | Boolean                 | Determines if the user is a company or a job seeker. |
 
 ##### ➭ <ins>SeekerProfile:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the seeker profile.
-  - `userId`: Unique identifier of the user.
-  - `localization`: Localization of the job seeker.
+
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the seeker profile.         |
+| userId        | String (255 characters) | Unique identifier of the user.                   |
+| localization  | String (255 characters) | Localization of the job seeker.                  |
 
 ##### ➭ <ins>OfferProfile:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the offer profile.
-  - `userId`: Unique identifier of the user.
-  - `title`: Title of the job offer.
-  - `description`: Description of the job offer.
-  - `localization`: Localization of the job offer.
+
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the offer profile.          |
+| userId        | String (255 characters) | Unique identifier of the user.                   |
+| title         | String (255 characters) | Title of the job offer.                          |
+| description   | text (65,535 characters)| Description of the job offer.                    |
 
 ##### ➭ <ins>MatchProposal:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the match proposal.
-  - `seekerId`: Unique identifier of the job seeker.
-  - `offerId`: Unique identifier of the job offer.
-  - `isSeekerAccepted`: Boolean to determine if the job seeker has accepted the proposal.
-  - `isCompanyAccepted`: Boolean to determine if the company has accepted the proposal.
+
+| Field            | Type                    | Description                                      |
+|------------------|-------------------------|--------------------------------------------------|
+| id               | long                    | Unique identifier of the match proposal.         |
+| seekerId         | long                    | Unique identifier of the job seeker.             |
+| offerId          | long                    | Unique identifier of the job offer.              |
+| isSeekerAccepted | Boolean                 | Determines if the job seeker has accepted the match. |
+| isCompanyAccepted| Boolean                 | Determines if the company has accepted the match. |
 
 ##### ➭ <ins>Skill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the skill.
-  - `profileId`: Unique identifier of the job seeker profile.
-  - `skillId`: Unique identifier of the skill.
-  - `isOfferSkill`: Boolean to determine if the skill is for a job offer or a job seeker.
-  - `isMainSkill`: Boolean to determine if the skill is a main skill or a side skill.
+
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the skill.                 |
+| profileId     | long                    | Unique identifier of the job seeker profile.     |
+| skillId       | long                    | Unique identifier of the skill.                 |
+| isOfferSkill  | Boolean                 | Determines if the skill is for a job offer or a job seeker. |
+| isMainSkill   | Boolean                 | Determines if the skill is a main skill or a side skill. |
 
 ##### ➭ <ins>SkillList:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the skill.
-  - `name`: Name of the skill.
-  - `description`: Description of the skill.
+
+| Field         | Type                    | Description                                     |
+|---------------|-------------------------|-------------------------------------------------|
+| id            | long                    | Unique identifier of the skill.                 |
+| name          | String (255 characters) | Name of the skill.                              |
+| description   | text (65,535 characters)| Description of the skill.                       |
 
 ##### ➭ <ins>Conversation:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the conversation.
-  - `seekerId`: Unique identifier of the job seeker.
-  - `offerId`: Unique identifier of the job offer.
+
+| Field     | Type                    | Description                                      |
+|-----------|-------------------------|--------------------------------------------------|
+| id        | long                    | Unique identifier of the conversation.           |
+| seekerId  | long                    | Unique identifier of the job seeker.             |
+| offerId   | long                    | Unique identifier of the job offer.              |
 
 ##### ➭ <ins>Message:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the message.
-  - `conversationId`: Unique identifier of the conversation.
-  - `senderId`: Unique identifier of the user who sent the message.
-  - `content`: Content of the message.
+
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the message.                |
+| conversationId| long                    | Unique identifier of the conversation.           |
+| senderId      | long                    | Unique identifier of the user who sent the message. |
+| content       | text (65,535 characters)| Content of the message.                          |
 
 #### **C. Interaction from the Application**
 
@@ -746,15 +764,17 @@ A text field is a field where the user enters text. It is used to collect or sho
 | **Label**                   | The text field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The text field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                             | No       |
+| **Is Email**                | The text field is used to collect an email address, it will show an error if the email is not valid. | No       |
+| **Is Oobscure**             | The text field is used to collect a password, it will hide the password and require a minimum length(8 characters). | No       |
 
 **Read-only Properties:**
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
-| **Minimum height**          | The minimum height of the field.                                                    | 50px          |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Height**          | The minimum height of the field.                                                    | 50px          |
 | **Border Radius**           | The border radius of the field.                                                     | 10px          |
-| **Minimum length**          | The minimum number of characters that can be entered in the field.                  | 0             |
+| **Minimum Length**          | The minimum number of characters that can be entered in the field.                  | 0             |
 
 ##### ➭ <ins>Localization Field:</ins>
 **Description:**</br>
@@ -768,7 +788,7 @@ A localization field is a field where the user enters a localization. It also co
 | Property                    | Description                                                                                      | Required |
 |-----------------------------|------------------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The localization field is set as mandatory for the user to fill out or optional.                 | Yes      |
-| **Read-only/Editable**      | The localization field is read-only (not editable) or editable.                                  | Yes      |
+| **Read-Only/Editable**      | The localization field is read-only (not editable) or editable.                                  | Yes      |
 | **Button**                  | The localization field contains a button to automatically set the localization.                  | No       |
 | **Label**                   | The localization field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The localization field includes helper text that provides additional guidance to the user.       | No       |
@@ -778,10 +798,10 @@ A localization field is a field where the user enters a localization. It also co
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
-| **Minimum height**          | The minimum height of the field.                                                    | 50px          |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Height**          | The minimum height of the field.                                                    | 50px          |
 | **Border Radius**           | The border radius of the field.                                                     | 10px          |
-| **Minimum length**          | The minimum number of characters that can be entered in the field.                  | 0             |
+| **Minimum Length**          | The minimum number of characters that can be entered in the field.                  | 0             |
 
 ##### ➭ <ins>Tag Field:</ins>
 **Description:**</br>
@@ -802,7 +822,7 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 | Property                    | Description                                                                             | Required |
 |-----------------------------|---------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The tag field is set as mandatory for the user to fill out or optional.                 | Yes      |
-| **Read-only/Editable**      | The tag field is read-only (not editable) or editable.                                  | Yes      |
+| **Read-Only/Editable**      | The tag field is read-only (not editable) or editable.                                  | Yes      |
 | **Maximum Number**          | The tag field restricts the number of tags that can be selected to a maximum limit.     | Yes      |
 | **Minimum Number**          | The tag field enforces a minimum number of tags that must be selected.                  | No       |
 | **Add Button**              | The tag field contains an "Add" button to add new tags.                                 | No       |
@@ -815,8 +835,8 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
-| **Minimum height**          | The minimum height of the field.                                                    | 100px          |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Height**          | The minimum height of the field.                                                    | 100px          |
 | **Border Radius**           | The border radius of the field.                                                     | 10px          |
 
 ##### ➭ <ins>Select Field:</ins>
@@ -846,8 +866,8 @@ A select field is a field where the user selects an option from a list of option
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the field.                                                     | 300px         |
-| **Minimum height**          | The minimum height of the field.                                                    | 50px          |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Weight**          | The minimum height of the field.                                                    | 50px          |
 | **Border Radius**           | The border radius of the field.                                                     | 10px          |
 
 #### **B. Buttons**
@@ -873,10 +893,10 @@ A text button is a button that contains text. It is used to trigger an action wh
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the button.                                                         | 50px          |
-| **Minimum height**          | The minimum height of the button.                                                        | 50px          |
+| **Minimum Width**           | The minimum width of the button.                                                         | 50px          |
+| **Minimum Height**          | The minimum height of the button.                                                        | 50px          |
 | **Border Radius**           | The border radius of the button.                                                         | 10px          |
-| **Minimum length**          | The minimum number of characters that can be entered in the button.                      | 0             |
+| **Minimum Length**          | The minimum number of characters that can be entered in the button.                      | 0             |
 
 ##### ➭ <ins>Icon Button:</ins>
 **Description:**</br>
@@ -899,8 +919,8 @@ An icon button is a button that contains an icon. It is used to trigger an actio
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the button.                                                         | 50px          |
-| **Minimum height**          | The minimum height of the button.                                                        | 50px          |
+| **Minimum Width**           | The minimum width of the button.                                                         | 50px          |
+| **Minimum Height**          | The minimum height of the button.                                                        | 50px          |
 | **Border Radius**           | The border radius of the button.                                                         | 10px          |
 
 ##### ➭ <ins>Radio Button:</ins>
@@ -938,7 +958,7 @@ A big button is sized as a text field or bigger, containing text and/or an icon.
 |-------------------|---------------------------------------------------- | -------- |
 | **Text**          | The text displayed on the button.                   | Yes      |
 | **Icon**          | The icon is displayed on the button.                | No       |
-| **Text color**    | The color of the text in the button.                | Yes      |
+| **Text Color**    | The color of the text in the button.                | Yes      |
 | **Color**         | The color of the button.                            | Yes      |
 | **Size**          | The size of the button.                             | Yes      |
 | **On Click**      | The action is triggered when the button is clicked. | Yes      |
@@ -949,11 +969,11 @@ A big button is sized as a text field or bigger, containing text and/or an icon.
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the button.                                                         | 300px         |
-| **Minimum height**          | The minimum height of the button.                                                        | 50px          |
+| **Minimum Width**           | The minimum width of the button.                                                         | 300px         |
+| **Minimum Height**          | The minimum height of the button.                                                        | 50px          |
 | **Border Radius**           | The border radius of the button.                                                         | 10px          |
-| **Minimum length**          | The minimum number of characters that can be entered in the button.                      | 0             |
-| **Text size**               | The size of the text in the button.                                                      | 20px          |
+| **Minimum Length**          | The minimum number of characters that can be entered in the button.                      | 0             |
+| **Text Size**               | The size of the text in the button.                                                      | 20px          |
 
 ##### ➭ <ins>Navbar:</ins>
 **Description:**</br>
@@ -1002,8 +1022,8 @@ A clickable list is a list where each item can be clicked. It is used to display
 
 | Property                    | Description                                                                            | Default value |
 |-----------------------------|--------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the list.                                                         | 300px         |
-| **Minimum height**          | The minimum height of the list.                                                        | 50px          |
+| **Minimum Width**           | The minimum width of the list.                                                         | 300px         |
+| **Minimum Height**          | The minimum height of the list.                                                        | 50px          |
 | **Border Radius**           | The border radius of the list.                                                         | 10px          |
 
 
@@ -1021,8 +1041,8 @@ A swipe card is a card that contains information and can be swiped left or right
 |-------------------|-------------------------------------------------------- | -------- |
 | **Title**         | The title displayed on the card.                        | Yes      |
 | **Description**   | The description displayed on the card.                  | Yes      |
-| **Main skills**   | The main skills displayed on the card.                  | Yes      |
-| **Side skills**   | The side skills displayed on the card.                  | Yes      |
+| **Main Skills**   | The main skills displayed on the card.                  | Yes      |
+| **Side Skills**   | The side skills displayed on the card.                  | Yes      |
 | **Localization**  | The localization displayed on the card.                 | Yes      |
 | **On Accept**     | The action is triggered when the card is accepted.      | Yes      |
 | **On Reject**     | The action is triggered when the card is rejected.      | Yes      |
@@ -1032,8 +1052,8 @@ A swipe card is a card that contains information and can be swiped left or right
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the card.                                                           | 300px         |
-| **Minimum height**          | The minimum height of the card.                                                          | 500px         |
+| **Minimum Width**           | The minimum width of the card.                                                           | 300px         |
+| **Minimum Height**          | The minimum height of the card.                                                          | 500px         |
 | **Border Radius**           | The border radius of the card.                                                           | 10px          |
 
 ##### ➭ <ins>Chat Card:</ins>
@@ -1055,8 +1075,8 @@ A chat card is a card that contains a conversation. It is used to display a conv
 
 | Property                    | Description                                                                              | Default value |
 |-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
-| **Minimum width**           | The minimum width of the card.                                                           | 50px          |
-| **Minimum height**          | The minimum height of the card.                                                          | 30px          |
+| **Minimum Width**           | The minimum width of the card.                                                           | 50px          |
+| **Minimum Height**          | The minimum height of the card.                                                          | 30px          |
 | **Border Radius**           | The border radius of the card.                                                           | 10px          |
 
 
@@ -1713,3 +1733,8 @@ The data persistence mechanism ensures that users can access their profiles, cha
 Users have the right to ask to know what data is stored about them and to request the deletion of their data. The application provides users with the ability to retrieve their data and delete their accounts.
 
 Users can access their data through the settings page, where they can view their profiles, chat history, and matching scores. Users can also delete their accounts, which will remove all data associated with their profiles from the database.
+
+Note that according to the GDPR regulations, after a delete request, we will keep user data for a limited period of 5 years and then delete all data related to the user definitively.
+
+#### **E. Data Sharing**
+User data is not shared with third parties without user consent. The application does not sell or share user data with external entities for marketing or advertising purposes. User data is used solely for matching and communication within the application.
