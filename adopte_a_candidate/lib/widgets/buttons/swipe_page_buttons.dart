@@ -27,13 +27,17 @@ class buttonsSwipePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      print('deny offer');
+                    },
                     child: SvgPicture.asset(
                         'assets/images/close-circle.svg'),
                   ),
                   const CardLineVertical(),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      print('accept offer');
+                    },
                     child: SvgPicture.asset(
                         'assets/images/check-circle.svg'),
                   ),
