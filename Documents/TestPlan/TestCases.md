@@ -109,6 +109,9 @@ To find a specific test case you can perform search by ID:
 
 // todo Replace [x] by the adequate numbers.
 
+- [Test Plan](./TestPlan.md)
+- [Test Results](./TestResults.md)
+
 # Build 1
 
 ## Company register

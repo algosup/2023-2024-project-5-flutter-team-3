@@ -2,3 +2,6 @@
 .vscode/settings.json
 UserManualFR.md
 UserManualEN.md
+*.h
+*.plist
+/adopte_a_candidate
