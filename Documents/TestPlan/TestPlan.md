@@ -3,7 +3,7 @@
 <br>
 
 <details>
-    <summary>Table of content</summary>
+    <summary>Table of Contents</summary>
 
 - [Test Plan - Adopt A Candidate](#test-plan---adopt-a-candidate)
 - [I - INTRODUCTION](#i---introduction)
@@ -12,7 +12,6 @@
   - [3 - Scope of Testing](#3---scope-of-testing)
   - [4 - Definitions / Acronyms](#4---definitions--acronyms)
     - [A - Definitions](#a---definitions)
-    - [A - Definitions](#a---definitions-1)
     - [B - Acronyms](#b---acronyms)
 - [II - APPROACH](#ii---approach)
   - [1 - Assumptions \& Constraints](#1---assumptions--constraints)
@@ -26,44 +25,44 @@
   - [1 - Test Team](#1---test-team)
   - [2 - Major Tasks and Deliverables](#2---major-tasks-and-deliverables)
   - [3 - Test Environment](#3---test-environment)
-    - [A - Operating Systems](#a---operating-systems)
-    - [B - Development Tools](#b---development-tools)
+    - [A - Operating systems](#a---operating-systems)
+    - [B - Development tools](#b---development-tools)
     - [C - Emulators](#c---emulators)
-    - [D - Version Control](#d---version-control)
+    - [D - Version control](#d---version-control)
 - [IV - FEATURES TO BE TESTED](#iv---features-to-be-tested)
   - [1 - Build 1](#1---build-1)
-    - [A - Subscribe](#a---subscribe)
-    - [B - Log in](#b---log-in)
+    - [A - Company register](#a---company-register)
+    - [B - Candidate register](#b---candidate-register)
     - [C - Extra](#c---extra)
   - [2 - Build 2](#2---build-2)
-    - [A - Company swiping](#a---company-swiping)
-    - [B - Candidate swiping](#b---candidate-swiping)
-    - [C - Match](#c---match)
-    - [D - Extra](#d---extra)
+    - [A - Accounts modification](#a---accounts-modification)
+    - [B - Company swiping](#b---company-swiping)
+    - [C - Candidate swiping](#c---candidate-swiping)
+    - [D - Match](#d---match)
+    - [E - Extra](#e---extra)
   - [3 - Build 3](#3---build-3)
-    - [A - Company algorithm](#a---company-algorithm)
-    - [B - Candidate algorithm](#b---candidate-algorithm)
-    - [C - Settings](#c---settings)
-    - [D - Extra](#d---extra-1)
+    - [A - Algorithm](#a---algorithm)
+    - [B - Settings](#b---settings)
+    - [C - Extra](#c---extra-1)
   - [4 - Build 4](#4---build-4)
     - [A - Company chat](#a---company-chat)
     - [B - Candidate chat](#b---candidate-chat)
-    - [C - Extra](#c---extra-1)
+    - [C - Extra](#c---extra-2)
 - [V - FEATURES NOT TO BE TESTED](#v---features-not-to-be-tested)
 - [VI - TESTING PROCEDURES](#vi---testing-procedures)
   - [1 - Test Execution](#1---test-execution)
-    - [A - Test Cases](#a---test-cases)
-    - [B - Order of Testing](#b---order-of-testing)
+    - [A - Test cases](#a---test-cases)
+    - [B - Order of testing](#b---order-of-testing)
   - [2 - Pass / Fail Criteria](#2---pass--fail-criteria)
-    - [A - Pass Criteria](#a---pass-criteria)
-    - [B - Fail Criteria](#b---fail-criteria)
+    - [A - Pass criteria](#a---pass-criteria)
+    - [B - Fail criteria](#b---fail-criteria)
   - [3 - Suspension Criteria and Resumption Requirements](#3---suspension-criteria-and-resumption-requirements)
-    - [A - Normal Criteria](#a---normal-criteria)
-    - [B - Abnormal Criteria](#b---abnormal-criteria)
+    - [A - Normal criteria](#a---normal-criteria)
+    - [B - Abnormal criteria](#b---abnormal-criteria)
   - [4 - Defect Management](#4---defect-management)
   - [5 - Defect Tracking](#5---defect-tracking)
-    - [A - GitHub Issues](#a---github-issues)
-    - [B - Workflow for Handling Issues](#b---workflow-for-handling-issues)
+    - [A - GitHub issues](#a---github-issues)
+    - [B - Workflow for handling issues](#b---workflow-for-handling-issues)
 - [VII - RISKS AND CONTINGENCIES](#vii---risks-and-contingencies)
 - [VIII - REFERENCES](#viii---references)
 
@@ -107,40 +106,30 @@ The primary objectives of testing the “Adopt a Candidate” application are to
 - Compliance with the European and GDPR laws
 
 ## 4 - Definitions / Acronyms
-### A - Definitions
-
-| Term        | Definition |
-| ----------- | --- |
-|Anonymisation|The process of removing or encrypting personal identifiers|
-|Soft Skills  |Personal attributes that enable someone to interact effectively and harmoniously with other people, such as communication and teamwork|
-|GDPR         |Governs how we can use, process, and store personal data (information about an identifiable, living person)|
-|Tinder       ||
-|Match        ||
 
 ### A - Definitions
 
 | Term          | Definition |
 | ------------- | ---------- |
 | Anonymisation | The process of removing or encrypting personal identifiers to protect the individual's identity |
-| Soft Skills   | Personal attributes that enable someone to interact effectively and harmoniously with other people, such as communication, teamwork, adaptability, problem-solving, and emotional intelligence |
+| Soft skills   | Personal attributes that enable someone to interact effectively and harmoniously with other people, such as communication, teamwork, adaptability, problem-solving, and emotional intelligence |
 | GDPR          | General Data Protection Regulation, a legal framework that sets guidelines for the collection and processing of personal information from individuals who live in the European Union (EU) |
 | Tinder        | A popular dating app that allows users to swipe right to "like" or left to "pass" on other users' profiles, inspiring the matching algorithm used in the "Adopt a Candidate" project |
 | Match         | A successful pairing between a candidate and a company based on the matching algorithm that considers soft skills and company culture |
-| Integration Testing | Testing in which individual software modules are combined and tested as a group to ensure they work together properly |
-| Unit Testing  | Testing of individual units or components of a software |
-| Regression Testing | Testing existing software applications to ensure that a change or addition hasn’t broken any existing functionality |
-| Usability Testing | Testing to evaluate a product by testing it with representative users |
-| Security Testing | Testing to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders |
-| Compatibility Testing | Testing to ensure compatibility of the application with different environments, including browsers, operating systems, and devices |
-| Manual Testing | Testing of software manually without using any automated tools |
-| Synthetic Data | Data that is artificially generated rather than obtained by direct measurement |
-| Boundary Test Data | Data that is at the edge of the equivalence class partitions, used to test the boundary conditions |
+| Integration testing | Testing in which individual software modules are combined and tested as a group to ensure they work together properly |
+| Unit testing  | Testing of individual units or components of a software |
+| Regression testing | Testing existing software applications to ensure that a change or addition hasn’t broken any existing functionality |
+| Usability testing | Testing to evaluate a product by testing it with representative users |
+| Security testing | Testing to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders |
+| Compatibility testing | Testing to ensure compatibility of the application with different environments, including browsers, operating systems, and devices |
+| Manual testing | Testing of software manually without using any automated tools |
+| Synthetic data | Data that is artificially generated rather than obtained by direct measurement |
+| Boundary test data | Data that is at the edge of the equivalence class partitions, used to test the boundary conditions |
 
 ### B - Acronyms
 
 | Acronym | Definition                         |
 | ------- | ---------------------------------- |
-| GDPR    | General Data Protection Regulation |
 | UI      | User Interface                     |
 | UX      | User Experience                    |
 | API     | Application Programming Interface  |
@@ -246,18 +235,18 @@ If coverage levels fall short of expectations, the QA will assess whether the ac
 
 ## 3 - Test Environment
 
-### A - Operating Systems
+### A - Operating systems
 - Windows: 10 or later
 - macOS: Version 14.5 or later
 - iPhone: iOS Version 15.6.1 or later
 - Android Phone: Version 14.0.5
-### B - Development Tools
+### B - Development tools
 - Visual Studio Code: Version 1.89.1 or later
 - Xcode: Version 15.3 or later
 ### C - Emulators
 - iOS Simulator: 17.2 or later
 - Android Studio: 2023.3.1 or later
-### D - Version Control
+### D - Version control
 - GitHub
 
 <br>
@@ -272,21 +261,23 @@ These builds have been created in the following manner according to the [timelin
 
 ## 1 - Build 1 
 
-### A - Subscribe
+### A - Company register
 
 - Create a company account
-- Create a candidate account 
-- Delete account
-- DB correlation (verify database integrity and relationships)
-
-### B - Log in 
-
 - Log into a company account
+- Forget password
+- Change password
+- Log out
+- Delete account
+
+### B - Candidate register
+
+- Create a candidate account 
 - Log into a candidate account
 - Forget password
 - Change password
 - Log out
-- DB correlation
+- Delete account
 
 ### C - Extra
 
@@ -297,50 +288,46 @@ These builds have been created in the following manner according to the [timelin
 
 ## 2 - Build 2 
 
-### A - Company swiping
+### A - Accounts modification
+
+- Company modification
+- Candidate modification
+
+### B - Company swiping
 
 - Right swipe
 - Left swipe
 
-### B - Candidate swiping
+### C - Candidate swiping
 
 - Right swipe
 - Left swipe
 
-### C - Match
+### D - Match
 
-- DB correlation
+- Match correlation
 
-### D - Extra
+### E - Extra
 
-- Accounts modification
 - Responsiveness
 - Seamless navigation
 - Compatibility
 
 ## 3 - Build 3
 
-### A - Company algorithm
+### A - Algorithm
 
-- Accuracy of the candidates
+- Accuracy of the matches
+- Score of the companies
 - Score of the candidates
 
-### B - Candidate algorithm
-
-- Accuracy of the company
-- Score of the company
-
-### C - Settings
+### B - Settings
 
 - Translation
 - Laws requirements
 
-### D - Extra
+### C - Extra
 
-- Advanced swiping system
-  - no more swipes 
-  - Fast swipes
-  - Swipes' direction
 - Responsiveness
 - Seamless navigation
 - Compatibility
@@ -382,7 +369,15 @@ These builds have been created in the following manner according to the [timelin
 
 ## 1 - Test Execution
 
-### A - Test Cases
+### A - Test cases
+
+The test cases can be found in the [TestCases](./TestCases.md) document.
+
+*The ID is build as:*
+- *COM or CAN for company or candidate*
+- *The first three letter of the part*
+- *1 = build 1, etc.*
+- *the number of the test case with two digit*
 
 <h2>Title example [ID]</h2>
 
@@ -404,7 +399,7 @@ These builds have been created in the following manner according to the [timelin
 
 **Postconditions:** Note any conditions that should be verified after the test case execution.
 
-### B - Order of Testing
+### B - Order of testing
 
 The order of testing will be driven primarily by the build order. Within each build, the following order of testing will be followed:
 
@@ -412,60 +407,62 @@ The order of testing will be driven primarily by the build order. Within each bu
 
 1. Candidate
 2. Company
-3. Extra all along
+3. Additional checks
   
 
 **Build 2**
 
-1. Candidate swiping
-2. Company swiping
-3. Match
-4. Extra all along
+1. Accounts modification
+2. Candidate swiping
+3. Company swiping
+4. Match
+5. Additional checks
 
 **Build 3**
 
-1. Candidate algorithm
-2. Company algorithm
-3. Settings
-4. Extra all along
+1. Algorithm
+2. Settings
+3. Additional checks
 
 **Build 4**
 
 1. Company chat
 2. Candidate chat
-3. Extra all along
+3. Additional checks
 
 ## 2 - Pass / Fail Criteria
 
-### A - Pass Criteria
+The results of the testing will be on the [Test Result](./TestResults.md) document.
 
-- The feature functions as described in the requirements documentation.
-- No critical, major, or high-severity bugs are present.
-- The feature meets performance benchmarks (e.g., load time, responsiveness).
-- All user interface elements are displayed correctly and are functional.
-- Database operations (e.g., creation, deletion, updates) reflect accurately in the database.
-- Compatibility tests are successful across all supported devices, browsers, and operating systems.
-- All security requirements (e.g., password changes, data encryption) are met.
+### A - Pass criteria
 
-### B - Fail Criteria
+- The feature functions as described in the requirements documentation
+- No critical, major, or high-severity bugs are present
+- The feature meets performance benchmarks (e.g., load time, responsiveness)
+- All user interface elements are displayed correctly and are functional
+- Database operations (e.g., creation, deletion, updates) reflect accurately in the database
+- Compatibility tests are successful across all supported devices, browsers, and operating systems
+- All security requirements (e.g., password changes, data encryption) are met
 
-- The feature does not function as described in the requirements documentation.
-- Critical, major, or high-severity bugs are present.
-- The feature fails to meet performance benchmarks.
-- User interface elements are missing, misaligned, or non-functional.
-- Database operations do not reflect accurately in the database.
-- Compatibility tests fail on any of the supported devices, browsers, or operating systems.
-- Security requirements are not met.
+### B - Fail criteria
+
+- The feature does not function as described in the requirements documentation
+- Critical, major, or high-severity bugs are present
+- The feature fails to meet performance benchmarks
+- User interface elements are missing, misaligned, or non-functional
+- Database operations do not reflect accurately in the database
+- Compatibility tests fail on any of the supported devices, browsers, or operating systems
+- Security requirements are not met
 
 ## 3 - Suspension Criteria and Resumption Requirements
 
-### A - Normal Criteria
+### A - Normal criteria
 
 At the end of each project time of a day, testing will be suspended. At that time, all test cases executed during the day should be marked as such. The QA will initiate a backup routine to save the day’s updated test files.
 
 When all test cases have been executed, testing will be suspended, and the results will be documented for the Test Summary Report.
 
-### B - Abnormal Criteria
+### B - Abnormal criteria
 
 If the number of GitHub issues continually increases over 3 days, testing should be suspended. This will allow the team time to fix existing issues without the pressure and confusion of new issues being added to the backlog.
 
@@ -489,32 +486,34 @@ The assignment and description of defect severity levels will be as follows:
 
 ## 5 - Defect Tracking 
 
-### A - GitHub Issues
+### A - GitHub issues
 
-- All issues will be logged and tracked using GitHub Issues.
-  - Types of issues: Documentation, bug, feature request.
-- Each issue will be tagged with the appropriate severity level.
-- Only the QA has the permission to close or delete issues after verifying the resolution.
+- All issues will be logged and tracked using GitHub Issues
+  - Types of issues: Documentation, bug, feature request
+- Each issue will be tagged with the appropriate severity level
+- Each issue will contain the ID of the test cases used to find the issue
+- Only the QA has the permission to close or delete issues after verifying the resolution
 
-### B - Workflow for Handling Issues
+### B - Workflow for handling issues
 
-1. **Logging Issues:**
-   - The QA logs issues in GitHub during testing.
-   - Each issue is assigned a severity level and detailed description.
+1. **Logging issues:**
+   - The QA logs issues in GitHub during testing
+   - Each issue is assigned a severity level and detailed description
 
-2. **Tagging for Testing:**
-   - Once the developer believes an issue is fixed, they will update the issue with a comment and tag it with "OFT".
+2. **Tagging for testing:**
+   - Once the developer believes an issue is fixed, they will update the issue with a comment and tag it with "OFT"
+   - The developer should put the number of the GitHub issue on the commit of the fix
 
-4. **Verification and Closure:**
-   - The QA retests the issue in the new build.
-   - If the issue is resolved, the QA will close the GitHub Issue.
-   - Only the QA has the authority to delete resolved issues to maintain an accurate issue history.
+4. **Verification and closure:**
+   - The QA retests the issue in the new build
+   - If the issue is resolved, the QA will close the GitHub Issue
+   - Only the QA has the authority to delete resolved issues to maintain an accurate issue history
 
-3. **Merging to Dev Branch:**
-   - The developer merges the fix into the development branch for integration.
+3. **Merging to dev branch:**
+   - The developer merges the fix into the development branch for integration
 
-4. **Version Tagging:**
-   - Each build or release will be tagged with a version number in GitHub to maintain a record of changes and fixes.
+4. **Version tagging:**
+   - Each build or release will be tagged with a version number in GitHub to maintain a record of changes and fixes
 
 <br> 
 

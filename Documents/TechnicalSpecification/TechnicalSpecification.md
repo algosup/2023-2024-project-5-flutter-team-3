@@ -8,7 +8,7 @@
 | ----------------- | ----------- |
 | Document Owner    | Maxime CARON|
 | Creation Date     | 2024/05/17  |
-| Last Update Date  | 2024/05/22  |
+| Last Update Date  | 2024/06/06  |
 | Document Name     | Technical Specifications - Adopte un Candidat [Team 3]|
 
 ### Document Versions
@@ -17,16 +17,10 @@
 | ----------- | ------------ | ---------- | -------------------- |
 | 0.01        | Maxime CARON | 2024/05/15 | Initial Version with plan and basics |
 | 0.02        | Maxime CARON | 2024/05/21 | Added the first part of the document |
-
-### Document Approvals
-| Role               | Name             | Date  |
-| ------------------ | ---------------- | ----- |
-| Project Manager    | Lucas AUBARD     |       |
-| Technical Leader   | Maxime CARON     |       |
-| Program Manager    | Habi CAILLEAU    |       |
-| Quality Assurance  | Clémentine Curel |       |
-| Technical Writer   | Alexis LASSELIN  |       |
-| Software Engineer  | Thibaud MARLIER  |       |
+| 0.10        | Maxime CARON | 2024/05/29 | Added the last part of the document, missing spellcheck |
+| 1.0         | Maxime CARON | 2024/06/03 | First finished version |
+| 1.01        | Maxime CARON | 2024/06/04 | Corrected version |
+| 1.02        | Maxime CARON | 2024/06/06 | Rework of the data privacy part |
 
 
 ## Table of Contents
@@ -38,7 +32,6 @@
   - [Document Control](#document-control)
     - [Document Information](#document-information)
     - [Document Versions](#document-versions)
-    - [Document Approvals](#document-approvals)
   - [Table of Contents](#table-of-contents)
   - [I. Introduction](#i-introduction)
     - [1. Glossary](#1-glossary)
@@ -70,57 +63,57 @@
       - [**B. iOS**](#b-ios)
   - [III. Technical Specification](#iii-technical-specification)
     - [1. Coding Conventions](#1-coding-conventions)
-      - [A. Folder Structure](#a-folder-structure)
+      - [**A. Folder Structure**](#a-folder-structure)
         - [➭ Structure:](#-structure)
         - [➭ Files and Folders Naming Conventions:](#-files-and-folders-naming-conventions)
-        - [➭ Folder details:](#-folder-details)
-      - [B. Comments](#b-comments)
+        - [➭ Folder Details:](#-folder-details)
+      - [**B. Comments**](#b-comments)
         - [➭ Comments at File Beginning:](#-comments-at-file-beginning)
         - [➭ Comments in the Code:](#-comments-in-the-code)
-      - [C. Code Structure](#c-code-structure)
+      - [**C. Code Structure**](#c-code-structure)
         - [➭ Indentation:](#-indentation)
         - [➭ Spacing:](#-spacing)
         - [➭ Naming Conventions:](#-naming-conventions)
     - [2. Database](#2-database)
-      - [A. Data Model Overview](#a-data-model-overview)
-      - [B. Table Details and Usage](#b-table-details-and-usage)
+      - [**A. Data Model Overview**](#a-data-model-overview)
+      - [**B. Table Details and Usage**](#b-table-details-and-usage)
         - [➭ User:](#-user)
         - [➭ SeekerProfile:](#-seekerprofile)
         - [➭ OfferProfile:](#-offerprofile)
-        - [➭ SeekerMainSkill:](#-seekermainskill)
-        - [➭ SeekerSideSkill:](#-seekersideskill)
-        - [➭ OfferMainSkill:](#-offermainskill)
-        - [➭ OfferSideSkill:](#-offersideskill)
+        - [➭ MatchProposal:](#-matchproposal)
         - [➭ Skill:](#-skill)
+        - [➭ SkillList:](#-skilllist)
         - [➭ Conversation:](#-conversation)
         - [➭ Message:](#-message)
-      - [C. Interaction From the Application](#c-interaction-from-the-application)
+      - [**C. Interaction from the Application**](#c-interaction-from-the-application)
         - [➭ Interaction Times:](#-interaction-times)
-        - [➭ Data structurations:](#-data-structurations)
-        - [➭ Ways to interact:](#-ways-to-interact)
-      - [D. Future Improvements of the Database](#d-future-improvements-of-the-database)
-    - [3. Graphic Conventions](#3-graphic-conventions)
-      - [A. Colors](#a-colors)
-      - [B. Typography](#b-typography)
-    - [4. Widgets](#4-widgets)
-      - [A. Fields](#a-fields)
+        - [➭ Communication with Database:](#-communication-with-database)
+      - [**D. Future Improvements of the Database**](#d-future-improvements-of-the-database)
+    - [3. Data Locally Stored](#3-data-locally-stored)
+      - [**A. Install and Import**](#a-install-and-import)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage)
+    - [4. Typography](#4-typography)
+      - [**A. Fonts**](#a-fonts)
+      - [**B. Google font package**](#b-google-font-package)
+    - [5. Widgets](#5-widgets)
+      - [**A. Fields**](#a-fields)
         - [➭ Text Field:](#-text-field)
         - [➭ Localization Field:](#-localization-field)
         - [➭ Tag Field:](#-tag-field)
         - [➭ Select Field:](#-select-field)
-      - [B. Buttons](#b-buttons)
+      - [**B. Buttons**](#b-buttons)
         - [➭ Text Button:](#-text-button)
         - [➭ Icon Button:](#-icon-button)
         - [➭ Radio Button:](#-radio-button)
         - [➭ Big Button:](#-big-button)
         - [➭ Navbar:](#-navbar)
-      - [C. Lists](#c-lists)
+      - [**C. Lists**](#c-lists)
         - [➭ Clickable List:](#-clickable-list)
-      - [D. Cards](#d-cards)
+      - [**D. Cards**](#d-cards)
         - [➭ Swipe Card:](#-swipe-card)
         - [➭ Chat Card:](#-chat-card)
-    - [5. Pages](#5-pages)
-      - [A. Description](#a-description)
+    - [6. Pages](#6-pages)
+      - [**A. Description**](#a-description)
         - [➭ Login:](#-login)
         - [➭ Subscription:](#-subscription)
         - [➭ Settings:](#-settings)
@@ -130,40 +123,64 @@
         - [➭ Swipe Area:](#-swipe-area)
         - [➭ Chat List:](#-chat-list)
         - [➭ Conversation:](#-conversation-1)
-      - [B. Navigation](#b-navigation)
+      - [**B. Navigation**](#b-navigation)
         - [➭ Install and import:](#-install-and-import)
         - [➭ Set Up for App:](#-set-up-for-app)
-    - [5. Authentication](#5-authentication)
-      - [A. Firebase Authentication](#a-firebase-authentication)
-        - [➭ Install and import:](#-install-and-import-1)
-        - [➭ Set Upfor App:](#-set-upfor-app)
-    - [6. Translation](#6-translation)
-      - [A. Install and import](#a-install-and-import)
-      - [B. Set Up for App](#b-set-up-for-app)
-    - [7. Matching Algorithm](#7-matching-algorithm)
-      - [A. Scoring System](#a-scoring-system)
-      - [B. Location-based Adjustments](#b-location-based-adjustments)
-      - [C. Matching and Presentation](#c-matching-and-presentation)
-      - [D. Re-Matching](#d-re-matching)
-    - [8. Chat System](#8-chat-system)
+    - [7. Authentication](#7-authentication)
+      - [**A. Install and import**](#a-install-and-import-1)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-1)
+    - [8. Translation](#8-translation)
+      - [**A. Install and import**](#a-install-and-import-2)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-2)
+    - [9. Get User's Location](#9-get-users-location)
+      - [**A. Install and import**](#a-install-and-import-3)
+      - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage-3)
+    - [10. Matching Algorithm](#10-matching-algorithm)
+      - [**A. Scoring System**](#a-scoring-system)
+      - [**B. Location-based Adjustments**](#b-location-based-adjustments)
+      - [**C. Matching and Presentation**](#c-matching-and-presentation)
+      - [**D. Re-Matching**](#d-re-matching)
+    - [10. Chat System](#10-chat-system)
+      - [**A. Real-Time Messaging**](#a-real-time-messaging)
+      - [**B. Message History**](#b-message-history)
+      - [**C. Message Sending and Receiving**](#c-message-sending-and-receiving)
+    - [11. Data Privacy and Security](#11-data-privacy-and-security)
+      - [**A. Data Usage**](#a-data-usage)
+      - [**B. Data Storage**](#b-data-storage)
+      - [**C. Data Persistence**](#c-data-persistence)
+      - [**D. Data Retrieving and Deleting**](#d-data-retrieving-and-deleting)
+      - [**E. Data Sharing**](#e-data-sharing)
 </details>
 
 ## I. Introduction
 
 ### 1. Glossary
 
-| Term             | Definition | Source |
-| ---------------- | ---------- | ------ |
-| Flutter          |            |        |
-| Firebase         |            |        |
-| API              |            |        |
-| Database         |            |        |
-| Widget           |            |        |
-| Page             |            |        |
-| Matching         |            |        |
-| Main Skills      |            |        |
-| Side Skills      |            |        |
-| We Are Evolution |            |        |
+| Term                | Definition                                                                 | Source            |
+|---------------------|----------------------------------------------------------------------------|-------------------|
+| Android             | The operating system developed by Google for mobile devices such as smartphones and tablets. | [Android](https://www.android.com/) |
+| API                 | Application Programming Interface - a set of rules and protocols for building and interacting with software applications. | [TechTerms](https://techterms.com/definition/api) |
+| Dart                | The programming language used for building applications in the Flutter framework. | [Dart](https://dart.dev/) |
+| Database            | A structured collection of data stored electronically in a computer system. | [Techopedia](https://www.techopedia.com/definition/18768/database) |
+| Drop-down Menu      | A graphical control element, typically a list of items that appear below a selected item when activated, allowing the user to choose from among predefined options. | [TechTerms](https://techterms.com/definition/dropdownmenu) |
+| Firebase            | A mobile and web application development platform developed by Firebase, Inc. It provides a variety of services such as real-time database, authentication, hosting, etc. | [Firebase](https://firebase.google.com/) |
+| Flutter             | A UI toolkit developed by Google for building natively compiled applications for mobile, web, and desktop from a single codebase. | [Flutter](https://flutter.dev/) |
+| Framework           | A software framework providing a foundation on which software developers can build and deploy applications. | [Techopedia](https://www.techopedia.com/definition/14356/framework) |
+| GDPR                | General Data Protection Regulation - a regulation in EU law on data protection and privacy in the European Union and the European Economic Area. | [Wikipedia](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) |
+| Integration Testing | Testing conducted to evaluate the integration or interaction between different components or systems of an application. | [Techopedia](https://www.techopedia.com/definition/16314/integration-testing) |
+| iOS                 | The operating system developed by Apple Inc. for its mobile devices like iPhone and iPad. | [Apple](https://www.apple.com/ios/) |
+| Main Skills         | Core skills or competencies essential for a particular job or role. | Personal knowledge |
+| Matching            | The process of pairing or connecting two entities based on predefined criteria. | Personal knowledge |
+| Mock Library        | A library or tool used in software development to create mock objects or simulate behaviors for testing purposes. | [Flutter](https://docs.flutter.dev/cookbook/testing/unit/mocking) |
+| Navbar              | A navigation bar, typically found at the top of a website or application interface, providing links to different sections or pages. | [Techopedia](https://www.techopedia.com/definition/30236/navigation-bar) |
+| Page                | A screen or view in a mobile or web application where content is displayed. | Personal knowledge |
+| Packages            | Collections of code and resources in Dart programming language, used to implement specific functionality in Flutter applications. | [Dart Packages](https://pub.dev/) |
+| Side Skills         | Additional or supplementary skills that complement main skills. | Personal knowledge |
+| Snake Case          | A naming convention in which words are written together and separated by underscores, often used in variable and function names. | [Wikipedia](https://en.wikipedia.org/wiki/Snake_case) |
+| Tinder              | A popular dating application known for its swiping-based user interface to match with other users. | [Tinder](https://www.tinder.com/) |
+| We Are Evolution    | A company that helps recruiters and jobseekers meet. | Personal knowledge |
+| Widget              | A basic building block of Flutter UI, representing a visual component such as a button, text input, etc. | [Flutter Widgets](https://flutter.dev/docs/development/ui/widgets) |
+
 
 ### 2. Document Purpose
 
@@ -224,7 +241,7 @@ The first version of the application will not contain all the features we would 
 
 #### **D. Assumptions**
 
-We are assuming that the application will be used by real companies and job seekers. We are also assuming that the application will be used professionally and that the users will not use the chat feature to send inappropriate messages.
+We are assuming that the application will be used by real companies and adult job seekers. We are also assuming that the application will be used professionally and that the users will not use the chat feature to send inappropriate messages.
 
 ## II. Technology Presentation
 
@@ -246,6 +263,8 @@ To create the application, we will need to use some packages.
 - `firebase_database/firebase_database.dart`: The Firebase Database package provides access to the Firebase Realtime Database. It is used to interact with the database in the application.
 - `firebase_auth/firebase_auth.dart`: The Firebase Auth package provides access to Firebase Authentication. It is used to authenticate users in the application.
 - `go_router/go_router.dart`: The Go Router package provides a declarative router for Flutter applications. It is used to manage the navigation in the application.
+- `google_fonts/google_fonts.dart`: The Google Fonts package provides access to Google Fonts. It is used to load custom fonts in the application.
+- `package:geolocator/geolocator.dart`: The Geolocator package provides access to the device's location. It is used to get the user's location in the application.
 
 ##### ➭ <ins>Testing Packages:</ins>
 - `flutter_observatory`: A package that provides a testing framework for Flutter applications.
@@ -259,9 +278,9 @@ To create the application, we will need to use some packages.
 ###### ➭ <ins>Usage:</ins>
 
 To work on the project, we will need to have a suitable working environment. Here is the working environment we will use:
-- **Flutter SDK:** The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK to create the application.
-- **Visual Studio Code:** Visual Studio Code is the integrated development environment that allows us to create Flutter applications.
-- **Android Studio:** Android Studio is the integrated development environment that allows us to create Android applications. We will use Android Studio to create various virtual devices to test the application.
+- **Flutter SDK:** The Flutter SDK is the software development kit that allows us to create Flutter applications. We will use the latest version of the Flutter SDK which is currently 3.22.1 (the version may change during the development process to ensure compatibility with the latest features and updates).
+- **Visual Studio Code:** Visual Studio Code is the integrated development environment that allows us to create Flutter applications (current version 1.89.1). We will use Visual Studio Code to write the code for the application and to run the application on various devices
+- **Android Studio:** Android Studio is the integrated development environment that allows us to create Android applications (current version Jellyfish 2023.3.1). We will use Android Studio to create various virtual devices to test the application.
 
 
 ###### ➭ <ins>Installation:</ins>
@@ -341,22 +360,25 @@ The minimum required version for iOS is 11.0 or higher. This requirement ensures
 
 ### 1. Coding Conventions
 
-#### A. Folder Structure
-
+#### **A. Folder Structure**
 ##### ➭ <ins>Structure:</ins>
 The project's folder structure provides a foundational framework for organizing code files. While it may evolve, the initial structure serves as a solid starting point:
 ```plaintext
 lib/
   ├── main.dart
+  ├── firestore/
+  │     ├── firebase_options.dart
   ├── models/
-  │     ├── user.dart
-  │     ├── company.dart
-  │     ├── chat.dart
-  │     ├── message.dart
+  │     ├── users.dart
+  │     ├── matches.dart
+  │     ├── messages.dart
   ├── services/
-  │     ├── authentication.dart
-  │     ├── database.dart
-  │     ├── matching.dart
+  │     ├── authentication/
+  │     │     ├── exceptions/
+  │     │     │     ├── signup _email_password_failure.dart
+  │     │     ├── signup/
+  │     │     │     ├── signup_controller.dart
+  │     │     ├── user_Services.dart
   ├── widgets/
   │     ├── buttons/
   │     │     ├── text_button.dart
@@ -365,12 +387,18 @@ lib/
   │     │     ├── text_field.dart
   │     │     ├── localization_field.dart
   │     │     ├── tag_field.dart
-  │     ├── menus/
-  │     │     ├── menu.dart
-  │     │     ├── dropdown_menu.dart
+  │     ├── cards/
+  │     │     ├── swipe_card.dart
+  │     │     ├── chat_card.dart
+  │     ├── lists/
+  │     │     ├── clickable_list.dart
+  |     ├── navbar/
+  │     │     ├── navbar.dart
+  |     ├── logo/
+  │     │     ├── logo.dart
   ├── pages/
-  │     ├── login.dart
-  │     ├── subscription.dart
+  │     ├── log_in.dart
+  │     ├── sign_up.dart
   │     ├── company/
   │     │     ├── profile.dart
   │     │     ├── settings.dart
@@ -381,22 +409,23 @@ lib/
   │     │     ├── settings.dart
   │     │     ├── swap_area.dart
   │     │     ├── chat.dart
-  ├── matching_algorithm.dart
+  ├── main.dart
   ├── routes.dart
 ```
+
 This structured layout facilitates code organization and enhances project maintainability.
 
 ##### ➭ <ins>Files and Folders Naming Conventions:</ins>
-To maintain consistency and make it easier to navigate through the code, we will use the same naming conventions as the one used by default in Flutter. We will use snake_case for files and folder names. This will make it easier to read and understand the code.
+To maintain consistency and make it easier to navigate through the code, we will use the same naming conventions as those used by default in Flutter. We will use snake_case for files and folder names. This will make it easier to read and understand the code.
 
-##### ➭ <ins>Folder details:</ins>
+##### ➭ <ins>Folder Details:</ins>
 
 - **`models/`:** This folder will contain all the models used in the application. Each model will be in a separate file.
 - **`services/`:** This folder will contain all the services used in the application. Each service will be in a separate file.
 - **`widgets/`:** This folder will contain all the widgets used in the application. Each widget will be in a separate file.
 - **`pages/`:** This folder will contain all the pages used in the application. Each page will be in a separate file.
 
-#### B. Comments
+#### **B. Comments**
 
 Effective comments provide insights into the purpose and functionality of code segments. We adhere to clear commenting conventions to aid understanding and collaboration:
 
@@ -437,7 +466,7 @@ if (isAuthenticated) {
 }
 ```
 
-#### C. Code Structure
+#### **C. Code Structure**
 
 Structured code enhances readability and maintainability. We employ consistent indentation, spacing, and naming conventions:
 
@@ -472,82 +501,89 @@ int calculateTotalPrice(int unitPrice, int quantity) {
 
 ### 2. Database
 
-#### A. Data Model Overview
+#### **A. Data Model Overview**
 
 The application will use Firebase Realtime Database to store and sync data in real-time across all clients. The data model will consist of the following tables:
 
-![Data Model Overview](TechnicalSpecificationPicture/Database/Database_V2_UML.svg)
+![Data Model Overview](TechnicalSpecificationPicture/Database/Database_V3_UML.svg)
 
-(See a larger version [here](TechnicalSpecificationAppendix/Database/Database_V2_UML.pdf))
+(See a larger version [here](TechnicalSpecificationAppendix/Database/Database_V3_UML.pdf))
 
-#### B. Table Details and Usage
+#### **B. Table Details and Usage**
 
 ##### ➭ <ins>User:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the user.
-  - `name`: Name of the user.
-  - `email`: Email of the user.
-  - `password`: Password of the user.
-  - `isCompany`: User type (company or job seeker).
+
+| Field       | Type                    | Description                                      |
+|-------------|-------------------------|--------------------------------------------------|
+| id          | long                    | Unique identifier of the user.                   |
+| name        | String (255 characters) | Name of the user.                                |
+| email       | String (255 characters) | Email of the user.                               |
+| password    | String (255 characters) | Password of the user.                            |
+| isCompany   | Boolean                 | Determines if the user is a company or a job seeker. |
 
 ##### ➭ <ins>SeekerProfile:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the seeker profile.
-  - `userId`: Unique identifier of the user.
-  - `localization`: Localization of the job seeker.
+
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the seeker profile.         |
+| userId        | String (255 characters) | Unique identifier of the user.                   |
+| localization  | String (255 characters) | Localization of the job seeker.                  |
 
 ##### ➭ <ins>OfferProfile:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the offer profile.
-  - `userId`: Unique identifier of the user.
-  - `title`: Title of the job offer.
-  - `description`: Description of the job offer.
-  - `localization`: Localization of the job offer.
 
-##### ➭ <ins>SeekerMainSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the seeker main skill.
-  - `seekerProfileId`: Unique identifier of the job seeker profile.
-  - `skillId`: Unique identifier of the skill.
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the offer profile.          |
+| userId        | String (255 characters) | Unique identifier of the user.                   |
+| title         | String (255 characters) | Title of the job offer.                          |
+| description   | text (65,535 characters)| Description of the job offer.                    |
 
-##### ➭ <ins>SeekerSideSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the seeker side skill.
-  - `seekerProfileId`: Unique identifier of the job seeker profile.
-  - `skillId`: Unique identifier of the skill.
+##### ➭ <ins>MatchProposal:</ins>
 
-##### ➭ <ins>OfferMainSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the offer main skill.
-  - `offerProfileId`: Unique identifier of the job offer profile.
-  - `skillId`: Unique identifier of the skill.
-
-##### ➭ <ins>OfferSideSkill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the offer side skill.
-  - `offerProfileId`: Unique identifier of the job offer profile.
-  - `skillId`: Unique identifier of the skill.
+| Field            | Type                    | Description                                      |
+|------------------|-------------------------|--------------------------------------------------|
+| id               | long                    | Unique identifier of the match proposal.         |
+| seekerId         | long                    | Unique identifier of the job seeker.             |
+| offerId          | long                    | Unique identifier of the job offer.              |
+| isSeekerAccepted | Boolean                 | Determines if the job seeker has accepted the match. |
+| isCompanyAccepted| Boolean                 | Determines if the company has accepted the match. |
 
 ##### ➭ <ins>Skill:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the skill.
-  - `name`: Name of the skill.
-  - `description`: Description of the skill.
+
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the skill.                 |
+| profileId     | long                    | Unique identifier of the job seeker profile.     |
+| skillId       | long                    | Unique identifier of the skill.                 |
+| isOfferSkill  | Boolean                 | Determines if the skill is for a job offer or a job seeker. |
+| isMainSkill   | Boolean                 | Determines if the skill is a main skill or a side skill. |
+
+##### ➭ <ins>SkillList:</ins>
+
+| Field         | Type                    | Description                                     |
+|---------------|-------------------------|-------------------------------------------------|
+| id            | long                    | Unique identifier of the skill.                 |
+| name          | String (255 characters) | Name of the skill.                              |
+| description   | text (65,535 characters)| Description of the skill.                       |
 
 ##### ➭ <ins>Conversation:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the conversation.
-  - `seekerId`: Unique identifier of the job seeker.
-  - `offerId`: Unique identifier of the job offer.
+
+| Field     | Type                    | Description                                      |
+|-----------|-------------------------|--------------------------------------------------|
+| id        | long                    | Unique identifier of the conversation.           |
+| seekerId  | long                    | Unique identifier of the job seeker.             |
+| offerId   | long                    | Unique identifier of the job offer.              |
 
 ##### ➭ <ins>Message:</ins>
-- **Fields:**
-  - `id`: Unique identifier of the message.
-  - `conversationId`: Unique identifier of the conversation.
-  - `senderId`: Unique identifier of the user who sent the message.
-  - `content`: Content of the message.
 
-#### C. Interaction From the Application 
+| Field         | Type                    | Description                                      |
+|---------------|-------------------------|--------------------------------------------------|
+| id            | long                    | Unique identifier of the message.                |
+| conversationId| long                    | Unique identifier of the conversation.           |
+| senderId      | long                    | Unique identifier of the user who sent the message. |
+| content       | text (65,535 characters)| Content of the message.                          |
+
+#### **C. Interaction from the Application**
 
 ##### ➭ <ins>Interaction Times:</ins>
 
@@ -572,37 +608,103 @@ The application will interact with the database at the following moments:
   - Send messages.
   - Retrieve messages.
 
-##### ➭ <ins>Data structurations:</ins>
-// TODO: Add more details about how the data will be structured in the database.
+##### ➭ <ins>Communication with Database:</ins>
+The application will communicate with the database using the Firebase Realtime Database API. The API will be used to:
+- Read data from the database.
+- Write data to the database.
+- Update data in the database.
+- Delete data from the database.
+- Listen for changes in the database.
+  
+*Reading example:*
+```dart
+// Read data from the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.once().then((DataSnapshot snapshot) {
+  print('Data: ${snapshot.value}');
+});
+```
 
-##### ➭ <ins>Ways to interact:</ins>
+*Writing example:*
+```dart
+// Write data to the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.set({
+  'name': 'Alice',
+  'age': 30,
+});
+```
+*Updating example:*
+```dart
+// Update data in the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.update({
+  'name': 'Alice',
+  'age': 31,
+});
+```
 
-// TODO: Add more details about how the application will interact with the database.
+*Deleting example:*
+```dart
+// Delete data from the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.remove();
+```
+*Listening example:*
+```dart
+// Listen for changes in the database.
+final database = FirebaseDatabase.instance;
+final reference = database.reference();
+reference.onValue.listen((event) {
+  print('Data: ${event.snapshot.value}');
+});
+```
 
-#### D. Future Improvements of the Database
+
+
+
+#### **D. Future Improvements of the Database**
 The project is currently a proof of concept for a company, which is why we are using Firebase as a prototype database. In the future, the company will be free to use any other database with any other API to meet the evolving requirements of the application.
 
 
-### 3. Graphic Conventions 
+### 3. Data Locally Stored
+Some data will be stored locally to improve the user experience and reduce the number of requests to the database. The data that will be stored locally is the user's data, the user's profile, the user's localization, the user's skills, the user's matches, and the user's conversations.
 
-#### A. Colors
-The chosen colors for this application are the following:
+The data will be stored locally using the shared_preferences package. The shared_preferences package provides a persistent store for simple data. Data is persisted to disk automatically and asynchronously.
 
-| Color                                                                                       | Color Name | Hex Code |
-| ------------------------------------------------------------------------------------------- | ---------- | -------- |
-| <img src="TechnicalSpecificationPicture/Colors/white.png" width="30px" height="30px">       | White      | #FFFFFF  |
-| <img src="TechnicalSpecificationPicture/Colors/light-grey.png" width="30px" height="30px">  | Light Grey | #F5F5F5  |
-| <img src="TechnicalSpecificationPicture/Colors/black.png" width="30px" height="30px">       | Black      | #000000  |
-| <img src="TechnicalSpecificationPicture/Colors/red.png" width="30px" height="30px">         | Red        | #C8553D  |
-| <img src="TechnicalSpecificationPicture/Colors/flash-red.png" width="30px" height="30px">   | Flash Red  | #FF0000  |
-| <img src="TechnicalSpecificationPicture/Colors/light-red.png" width="30px" height="30px">   | Light Red  | #FFBABA  |
-| <img src="TechnicalSpecificationPicture/Colors/pink.png" width="30px" height="30px">        | Pink       | #FFD5C2  |
-| <img src="TechnicalSpecificationPicture/Colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
-| <img src="TechnicalSpecificationPicture/Colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
+The data will be stored locally when the user logs in and will be updated when the user's data is updated in the database. The data will be used to display the user's profile, the user's localization, the user's skills, the user's matches, and the user's conversations in the application.
 
-*To keep the document clear, the good usage of_ each color will be defined in the [graphic charter]().*
+The data will be stored locally in the following the same structure as in the database.
 
-#### B. Typography
+#### **A. Install and Import**
+
+To use the shared_preferences package, you need to install it in your Flutter project with the following command:
+```bash
+flutter pub add shared_preferences
+```
+
+After adding the package, you need to import it in your Dart file:
+```dart
+import 'package:shared_preferences/shared_preferences.dart';
+```
+
+#### **B. Set Up for App and Usage**
+To store data locally, you can use the following code:
+```dart
+// Store data locally.
+final preferences = await SharedPreferences.getInstance();
+preferences.setString('name', 'Alice');
+preferences.setInt('age', 30);
+```
+
+### 4. Typography 
+
+#### **A. Fonts**
+
 For the various elements of the application, the chosen typographies are the following:
 | Font name    | Name     | Weight    | Size | Google font link |
 | ------------ | -------- | --------- | ---- | ---------------- |
@@ -612,10 +714,28 @@ For the various elements of the application, the chosen typographies are the fol
 | Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 | Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 
-*To keep the document clear, the good usage of each font will be defined in the [graphic charter]().*
+#### **B. Google font package**
+To use the Google font package, you can run the following command in your terminal:
+```bash
+flutter pub add google_fonts
+```
 
-### 4. Widgets
-#### A. Fields
+After adding the package, each time you need to specify the font import it in your Dart file:
+```dart
+import 'package:google_fonts/google_fonts.dart';
+
+Text(
+  'Hello, World!',
+  style: GoogleFonts.josefinSans(
+    fontSize: 20,
+    fontWeight: FontWeight.normal,
+  ),
+)
+```
+
+
+### 5. Widgets
+#### **A. Fields**
 
 ##### ➭ <ins>Text Field:</ins>
 **Description:**</br>
@@ -624,17 +744,27 @@ A text field is a field where the user enters text. It is used to collect or sho
 **Example of Visual Representation:**</br>
 <img alt="Example of text field" src="TechnicalSpecificationPicture/Widgets/text-field.png" width="300px"></img>
 
-**Properties:**
+**Editable Properties:**
 
 | Property                    | Description                                                                              | Required |
 |-----------------------------|----------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The text field is set as mandatory for the user to fill out or optional.                 | Yes      |
 | **Read-only/Editable**      | The text field is read-only or editable.                                                 | Yes      |
 | **Maximum Length**          | The text field restricts the number of characters entered to a maximum limit.            | Yes      |
-| **Minimum Length**          | The text field enforces a minimum number of characters that must be entered.             | No       |
 | **Label**                   | The text field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The text field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                             | No       |
+| **Is Email**                | The text field is used to collect an email address, it will show an error if the email is not valid. | No       |
+| **Is Oobscure**             | The text field is used to collect a password, it will hide the password and require a minimum length(8 characters). | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Height**          | The minimum height of the field.                                                    | 50px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+| **Minimum Length**          | The minimum number of characters that can be entered in the field.                  | 0             |
 
 ##### ➭ <ins>Localization Field:</ins>
 **Description:**</br>
@@ -648,11 +778,20 @@ A localization field is a field where the user enters a localization. It also co
 | Property                    | Description                                                                                      | Required |
 |-----------------------------|------------------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The localization field is set as mandatory for the user to fill out or optional.                 | Yes      |
-| **Read-only/Editable**      | The localization field is read-only (not editable) or editable.                                  | Yes      |
+| **Read-Only/Editable**      | The localization field is read-only (not editable) or editable.                                  | Yes      |
 | **Button**                  | The localization field contains a button to automatically set the localization.                  | No       |
 | **Label**                   | The localization field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The localization field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                                     | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Height**          | The minimum height of the field.                                                    | 50px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+| **Minimum Length**          | The minimum number of characters that can be entered in the field.                  | 0             |
 
 ##### ➭ <ins>Tag Field:</ins>
 **Description:**</br>
@@ -673,7 +812,7 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 | Property                    | Description                                                                             | Required |
 |-----------------------------|---------------------------------------------------------------------------------------- | -------- |
 | **Required/Optional**       | The tag field is set as mandatory for the user to fill out or optional.                 | Yes      |
-| **Read-only/Editable**      | The tag field is read-only (not editable) or editable.                                  | Yes      |
+| **Read-Only/Editable**      | The tag field is read-only (not editable) or editable.                                  | Yes      |
 | **Maximum Number**          | The tag field restricts the number of tags that can be selected to a maximum limit.     | Yes      |
 | **Minimum Number**          | The tag field enforces a minimum number of tags that must be selected.                  | No       |
 | **Add Button**              | The tag field contains an "Add" button to add new tags.                                 | No       |
@@ -681,6 +820,14 @@ A tag field is a field where the user selects tags. It is used to collect or sho
 | **Label**                   | The tag field is accompanied by a label that describes its purpose.                     | No       |
 | **Helper Text**             | The tag field includes helper text that provides additional guidance to the user.       | No       |
 | **Hover Effect**            | Provides a hover effect for visual feedback.                                            | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Height**          | The minimum height of the field.                                                    | 100px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
 
 ##### ➭ <ins>Select Field:</ins>
 **Description:**</br>
@@ -705,7 +852,15 @@ A select field is a field where the user selects an option from a list of option
 | **Label**                   | The select field is accompanied by a label that describes its purpose.                           | No       |
 | **Helper Text**             | The select field includes helper text that provides additional guidance to the user.             | No       |
 
-#### B. Buttons
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the field.                                                     | 300px         |
+| **Minimum Weight**          | The minimum height of the field.                                                    | 50px          |
+| **Border Radius**           | The border radius of the field.                                                     | 10px          |
+
+#### **B. Buttons**
 
 ##### ➭ <ins>Text Button:</ins>
 **Description:**</br>
@@ -724,9 +879,18 @@ A text button is a button that contains text. It is used to trigger an action wh
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the button.                                                         | 50px          |
+| **Minimum Height**          | The minimum height of the button.                                                        | 50px          |
+| **Border Radius**           | The border radius of the button.                                                         | 10px          |
+| **Minimum Length**          | The minimum number of characters that can be entered in the button.                      | 0             |
+
 ##### ➭ <ins>Icon Button:</ins>
 **Description:**</br>
-An icon button is a button that contains an icon. It is used to trigger an action when clicked.\
+An icon button is a button that contains an icon. It is used to trigger an action when clicked.
 
 **Example Visual of Representation:**</br>
 <img alt="Example of icon button" src="TechnicalSpecificationPicture/Widgets/icon-button.png" width="100px"></img>
@@ -740,6 +904,14 @@ An icon button is a button that contains an icon. It is used to trigger an actio
 | **On Click**      | The action is triggered when the button is clicked. | Yes      |
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the button.                                                         | 50px          |
+| **Minimum Height**          | The minimum height of the button.                                                        | 50px          |
+| **Border Radius**           | The border radius of the button.                                                         | 10px          |
 
 ##### ➭ <ins>Radio Button:</ins>
 **Description:**</br>
@@ -757,6 +929,12 @@ A radio button is a button that allows the user to select one option from a list
 | **Disabled**      | Disables the radio button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.              | No       |
 
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum width**           | The minimum width of the button.                                                         | 30px          |
+| **Minimum height**          | The minimum height of the button.                                                        | 30px          |
 
 ##### ➭ <ins>Big Button:</ins>
 **Description:**</br>
@@ -770,12 +948,22 @@ A big button is sized as a text field or bigger, containing text and/or an icon.
 |-------------------|---------------------------------------------------- | -------- |
 | **Text**          | The text displayed on the button.                   | Yes      |
 | **Icon**          | The icon is displayed on the button.                | No       |
-| **Text color**    | The color of the text in the button.                | Yes      |
+| **Text Color**    | The color of the text in the button.                | Yes      |
 | **Color**         | The color of the button.                            | Yes      |
 | **Size**          | The size of the button.                             | Yes      |
 | **On Click**      | The action is triggered when the button is clicked. | Yes      |
 | **Disabled**      | Disables the button to prevent user interaction.    | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.        | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the button.                                                         | 300px         |
+| **Minimum Height**          | The minimum height of the button.                                                        | 50px          |
+| **Border Radius**           | The border radius of the button.                                                         | 10px          |
+| **Minimum Length**          | The minimum number of characters that can be entered in the button.                      | 0             |
+| **Text Size**               | The size of the text in the button.                                                      | 20px          |
 
 ##### ➭ <ins>Navbar:</ins>
 **Description:**</br>
@@ -788,11 +976,16 @@ A navbar is a bar that contains icon buttons. It is used to navigate between pag
 | Property          | Description                                             | Required |
 |-------------------|-------------------------------------------------------- | -------- |
 | **Pages**         | The list of pages the user can select from.             | Yes      |
-| **Selected**      | The page selected by default.                           | Yes      |
+| **Selected**      | The page which is selected by default.                  | Yes      |
 | **On Change**     | The action is triggered when the selected page changes. | Yes      |
 | **Disabled**      | Disables the navbar to prevent user interaction.        | No       |
 
-#### C. Lists
+**Read-only Properties:**
+
+None
+
+
+#### **C. Lists**
 
 ##### ➭ <ins>Clickable List:</ins>
 **Description:**</br>
@@ -815,7 +1008,16 @@ A clickable list is a list where each item can be clicked. It is used to display
 | **Editable**      | The list is in editing mode.                            | No       |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
-#### D. Cards
+**Read-only Properties:**
+
+| Property                    | Description                                                                            | Default value |
+|-----------------------------|--------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the list.                                                         | 300px         |
+| **Minimum Height**          | The minimum height of the list.                                                        | 50px          |
+| **Border Radius**           | The border radius of the list.                                                         | 10px          |
+
+
+#### **D. Cards**
 
 ##### ➭ <ins>Swipe Card:</ins>
 **Description:**</br>
@@ -829,12 +1031,20 @@ A swipe card is a card that contains information and can be swiped left or right
 |-------------------|-------------------------------------------------------- | -------- |
 | **Title**         | The title displayed on the card.                        | Yes      |
 | **Description**   | The description displayed on the card.                  | Yes      |
-| **Main skills**   | The main skills displayed on the card.                  | Yes      |
-| **Side skills**   | The side skills displayed on the card.                  | Yes      |
+| **Main Skills**   | The main skills displayed on the card.                  | Yes      |
+| **Side Skills**   | The side skills displayed on the card.                  | Yes      |
 | **Localization**  | The localization displayed on the card.                 | Yes      |
 | **On Accept**     | The action is triggered when the card is accepted.      | Yes      |
 | **On Reject**     | The action is triggered when the card is rejected.      | Yes      |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
+
+**Read-only Properties:**
+
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the card.                                                           | 300px         |
+| **Minimum Height**          | The minimum height of the card.                                                          | 500px         |
+| **Border Radius**           | The border radius of the card.                                                           | 10px          |
 
 ##### ➭ <ins>Chat Card:</ins>
 **Description:**</br>
@@ -851,9 +1061,17 @@ A chat card is a card that contains a conversation. It is used to display a conv
 | **On Click**      | The action is triggered when the card is clicked.       | Yes      |
 | **Hover Effect**  | Provides a hover effect for visual feedback.            | No       |
 
+**Read-only Properties:**
 
-### 5. Pages
-#### A. Description
+| Property                    | Description                                                                              | Default value |
+|-----------------------------|----------------------------------------------------------------------------------------- | ------------- |
+| **Minimum Width**           | The minimum width of the card.                                                           | 50px          |
+| **Minimum Height**          | The minimum height of the card.                                                          | 30px          |
+| **Border Radius**           | The border radius of the card.                                                           | 10px          |
+
+
+### 6. Pages
+#### **A. Description**
 
 ##### ➭ <ins>Login:</ins>
 **Description:**</br>
@@ -880,6 +1098,8 @@ The login page contains the following elements:
 **Description:**</br>
 The subscription page allows users to create an account, be redirected to the login page if they already have an account, and declare a forgotten password.
 
+Consider that terms and conditions are not displayed on the subscription page for now because it's the role of the company to define and provide them, in conclusion for the moment the page and the system of validation are not yet implemented.
+
 **Capabilities:**</br>
 The subscription page allows users to:
 - Create an account.
@@ -894,7 +1114,7 @@ The subscription page contains the following elements:
 | Email              | The user's email.                   | Text field     | Editable    |                                                                |
 | Password           | The user's password.                | Text field     | Editable    |                                                                |
 | Confirm password   | Confirmation of user's password.    | Text field     | Editable    |                                                                |
-| Job seeker/company| Button to choose user type.          | Radio button   | Clickable   | Switch between job seeker and company user types.              |
+| Job seeker/company | Button to choose user type.          | Radio button   | Clickable   | Switch between job seeker and company user types.              |
 | Subscription       | Button to create account.           | Button         | Clickable   | Validate email and password, redirect user to their profile.   |
 | Login              | Button to go to login page.         | Button         | Clickable   | Redirect user to login page.                                   |
 
@@ -1073,7 +1293,7 @@ The conversation page contains the following elements:
 | Send               | Button to send the message.              | Button      | Clickable  | Send the message.             |
 | Back               | Button to go back to the chat list page. | Button      | Clickable  | Return to the chat list page. |
 
-#### B. Navigation
+#### **B. Navigation**
 To navigate between pages, the application uses a navigation package named `go_router`. This package allows the application to navigate between pages with a simple and efficient API.
 
 ##### ➭ <ins>Install and import:</ins>
@@ -1132,11 +1352,10 @@ IconButton(
 ```
 Read [go_router documentation](https://pub.dev/packages/go_router) for more information.
 
-### 5. Authentication
-#### A. Firebase Authentication
+### 7. Authentication
 The application uses Firebase Authentication to authenticate users. Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to the application.
 
-##### ➭ <ins>Install and import:</ins>
+#### **A. Install and import**
 To install the Firebase Authentication package, the application must:
 - Add the Firebase Authentication package to the `pubspec.yaml` file by running the following command:
 ```bash
@@ -1147,7 +1366,7 @@ flutter pub add firebase_auth
 import 'package:firebase_auth/firebase_auth.dart';
 ```
 
-##### ➭ <ins>Set Upfor App:</ins>
+#### **B. Set Up for App and Usage**
 - Initialize Firebase in your main.dart file.
 ```dart
 import 'package:flutter/material.dart';
@@ -1279,7 +1498,7 @@ class _SignInPageState extends State<SignInPage> {
 - Ensure your Firestore database rules allow authenticated users to read and write data.
 
 Update your Firestore rules as needed:
-```json
+```dart
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
@@ -1291,10 +1510,10 @@ service cloud.firestore {
 
 Read [Firebase Authentication documentation](https://firebase.flutter.dev/docs/auth/start) for more information.
 
-### 6. Translation
+### 8. Translation
 The application uses the `flutter_localizations` package to provide internationalization and localization support. This package provides a set of classes that define localized messages and a mechanism to retrieve them.
 
-#### A. Install and import
+#### **A. Install and import**
 To install the `flutter_localizations` package, the application must:
 - Add the `flutter_localizations` package to the `pubspec.yaml` file by running the following command:
 ```bash
@@ -1306,14 +1525,136 @@ flutter pub add intl:any
 import 'package:flutter_localizations/flutter_localizations.dart';
 ```
 
-#### B. Set Up for App
-// TODO: install and try the package to create a good example
+#### **B. Set Up for App and Usage**
+The `flutter_localizations` package provides a set of classes that define localized messages and a mechanism to retrieve them. The application can use these classes to display messages in different languages based on the user's locale.
 
-### 7. Matching Algorithm
+*Example:*
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'),
+        const Locale('fr', 'FR'),
+      ],
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Localization Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              Intl.message('Hello World', name: 'helloWorld'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+### 9. Get User's Location
+The application uses the `geolocator` package to get the user's location. This package provides a set of classes and methods to retrieve the user's location.
+
+#### **A. Install and import**
+To install the `geolocator` package, the application must:
+- Add the `geolocator` package to the `pubspec.yaml` file by running the following command:
+```bash
+flutter pub add geolocator
+```
+- Import the package in the file where the location is needed by adding the following line:
+```dart
+import 'package:geolocator/geolocator.dart';
+```
+
+#### **B. Set Up for App and Usage**
+The `geolocator` package provides a set of classes and methods to retrieve the user's location. The application can use these classes and methods to get the user's location and display it in the application.
+
+*Example:*
+```dart
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePage extends State<MyHomePage> {
+  String _location = '';
+
+  Future<void> _getLocation() async {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      _location = 'Latitude: ${position.latitude}, Longitude: ${position.longitude}';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Location Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(_location),
+            ElevatedButton(
+              onPressed: _getLocation,
+              child: Text('Get Location'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+### 10. Matching Algorithm
 
 The matching algorithm is a core feature of the application that enables users to find the most suitable job offers or job seekers based on their skills and preferences. The algorithm utilizes a scoring system to match users with the most relevant opportunities or candidates.
 
-#### A. Scoring System
+#### **A. Scoring System**
 The algorithm considers both primary and secondary skills possessed by companies and job seekers to calculate a matching score. The score is determined by the number of overlapping skills between the user and the job offer or job seeker.
 
 The scoring mechanism is as follows:
@@ -1321,18 +1662,69 @@ The scoring mechanism is as follows:
 - For each matching side skill, the score is increased by 0.2.
 - The total score is the sum of the main and side skills scores.
 
-#### B. Location-based Adjustments
+#### **B. Location-based Adjustments**
 Once the initial score is calculated, the matching algorithm takes into account the user's location and the job offer or job seeker's location. It then adjusts the score based on the proximity between the two locations
 
 The location-based score adjustments are:
 - If the locations are in the same city, the score is increased by 1 point.
 - If the locations are within the same region, the score is increased by 0.5 points.
 
-#### C. Matching and Presentation
+#### **C. Matching and Presentation**
 The algorithm then matches the user with the job offer or job seeker based on the final calculated score. The results are sorted in descending order, displaying the best matches at the top. If both job offers and job seekers are matched, the application allows them to connect and communicate.
 
-#### D. Re-Matching
+#### **D. Re-Matching**
 The matching algorithm also enables users to re-match with job offers or job seekers based on updated preferences. Users can adjust their criteria, and the algorithm will generate new matches accordingly.
 
-### 8. Chat System
-// TODO: Add chat system
+### 10. Chat System
+
+The chat system is a key feature of the application that allows after matching, job seekers and companies to communicate and discuss potential opportunities. The chat system provides a real-time messaging experience with features such as sending messages, receiving messages, and viewing previous conversations.
+
+#### **A. Real-Time Messaging**
+The chat system uses a real-time messaging service to enable instant communication between users. The system ensures that messages are delivered and received in real-time, providing a seamless chat experience.
+
+#### **B. Message History**
+The chat system maintains a history of messages exchanged between users. Users can view previous conversations, scroll through messages, and refer back to important information shared during the chat.
+
+#### **C. Message Sending and Receiving**
+Users can send messages to each other by typing in the chat input field and pressing the send button. The messages are displayed in real-time, allowing users to see when a message has been sent and received. The chat system also provides notifications for new messages.
+
+This UML sequence diagram illustrates the process of sending and receiving messages in the chat system:
+</br>
+</br>
+<img src="TechnicalSpecificationPicture/Algorithm/Chat_Sequence_UML_V1.svg" alt="Sequence diagram of the process of sending and receiving messages in the chat system"></img>
+
+(See a larger version [here](TechnicalSpecificationAppendix/Algorithm/Chat_Sequence_UML_V1.pdf))
+
+### 11. Data Privacy and Security
+User data privacy and security are paramount in the application. The system ensures that user data is protected and handled in compliance with data protection regulations. The application follows best practices to safeguard user information and maintain data privacy.
+
+#### **A. Data Usage**
+The application collects user data to match job seekers with companies and vice versa. The data collected includes user profiles, skills, preferences, and location information. The application uses this data to generate matches and facilitate communication between users.
+
+No sensitive data, such as financial information or personal identification numbers, is stored in the application. The system only collects data necessary for matching and communication purposes.
+
+The application collects the following data:
+- User profiles: Name, email, description, skills, and preferences.
+- Location information: User's location and job offer or job seeker's location.
+- Chat history: Messages exchanged between users.
+- Matching scores: Scores that are calculated based on skills and location.
+
+#### **B. Data Storage**
+User data is stored securely in a cloud-based database. The application uses Firebase Firestore to store user profiles, chat history, and matching scores. Firebase Firestore provides a secure and scalable solution for storing and retrieving data.
+
+The data stored in Firebase Firestore is encrypted and protected using industry-standard security measures. Access to the database is restricted to authorized users, and data is transmitted securely over HTTPS.
+
+#### **C. Data Persistence**
+User data is persisted in the database to ensure that matches and chat history are retained between sessions. The application stores user profiles, chat history, and matching scores in the database to provide a seamless user experience.
+
+The data persistence mechanism ensures that users can access their profiles, chat with matched users, and view previous conversations even after logging out and logging back in.
+
+#### **D. Data Retrieving and Deleting**
+Users have the right to ask to know what data is stored about them and to request the deletion of their data. The application provides users with the ability to retrieve their data and delete their accounts.
+
+Users can access their data through the settings page, where they can view their profiles, chat history, and matching scores. Users can also delete their accounts, which will remove all data associated with their profiles from the database.
+
+Note that according to the GDPR regulations, after a delete request, we will keep user data for a limited period of 5 years and then delete all data related to the user definitively.
+
+#### **E. Data Sharing**
+User data is not shared with third parties without user consent. The application does not sell or share user data with external entities for marketing or advertising purposes. User data is used solely for matching and communication within the application.
