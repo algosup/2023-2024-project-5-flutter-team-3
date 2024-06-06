@@ -39,38 +39,38 @@ Precisions:
 
 |Test case   |Working version|Problems|
 |------------|---------------|--------|
-| COM_REG101 |  |  |
-| COM_REG102 |  |  |
-| COM_REG103 |  |  |
-| COM_REG104 |  |  |
-| COM_REG105 |  |  |
-| COM_REG106 |  |  |
+| COM_REG101 |  | [#13](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/13) |
+| COM_REG102 |  | [#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14) |
+| COM_REG103 |  | [#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14) |
+| COM_REG104 |  | [#13](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/13) |
+| COM_REG105 |  | [#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14) |
+| COM_REG106 |  | [#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14) |
 
 ## Candidate register
 
 |Test case   |Working version|Problems|
 |------------|---------------|--------|
-| CAN_REG107 |||
-| CAN_REG108 |||
-| CAN_REG109 |||
-| CAN_REG110 |||
-| CAN_REG111 |||
-| CAN_REG112 |||
+| CAN_REG107 ||[#13](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/13)|
+| CAN_REG108 ||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CAN_REG109 ||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CAN_REG110 ||[#13](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/13)|
+| CAN_REG111 ||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CAN_REG112 ||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
 
 ## Extra
 
 |Test case   |Working version|Problems|
 |------------|---------------|--------|
-| CC_EXT113|||
-| CC_EXT114|||
-| CC_EXT115|||
-| CC_EXT116|||
-| CC_EXT117|||
-| CC_EXT118|||
-| COM_EXT119|||
-| COM_EXT120|||
-| CAN_EXT121|||
-| CAN_EXT122|||
+| CC_EXT113||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CC_EXT114||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CC_EXT115||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CC_EXT116||[#13](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/13) and [#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CC_EXT117||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CC_EXT118||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| COM_EXT119||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| COM_EXT120||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CAN_EXT121||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
+| CAN_EXT122||[#14](https://github.com/algosup/2023-2024-project-5-flutter-team-3/issues/14)|
 
 
 # Build 2
