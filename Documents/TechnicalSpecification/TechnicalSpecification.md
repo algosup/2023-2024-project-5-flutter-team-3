@@ -92,11 +92,9 @@
     - [3. Data Locally Stored](#3-data-locally-stored)
       - [**A. Install and Import**](#a-install-and-import)
       - [**B. Set Up for App and Usage**](#b-set-up-for-app-and-usage)
-    - [4. Graphic Conventions](#4-graphic-conventions)
-      - [**A. Colors**](#a-colors)
-      - [**B. Typography**](#b-typography)
-        - [➭ Fonts:](#-fonts)
-        - [➭ Google font package:](#-google-font-package)
+    - [4. Typography](#4-typography)
+      - [**A. Fonts**](#a-fonts)
+      - [**B. Google font package**](#b-google-font-package)
     - [5. Widgets](#5-widgets)
       - [**A. Fields**](#a-fields)
         - [➭ Text Field:](#-text-field)
@@ -703,26 +701,10 @@ preferences.setString('name', 'Alice');
 preferences.setInt('age', 30);
 ```
 
-### 4. Graphic Conventions 
+### 4. Typography 
 
-#### **A. Colors**
-The chosen colors for this application are the following:
+#### **A. Fonts**
 
-| Color                                                                                       | Color Name | Hex Code |
-| ------------------------------------------------------------------------------------------- | ---------- | -------- |
-| <img src="TechnicalSpecificationPicture/Colors/white.png" width="30px" height="30px">       | White      | #FFFFFF  |
-| <img src="TechnicalSpecificationPicture/Colors/light-grey.png" width="30px" height="30px">  | Light Grey | #F5F5F5  |
-| <img src="TechnicalSpecificationPicture/Colors/black.png" width="30px" height="30px">       | Black      | #000000  |
-| <img src="TechnicalSpecificationPicture/Colors/red.png" width="30px" height="30px">         | Red        | #C8553D  |
-| <img src="TechnicalSpecificationPicture/Colors/flash-red.png" width="30px" height="30px">   | Flash Red  | #FF0000  |
-| <img src="TechnicalSpecificationPicture/Colors/light-red.png" width="30px" height="30px">   | Light Red  | #FFBABA  |
-| <img src="TechnicalSpecificationPicture/Colors/pink.png" width="30px" height="30px">        | Pink       | #FFD5C2  |
-| <img src="TechnicalSpecificationPicture/Colors/orange.png" width="30px" height="30px">      | Orange     | #F28F3B  |
-| <img src="TechnicalSpecificationPicture/Colors/flash-green.png" width="30px" height="30px"> | Flash Green| #51C66A  |
-
-#### **B. Typography**
-
-##### ➭ <ins>Fonts:</ins>
 For the various elements of the application, the chosen typographies are the following:
 | Font name    | Name     | Weight    | Size | Google font link |
 | ------------ | -------- | --------- | ---- | ---------------- |
@@ -732,7 +714,7 @@ For the various elements of the application, the chosen typographies are the fol
 | Josefin sans | JS-I-16  | Italic    | 16 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 | Josefin sans | JS-R-12  | Regular   | 12 | [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) |
 
-##### ➭ <ins>Google font package:</ins>
+#### **B. Google font package**
 To use the Google font package, you can run the following command in your terminal:
 ```bash
 flutter pub add google_fonts
@@ -741,6 +723,14 @@ flutter pub add google_fonts
 After adding the package, each time you need to specify the font import it in your Dart file:
 ```dart
 import 'package:google_fonts/google_fonts.dart';
+
+Text(
+  'Hello, World!',
+  style: GoogleFonts.josefinSans(
+    fontSize: 20,
+    fontWeight: FontWeight.normal,
+  ),
+)
 ```
 
 
