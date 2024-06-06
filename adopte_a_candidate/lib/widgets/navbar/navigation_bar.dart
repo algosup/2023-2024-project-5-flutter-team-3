@@ -6,10 +6,10 @@ class CustomBottomNavBar extends StatefulWidget {
   final void Function(int) onItemTapped;
 
   const CustomBottomNavBar({
-    Key? key,
+    super.key,
     required this.currentRoute,
     required this.onItemTapped,
-  }) : super(key: key);
+  });
 
   @override
   _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
@@ -56,7 +56,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           icon: SvgPicture.asset(
             'assets/images/profile.svg',
             height: 50,
-            color: _selectedIndex == 0 ? Colors.black : Color(0xffffd5c2),
+            color: _selectedIndex == 0 ? Colors.black : const Color(0xffffd5c2),
           ),
           label: 'profile',
         ),
@@ -64,7 +64,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           icon: SvgPicture.asset(
             'assets/images/swipe.svg',
             height: 50,
-            color: _selectedIndex == 1 ? Colors.black : Color(0xffffd5c2),
+            color: _selectedIndex == 1 ? Colors.black : const Color(0xffffd5c2),
           ),
           label: 'swipe',
         ),
@@ -72,7 +72,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           icon: SvgPicture.asset(
             'assets/images/messages.svg',
             height: 50,
-            color: _selectedIndex == 2 ? Colors.black : Color(0xffffd5c2),
+            color: _selectedIndex == 2 ? Colors.black : const Color(0xffffd5c2),
           ),
           label: 'messages',
         ),

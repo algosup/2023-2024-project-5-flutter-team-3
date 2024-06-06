@@ -77,7 +77,7 @@ class FirebaseAuthService {
     } catch (e) {
       // Handle and log the error
       print('Error registering user: $e');
-      throw e; // Re-throw the error to be handled by the caller
+      rethrow; // Re-throw the error to be handled by the caller
     }
   }
 }
