@@ -107,8 +107,6 @@ To find a specific test case you can perform search by ID:
 - CC: Common or cross-functional test cases applicable to both companies and candidates.
 - EXT: Extra or additional test cases that cover edge cases or extended functionalities.
 
-// todo Replace [x] by the adequate numbers.
-
 - [Test Plan](./TestPlan.md)
 - [Test Results](./TestResults.md)
 
@@ -438,7 +436,7 @@ To find a specific test case you can perform search by ID:
 
 **Test case ID:** CC_EXT114
 
-**Test case description:** Test the maximum length of text fields, which is [x] characters.
+**Test case description:** Test the maximum length of text fields, which is 255 characters for name, email and password.
 
 **Preconditions:** None.
 
@@ -448,10 +446,10 @@ To find a specific test case you can perform search by ID:
 |------|--------------|---------------------|
 | 01   | Open the application. | The application opens successfully. |
 | 02   | Navigate to any text field. | Text field is displayed. |
-| 03   | Enter a string of [x] characters. | [x] characters are accepted. |
-| 04   | Attempt to enter more than [x] characters. | No more than [x] characters are accepted. |
+| 03   | Enter a string of 255 characters. | 255 characters are accepted. |
+| 04   | Attempt to enter more than 255 characters. | No more than 255 characters are accepted. |
 
-**Expected result:** The text field should accept up to [x] characters and not more.
+**Expected result:** The text field should accept up to 255 characters and not more.
 
 ---
 
