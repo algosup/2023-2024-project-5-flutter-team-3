@@ -1215,11 +1215,9 @@ To find a specific test case you can perform search by ID:
 
 **Test case ID:** COM_EXT251
 
-**Test case description:** Test the boundary length for the job description field (maximum 255 characters).
+**Test case description:** Test the boundary length for the job description field (maximum [x] characters).
 
-**Preconditions:** 
-- The user should be logged in as a company.
-- Generate a string of 65,536 characters.
+**Preconditions:** The user should be logged in as a company.
 
 **Test steps:**
 
@@ -1230,10 +1228,10 @@ To find a specific test case you can perform search by ID:
 | 03   | Navigate to the 'Profile' section. | Profile page is displayed. |
 | 03   | Click on the wanted job offer. | Job offer is displayed. |
 | 03   | Navigate to the 'Job Description' field. | 'Job Description' field is displayed. |
-| 04   | Enter a description of 65,535 characters. | Description is entered. |
-| 05   | Attempt to enter more than 65,535 characters. | No more than 65,535 characters are accepted. |
+| 04   | Enter a description of [x] characters. | Description is entered. |
+| 05   | Attempt to enter more than [x] characters. | No more than [x] characters are accepted. |
 
-**Expected result:** The 'Job Description' field should accept up to 65,535 characters and not more.
+**Expected result:** The 'Job Description' field should accept up to [x] characters and not more.
 
 ---
 
@@ -1241,11 +1239,9 @@ To find a specific test case you can perform search by ID:
 
 **Test case ID:** CAN_EXT252
 
-**Test case description:** Test the boundary length for the profile description field (maximum 65,535 characters).
+**Test case description:** Test the boundary length for the profile description field (maximum [x] characters).
 
-**Preconditions:** 
-- The user should be logged in as a candidate
-- Generate a string of 65,536 characters
+**Preconditions:** The user should be logged in as a candidate.
 
 **Test steps:**
 
@@ -1255,10 +1251,10 @@ To find a specific test case you can perform search by ID:
 | 02   | Ensure the user is logged in as a candidate. | User is logged in. |
 | 03   | Navigate to the 'Profile' section. | Profile page is displayed. |
 | 04   | Navigate to the 'Description' field. | 'Description' field is displayed. |
-| 05   | Enter a description of 65,535 characters. | Description is entered. |
-| 06   | Attempt to enter more than 65,535 characters. | No more than 65,535 characters are accepted. |
+| 05   | Enter a description of [x] characters. | Description is entered. |
+| 06   | Attempt to enter more than [x] characters. | No more than [x] characters are accepted. |
 
-**Expected result:** The 'Profile Description' field should accept up to 65,535 characters and not more.
+**Expected result:** The 'Profile Description' field should accept up to [x] characters and not more.
 
 ---
 
