@@ -107,8 +107,6 @@ To find a specific test case you can perform search by ID:
 - CC: Common or cross-functional test cases applicable to both companies and candidates.
 - EXT: Extra or additional test cases that cover edge cases or extended functionalities.
 
-// todo Replace [x] by the adequate numbers.
-
 - [Test Plan](./TestPlan.md)
 - [Test Results](./TestResults.md)
 
@@ -438,7 +436,7 @@ To find a specific test case you can perform search by ID:
 
 **Test case ID:** CC_EXT114
 
-**Test case description:** Test the maximum length of text fields, which is [x] characters.
+**Test case description:** Test the maximum length of text fields, which is 255 characters for name, email and password.
 
 **Preconditions:** None.
 
@@ -448,10 +446,10 @@ To find a specific test case you can perform search by ID:
 |------|--------------|---------------------|
 | 01   | Open the application. | The application opens successfully. |
 | 02   | Navigate to any text field. | Text field is displayed. |
-| 03   | Enter a string of [x] characters. | [x] characters are accepted. |
-| 04   | Attempt to enter more than [x] characters. | No more than [x] characters are accepted. |
+| 03   | Enter a string of 255 characters. | 255 characters are accepted. |
+| 04   | Attempt to enter more than 255 characters. | No more than 255 characters are accepted. |
 
-**Expected result:** The text field should accept up to [x] characters and not more.
+**Expected result:** The text field should accept up to 255 characters and not more.
 
 ---
 
@@ -1217,9 +1215,11 @@ To find a specific test case you can perform search by ID:
 
 **Test case ID:** COM_EXT251
 
-**Test case description:** Test the boundary length for the job description field (maximum [x] characters).
+**Test case description:** Test the boundary length for the job description field (maximum 255 characters).
 
-**Preconditions:** The user should be logged in as a company.
+**Preconditions:** 
+- The user should be logged in as a company.
+- Generate a string of 65,536 characters.
 
 **Test steps:**
 
@@ -1230,10 +1230,10 @@ To find a specific test case you can perform search by ID:
 | 03   | Navigate to the 'Profile' section. | Profile page is displayed. |
 | 03   | Click on the wanted job offer. | Job offer is displayed. |
 | 03   | Navigate to the 'Job Description' field. | 'Job Description' field is displayed. |
-| 04   | Enter a description of [x] characters. | Description is entered. |
-| 05   | Attempt to enter more than [x] characters. | No more than [x] characters are accepted. |
+| 04   | Enter a description of 65,535 characters. | Description is entered. |
+| 05   | Attempt to enter more than 65,535 characters. | No more than 65,535 characters are accepted. |
 
-**Expected result:** The 'Job Description' field should accept up to [x] characters and not more.
+**Expected result:** The 'Job Description' field should accept up to 65,535 characters and not more.
 
 ---
 
@@ -1241,9 +1241,11 @@ To find a specific test case you can perform search by ID:
 
 **Test case ID:** CAN_EXT252
 
-**Test case description:** Test the boundary length for the profile description field (maximum [x] characters).
+**Test case description:** Test the boundary length for the profile description field (maximum 65,535 characters).
 
-**Preconditions:** The user should be logged in as a candidate.
+**Preconditions:** 
+- The user should be logged in as a candidate
+- Generate a string of 65,536 characters
 
 **Test steps:**
 
@@ -1253,10 +1255,10 @@ To find a specific test case you can perform search by ID:
 | 02   | Ensure the user is logged in as a candidate. | User is logged in. |
 | 03   | Navigate to the 'Profile' section. | Profile page is displayed. |
 | 04   | Navigate to the 'Description' field. | 'Description' field is displayed. |
-| 05   | Enter a description of [x] characters. | Description is entered. |
-| 06   | Attempt to enter more than [x] characters. | No more than [x] characters are accepted. |
+| 05   | Enter a description of 65,535 characters. | Description is entered. |
+| 06   | Attempt to enter more than 65,535 characters. | No more than 65,535 characters are accepted. |
 
-**Expected result:** The 'Profile Description' field should accept up to [x] characters and not more.
+**Expected result:** The 'Profile Description' field should accept up to 65,535 characters and not more.
 
 ---
 
