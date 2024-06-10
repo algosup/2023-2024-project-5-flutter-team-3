@@ -1,10 +1,23 @@
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/material.dart';
 
-SvgPicture buildLogo(double screenWidth, double screenHeight) {
-  return SvgPicture.asset(
-    'assets/images/LogoAdopteACandidate.svg',
-    semanticsLabel: 'Logo',
-    width: screenWidth * 0.5,
-    height: screenHeight * 0.15,
-  );
+class Logo extends StatelessWidget implements PreferredSizeWidget {
+  const Logo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(150.0),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40.0, right: 170.0),
+        child: SvgPicture.asset(
+          'assets/images/LogoAdopteACandidate.svg',
+          height: 150,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(150.0);
 }
