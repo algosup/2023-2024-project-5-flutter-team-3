@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../card/cards.dart';
+import 'package:adopte_a_candidate/widgets/card/card.dart';
 
 
 class buttonsSwipePage extends StatelessWidget {

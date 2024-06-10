@@ -1,4 +1,3 @@
-
 import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/services/authentification/exceptions/signup_email_password_failure.dart';

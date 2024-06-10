@@ -1,5 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:adopte_a_candidate/pages/profile_page.dart';
 import 'package:adopte_a_candidate/pages/company/company_profile_page.dart';
 import 'package:adopte_a_candidate/pages/company/new_job_offer_page.dart';
