@@ -6,11 +6,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'firestore/firebase_options.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Routes package
 import 'package:adopte_a_candidate/routes.dart';
 
+// Translation package
 import 'l10n/l10n.dart';
 
 void main() {
@@ -41,8 +42,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ignore: non_constant_identifier_names
-void InitializeDataBase(void runApp) async {
+void initializeDataBase(void runApp) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

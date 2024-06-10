@@ -1,15 +1,18 @@
-import 'package:adopte_a_candidate/pages/profile_page.dart';
+import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_profile_page.dart';
+import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_swipe_page.dart';
+
 import 'package:adopte_a_candidate/pages/company/company_profile_page.dart';
 import 'package:adopte_a_candidate/pages/company/new_job_offer_page.dart';
 import 'package:adopte_a_candidate/pages/company/edit_job_offer_page.dart';
+
+import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
-import 'package:adopte_a_candidate/pages/swipe.dart';
 import 'package:adopte_a_candidate/pages/settings.dart';
 import 'package:adopte_a_candidate/pages/term_of_use.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'package:adopte_a_candidate/pages/message.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/sign_up',
@@ -29,20 +32,20 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-        path: '/swipe',
-        name: 'swipe',
+        path: '/job_seeker_swipe',
+        name: 'job_seeker_swipe',
         builder: (BuildContext context, GoRouterState state) {
           return const SwipePage();
         }),
     GoRoute(
-        path: '/message',
-        name: 'message',
+        path: '/job_seeker_message',
+        name: 'job_seeker_message',
         builder: (BuildContext context, GoRouterState state) {
           return const MessagePage();
         }),
     GoRoute(
-      path: '/profile',
-      name: 'profile',
+      path: '/job_seeker_profile',
+      name: 'job_seeker_profile',
       pageBuilder: (BuildContext context, GoRouterState state) {
         return const MaterialPage(child: ProfilePage());
       }

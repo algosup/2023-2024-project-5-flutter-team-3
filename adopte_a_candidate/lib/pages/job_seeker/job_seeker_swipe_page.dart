@@ -11,7 +11,7 @@ import 'package:adopte_a_candidate/widgets/cards/card.dart';
 import 'package:adopte_a_candidate/widgets/cards/tag.dart';
 import 'package:adopte_a_candidate/widgets/buttons/localization_button.dart';
 
-import '../widgets/buttons/swipe_page_buttons.dart';
+import '../../widgets/buttons/swipe_page_buttons.dart';
 
 // Swipe page, the user can swipe profile or job that he likes
 // Swipe page, the user can swipe profile or job that he likes
@@ -137,17 +137,17 @@ class _SwipePageState extends State<SwipePage> {
         },
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/swipe',
+        currentRoute: '/job_seeker_swipe',
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              context.goNamed('profile');
+              context.goNamed('job_seeker_profile');
               break;
             case 1:
             // Already on the swipe page, no navigation needed
               break;
             case 2:
-              context.goNamed('message');
+              context.goNamed('job_seeker_message');
               break;
             default:
               break;

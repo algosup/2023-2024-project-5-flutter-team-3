@@ -26,6 +26,7 @@ class CompanyProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     debugPrint('Settings button pressed');
+                    context.goNamed('settings');
                   },
                   icon: const Icon(Icons.settings),
                 ),
@@ -94,17 +95,17 @@ class CompanyProfilePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/swipe',
+        currentRoute: '/company_profile',
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              context.goNamed('profile'); // Navigate to profile page
+              // Already on the company profile page
               break;
             case 1:
-            // Already on the swipe page, no navigation needed
+              context.goNamed('company_swipe');
               break;
             case 2:
-              context.goNamed('message'); // Navigate to messages page
+              context.goNamed('company_message'); // Navigate to messages page
               break;
             default:
               break;

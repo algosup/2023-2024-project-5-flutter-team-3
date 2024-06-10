@@ -9,11 +9,11 @@ import 'package:adopte_a_candidate/services/providers/providers.dart';
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/cards/card.dart';
 import 'package:provider/provider.dart';
-import '../widgets/fields/container.dart';
-import '../widgets/fields/text_field.dart';
-import '../widgets/logo/logo.dart';
-import '../widgets/navbar/navigation_bar.dart';
-import '../widgets/buttons/modifier_button.dart';
+import '../../widgets/fields/container.dart';
+import '../../widgets/fields/text_field.dart';
+import '../../widgets/logo/logo.dart';
+import '../../widgets/navbar/navigation_bar.dart';
+import '../../widgets/buttons/modifier_button.dart';
 
 // Profile Page, the user will be able to see his profile and modify his information.
 class ProfilePage extends StatefulWidget {
@@ -274,7 +274,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/profile', // Set the current route for ProfilePage
+        currentRoute: '/job_seeker_profile', // Set the current route for ProfilePage
         onItemTapped: (index) {
           switch (index) {
             case 0:
@@ -283,11 +283,11 @@ class _ProfilePageState extends State<ProfilePage> {
               break;
             case 1:
             // Logic for swipe page
-              context.goNamed('swipe'); // Example navigation to the swipe page
+              context.goNamed('job_seeker_swipe'); // Example navigation to the swipe page
               break;
             case 2:
             // Logic for messages page
-              context.goNamed('message'); // Example navigation to the messages page
+              context.goNamed('job_seeker_message'); // Example navigation to the messages page
               break;
             default:
               break;

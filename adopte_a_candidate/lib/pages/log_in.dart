@@ -2,22 +2,57 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Custom widgets
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
+import 'package:adopte_a_candidate/widgets/loadings/loading_page.dart';
 
 // Custom controllers
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 
+class LogIn extends StatefulWidget {
+  const LogIn({Key? key}) : super(key: key);
+
+  @override
+  State<LogIn> createState() => _LogInState();
+}
+
 // This is the login page of the app
-class LogIn extends StatelessWidget {
-  const LogIn({Key? key});
+class _LogInState extends State<LogIn> {
+  Widget _body = LoadingPage();
+  bool? _isCompany;
+
+  void _setData() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isConnected', true);
+    prefs.setBool('isCompany', true);
+  }
+
+  Future<bool?> _getData() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isCompany');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _setData();
+    setState(() {
+      _body = _buildLogInPage(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    return _body;
+  }
+
+  Widget _buildLogInPage(BuildContext context) {
     final controller = Get.put(SignUpController());
 
     return Scaffold(
@@ -33,10 +68,11 @@ class LogIn extends StatelessWidget {
                 children: <Widget>[
                   CustomTextField(
                     controller: controller.email,
-                    title: AppLocalizations.of(context)?.email ??
-                        'Email', // Use localization or fallback to 'Email'
+                    title: AppLocalizations.of(context)?.email ?? 'Email',
+                    // Use localization or fallback to 'Email'
                     hintText: AppLocalizations.of(context)?.enteremail ??
-                        'Enter Email', // Use localization or fallback to 'Enter Email'
+                        'Enter Email',
+                    // Use localization or fallback to 'Enter Email'
                     width: MediaQuery.of(context).size.width - 80,
                     height: 108,
                     isObscure: false,
@@ -46,10 +82,11 @@ class LogIn extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomTextField(
                     controller: controller.password,
-                    title: AppLocalizations.of(context)?.password ??
-                        'Password', // Use localization or fallback to 'Password'
+                    title: AppLocalizations.of(context)?.password ?? 'Password',
+                    // Use localization or fallback to 'Password'
                     hintText: AppLocalizations.of(context)?.enterpassword ??
-                        'Enter Password', // Use localization or fallback to 'Enter Password'
+                        'Enter Password',
+                    // Use localization or fallback to 'Enter Password'
                     width: MediaQuery.of(context).size.width - 80,
                     height: 108,
                     isObscure: true,
@@ -73,12 +110,24 @@ class LogIn extends StatelessWidget {
                     children: [
                       Center(
                         child: BigButton(
-                          text: AppLocalizations.of(context)?.login ??
-                              'Login', // Use localization or fallback to 'Login'
+                          text: AppLocalizations.of(context)?.login ?? 'Login',
+                          // Use localization or fallback to 'Login'
                           width: 200,
                           height: 50,
                           textWidth: 16,
-                          pageName: 'swipe',
+                          pageName: (_isCompany == true)
+                              ? 'company_profile'
+                              : 'profile',
+                          onPressed: () async {
+                            await _getData().then((value) {
+                              _isCompany = value;
+                            });
+                            if (_isCompany == true) {
+                              context.goNamed('company_profile');
+                            } else {
+                              context.goNamed('job_seeker_profile');
+                            }
+                          },
                         ),
                       ),
                     ],
@@ -89,7 +138,8 @@ class LogIn extends StatelessWidget {
                       Center(
                         child: CustomTextButton(
                           text: AppLocalizations.of(context)?.noaccount ??
-                              'No Account', // Use localization or fallback to 'No Account'
+                              'No Account',
+                          // Use localization or fallback to 'No Account'
                           textWidth: 12,
                           pageName: 'home',
                         ),

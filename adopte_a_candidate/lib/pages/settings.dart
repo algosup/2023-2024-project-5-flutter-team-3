@@ -8,6 +8,7 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:adopte_a_candidate/widgets/lists/select_list.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -36,6 +37,11 @@ class _SettingsPageState extends State<SettingsPage> {
     super.dispose();
   }
 
+  Future<bool?> _getData() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isCompany');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +57,18 @@ class _SettingsPageState extends State<SettingsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () {
-                      context.goNamed('profile');
+                    onPressed: () async {
+                      bool? _isCompany;
+                      await _getData().then((value) {
+                        _isCompany = value;
+                      });
+                      if (_isCompany == null) {
+                        context.goNamed('log_in');
+                      } else if (_isCompany == true) {
+                        context.goNamed('company_profile');
+                      } else {
+                        context.goNamed('job_seeker_profile');
+                      }
                     },
                     icon: const Icon(Icons.arrow_back_ios_new),
                   ),

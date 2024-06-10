@@ -18,14 +18,14 @@ class MessagePage extends StatelessWidget {
       appBar: const Logo(),
       body: const Text('messages'),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/message', // Set the current route for MessagePage
+        currentRoute: '/job_seeker_message', // Set the current route for MessagePage
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              context.goNamed('profile'); // Navigate to profile page
+              context.goNamed('job_seeker_profile'); // Navigate to profile page
               break;
             case 1:
-              context.goNamed('swipe'); // Navigate to swipe page
+              context.goNamed('job_seeker_swipe'); // Navigate to swipe page
               break;
             case 2:
             // Already on the message page, no navigation needed
