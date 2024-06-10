@@ -18,7 +18,7 @@ final GoRouter router = GoRouter(
       path: '/sign_up',
       name: 'home',
       builder: (BuildContext context, GoRouterState state) {
-        return const Home();
+        return const AskIfCompany();
       },
     ),
     GoRoute(

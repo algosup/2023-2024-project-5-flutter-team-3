@@ -1,5 +1,6 @@
 import 'package:adopte_a_candidate/services/authentification/authentification_repository.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
+import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,12 +14,16 @@ import 'package:adopte_a_candidate/routes.dart';
 
 import 'l10n/l10n.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((value) => Get.put(AuthentificationRepository()));
-  runApp( ChangeNotifierProvider(create: (BuildContext context) { return ProfileState();},
-  child: const MyApp()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  Get.put(AuthentificationRepository());
+  runApp(
+    ChangeNotifierProvider(
+      create: (BuildContext context) => ProfileState(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -36,7 +41,6 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-
     );
   }
 }
