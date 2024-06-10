@@ -7,23 +7,23 @@ class CustomTextField extends StatefulWidget {
   const CustomTextField({
     required this.controller,
     required this.title,
-    required this.hinttext,
+    required this.hintText,
     required this.isObscure,
     required this.isEmail,
     required this.width,
-    required this.heigth,
+    required this.height,
     super.key,
     required this.showToggle,
   });
 
   final TextEditingController controller;
   final String title;
-  final String hinttext;
+  final String hintText;
   final bool isObscure;
   final bool isEmail;
   final bool showToggle;
   final double width;
-  final double heigth;
+  final double height;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -43,7 +43,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.width, // selectable width
-      height: widget.heigth, // selectable height
+      height: widget.height, // selectable height
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -75,7 +75,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
-              hintText: widget.hinttext, // hinttext for the text field, describes what the field is for
+              hintText: widget.hintText, // hintText for the text field, describes what the field is for
               suffixIcon: widget.showToggle
                   ? IconButton(
                 //linked to isObscure, toggles the visibility of the text

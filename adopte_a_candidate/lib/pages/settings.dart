@@ -1,10 +1,13 @@
+import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
+import 'package:adopte_a_candidate/widgets/buttons/delete_button.dart';
+import 'package:adopte_a_candidate/widgets/fields/localization_field.dart';
+import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
+import 'package:adopte_a_candidate/widgets/lists/select_list.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:geocoding/geocoding.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -17,6 +20,7 @@ class _SettingsPageState extends State<SettingsPage> {
   final TextEditingController _controllerName = TextEditingController();
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerLocalization = TextEditingController();
+  final TextEditingController _controllerLanguage = TextEditingController();
   String _selectedLanguage = 'English'; // Default selected language
 
   final List<String> _languages = [
@@ -32,73 +36,10 @@ class _SettingsPageState extends State<SettingsPage> {
     super.dispose();
   }
 
-  Future<void> _setCurrentLocation() async {
-    LocationPermission permission;
-
-    // Check if location services are enabled
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      // Location services are not enabled, show a message to the user
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Location services are disabled.'),
-        ),
-      );
-      return;
-    }
-
-    // Check for location permissions
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        // Permissions are denied, show a message to the user
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Location permissions are denied.'),
-          ),
-        );
-        return;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      // Permissions are denied forever, show a message to the user
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-              'Location permissions are permanently denied, we cannot request permissions.'),
-        ),
-      );
-      return;
-    }
-
-    // Get the current location
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-
-    // Reverse geocode the coordinates to get the city
-    List<Placemark> placemarks =
-        await placemarkFromCoordinates(position.latitude, position.longitude);
-
-    // Set the city in the localization text
-    setState(() {
-      _controllerLocalization.text = placemarks.isNotEmpty
-          ? placemarks[0].locality ?? '' // Get the city name if available
-          : 'City not found';
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(80.0),
-        child: Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: Logo(),
-        ),
-      ),
+      appBar: const Logo(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -119,7 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     'SETTINGS',
                     style: GoogleFonts.josefinSans(
                       textStyle: const TextStyle(
-                        fontSize: 28,
+                        fontSize: 34,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -128,151 +69,60 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
               const SizedBox(height: 20),
-              Text(
-                'Name:',
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              TextField(
+              CustomTextField(
                 controller: _controllerName,
-                maxLines: 1,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0xDDF5F5F5),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color(0xffffd5c2),
-                      width: 2.5,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                ),
+                title: 'Name:',
+                hintText: 'Enter your name',
+                width: MediaQuery.of(context).size.width - 32,
+                height: 108,
+                isObscure: false,
+                showToggle: false,
+                isEmail: false,
               ),
               const SizedBox(height: 20),
-              Text(
-                'Email:',
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              TextField(
+              CustomTextField(
                 controller: _controllerEmail,
-                maxLines: 1,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0xDDF5F5F5),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color(0xffffd5c2),
-                      width: 2.5,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                ),
+                title: 'Email:',
+                hintText: 'Enter your email',
+                width: MediaQuery.of(context).size.width - 32,
+                height: 108,
+                isObscure: false,
+                showToggle: false,
+                isEmail: true,
               ),
               const SizedBox(height: 20),
-              Text(
-                'Localization:',
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              TextField(
+              LocalizationField(
                 controller: _controllerLocalization,
-                maxLines: 1,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0xDDF5F5F5),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color(0xffffd5c2),
-                      width: 2.5,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                  suffixIcon: IconButton(
-                    icon: const Icon(Icons.location_searching_outlined),
-                    onPressed: _setCurrentLocation,
-                  ),
-                ),
+                title: 'Localization:',
+                hintText: '',
+                width: MediaQuery.of(context).size.width - 32,
+                height: 108,
               ),
               const SizedBox(height: 20),
-              Text(
-                'Language:',
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  color: const Color(0xDDF5F5F5),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: const Color(0xffffd5c2),
-                    width: 2.5,
-                  ),
-                ),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    value: _selectedLanguage,
-                    icon: const Icon(Icons.expand_more),
-                    iconSize: 24,
-                    elevation: 16,
-                    style: const TextStyle(color: Colors.black),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        if (newValue != null) {
-                          _selectedLanguage = newValue;
-                        }
-                      });
-                    },
-                    items: _languages
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
-                ),
+              SelectList(
+                controller: _controllerLanguage,
+                title: 'Language:',
+                defaultItem: _selectedLanguage,
+                selectedItem: _selectedLanguage,
+                items: _languages,
+                width: MediaQuery.of(context).size.width - 32,
+                height: 40,
+                onChanged: (String value) {
+                  setState(() {
+                    _selectedLanguage = value;
+                  });
+                },
               ),
               const SizedBox(height: 20),
               Center(
-                child: ElevatedButton(
+                child: DeleteButton(
+                  text: 'Delete Account',
+                  width: MediaQuery.of(context).size.width - 32,
+                  height: 58,
+                  textWidth: 18,
                   onPressed: () {
-                    context.goNamed('log_in'); // Navigate to terms page
+                    context.goNamed('delete_account');
                   },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.red,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Text('DELETE ACCOUNT'),
                 ),
               ),
               const SizedBox(height: 20),
@@ -302,20 +152,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       ],
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      context.goNamed('term_of_use'); // Navigate to terms page
-                    },
-                    child: Text(
-                      'Term of usage',
-                      style: GoogleFonts.josefinSans(
-                        textStyle: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
+                  const CustomTextButton(
+                    text: 'Terms of Service',
+                    textWidth: 18,
+                    pageName: 'terms',
                   ),
                 ],
               ),

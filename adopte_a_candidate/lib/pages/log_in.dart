@@ -35,10 +35,10 @@ class LogIn extends StatelessWidget {
                     controller: controller.email,
                     title: AppLocalizations.of(context)?.email ??
                         'Email', // Use localization or fallback to 'Email'
-                    hinttext: AppLocalizations.of(context)?.enteremail ??
+                    hintText: AppLocalizations.of(context)?.enteremail ??
                         'Enter Email', // Use localization or fallback to 'Enter Email'
                     width: MediaQuery.of(context).size.width - 80,
-                    heigth: 108,
+                    height: 108,
                     isObscure: false,
                     showToggle: false,
                     isEmail: true,
@@ -48,10 +48,10 @@ class LogIn extends StatelessWidget {
                     controller: controller.password,
                     title: AppLocalizations.of(context)?.password ??
                         'Password', // Use localization or fallback to 'Password'
-                    hinttext: AppLocalizations.of(context)?.enterpassword ??
+                    hintText: AppLocalizations.of(context)?.enterpassword ??
                         'Enter Password', // Use localization or fallback to 'Enter Password'
                     width: MediaQuery.of(context).size.width - 80,
-                    heigth: 108,
+                    height: 108,
                     isObscure: true,
                     showToggle: true,
                     isEmail: false,
