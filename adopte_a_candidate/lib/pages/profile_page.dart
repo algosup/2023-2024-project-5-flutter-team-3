@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
@@ -34,8 +33,10 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isToggledSideSkills = false;
 
   final ValueNotifier<String> _aboutMeTextNotifier = ValueNotifier<String>('');
-  final ValueNotifier<List<String>> _mainSkillsNotifier = ValueNotifier<List<String>>([]);
-  final ValueNotifier<List<String>> _sideSkillsNotifier = ValueNotifier<List<String>>([]);
+  final ValueNotifier<List<String>> _mainSkillsNotifier =
+      ValueNotifier<List<String>>([]);
+  final ValueNotifier<List<String>> _sideSkillsNotifier =
+      ValueNotifier<List<String>>([]);
 
   @override
   void dispose() {
@@ -57,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // button leading to the setting page
+                // Button leading to the setting page
                 IconButton(
                   onPressed: () {
                     context.goNamed('settings');
@@ -91,7 +92,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     Visibility(
                       visible: isToggledAboutMe,
                       replacement: const NonWritableAboutMe(),
-                      child: AboutMeTextField(aboutMeTextNotifier: _aboutMeTextNotifier),
+                      child: AboutMeTextField(
+                          aboutMeTextNotifier: _aboutMeTextNotifier),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(370, 0, 0, 0),
@@ -101,7 +103,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           onTap: () {
                             setState(() {
                               isToggledAboutMe = !isToggledAboutMe;
-                              profileState.addAboutMeText(_aboutMeTextNotifier.value);
+                              profileState
+                                  .addAboutMeText(_aboutMeTextNotifier.value);
                             });
                           },
                           child: SvgPicture.asset(
@@ -124,7 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays an horizontal line to comply with design
+            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -154,12 +157,26 @@ class _ProfilePageState extends State<ProfilePage> {
                         decoration: InputDecoration(
                           hintText: 'Add a skill',
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.add),
+                            icon: const Icon(Icons.add),
                             onPressed: () {
-                              final newSkill = _controllerMainSkills.text.trim();
-                              if (newSkill.isNotEmpty && !_mainSkillsNotifier.value.contains(newSkill)) {
-                                _mainSkillsNotifier.value = List.from(mainSkills)..add(newSkill);
-                                _controllerMainSkills.clear();
+                              if (_mainSkillsNotifier.value.length < 5) {
+                                // Restrict to 5 main skills
+                                final newSkill =
+                                    _controllerMainSkills.text.trim();
+                                if (newSkill.isNotEmpty &&
+                                    !_mainSkillsNotifier.value
+                                        .contains(newSkill)) {
+                                  _mainSkillsNotifier.value =
+                                      List.from(mainSkills)..add(newSkill);
+                                  _controllerMainSkills.clear();
+                                }
+                              } else {
+                                // Show error message if more than 5 skills are added
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'You can only add up to 5 main skills')),
+                                );
                               }
                             },
                           ),
@@ -178,7 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays an horizontal line to comply with design
+            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Row(
@@ -210,12 +227,26 @@ class _ProfilePageState extends State<ProfilePage> {
                         decoration: InputDecoration(
                           hintText: 'Add a skill or hobby',
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.add),
+                            icon: const Icon(Icons.add),
                             onPressed: () {
-                              final newSkill = _controllerSideSkills.text.trim();
-                              if (newSkill.isNotEmpty && !_sideSkillsNotifier.value.contains(newSkill)) {
-                                _sideSkillsNotifier.value = List.from(sideSkills)..add(newSkill);
-                                _controllerSideSkills.clear();
+                              if (_sideSkillsNotifier.value.length < 10) {
+                                // Restrict to 10 side skills
+                                final newSkill =
+                                    _controllerSideSkills.text.trim();
+                                if (newSkill.isNotEmpty &&
+                                    !_sideSkillsNotifier.value
+                                        .contains(newSkill)) {
+                                  _sideSkillsNotifier.value =
+                                      List.from(sideSkills)..add(newSkill);
+                                  _controllerSideSkills.clear();
+                                }
+                              } else {
+                                // Show error message if more than 10 skills are added
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'You can only add up to 10 side skills and hobbies')),
+                                );
                               }
                             },
                           ),
@@ -234,12 +265,12 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays an horizontal line to comply with design
+            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
           ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/profile', // Set the current route for MessagePage
+        currentRoute: '/profile', // Set the current route for ProfilePage
         onItemTapped: (index) {
           switch (index) {
             case 0:
@@ -263,7 +294,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
-
-
-

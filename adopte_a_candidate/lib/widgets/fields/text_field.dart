@@ -12,8 +12,9 @@ class CustomTextField extends StatefulWidget {
     required this.isEmail,
     required this.width,
     required this.heigth,
-    super.key,
     required this.showToggle,
+    this.validator,
+    super.key,
   });
 
   final TextEditingController controller;
@@ -24,6 +25,7 @@ class CustomTextField extends StatefulWidget {
   final bool showToggle;
   final double width;
   final double heigth;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -33,7 +35,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
   late bool _isObscure;
 
   @override
-  // initialize the state of the widget
   void initState() {
     super.initState();
     _isObscure = widget.isObscure;
@@ -42,15 +43,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.width, // selectable width
-      height: widget.heigth, // selectable height
+      width: widget.width,
+      height: widget.heigth,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(left: 30.0, bottom: 5.0, top: 10.0),
             child: Text(
-              widget.title, // selected title put above the Text Field
+              widget.title,
               style: GoogleFonts.josefinSans(
                 textStyle: const TextStyle(
                   fontSize: 20,
@@ -59,12 +60,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ),
             ),
           ),
-          TextField(
-            obscureText: _isObscure, // bool, set the text to obscure (hidden) generally for passwords
-            keyboardType: widget.isEmail // bool, set isEmail to either true or false
-                ? TextInputType.emailAddress
-                : TextInputType.text,
-            controller: widget.controller, // selectable controller for the text field
+          TextFormField(
+            obscureText: _isObscure,
+            keyboardType:
+            widget.isEmail ? TextInputType.emailAddress : TextInputType.text,
+            controller: widget.controller,
             decoration: InputDecoration(
               filled: true,
               fillColor: const Color(0xDDF5F5F5),
@@ -75,21 +75,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
-              hintText: widget.hinttext, // hinttext for the text field, describes what the field is for
+              hintText: widget.hinttext,
               suffixIcon: widget.showToggle
                   ? IconButton(
-                //linked to isObscure, toggles the visibility of the text
-                      icon: Icon(
-                        _isObscure ? Icons.visibility : Icons.visibility_off,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _isObscure = !_isObscure;
-                        });
-                      },
-                    )
+                icon: Icon(
+                  _isObscure ? Icons.visibility : Icons.visibility_off,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure;
+                  });
+                },
+              )
                   : null,
             ),
+            validator: widget.validator,
           ),
         ],
       ),
@@ -145,6 +145,7 @@ class _AboutMeTextFieldState extends State<AboutMeTextField> {
         controller: _controller,
         onChanged: (text) => widget.aboutMeTextNotifier.value = text,
         maxLines: 3,
+        maxLength: 256, // Restrict to 256 characters
         decoration: const InputDecoration(
           filled: true,
           fillColor: Color(0xDDF5F5F5),

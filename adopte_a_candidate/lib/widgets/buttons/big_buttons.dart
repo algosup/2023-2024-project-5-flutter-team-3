@@ -6,26 +6,30 @@ import 'package:google_fonts/google_fonts.dart';
 /* TODO Check if credentials are correct and send the user to the menu page, depending on whether the user is a company or a job seeker
 */
 class BigButton extends StatelessWidget {
-  const BigButton(
-      {required this.text,
-      required this.width,
-      required this.heigth,
-      required this.textWidth,
-      required this.pageName,
-      super.key});
+  const BigButton({
+    required this.text,
+    required this.width,
+    required this.heigth,
+    required this.textWidth,
+    required this.pageName,
+    this.onPressed,
+    super.key,
+  });
 
   final String text;
   final String pageName;
   final double width;
   final double heigth;
   final double textWidth;
+  final VoidCallback? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
       height: heigth,
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: onPressed ?? () {
           context.goNamed(pageName);
         },
         style: ElevatedButton.styleFrom(

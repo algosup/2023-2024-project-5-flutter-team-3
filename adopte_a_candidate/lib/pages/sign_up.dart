@@ -38,6 +38,8 @@ class _AskIfCompanyState extends State<AskIfCompany> {
   bool isJobSeeker = false;
   bool isCompany = false;
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   void _handleCheckBoxChange(bool? selected, String type) {
     setState(() {
       if (type == 'jobSeeker') {
@@ -52,6 +54,34 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         }
       }
     });
+  }
+
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enteremail;
+    }
+    final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enterpassword;
+    }
+    return null;
+  }
+
+  String? _validateConfirmPassword(String? value, String password) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.confirmpassword;
+    }
+    if (value != password) {
+      return 'password do not match';
+    }
+    return null;
   }
 
   Widget buildCheckBoxRow(
@@ -85,103 +115,126 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         builder: (context, constraints) {
           return SingleChildScrollView(
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  CustomTextField(
-                    controller: controller.name,
-                    title: AppLocalizations.of(context)!.name,
-                    hinttext: AppLocalizations.of(context)!.entername,
-                    width: MediaQuery.of(context).size.width,
-                    heigth: 108,
-                    isObscure: false,
-                    showToggle: false,
-                    isEmail: false,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextField(
-                    controller: controller.email,
-                    title: AppLocalizations.of(context)!.email,
-                    hinttext: AppLocalizations.of(context)!.enteremail,
-                    isObscure: false,
-                    isEmail: true,
-                    width: MediaQuery.of(context).size.width,
-                    heigth: 108,
-                    showToggle: false,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextField(
-                    controller: controller.password,
-                    title: AppLocalizations.of(context)!.password,
-                    hinttext: AppLocalizations.of(context)!.enterpassword,
-                    width: MediaQuery.of(context).size.width - 80,
-                    heigth: 108,
-                    isObscure: true,
-                    showToggle: true,
-                    isEmail: false,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextField(
-                    controller: controller.confirmPassword,
-                    title: AppLocalizations.of(context)!.confirmpassword,
-                    hinttext: AppLocalizations.of(context)!.confirmpassword,
-                    width: MediaQuery.of(context).size.width - 80,
-                    heigth: 108,
-                    isObscure: true,
-                    showToggle: true,
-                    isEmail: false,
-                  ),
-                  const SizedBox(height: 15),
-                  buildCheckBoxRow(
-                    AppLocalizations.of(context)!.isCandidate,
-                    isJobSeeker,
-                    (selected) => _handleCheckBoxChange(selected, 'jobSeeker'),
-                  ),
-                  const SizedBox(height: 15),
-                  buildCheckBoxRow(
-                    AppLocalizations.of(context)!.isCompany,
-                    isCompany,
-                    (selected) => _handleCheckBoxChange(selected, 'company'),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      BigButton(
-                        text: AppLocalizations.of(context)!.subscribe,
-                        width: 200,
-                        heigth: 50,
-                        textWidth: 20,
-                        pageName: 'log_in',
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          context.goNamed('log_in');
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                          child: Text(
-                            AppLocalizations.of(context)!.alreadyhaveaccount,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              decoration: TextDecoration.underline,
-                              height: 0,
+              padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0).copyWith(bottom: 50.0), // Adjust bottom padding
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CustomTextField(
+                      controller: controller.name,
+                      title: AppLocalizations.of(context)!.name,
+                      hinttext: AppLocalizations.of(context)!.entername,
+                      width: MediaQuery.of(context).size.width,
+                      heigth: 108,
+                      isObscure: false,
+                      showToggle: false,
+                      isEmail: false,
+                    ),
+                    const SizedBox(height: 15),
+                    CustomTextField(
+                      controller: controller.email,
+                      title: AppLocalizations.of(context)!.email,
+                      hinttext: AppLocalizations.of(context)!.enteremail,
+                      isObscure: false,
+                      isEmail: true,
+                      width: MediaQuery.of(context).size.width,
+                      heigth: 118,
+                      showToggle: false,
+                      validator: _validateEmail,
+                    ),
+                    const SizedBox(height: 15),
+                    CustomTextField(
+                      controller: controller.password,
+                      title: AppLocalizations.of(context)!.password,
+                      hinttext: AppLocalizations.of(context)!.enterpassword,
+                      width: MediaQuery.of(context).size.width - 80,
+                      heigth: 118,
+                      isObscure: true,
+                      showToggle: true,
+                      isEmail: false,
+                      validator: _validatePassword,
+                    ),
+                    const SizedBox(height: 15),
+                    CustomTextField(
+                      controller: controller.confirmPassword,
+                      title: AppLocalizations.of(context)!.confirmpassword,
+                      hinttext: AppLocalizations.of(context)!.confirmpassword,
+                      width: MediaQuery.of(context).size.width - 80,
+                      heigth: 118,
+                      isObscure: true,
+                      showToggle: true,
+                      isEmail: false,
+                      validator: (value) => _validateConfirmPassword(
+                          value, controller.password.text),
+                    ),
+                    const SizedBox(height: 15),
+                    buildCheckBoxRow(
+                      AppLocalizations.of(context)!.isCandidate,
+                      isJobSeeker,
+                          (selected) =>
+                          _handleCheckBoxChange(selected, 'jobSeeker'),
+                    ),
+                    const SizedBox(height: 15),
+                    buildCheckBoxRow(
+                      AppLocalizations.of(context)!.isCompany,
+                      isCompany,
+                          (selected) =>
+                          _handleCheckBoxChange(selected, 'company'),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        BigButton(
+                          text: AppLocalizations.of(context)!.subscribe,
+                          width: 200,
+                          heigth: 50,
+                          textWidth: 20,
+                          onPressed: () {
+                            if (_formKey.currentState?.validate() == true &&
+                                (isJobSeeker || isCompany)) {
+                              // Add your sign-up logic here, and then navigate to the log_in page
+                              context.go('/log_in');
+                            } else {
+                              // Show error message
+                              Get.snackbar(
+                                'Error',
+                                'Please fill all fields',
+                                snackPosition: SnackPosition.BOTTOM,
+                              );
+                            }
+                          },
+                          pageName: 'log_in',
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            context.goNamed('log_in');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                  .alreadyhaveaccount,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.underline,
+                                height: 0,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           );
