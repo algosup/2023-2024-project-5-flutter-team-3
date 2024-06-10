@@ -5,7 +5,12 @@ import 'package:adopte_a_candidate/widgets/card/card.dart';
 
 // Main tags container widget
 class MainTagsContainer extends StatelessWidget {
-  const MainTagsContainer({super.key});
+  final List<String> mainSkills;
+
+  const MainTagsContainer({
+    Key? key,
+    required this.mainSkills,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,39 +24,19 @@ class MainTagsContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Wrap(children: [
-                  TagRequiredSkills(
-                    text: 'Adaptability',
-                  ),
-                  TagRequiredSkills(
-                    text: 'Time Management',
-                  ),
-                  TagRequiredSkills(
-                    text: 'Humor',
-                  ),
-                ]),
-              ],
+            padding: const EdgeInsets.all(8.0),
+            child: Wrap(
+              spacing: 8.0,
+              runSpacing: 4.0,
+              children: mainSkills
+                  .map((skill) => TagProfileSkills(text: skill))
+                  .toList(),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TagRequiredSkills(
-                  text: 'Problem Solving',
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );
@@ -60,7 +45,10 @@ class MainTagsContainer extends StatelessWidget {
 
 // Side skills container widget
 class SideSkillsContainer extends StatelessWidget {
-  const SideSkillsContainer({super.key});
+  final List<String> sideSkills;
+
+  const SideSkillsContainer({Key? key, required this.sideSkills})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,40 +62,20 @@ class SideSkillsContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TagRequiredSkills(
-                  text: 'Rugby',
-                ),
-                TagRequiredSkills(
-                  text: 'Books',
-                ),
-                TagRequiredSkills(
-                  text: 'Networking',
-                ),
-              ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 4.0,
+              children: sideSkills
+                  .map((skill) => TagProfileSkills(text: skill))
+                  .toList(),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TagRequiredSkills(
-                  text: 'Patience',
-                ),
-              ],
-            ),
-          ),
-
-        ],
-
+          ],
+        ),
       ),
     );
   }
