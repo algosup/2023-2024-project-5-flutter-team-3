@@ -10,6 +10,7 @@ import 'package:adopte_a_candidate/services/providers/providers.dart';
 import 'package:adopte_a_candidate/widgets/card/cards.dart';
 import 'package:provider/provider.dart';
 import '../widgets/buttons/settings_button.dart';
+import '../widgets/card/tags.dart';
 import '../widgets/fields/containers.dart';
 import '../widgets/fields/text_field.dart';
 import '../widgets/logo/logo.dart';
@@ -18,7 +19,7 @@ import '../widgets/buttons/modifier_button.dart';
 
 // Profile Page, the user will be able to see his profile and modify his information.
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -26,14 +27,22 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _controllerAboutMe = TextEditingController();
-  bool isToggledAboutMe = false;
-  final ValueNotifier<String> _aboutMeTextNotifier = ValueNotifier<String>('');
+  final TextEditingController _controllerMainSkills = TextEditingController();
+  final TextEditingController _controllerSideSkills = TextEditingController();
 
-  List<String> aboutMeText = [];
+  bool isToggledAboutMe = false;
+  bool isToggledMainSkills = false;
+  bool isToggledSideSkills = false;
+
+  final ValueNotifier<String> _aboutMeTextNotifier = ValueNotifier<String>('');
+  final ValueNotifier<List<String>> _mainSkillsNotifier = ValueNotifier<List<String>>([]);
+  final ValueNotifier<List<String>> _sideSkillsNotifier = ValueNotifier<List<String>>([]);
 
   @override
   void dispose() {
     _controllerAboutMe.dispose();
+    _controllerMainSkills.dispose();
+    _controllerSideSkills.dispose();
     super.dispose();
   }
 
@@ -50,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // button leading to the setting page
-                SettingsButton(onPressed: () {})
+                SettingsButton(onPressed: () {}),
               ],
             ),
             Padding(
@@ -65,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -78,8 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Visibility(
                       visible: isToggledAboutMe,
                       replacement: const NonWritableAboutMe(),
-                      child: AboutMeTextField(
-                          aboutMeTextNotifier: _aboutMeTextNotifier),
+                      child: AboutMeTextField(aboutMeTextNotifier: _aboutMeTextNotifier),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(370, 0, 0, 0),
@@ -89,8 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           onTap: () {
                             setState(() {
                               isToggledAboutMe = !isToggledAboutMe;
-                              profileState
-                                  .addAboutMeText(_aboutMeTextNotifier.value);
+                              profileState.addAboutMeText(_aboutMeTextNotifier.value);
                             });
                           },
                           child: SvgPicture.asset(
@@ -112,7 +119,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ),
-            // Displays the pen button, that will allow to change the information into the text field when pressed
             const SizedBox(height: 10),
             const CardLineHorizontal(), // Displays an horizontal line to comply with design
             const SizedBox(height: 10),
@@ -131,16 +137,42 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Container that will contain the main tags of the user
-                MainTagsContainer(),
-              ],
+            ValueListenableBuilder<List<String>>(
+              valueListenable: _mainSkillsNotifier,
+              builder: (context, mainSkills, child) {
+                return Column(
+                  children: [
+                    MainTagsContainer(mainSkills: mainSkills),
+                    Visibility(
+                      visible: isToggledMainSkills,
+                      child: TextField(
+                        controller: _controllerMainSkills,
+                        decoration: InputDecoration(
+                          hintText: 'Add a skill',
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.add),
+                            onPressed: () {
+                              final newSkill = _controllerMainSkills.text.trim();
+                              if (newSkill.isNotEmpty && !_mainSkillsNotifier.value.contains(newSkill)) {
+                                _mainSkillsNotifier.value = List.from(mainSkills)..add(newSkill);
+                                _controllerMainSkills.clear();
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                    modifierButton(
+                      onTap: () {
+                        setState(() {
+                          isToggledMainSkills = !isToggledMainSkills;
+                        });
+                      },
+                    ),
+                  ],
+                );
+              },
             ),
-            modifierButton(
-              onTap: () {},
-            ), // Displays the pen button, that will allow to change the information into the container above when pressed
             const SizedBox(height: 10),
             const CardLineHorizontal(), // Displays an horizontal line to comply with design
             Padding(
@@ -161,11 +193,44 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            const SideSkillsContainer(),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0,10,0,5),
-              child: modifierButton(onTap: (){}),
+            ValueListenableBuilder<List<String>>(
+              valueListenable: _sideSkillsNotifier,
+              builder: (context, sideSkills, child) {
+                return Column(
+                  children: [
+                    SideSkillsContainer(sideSkills: sideSkills),
+                    Visibility(
+                      visible: isToggledSideSkills,
+                      child: TextField(
+                        controller: _controllerSideSkills,
+                        decoration: InputDecoration(
+                          hintText: 'Add a skill or hobby',
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.add),
+                            onPressed: () {
+                              final newSkill = _controllerSideSkills.text.trim();
+                              if (newSkill.isNotEmpty && !_sideSkillsNotifier.value.contains(newSkill)) {
+                                _sideSkillsNotifier.value = List.from(sideSkills)..add(newSkill);
+                                _controllerSideSkills.clear();
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                    modifierButton(
+                      onTap: () {
+                        setState(() {
+                          isToggledSideSkills = !isToggledSideSkills;
+                        });
+                      },
+                    ),
+                  ],
+                );
+              },
             ),
+            const SizedBox(height: 10),
+            const CardLineHorizontal(), // Displays an horizontal line to comply with design
           ],
         ),
       ),
@@ -174,15 +239,15 @@ class _ProfilePageState extends State<ProfilePage> {
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              // Logic for profile page
-              // You're already on the profile page, so no navigation needed
+            // Logic for profile page
+            // You're already on the profile page, so no navigation needed
               break;
             case 1:
-              // Logic for swipe page
+            // Logic for swipe page
               context.goNamed('swipe'); // Example navigation to the swipe page
               break;
             case 2:
-              // Logic for messages page
+            // Logic for messages page
               context.goNamed(
                   'message'); // Example navigation to the messages page
               break;
@@ -194,7 +259,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
 
 
 

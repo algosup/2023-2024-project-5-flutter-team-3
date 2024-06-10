@@ -6,11 +6,16 @@ import '../card/cards.dart';
 
 class buttonsSwipePage extends StatelessWidget {
   const buttonsSwipePage({
-    super.key,
+    Key? key,
     required bool isDragging,
-  }) : _isDragging = isDragging;
+    required this.onAccept,
+    required this.onDeny,
+  })  : _isDragging = isDragging,
+        super(key: key);
 
   final bool _isDragging;
+  final VoidCallback onAccept;
+  final VoidCallback onDeny;
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +32,13 @@ class buttonsSwipePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      print('deny offer');
-                    },
-                    child: SvgPicture.asset(
-                        'assets/images/close-circle.svg'),
+                    onTap: onDeny,
+                    child: SvgPicture.asset('assets/images/close-circle.svg'),
                   ),
                   const CardLineVertical(),
                   GestureDetector(
-                    onTap: () {
-                      print('accept offer');
-                    },
-                    child: SvgPicture.asset(
-                        'assets/images/check-circle.svg'),
+                    onTap: onAccept,
+                    child: SvgPicture.asset('assets/images/check-circle.svg'),
                   ),
                 ],
               ),
