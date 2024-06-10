@@ -76,7 +76,7 @@ class LogIn extends StatelessWidget {
                           text: AppLocalizations.of(context)?.login ??
                               'Login', // Use localization or fallback to 'Login'
                           width: 200,
-                          heigth: 50,
+                          height: 50,
                           textWidth: 16,
                           pageName: 'swipe',
                         ),
