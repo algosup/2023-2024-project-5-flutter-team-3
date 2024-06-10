@@ -8,9 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
 
 // Custom Widgets
-import 'package:adopte_a_candidate/widgets/card/cards.dart';
+import 'package:adopte_a_candidate/widgets/cards/card.dart';
 import 'package:provider/provider.dart';
-import '../widgets/fields/containers.dart';
+import '../widgets/fields/container.dart';
 import '../widgets/fields/text_field.dart';
 import '../widgets/logo/logo.dart';
 import '../widgets/navbar/navigation_bar.dart';

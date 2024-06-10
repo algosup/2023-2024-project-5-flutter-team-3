@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 // Widgets package
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
-import 'package:adopte_a_candidate/widgets/card/cards.dart';
-import 'package:adopte_a_candidate/widgets/card/tags.dart';
+import 'package:adopte_a_candidate/widgets/cards/card.dart';
+import 'package:adopte_a_candidate/widgets/cards/tag.dart';
 import 'package:adopte_a_candidate/widgets/buttons/localization_button.dart';
 
 import '../widgets/buttons/swipe_page_buttons.dart';

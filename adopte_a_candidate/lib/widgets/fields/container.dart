@@ -1,7 +1,6 @@
-import 'package:adopte_a_candidate/widgets/buttons/modifier_button.dart';
 import 'package:flutter/material.dart';
 
-import 'package:adopte_a_candidate/widgets/card/card.dart';
+import 'package:adopte_a_candidate/widgets/cards/tag.dart';
 
 // Main tags container widget
 class MainTagsContainer extends StatelessWidget {
