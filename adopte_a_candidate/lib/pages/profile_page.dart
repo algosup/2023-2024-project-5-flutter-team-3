@@ -33,10 +33,6 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isToggledSideSkills = false;
 
   final ValueNotifier<String> _aboutMeTextNotifier = ValueNotifier<String>('');
-  final ValueNotifier<List<String>> _mainSkillsNotifier =
-      ValueNotifier<List<String>>([]);
-  final ValueNotifier<List<String>> _sideSkillsNotifier =
-      ValueNotifier<List<String>>([]);
 
   @override
   void dispose() {
@@ -48,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    var profileState = Provider.of<ProfileState>(context, listen: false);
+    var profileState = Provider.of<ProfileState>(context);
 
     return Scaffold(
       appBar: const Logo(), // Display the logo in the AppBar
@@ -145,11 +141,17 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             ValueListenableBuilder<List<String>>(
-              valueListenable: _mainSkillsNotifier,
+              valueListenable: ValueNotifier(profileState.mainSkills),
               builder: (context, mainSkills, child) {
                 return Column(
                   children: [
-                    MainTagsContainer(mainSkills: mainSkills),
+                    MainTagsContainer(
+                      mainSkills: mainSkills,
+                      isEditMode: isToggledMainSkills,
+                      removeSkill: (skill) {
+                        profileState.removeMainSkill(skill);
+                      },
+                    ),
                     Visibility(
                       visible: isToggledMainSkills,
                       child: TextField(
@@ -159,15 +161,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
-                              if (_mainSkillsNotifier.value.length < 5) {
+                              if (mainSkills.length < 5) {
                                 // Restrict to 5 main skills
                                 final newSkill =
-                                    _controllerMainSkills.text.trim();
+                                _controllerMainSkills.text.trim();
                                 if (newSkill.isNotEmpty &&
-                                    !_mainSkillsNotifier.value
-                                        .contains(newSkill)) {
-                                  _mainSkillsNotifier.value =
-                                      List.from(mainSkills)..add(newSkill);
+                                    !mainSkills.contains(newSkill)) {
+                                  profileState.addMainSkill(newSkill);
                                   _controllerMainSkills.clear();
                                 }
                               } else {
@@ -215,11 +215,17 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             ValueListenableBuilder<List<String>>(
-              valueListenable: _sideSkillsNotifier,
+              valueListenable: ValueNotifier(profileState.sideSkills),
               builder: (context, sideSkills, child) {
                 return Column(
                   children: [
-                    SideSkillsContainer(sideSkills: sideSkills),
+                    SideSkillsContainer(
+                      sideSkills: sideSkills,
+                      isEditMode: isToggledSideSkills,
+                      removeSkill: (skill) {
+                        profileState.removeSideSkill(skill);
+                      },
+                    ),
                     Visibility(
                       visible: isToggledSideSkills,
                       child: TextField(
@@ -229,15 +235,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
-                              if (_sideSkillsNotifier.value.length < 10) {
+                              if (sideSkills.length < 10) {
                                 // Restrict to 10 side skills
                                 final newSkill =
-                                    _controllerSideSkills.text.trim();
+                                _controllerSideSkills.text.trim();
                                 if (newSkill.isNotEmpty &&
-                                    !_sideSkillsNotifier.value
-                                        .contains(newSkill)) {
-                                  _sideSkillsNotifier.value =
-                                      List.from(sideSkills)..add(newSkill);
+                                    !sideSkills.contains(newSkill)) {
+                                  profileState.addSideSkill(newSkill);
                                   _controllerSideSkills.clear();
                                 }
                               } else {
@@ -274,17 +278,16 @@ class _ProfilePageState extends State<ProfilePage> {
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              // Logic for profile page
-              // You're already on the profile page, so no navigation needed
+            // Logic for profile page
+            // You're already on the profile page, so no navigation needed
               break;
             case 1:
-              // Logic for swipe page
+            // Logic for swipe page
               context.goNamed('swipe'); // Example navigation to the swipe page
               break;
             case 2:
-              // Logic for messages page
-              context.goNamed(
-                  'message'); // Example navigation to the messages page
+            // Logic for messages page
+              context.goNamed('message'); // Example navigation to the messages page
               break;
             default:
               break;
