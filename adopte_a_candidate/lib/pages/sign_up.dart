@@ -38,6 +38,8 @@ class _AskIfCompanyState extends State<AskIfCompany> {
   bool isJobSeeker = false;
   bool isCompany = false;
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   void _handleCheckBoxChange(bool? selected, String type) {
     setState(() {
       if (type == 'jobSeeker') {
@@ -52,6 +54,34 @@ class _AskIfCompanyState extends State<AskIfCompany> {
         }
       }
     });
+  }
+
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enteremail;
+    }
+    final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enterpassword;
+    }
+    return null;
+  }
+
+  String? _validateConfirmPassword(String? value, String password) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.confirmpassword;
+    }
+    if (value != password) {
+      return 'password do not match';
+    }
+    return null;
   }
 
   Widget buildCheckBoxRow(
@@ -110,6 +140,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                     width: MediaQuery.of(context).size.width,
                     height: 108,
                     showToggle: false,
+                    validator: _validateEmail,
                   ),
                   const SizedBox(height: 15),
                   CustomTextField(
@@ -121,6 +152,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                     isObscure: true,
                     showToggle: true,
                     isEmail: false,
+                    validator: _validatePassword,
                   ),
                   const SizedBox(height: 15),
                   CustomTextField(
@@ -132,6 +164,8 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                     isObscure: true,
                     showToggle: true,
                     isEmail: false,
+                    validator: (value) => _validateConfirmPassword(
+                        value, controller.password.text),
                   ),
                   const SizedBox(height: 15),
                   buildCheckBoxRow(
@@ -152,8 +186,22 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                       BigButton(
                         text: AppLocalizations.of(context)!.subscribe,
                         width: 200,
-                        heigth: 50,
+                        height: 50,
                         textWidth: 20,
+                        onPressed: () {
+                          if (_formKey.currentState?.validate() == true &&
+                              (isJobSeeker || isCompany)) {
+                            // Add your sign-up logic here, and then navigate to the log_in page
+                            context.go('/log_in');
+                          } else {
+                            // Show error message
+                            Get.snackbar(
+                              'Error',
+                              'Please fill all fields',
+                              snackPosition: SnackPosition.BOTTOM,
+                            );
+                          }
+                        },
                         pageName: 'log_in',
                       ),
                     ],

@@ -61,20 +61,20 @@ class SideSkillsContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Wrap(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Wrap(
               spacing: 8.0,
               runSpacing: 4.0,
               children: sideSkills
                   .map((skill) => TagProfileSkills(text: skill))
                   .toList(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
