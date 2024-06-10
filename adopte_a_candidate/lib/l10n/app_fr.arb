@@ -1,16 +1,58 @@
 {
   "name": "Nom",
+  "@name": {
+    "description": "Votre nom"
+  },
   "email": "Email",
+  "@email": {
+    "description": "Votre email"
+  },
   "password": "Mot de passe",
+  "@password": {
+    "description": "Votre mot de passe"
+  },
   "entername": "Entrez votre nom",
+  "@entername": {
+    "description": "Entrez votre nom"
+  },
   "enteremail": "Entrez votre email",
+  "@enteremail": {
+    "description": "Entrez votre email"
+  },
   "enterpassword": "Entrez votre mot de passe",
+  "@enterpassword": {
+    "description": "Entrez votre mot de passe"
+  },
   "confirmpassword": "Confirmez votre mot de passe",
+  "@confirmpassword": {
+    "description": "Confirmez votre mot de passe"
+  },
   "isCandidate": "Je suis un(e) candidat(e)",
+  "@isCandidate": {
+    "description": "Lié aux cases de la page d'inscription"
+  },
   "isCompany": "Je suis une entreprise (RH)",
+  "@isCompany": {
+    "description": "Lié aux cases de la page d'inscription"
+  },
   "subscribe": "S'inscrire",
+  "@subscribe": {
+    "description": "Bouton d'inscription"
+  },
   "alreadyhaveaccount": "Déjà inscrit ? Se connecter",
+  "@alreadyhaveaccount": {
+    "description": "J'ai déjà un compte? texte"
+  },
   "forgotpassword": "Mot de passe oublié ?",
+  "@forgotpassword": {
+    "description": "Lien pour réinitialiser le mot de passe"
+  },
   "login": "Se connecter",
-  "noaccount": "Pas encore de compte ? S'inscrire"
+  "@login": {
+    "description": "Bouton de connexion"
+  },
+  "noaccount": "Pas encore de compte ? S'inscrire",
+  "@noaccount": {
+    "description": "Je n'ai pas de compte texte"
+  }
 }

@@ -26,18 +26,20 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      supportedLocales: L10n.all,
-      locale: const Locale('en'),
+      locale: const Locale('fr'),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-
+      supportedLocales: const [
+        Locale('en'),
+        Locale('fr'),
+      ],
     );
   }
 }
