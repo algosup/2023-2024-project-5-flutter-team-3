@@ -5,6 +5,8 @@ import 'package:adopte_a_candidate/pages/company/edit_job_offer_page.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/pages/swipe.dart';
+import 'package:adopte_a_candidate/pages/settings.dart';
+import 'package:adopte_a_candidate/pages/term_of_use.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:adopte_a_candidate/pages/message.dart';
@@ -27,19 +29,17 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/swipe',
-      name: 'swipe',
-      builder: (BuildContext context, GoRouterState state) {
-        return const SwipePage();
-      }
-    ),
+        path: '/swipe',
+        name: 'swipe',
+        builder: (BuildContext context, GoRouterState state) {
+          return const SwipePage();
+        }),
     GoRoute(
-      path: '/message',
-      name: 'message',
-      builder: (BuildContext context, GoRouterState state) {
-        return const MessagePage();
-      }
-    ),
+        path: '/message',
+        name: 'message',
+        builder: (BuildContext context, GoRouterState state) {
+          return const MessagePage();
+        }),
     GoRoute(
       path: '/profile',
       name: 'profile',
@@ -68,5 +68,17 @@ final GoRouter router = GoRouter(
         return const EditJobOfferPage();
       }
     ),
+    GoRoute(
+        path: '/settings',
+        name: 'settings',
+        builder: (BuildContext context, GoRouterState state) {
+          return const SettingsPage();
+        }),
+    GoRoute(
+        path: '/term_of_use',
+        name: 'term_of_use',
+        builder: (BuildContext context, GoRouterState state) {
+          return const TermOfUsePage();
+        }),
   ],
 );

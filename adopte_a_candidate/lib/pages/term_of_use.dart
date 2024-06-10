@@ -6,19 +6,17 @@ import 'package:go_router/go_router.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 
-
-
 // This is the message page, the user will see his messages and click on conversation he wants to go to.
-class MessagePage extends StatelessWidget {
-  const MessagePage({super.key});
+class TermOfUsePage extends StatelessWidget {
+  const TermOfUsePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Logo(),
-      body: const Text('messages'),
+      body: const Text('Term of use'),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/message', // Set the current route for MessagePage
+        currentRoute: '/term_of_use', // Set the current route for MessagePage
         onItemTapped: (index) {
           switch (index) {
             case 0:
@@ -28,7 +26,7 @@ class MessagePage extends StatelessWidget {
               context.goNamed('swipe'); // Navigate to swipe page
               break;
             case 2:
-            // Already on the message page, no navigation needed
+              // Already on the message page, no navigation needed
               break;
             default:
               break;

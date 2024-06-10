@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
@@ -9,8 +10,6 @@ import 'package:adopte_a_candidate/services/providers/providers.dart';
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/card/cards.dart';
 import 'package:provider/provider.dart';
-import '../widgets/buttons/settings_button.dart';
-import '../widgets/card/tags.dart';
 import '../widgets/fields/containers.dart';
 import '../widgets/fields/text_field.dart';
 import '../widgets/logo/logo.dart';
@@ -59,7 +58,12 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // button leading to the setting page
-                SettingsButton(onPressed: () {}),
+                IconButton(
+                  onPressed: () {
+                    context.goNamed('settings');
+                  },
+                  icon: const Icon(Icons.settings),
+                ),
               ],
             ),
             Padding(
@@ -239,15 +243,15 @@ class _ProfilePageState extends State<ProfilePage> {
         onItemTapped: (index) {
           switch (index) {
             case 0:
-            // Logic for profile page
-            // You're already on the profile page, so no navigation needed
+              // Logic for profile page
+              // You're already on the profile page, so no navigation needed
               break;
             case 1:
-            // Logic for swipe page
+              // Logic for swipe page
               context.goNamed('swipe'); // Example navigation to the swipe page
               break;
             case 2:
-            // Logic for messages page
+              // Logic for messages page
               context.goNamed(
                   'message'); // Example navigation to the messages page
               break;
