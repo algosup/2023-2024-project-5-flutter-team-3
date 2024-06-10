@@ -1,18 +1,23 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:adopte_a_candidate/services/providers/providers.dart';
 
 // Custom Widgets
-import 'package:adopte_a_candidate/widgets/card/cards.dart';
-import '../widgets/card/tags.dart';
+import 'package:adopte_a_candidate/widgets/cards/card.dart';
+import 'package:provider/provider.dart';
+import '../widgets/fields/container.dart';
+import '../widgets/fields/text_field.dart';
 import '../widgets/logo/logo.dart';
 import '../widgets/navbar/navigation_bar.dart';
 import '../widgets/buttons/modifier_button.dart';
 
 // Profile Page, the user will be able to see his profile and modify his information.
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -20,15 +25,31 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _controllerAboutMe = TextEditingController();
+  final TextEditingController _controllerMainSkills = TextEditingController();
+  final TextEditingController _controllerSideSkills = TextEditingController();
+
+  bool isToggledAboutMe = false;
+  bool isToggledMainSkills = false;
+  bool isToggledSideSkills = false;
+
+  final ValueNotifier<String> _aboutMeTextNotifier = ValueNotifier<String>('');
+  final ValueNotifier<List<String>> _mainSkillsNotifier =
+      ValueNotifier<List<String>>([]);
+  final ValueNotifier<List<String>> _sideSkillsNotifier =
+      ValueNotifier<List<String>>([]);
 
   @override
   void dispose() {
     _controllerAboutMe.dispose();
+    _controllerMainSkills.dispose();
+    _controllerSideSkills.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    var profileState = Provider.of<ProfileState>(context, listen: false);
+
     return Scaffold(
       appBar: const Logo(), // Display the logo in the AppBar
       body: SingleChildScrollView(
@@ -37,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // button leading to the setting page
+                // Button leading to the setting page
                 IconButton(
                   onPressed: () {
                     context.goNamed('settings');
@@ -58,44 +79,55 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              //CustomTextField(
-              // About Me text field, the user can make a small description about himself
-              //  controller: _controllerAboutMe,
-              //title: 'Describe yourself',
-              // hinttext: 'Write a short description about yourself',
-              //isObscure: false,
-              // isEmail: false,
-              // width: MediaQuery.of(context).size.width - 50,
-              //heigth: 125,
-              //showToggle: false),
-              SizedBox(
-                height: 100,
-                width: MediaQuery.of(context).size.width - 50,
-                child: TextField(
-                  controller: _controllerAboutMe,
-                  maxLines: null,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xDDF5F5F5),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xffffd5c2),
-                        width: 2.5,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Visibility(
+                      visible: isToggledAboutMe,
+                      replacement: const NonWritableAboutMe(),
+                      child: AboutMeTextField(
+                          aboutMeTextNotifier: _aboutMeTextNotifier),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(370, 0, 0, 0),
+                      child: Visibility(
+                        visible: !isToggledAboutMe,
+                        replacement: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isToggledAboutMe = !isToggledAboutMe;
+                              profileState
+                                  .addAboutMeText(_aboutMeTextNotifier.value);
+                            });
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/check-circle.svg',
+                            height: 25,
+                            width: 30,
+                          ),
+                        ),
+                        child: modifierButton(
+                          onTap: () {
+                            setState(() {
+                              isToggledAboutMe = !isToggledAboutMe;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              )
-            ]),
-            const modifierButton(), // Displays the pen button, that will allow to change the information into the text field when pressed
+              ],
+            ),
             const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays an horizontal line to comply with design
+            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -112,61 +144,58 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Container that will contain the main tags of the user
-                Container(
-                  width: MediaQuery.of(context).size.width - 50,
-                  height: 100,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFF5F5F5),
-                    shape: RoundedRectangleBorder(
-                      side:
-                          const BorderSide(width: 2, color: Color(0xFFFFD5C2)),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Wrap(children: [
-                                TagRequiredSkills(
-                                  text: 'Adaptability',
-                                ),
-                                TagRequiredSkills(
-                                  text: 'Time Management',
-                                ),
-                                TagRequiredSkills(
-                                  text: 'Humor',
-                                ),
-                              ]),
-                            ]),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TagRequiredSkills(
-                              text: 'Problem Solving',
-                            ),
-                          ],
+            ValueListenableBuilder<List<String>>(
+              valueListenable: _mainSkillsNotifier,
+              builder: (context, mainSkills, child) {
+                return Column(
+                  children: [
+                    MainTagsContainer(mainSkills: mainSkills),
+                    Visibility(
+                      visible: isToggledMainSkills,
+                      child: TextField(
+                        controller: _controllerMainSkills,
+                        decoration: InputDecoration(
+                          hintText: 'Add a skill',
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.add),
+                            onPressed: () {
+                              if (_mainSkillsNotifier.value.length < 5) {
+                                // Restrict to 5 main skills
+                                final newSkill =
+                                    _controllerMainSkills.text.trim();
+                                if (newSkill.isNotEmpty &&
+                                    !_mainSkillsNotifier.value
+                                        .contains(newSkill)) {
+                                  _mainSkillsNotifier.value =
+                                      List.from(mainSkills)..add(newSkill);
+                                  _controllerMainSkills.clear();
+                                }
+                              } else {
+                                // Show error message if more than 5 skills are added
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'You can only add up to 5 main skills')),
+                                );
+                              }
+                            },
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
+                      ),
+                    ),
+                    modifierButton(
+                      onTap: () {
+                        setState(() {
+                          isToggledMainSkills = !isToggledMainSkills;
+                        });
+                      },
+                    ),
+                  ],
+                );
+              },
             ),
-            const modifierButton(), // Displays the pen button, that will allow to change the information into the container above when pressed
             const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays an horizontal line to comply with design
+            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Row(
@@ -174,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   const SizedBox(width: 55),
                   Text(
-                    'Add your main skills (max 5):',
+                    'Add your side skills and hobbies \n(max 10):',
                     style: GoogleFonts.josefinSans(
                       textStyle: const TextStyle(
                         fontSize: 20,
@@ -185,57 +214,63 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width - 50,
-              height: 250,
-              decoration: ShapeDecoration(
-                color: const Color(0xFFF5F5F5),
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(width: 2, color: Color(0xFFFFD5C2)),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          TagRequiredSkills(
-                            text: 'Rugby',
+            ValueListenableBuilder<List<String>>(
+              valueListenable: _sideSkillsNotifier,
+              builder: (context, sideSkills, child) {
+                return Column(
+                  children: [
+                    SideSkillsContainer(sideSkills: sideSkills),
+                    Visibility(
+                      visible: isToggledSideSkills,
+                      child: TextField(
+                        controller: _controllerSideSkills,
+                        decoration: InputDecoration(
+                          hintText: 'Add a skill or hobby',
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.add),
+                            onPressed: () {
+                              if (_sideSkillsNotifier.value.length < 10) {
+                                // Restrict to 10 side skills
+                                final newSkill =
+                                    _controllerSideSkills.text.trim();
+                                if (newSkill.isNotEmpty &&
+                                    !_sideSkillsNotifier.value
+                                        .contains(newSkill)) {
+                                  _sideSkillsNotifier.value =
+                                      List.from(sideSkills)..add(newSkill);
+                                  _controllerSideSkills.clear();
+                                }
+                              } else {
+                                // Show error message if more than 10 skills are added
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'You can only add up to 10 side skills and hobbies')),
+                                );
+                              }
+                            },
                           ),
-                          TagRequiredSkills(
-                            text: 'Books',
-                          ),
-                          TagRequiredSkills(
-                            text: 'Networking',
-                          ),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        TagRequiredSkills(
-                          text: 'Patience',
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                    modifierButton(
+                      onTap: () {
+                        setState(() {
+                          isToggledSideSkills = !isToggledSideSkills;
+                        });
+                      },
+                    ),
+                  ],
+                );
+              },
             ),
-            const Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                child: modifierButton()),
+            const SizedBox(height: 10),
+            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
           ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/profile', // Set the current route for MessagePage
+        currentRoute: '/profile', // Set the current route for ProfilePage
         onItemTapped: (index) {
           switch (index) {
             case 0:

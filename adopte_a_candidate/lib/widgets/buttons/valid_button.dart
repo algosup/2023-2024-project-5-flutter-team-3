@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 // Modifier button widget, that allows the user to change his information
-class modifierButton extends StatelessWidget {
+class ValidButton extends StatelessWidget {
   final VoidCallback onTap;
 
 
-  const modifierButton({
+  const ValidButton({
     super.key,
     required this.onTap,
   });
@@ -20,7 +20,11 @@ class modifierButton extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
           child: GestureDetector(
             onTap: onTap,
-            child: SvgPicture.asset('assets/images/pen.svg'),
+            child: SvgPicture.asset(
+                'assets/images/check-circle.svg',
+                height: 30,
+                width: 30,
+            ),
           ),
         )
       ],

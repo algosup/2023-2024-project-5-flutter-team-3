@@ -1,0 +1,16 @@
+{
+  "name": "Nom",
+  "email": "Email",
+  "password": "Mot de passe",
+  "entername": "Entrez votre nom",
+  "enteremail": "Entrez votre email",
+  "enterpassword": "Entrez votre mot de passe",
+  "confirmpassword": "Confirmez votre mot de passe",
+  "isCandidate": "Je suis un(e) candidat(e)",
+  "isCompany": "Je suis une entreprise (RH)",
+  "subscribe": "S'inscrire",
+  "alreadyhaveaccount": "Déjà inscrit ? Se connecter",
+  "forgotpassword": "Mot de passe oublié ?",
+  "login": "Se connecter",
+  "noaccount": "Pas encore de compte ? S'inscrire"
+}

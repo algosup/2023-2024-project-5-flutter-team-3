@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // Widgets package
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
@@ -19,6 +20,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: AskIfCompany(),
     );
   }
@@ -32,16 +35,12 @@ class AskIfCompany extends StatefulWidget {
 }
 
 class _AskIfCompanyState extends State<AskIfCompany> {
-  late bool isEnglish = true;
-  final _formKey = GlobalKey<FormState>();
-
   bool isJobSeeker = false;
   bool isCompany = false;
 
-  void _handleCheckBoxChange(bool? selected, String type) {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-    // Retrieve if the user either is a jobseeker or a company
-    // acts as a switch, user can't be both state at once
+  void _handleCheckBoxChange(bool? selected, String type) {
     setState(() {
       if (type == 'jobSeeker') {
         isJobSeeker = selected ?? false;
@@ -57,176 +56,59 @@ class _AskIfCompanyState extends State<AskIfCompany> {
     });
   }
 
-  // french signup page
-  Widget frenchPage() {
-    final controller = Get.put(SignUpController()); // retrieves Text editing controllers
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enteremail;
+    }
+    final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email';
+    }
+    return null;
+  }
 
-    return Scaffold(
-      appBar: const Logo(), // Prints the logo widget
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  children: [
-                    Flexible(
-                      // Name Text field
-                      child: CustomTextField(
-                        controller: controller.name,
-                        title: 'Nom:',
-                        hinttext: 'Entrez votre nom',
-                        width: MediaQuery.of(context).size.width,
-                        heigth: 108,
-                        isObscure: false,
-                        showToggle: false,
-                        isEmail: false,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    Flexible(
-                      // email text field
-                      child: CustomTextField(
-                        controller: controller.email,
-                        title: 'Mail:',
-                        hinttext: 'Entrez votre mail',
-                        isObscure: false,
-                        isEmail: true,
-                        width: MediaQuery.of(context).size.width,
-                        heigth: 108,
-                        showToggle: false,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: <Widget>[
-                    // Password textfields
-                    CustomTextField(
-                      controller: controller.password,
-                      title: 'Mot de passe:',
-                      hinttext: 'Entrez votre mot de passe',
-                      width: MediaQuery.of(context).size.width - 80,
-                      heigth: 108,
-                      isObscure: true,
-                      showToggle: true,
-                      isEmail: true,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: <Widget>[
-                    // confirm password text field
-                    CustomTextField(
-                      controller: controller.confirmPassword,
-                      title: 'Confirmez votre mot de passe:',
-                      hinttext: 'Confirmez votre mot de passe',
-                      width: MediaQuery.of(context).size.width - 80,
-                      heigth: 108,
-                      isObscure: true,
-                      showToggle: true,
-                      isEmail: true,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    // Round box to retrieve whether the user is a jobseeker or part of a compnay
-                    buildRoundCheckBox(
-                      isChecked: isJobSeeker,
-                      onChanged: (selected) =>
-                          _handleCheckBoxChange(selected, 'jobSeeker'),
-                      borderColor: const Color(0xffffd5c2),
-                      checkedColor: const Color(0xffffd5c2),
-                      uncheckedColor: Colors.grey[200] ?? Colors.grey,
-                      checkedWidget:
-                          const Icon(Icons.check, color: Colors.black),
-                      size: 24,
-                    ),
-                    const SizedBox(width: 10),
-                    const Text(
-                      'Je suis un candidat',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    buildRoundCheckBox(
-                      isChecked: isCompany,
-                      onChanged: (selected) =>
-                          _handleCheckBoxChange(selected, 'company'),
-                      borderColor: const Color(0xffffd5c2),
-                      checkedColor: const Color(0xffffd5c2),
-                      uncheckedColor: Colors.grey[200] ?? Colors.grey,
-                      checkedWidget:
-                          const Icon(Icons.check, color: Colors.black),
-                      size: 24,
-                    ),
-                    const SizedBox(width: 10),
-                    const Text(
-                      'Je suis une entreprise (HR)',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    BigButton(
-                      text: 'S\'inscrire',
-                      width: 200,
-                      heigth: 50,
-                      textWidth: 20,
-                      pageName: 'log_in',
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        context.goNamed('log_in');
-                      },
-                      child: const Text(
-                        'Déja un compte? Se connecter',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.underline,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          );
-        },
-      ),
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enterpassword;
+    }
+    return null;
+  }
+
+  String? _validateConfirmPassword(String? value, String password) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.confirmpassword;
+    }
+    if (value != password) {
+      return 'password do not match';
+    }
+    return null;
+  }
+
+  Widget buildCheckBoxRow(
+      String label, bool isChecked, void Function(bool?) onChanged) {
+    return Row(
+      children: [
+        buildRoundCheckBox(
+          isChecked: isChecked,
+          onChanged: onChanged,
+          borderColor: const Color(0xffffd5c2),
+          checkedColor: const Color(0xffffd5c2),
+          uncheckedColor: Colors.grey[200] ?? Colors.grey,
+          checkedWidget: const Icon(Icons.check, color: Colors.black),
+          size: 24,
+        ),
+        const SizedBox(width: 10),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 15),
+        ),
+      ],
     );
   }
 
-
-  // translated page to english
-  Widget englishPage() {
+  @override
+  Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-
     return Scaffold(
       appBar: const Logo(),
       body: LayoutBuilder(
@@ -234,138 +116,108 @@ class _AskIfCompanyState extends State<AskIfCompany> {
           return SingleChildScrollView(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
+                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Row(
-                      children: [
-                        Flexible(
-                          child: CustomTextField(
-                            controller: controller.name,
-                            title: 'Name:',
-                            hinttext: 'Enter your name',
-                            width: MediaQuery.of(context).size.width,
-                            heigth: 108,
-                            isObscure: false,
-                            showToggle: false,
-                            isEmail: false,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        Flexible(
-                          child: CustomTextField(
-                            controller: controller.email,
-                            title: 'Email:',
-                            hinttext: 'Enter your email',
-                            isObscure: false,
-                            isEmail: true,
-                            width: MediaQuery.of(context).size.width,
-                            heigth: 108,
-                            showToggle: false,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: <Widget>[
-                        CustomTextField(
-                          controller: controller.password,
-                          title: 'Password:',
-                          hinttext: 'Enter your password',
-                          width: MediaQuery.of(context).size.width - 80,
-                          heigth: 108,
-                          isObscure: true,
-                          showToggle: true,
-                          isEmail: true,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: <Widget>[
-                        CustomTextField(
-                          controller: controller.confirmPassword,
-                          title: 'Confirm your password:',
-                          hinttext: 'Confirm your password',
-                          width: MediaQuery.of(context).size.width - 80,
-                          heigth: 108,
-                          isObscure: true,
-                          showToggle: true,
-                          isEmail: true,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        buildRoundCheckBox(
-                          isChecked: isJobSeeker,
-                          onChanged: (selected) =>
-                              _handleCheckBoxChange(selected, 'jobSeeker'),
-                          borderColor: const Color(0xffffd5c2),
-                          checkedColor: const Color(0xffffd5c2),
-                          uncheckedColor: Colors.grey[200] ?? Colors.grey,
-                          checkedWidget:
-                              const Icon(Icons.check, color: Colors.black),
-                          size: 24,
-                        ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          'I am a candidate',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        buildRoundCheckBox(
-                          isChecked: isCompany,
-                          onChanged: (selected) =>
-                              _handleCheckBoxChange(selected, 'company'),
-                          borderColor: const Color(0xffffd5c2),
-                          checkedColor: const Color(0xffffd5c2),
-                          uncheckedColor: Colors.grey[200] ?? Colors.grey,
-                          checkedWidget:
-                              const Icon(Icons.check, color: Colors.black),
-                          size: 24,
-                        ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          'I am a company (HR)',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        BigButton(
-                          text: 'Subscribe',
-                          width: 200,
-                          heigth: 50,
-                          textWidth: 20,
-                          pageName: 'log_in',
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            context.goNamed('log_in');
-                          },
-                          child: const Text(
-                            'Already have an account? Log in.',
-                            style: TextStyle(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  CustomTextField(
+                    controller: controller.name,
+                    title: AppLocalizations.of(context)!.name,
+                    hintText: AppLocalizations.of(context)!.entername,
+                    width: MediaQuery.of(context).size.width,
+                    height: 108,
+                    isObscure: false,
+                    showToggle: false,
+                    isEmail: false,
+                  ),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    controller: controller.email,
+                    title: AppLocalizations.of(context)!.email,
+                    hintText: AppLocalizations.of(context)!.enteremail,
+                    isObscure: false,
+                    isEmail: true,
+                    width: MediaQuery.of(context).size.width,
+                    height: 108,
+                    showToggle: false,
+                    validator: _validateEmail,
+                  ),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    controller: controller.password,
+                    title: AppLocalizations.of(context)!.password,
+                    hintText: AppLocalizations.of(context)!.enterpassword,
+                    width: MediaQuery.of(context).size.width - 80,
+                    height: 108,
+                    isObscure: true,
+                    showToggle: true,
+                    isEmail: false,
+                    validator: _validatePassword,
+                  ),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    controller: controller.confirmPassword,
+                    title: AppLocalizations.of(context)!.confirmpassword,
+                    hintText: AppLocalizations.of(context)!.confirmpassword,
+                    width: MediaQuery.of(context).size.width - 80,
+                    height: 108,
+                    isObscure: true,
+                    showToggle: true,
+                    isEmail: false,
+                    validator: (value) => _validateConfirmPassword(
+                        value, controller.password.text),
+                  ),
+                  const SizedBox(height: 15),
+                  buildCheckBoxRow(
+                    AppLocalizations.of(context)!.isCandidate,
+                    isJobSeeker,
+                    (selected) => _handleCheckBoxChange(selected, 'jobSeeker'),
+                  ),
+                  const SizedBox(height: 15),
+                  buildCheckBoxRow(
+                    AppLocalizations.of(context)!.isCompany,
+                    isCompany,
+                    (selected) => _handleCheckBoxChange(selected, 'company'),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      BigButton(
+                        text: AppLocalizations.of(context)!.subscribe,
+                        width: 200,
+                        height: 50,
+                        textWidth: 20,
+                        onPressed: () {
+                          if (_formKey.currentState?.validate() == true &&
+                              (isJobSeeker || isCompany)) {
+                            // Add your sign-up logic here, and then navigate to the log_in page
+                            context.go('/log_in');
+                          } else {
+                            // Show error message
+                            Get.snackbar(
+                              'Error',
+                              'Please fill all fields',
+                              snackPosition: SnackPosition.BOTTOM,
+                            );
+                          }
+                        },
+                        pageName: 'log_in',
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          context.goNamed('log_in');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                          child: Text(
+                            AppLocalizations.of(context)!.alreadyhaveaccount,
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
@@ -374,22 +226,15 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                             ),
                           ),
                         ),
-                      ],
-                    )
-                  ],
-                ),
+                      ),
+                    ],
+                  )
+                ],
               ),
+            ),
           );
-
         },
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: isEnglish ? englishPage() : frenchPage(),
     );
   }
 }
