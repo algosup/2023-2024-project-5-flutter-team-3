@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/cards/card.dart';
@@ -68,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 children: [
                   Text(
-                    'Describe yourself:',
+                    AppLocalizations.of(context)!.describeYourself,
                     style: GoogleFonts.josefinSans(
                       textStyle: const TextStyle(
                         fontSize: 20,
@@ -130,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 const SizedBox(width: 55),
                 Text(
-                  'Add your main skills (max 5):',
+                  AppLocalizations.of(context)!.addYourMainSkills,
                   style: GoogleFonts.josefinSans(
                     textStyle: const TextStyle(
                       fontSize: 20,
@@ -157,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: TextField(
                         controller: _controllerMainSkills,
                         decoration: InputDecoration(
-                          hintText: 'Add a skill',
+                          hintText: AppLocalizations.of(context)!.enterMainSkills,
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
@@ -173,9 +174,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               } else {
                                 // Show error message if more than 5 skills are added
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          'You can only add up to 5 main skills')),
+                                  SnackBar(
+                                      content: Text(AppLocalizations.of(context)!.errorMainSkills)),
                                 );
                               }
                             },
@@ -203,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   const SizedBox(width: 55),
                   Text(
-                    'Add your side skills and hobbies \n(max 10):',
+                    AppLocalizations.of(context)!.addYourSideSkills,
                     style: GoogleFonts.josefinSans(
                       textStyle: const TextStyle(
                         fontSize: 20,
@@ -231,7 +231,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: TextField(
                         controller: _controllerSideSkills,
                         decoration: InputDecoration(
-                          hintText: 'Add a skill or hobby',
+                          hintText: AppLocalizations.of(context)!.enterSideSkills,
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
@@ -247,9 +247,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               } else {
                                 // Show error message if more than 10 skills are added
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          'You can only add up to 10 side skills and hobbies')),
+                                  SnackBar(
+                                      content: Text(AppLocalizations.of(context)!.errorSideSkills)),
                                 );
                               }
                             },

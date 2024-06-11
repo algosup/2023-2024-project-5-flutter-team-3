@@ -9,6 +9,7 @@ import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:adopte_a_candidate/widgets/lists/select_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -73,7 +74,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     icon: const Icon(Icons.arrow_back_ios_new),
                   ),
                   Text(
-                    'SETTINGS',
+                    AppLocalizations.of(context)!.settingsTitle,
                     style: GoogleFonts.josefinSans(
                       textStyle: const TextStyle(
                         fontSize: 34,
@@ -87,8 +88,8 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(height: 20),
               CustomTextField(
                 controller: _controllerName,
-                title: 'Name:',
-                hintText: 'Enter your name',
+                title: AppLocalizations.of(context)!.name,
+                hintText: AppLocalizations.of(context)!.enterName,
                 width: MediaQuery.of(context).size.width - 32,
                 height: 108,
                 isObscure: false,
@@ -98,8 +99,8 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(height: 20),
               CustomTextField(
                 controller: _controllerEmail,
-                title: 'Email:',
-                hintText: 'Enter your email',
+                title: AppLocalizations.of(context)!.email,
+                hintText: AppLocalizations.of(context)!.enterEmail,
                 width: MediaQuery.of(context).size.width - 32,
                 height: 108,
                 isObscure: false,
@@ -109,7 +110,7 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(height: 20),
               LocalizationField(
                 controller: _controllerLocalization,
-                title: 'Localization:',
+                title: AppLocalizations.of(context)!.localization,
                 hintText: '',
                 width: MediaQuery.of(context).size.width - 32,
                 height: 108,
@@ -117,7 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(height: 20),
               SelectList(
                 controller: _controllerLanguage,
-                title: 'Language:',
+                title: AppLocalizations.of(context)!.language,
                 defaultItem: _selectedLanguage,
                 selectedItem: _selectedLanguage,
                 items: _languages,
@@ -132,7 +133,7 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(height: 20),
               Center(
                 child: DeleteButton(
-                  text: 'Delete Account',
+                  text: AppLocalizations.of(context)!.deleteAccount,
                   width: MediaQuery.of(context).size.width - 32,
                   height: 58,
                   textWidth: 18,
@@ -152,7 +153,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     child: Row(
                       children: [
                         Text(
-                          'Log Out ',
+                          AppLocalizations.of(context)!.logout,
                           style: GoogleFonts.josefinSans(
                             textStyle: const TextStyle(
                               fontSize: 18,
@@ -168,8 +169,8 @@ class _SettingsPageState extends State<SettingsPage> {
                       ],
                     ),
                   ),
-                  const CustomTextButton(
-                    text: 'Terms of Service',
+                  CustomTextButton(
+                    text: AppLocalizations.of(context)!.termsOfService,
                     textWidth: 18,
                     pageName: 'terms',
                   ),

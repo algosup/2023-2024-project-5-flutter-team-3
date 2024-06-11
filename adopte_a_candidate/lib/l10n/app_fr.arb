@@ -1,4 +1,5 @@
 {
+  "@@locale": "fr",
   "name": "Nom",
   "@name": {
     "description": "Votre nom"
@@ -11,20 +12,20 @@
   "@password": {
     "description": "Votre mot de passe"
   },
-  "entername": "Entrez votre nom",
-  "@entername": {
+  "enterName": "Entrez votre nom",
+  "@enterName": {
     "description": "Entrez votre nom"
   },
-  "enteremail": "Entrez votre email",
-  "@enteremail": {
+  "enterEmail": "Entrez votre email",
+  "@enterEmail": {
     "description": "Entrez votre email"
   },
-  "enterpassword": "Entrez votre mot de passe",
-  "@enterpassword": {
+  "enterPassword": "Entrez votre mot de passe",
+  "@enterPassword": {
     "description": "Entrez votre mot de passe"
   },
-  "confirmpassword": "Confirmez votre mot de passe",
-  "@confirmpassword": {
+  "confirmPassword": "Confirmez votre mot de passe",
+  "@confirmPassword": {
     "description": "Confirmez votre mot de passe"
   },
   "isCandidate": "Je suis un(e) candidat(e)",
@@ -39,20 +40,235 @@
   "@subscribe": {
     "description": "Bouton d'inscription"
   },
-  "alreadyhaveaccount": "Déjà inscrit ? Se connecter",
-  "@alreadyhaveaccount": {
+  "alreadyHaveAccount": "Déjà inscrit ? Se connecter",
+  "@alreadyHaveAccount": {
     "description": "J'ai déjà un compte? texte"
   },
-  "forgotpassword": "Mot de passe oublié ?",
-  "@forgotpassword": {
+  "forgotPassword": "Mot de passe oublié ?",
+  "@forgotPassword": {
     "description": "Lien pour réinitialiser le mot de passe"
   },
   "login": "Se connecter",
   "@login": {
     "description": "Bouton de connexion"
   },
-  "noaccount": "Pas encore de compte ? S'inscrire",
-  "@noaccount": {
+  "noAccount": "Pas encore de compte ? S'inscrire",
+  "@noAccount": {
     "description": "Je n'ai pas de compte texte"
+  },
+  "addNewOffer": "Ajouter une nouvelle offre d'emploi",
+  "@addNewOffer": {
+    "description": "Titre de la page pour ajouter une nouvelle offre d'emploi"
+  },
+  "offerTitle": "Titre de l'offre d'emploi",
+  "@offerTitle": {
+    "description": "Champ du titre de l'offre d'emploi"
+  },
+  "enterOfferTitle": "Entrez le titre de l'offre d'emploi",
+  "@enterOfferTitle": {
+    "description": "Texte indicatif pour entrer le titre de l'offre d'emploi"
+  },
+  "offerDescription": "Description de l'offre d'emploi",
+  "@offerDescription": {
+    "description": "Champ de la description de l'offre d'emploi"
+  },
+  "enterOfferDescription": "Entrez la description de l'offre d'emploi",
+  "@enterOfferDescription": {
+    "description": "Texte indicatif pour entrer la description de l'offre d'emploi"
+  },
+  "offerLocation": "Lieu de l'offre d'emploi",
+  "@offerLocation": {
+    "description": "Champ du lieu de l'offre d'emploi"
+  },
+  "enterOfferLocation": "Entrez le lieu de l'offre d'emploi",
+  "@enterOfferLocation": {
+    "description": "Texte indicatif pour entrer le lieu de l'offre d'emploi"
+  },
+  "offerMainTag": "Compétences principales",
+  "@offerMainTag": {
+    "description": "Champ des compétences principales"
+  },
+  "enterOfferMainTag": "Entrez les compétences principales",
+  "@enterOfferMainTag": {
+    "description": "Texte indicatif pour entrer les compétences principales"
+  },
+  "offerSideTag": "Compétences secondaires",
+  "@offerSideTag": {
+    "description": "Champ des compétences secondaires"
+  },
+  "enterOfferSideTag": "Entrez les compétences secondaires",
+  "@enterOfferSideTag": {
+    "description": "Texte indicatif pour entrer les compétences secondaires"
+  },
+  "addOffer": "Ajouter une offre d'emploi",
+  "@addOffer": {
+    "description": "Bouton pour ajouter une offre d'emploi"
+  },
+  "editOfferTitle": "Modifier l'offre d'emploi",
+  "@editOfferTitle": {
+    "description": "Titre de la page pour modifier une offre d'emploi"
+  },
+  "saveOffer": "Sauvegarder les modifications",
+  "@saveOffer": {
+    "description": "Bouton pour sauvegarder les modifications"
+  },
+  "myOfferTitle": "Mes offres d'emploi",
+  "@myOfferTitle": {
+    "description": "Titre de la page pour voir ses offres d'emploi"
+  },
+  "describeYourself": "Décrivez-vous",
+  "@describeYourself": {
+    "description": "Titre du champ Décrivez-vous"
+  },
+  "enterDescription": "Entrez votre description",
+  "@enterDescription": {
+    "description": "Texte indicatif pour entrer votre description"
+  },
+  "addYourMainSkills": "Ajoutez vos compétences principales (max 5)",
+  "@addYourMainSkills": {
+    "description": "Titre du champ pour ajouter vos compétences principales"
+  },
+  "enterMainSkills": "Ajoutez une compétence principale",
+  "@enterMainSkills": {
+    "description": "Texte indicatif pour ajouter une compétence principale"
+  },
+  "errorMainSkills": "Vous ne pouvez ajouter que 5 compétences principales",
+  "@errorMainSkills": {
+    "description": "Message d'erreur lorsqu'on tente d'ajouter plus de 5 compétences principales"
+  },
+  "addYourSideSkills": "Ajoutez vos compétences secondaires et loisirs (max 10)",
+  "@addYourSideSkills": {
+    "description": "Titre du champ pour ajouter vos compétences secondaires"
+  },
+  "enterSideSkills": "Ajoutez une compétence secondaire ou un loisir",
+  "@enterSideSkills": {
+    "description": "Texte indicatif pour ajouter une compétence secondaire ou un loisir"
+  },
+  "errorSideSkills": "Vous ne pouvez ajouter que 10 compétences secondaires",
+  "@errorSideSkills": {
+    "description": "Message d'erreur lorsqu'on tente d'ajouter plus de 10 compétences secondaires"
+  },
+  "swipeExample1OfferTitle": "Infirmier Praticien",
+  "@swipeExampleOfferTitle": {
+    "description": "Exemple de titre d'offre d'emploi"
+  },
+  "swipeExample1OfferDescription": "Nous recherchons un infirmier praticien pour rejoindre notre équipe. Le candidat idéal aura une solide expérience en soins infirmiers et pourra bien travailler en équipe.",
+  "@swipeExampleOfferDescription": {
+    "description": "Exemple de description d'offre d'emploi"
+  },
+  "swipeRequiredSkillsTitle": "Compétences Requises",
+  "@swipeRequiredSkillsTitle": {
+    "description": "Titre du champ Compétences Requises"
+  },
+  "swipeExample1OfferMainTag0": "Adaptabilité",
+  "@swipeExample1OfferMainTag0": {
+    "description": "Exemple de compétence principale 0 pour une offre d'emploi"
+  },
+  "swipeExample1OfferMainTag1": "Gestion du Temps",
+  "@swipeExample1OfferMainTag1": {
+    "description": "Exemple de compétence principale 1 pour une offre d'emploi"
+  },
+  "swipeExample1OfferMainTag2": "Résolution de Problèmes",
+  "@swipeExample1OfferMainTag2": {
+    "description": "Exemple de compétence principale 2 pour une offre d'emploi"
+  },
+  "swipeExample1OfferMainTag3": "Humour",
+  "@swipeExample1OfferMainTag3": {
+    "description": "Exemple de compétence principale 3 pour une offre d'emploi"
+  },
+  "swipeExample1OfferMainTag4": "Respect",
+  "@swipeExample1OfferMainTag4": {
+    "description": "Exemple de compétence principale 4 pour une offre d'emploi"
+  },
+  "swipeAppreciatedSkillsTitle": "Compétences Appréciées",
+  "@swipeAppreciatedSkillsTitle": {
+    "description": "Titre du champ Compétences Appréciées"
+  },
+  "swipeExample1OfferSideTag0": "Compassion",
+  "@swipeExample1OfferSideTag0": {
+    "description": "Exemple de compétence secondaire 0 pour une offre d'emploi"
+  },
+  "swipeExample1OfferSideTag1": "Patience",
+  "@swipeExample1OfferSideTag1": {
+    "description": "Exemple de compétence secondaire 1 pour une offre d'emploi"
+  },
+  "swipeExample1OfferSideTag2": "Réseautage",
+  "@swipeExample1OfferSideTag2": {
+    "description": "Exemple de compétence secondaire 2 pour une offre d'emploi"
+  },
+  "swipeExample1OfferSideTag3": "Empathie",
+  "@swipeExample1OfferSideTag3": {
+    "description": "Exemple de compétence secondaire 3 pour une offre d'emploi"
+  },
+  "swipeExample1OfferLocation": "18100, Vierzon, France",
+  "@swipeExampleOfferLocation": {
+    "description": "Exemple de localisation d'offre d'emploi"
+  },
+  "swipeExample2OfferTitle": "Développeur de Logiciels",
+  "@swipeExample2OfferTitle": {
+    "description": "Exemple de titre d'offre d'emploi"
+  },
+  "swipeExample2OfferDescription": "Rejoignez notre équipe technologique en tant que Développeur de Logiciels ! Vous concevrez, construirez et maintiendrez un code efficace, réutilisable et fiable. Collaborez avec des équipes interfonctionnelles, résolvez des problèmes et optimisez les solutions logicielles. Contribuez à toutes les phases du cycle de développement dans un environnement rapide et dynamique.",
+  "@swipeExample2OfferDescription": {
+    "description": "Exemple de description d'offre d'emploi"
+  },
+  "swipeExample2OfferMainTag0": "Résolution de Problèmes",
+  "@swipeExample2OfferMainTag0": {
+    "description": "Exemple de compétence principale 0 pour une offre d'emploi"
+  },
+  "swipeExample2OfferMainTag1": "Travail d'Équipe",
+  "@swipeExample2OfferMainTag1": {
+    "description": "Exemple de compétence principale 1 pour une offre d'emploi"
+  },
+  "swipeExample2OfferMainTag2": "Communication",
+  "@swipeExample2OfferMainTag2": {
+    "description": "Exemple de compétence principale 2 pour une offre d'emploi"
+  },
+  "swipeExample2OfferMainTag3": "Programmation",
+  "@swipeExample2OfferMainTag3": {
+    "description": "Exemple de compétence principale 3 pour une offre d'emploi"
+  },
+  "swipeExample2OfferSideTag0": "Créativité",
+  "@swipeExample2OfferSideTag0": {
+    "description": "Exemple de compétence secondaire 0 pour une offre d'emploi"
+  },
+  "swipeExample2OfferSideTag1": "Attention aux Détails",
+  "@swipeExample2OfferSideTag1": {
+    "description": "Exemple de compétence secondaire 1 pour une offre d'emploi"
+  },
+  "swipeExample2OfferSideTag2": "Réseautage",
+  "@swipeExample2OfferSideTag2": {
+    "description": "Exemple de compétence secondaire 2 pour une offre d'emploi"
+  },
+  "swipeExample2OfferLocation": "10100, Techville, États-Unis",
+  "@swipeExample2OfferLocation": {
+    "description": "Exemple de localisation d'offre d'emploi"
+  },
+  "settingsTitle": "Paramètres",
+  "@settingsTitle": {
+    "description": "Titre de la page des paramètres"
+  },
+  "localization": "Localisation",
+  "@localization": {
+    "description": "Titre de la section de localisation"
+  },
+  "language": "Langue",
+  "@language": {
+    "description": "Titre du champ de langue"
+  },
+  "deleteAccount": "Supprimer le compte",
+  "@deleteAccount": {
+    "description": "Bouton de suppression de compte"
+  },
+  "logout": "Se déconnecter",
+  "@logout": {
+    "description": "Bouton de déconnexion"
+  },
+  "termsOfService": "Conditions d'utilisation",
+  "@termsOfService": {
+    "description": "Bouton des conditions d'utilisation"
   }
 }
+
+
+

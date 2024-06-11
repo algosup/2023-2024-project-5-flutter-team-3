@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Widgets package
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
@@ -179,7 +180,7 @@ class _SwipePageState extends State<SwipePage> {
                 children: [
                   Center(
                     child: Text(
-                      'Nurse Practitioner',
+                      AppLocalizations.of(context)!.swipeExample1OfferTitle,
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           color: Colors.black,
@@ -191,12 +192,12 @@ class _SwipePageState extends State<SwipePage> {
                   ),
                   const SizedBox(height: 5),
                   const CardLineHorizontal(),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Text(
-                      'Join our team as a Nurse Practitioner (NP)! You’ll provide primary and specialty healthcare, diagnose and treat medical conditions, prescribe medications, perform procedures, and educate patients. Work autonomously or alongside physicians in a dynamic and supportive environment.',
+                      AppLocalizations.of(context)!.swipeExample1OfferDescription,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                         fontFamily: 'Josefin Sans',
@@ -210,7 +211,7 @@ class _SwipePageState extends State<SwipePage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                     child: Text(
-                      'Required Skills:',
+                      AppLocalizations.of(context)!.swipeRequiredSkillsTitle,
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           color: Colors.black,
@@ -221,20 +222,20 @@ class _SwipePageState extends State<SwipePage> {
                       ),
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: 'Adaptability'),
-                      TagRequiredSkills(text: 'Time Management'),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag0),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag1),
                     ],
                   ),
                   const SizedBox(height: 5),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: 'Problem Solving'),
-                      TagRequiredSkills(text: 'Humor'),
-                      TagRequiredSkills(text: 'Respect'),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag2),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag3),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag4),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -243,7 +244,7 @@ class _SwipePageState extends State<SwipePage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                     child: Text(
-                      'Appreciate Skills:',
+                      AppLocalizations.of(context)!.swipeAppreciatedSkillsTitle,
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           color: Colors.black,
@@ -254,30 +255,30 @@ class _SwipePageState extends State<SwipePage> {
                       ),
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: 'Compassion'),
-                      TagAppreciatedSkills(text: 'Patience'),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1OfferSideTag0),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1OfferSideTag1),
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: 'Networking'),
-                      TagAppreciatedSkills(text: 'Empathy'),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1OfferSideTag2),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1OfferSideTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
                   const CardLineHorizontal(),
                   const SizedBox(height: 2),
-                  const Row(
+                  Row(
                     children: [
-                      localizationButton(),
+                      const localizationButton(),
                       Text(
-                        '18100, Vierzon, France',
+                        AppLocalizations.of(context)!.swipeExample1OfferLocation,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -314,7 +315,7 @@ class _SwipePageState extends State<SwipePage> {
                 children: [
                   Center(
                     child: Text(
-                      'Software Developer',
+                      AppLocalizations.of(context)!.swipeExample2OfferTitle,
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           color: Colors.black,
@@ -326,12 +327,12 @@ class _SwipePageState extends State<SwipePage> {
                   ),
                   const SizedBox(height: 5),
                   const CardLineHorizontal(),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Text(
-                      'Join our tech team as a Software Developer! You’ll design, build, and maintain efficient, reusable, and reliable code. Collaborate with cross-functional teams, troubleshoot, and optimize software solutions. Contribute to all phases of the development lifecycle in a fast-paced and dynamic environment.',
+                      AppLocalizations.of(context)!.swipeExample2OfferDescription,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                         fontFamily: 'Josefin Sans',
@@ -345,7 +346,7 @@ class _SwipePageState extends State<SwipePage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                     child: Text(
-                      'Required Skills:',
+                      AppLocalizations.of(context)!.swipeRequiredSkillsTitle,
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           color: Colors.black,
@@ -356,19 +357,19 @@ class _SwipePageState extends State<SwipePage> {
                       ),
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: 'Programming'),
-                      TagRequiredSkills(text: 'Problem Solving'),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag0),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag1),
                     ],
                   ),
                   const SizedBox(height: 5),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: 'Teamwork'),
-                      TagRequiredSkills(text: 'Communication'),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag2),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -377,7 +378,7 @@ class _SwipePageState extends State<SwipePage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                     child: Text(
-                      'Appreciated Skills:',
+                      AppLocalizations.of(context)!.swipeAppreciatedSkillsTitle,
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           color: Colors.black,
@@ -388,29 +389,29 @@ class _SwipePageState extends State<SwipePage> {
                       ),
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: 'Creativity'),
-                      TagAppreciatedSkills(text: 'Attention to Detail'),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2OfferSideTag0),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2OfferSideTag1),
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: 'Networking'),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2OfferSideTag2),
                     ],
                   ),
                   const SizedBox(height: 5),
                   const CardLineHorizontal(),
                   const SizedBox(height: 2),
-                  const Row(
+                  Row(
                     children: [
-                      localizationButton(),
+                      const localizationButton(),
                       Text(
-                        '10100, Techville, USA',
+                        AppLocalizations.of(context)!.swipeExample2OfferLocation,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),

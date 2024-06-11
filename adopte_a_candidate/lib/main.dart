@@ -6,13 +6,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'firestore/firebase_options.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Routes package
 import 'package:adopte_a_candidate/routes.dart';
-
-// Translation package
-import 'l10n/l10n.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,12 +23,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context ) {
+  Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       locale: const Locale('fr'),
       localizationsDelegates: const [
+        AppLocalizations.delegate, // Include the generated localization delegate
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

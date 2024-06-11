@@ -4,6 +4,7 @@ import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Company profile page
 class CompanyProfilePage extends StatelessWidget {
@@ -36,7 +37,7 @@ class CompanyProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'My Job Offers',
+                  AppLocalizations.of(context)!.myOfferTitle,
                   style: GoogleFonts.josefinSans(
                     textStyle: const TextStyle(
                       fontSize: 30,
@@ -69,7 +70,7 @@ class CompanyProfilePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Text(
-                        'Add a new job offer',
+                        AppLocalizations.of(context)!.addOffer,
                         style: GoogleFonts.josefinSans(
                           textStyle: const TextStyle(
                             fontSize: 20,

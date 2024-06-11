@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Widgets package
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
@@ -13,29 +13,15 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 // Controllers package
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 
-class Home extends StatelessWidget {
+
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('fr'),
-      home: AskIfCompany(),
-    );
-  }
+  State<Home> createState() => _AskIfCompanyState();
 }
 
-class AskIfCompany extends StatefulWidget {
-  const AskIfCompany({super.key});
-
-  @override
-  State<AskIfCompany> createState() => _AskIfCompanyState();
-}
-
-class _AskIfCompanyState extends State<AskIfCompany> {
+class _AskIfCompanyState extends State<Home> {
   bool isJobSeeker = false;
   bool isCompany = false;
 
@@ -59,7 +45,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return AppLocalizations.of(context)!.enteremail;
+      return AppLocalizations.of(context)!.enterEmail;
     }
     final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!regex.hasMatch(value)) {
@@ -70,14 +56,14 @@ class _AskIfCompanyState extends State<AskIfCompany> {
 
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return AppLocalizations.of(context)!.enterpassword;
+      return AppLocalizations.of(context)!.enterPassword;
     }
     return null;
   }
 
   String? _validateConfirmPassword(String? value, String password) {
     if (value == null || value.isEmpty) {
-      return AppLocalizations.of(context)!.confirmpassword;
+      return AppLocalizations.of(context)!.confirmPassword;
     }
     if (value != password) {
       return 'password do not match';
@@ -124,7 +110,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   CustomTextField(
                     controller: controller.name,
                     title: AppLocalizations.of(context)!.name,
-                    hintText: AppLocalizations.of(context)!.entername,
+                    hintText: AppLocalizations.of(context)!.enterName,
                     width: MediaQuery.of(context).size.width,
                     height: 108,
                     isObscure: false,
@@ -135,7 +121,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   CustomTextField(
                     controller: controller.email,
                     title: AppLocalizations.of(context)!.email,
-                    hintText: AppLocalizations.of(context)!.enteremail,
+                    hintText: AppLocalizations.of(context)!.enterEmail,
                     isObscure: false,
                     isEmail: true,
                     width: MediaQuery.of(context).size.width,
@@ -147,7 +133,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   CustomTextField(
                     controller: controller.password,
                     title: AppLocalizations.of(context)!.password,
-                    hintText: AppLocalizations.of(context)!.enterpassword,
+                    hintText: AppLocalizations.of(context)!.enterPassword,
                     width: MediaQuery.of(context).size.width - 80,
                     height: 108,
                     isObscure: true,
@@ -158,8 +144,8 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                   const SizedBox(height: 15),
                   CustomTextField(
                     controller: controller.confirmPassword,
-                    title: AppLocalizations.of(context)!.confirmpassword,
-                    hintText: AppLocalizations.of(context)!.confirmpassword,
+                    title: AppLocalizations.of(context)!.confirmPassword,
+                    hintText: AppLocalizations.of(context)!.confirmPassword,
                     width: MediaQuery.of(context).size.width - 80,
                     height: 108,
                     isObscure: true,
@@ -217,7 +203,7 @@ class _AskIfCompanyState extends State<AskIfCompany> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                           child: Text(
-                            AppLocalizations.of(context)!.alreadyhaveaccount,
+                            AppLocalizations.of(context)!.alreadyHaveAccount,
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 12,

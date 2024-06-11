@@ -2,5 +2,5 @@ arb-dir: lib/l10n
 template-arb-files:
   - app_en.arb
   - app_fr.arb
-\output-localization-file: app_localizations.dart
+output-localization-file: app_localizations.dart
 

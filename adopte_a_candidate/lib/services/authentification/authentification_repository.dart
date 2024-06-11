@@ -20,7 +20,7 @@ class AuthentificationRepository extends GetxController {
   }
   
   _setInitialScreen(User? user) {
-    user == null ? Get.offAll(() => const AskIfCompany())
+    user == null ? Get.offAll(() => const Home())
         : Get.offAll(() => const LogIn());
     // TODO change const LogIn to either, swipe page company or swipe page candidate
   }
@@ -28,7 +28,7 @@ class AuthentificationRepository extends GetxController {
   Future<void> createUser(String email, String password, String name) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const LogIn()) : Get.to(() => const AskIfCompany());
+      firebaseUser.value != null ? Get.offAll(() => const LogIn()) : Get.to(() => const Home());
     } on FirebaseAuthException catch(e){
       final ex  = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');

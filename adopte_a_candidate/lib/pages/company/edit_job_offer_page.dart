@@ -3,6 +3,7 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 class EditJobOfferPage extends StatefulWidget {
   const EditJobOfferPage({super.key});
@@ -44,7 +45,7 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Edit your job offer',
+                          AppLocalizations.of(context)!.editOfferTitle,
                           style: GoogleFonts.josefinSans(
                             textStyle: const TextStyle(
                               fontSize: 30,
@@ -58,8 +59,8 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                     // Text field for the job offer title
                     CustomTextField(
                       controller: jobOfferTitle,
-                      title: 'Job Offer Title:',
-                      hintText: 'Entrez le titre de l\'offre',
+                      title: AppLocalizations.of(context)!.offerTitle,
+                      hintText: AppLocalizations.of(context)!.enterOfferTitle,
                       width: MediaQuery.of(context).size.width - 80,
                       height: 108,
                       isObscure: false,
@@ -70,8 +71,8 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                     // Text field for the job offer description
                     CustomTextField(
                       controller: jobOfferDescription,
-                      title: 'Job Offer Description:',
-                      hintText: 'Entrez la description de l\'offre',
+                      title: AppLocalizations.of(context)!.offerDescription,
+                      hintText: AppLocalizations.of(context)!.enterOfferDescription,
                       width: MediaQuery.of(context).size.width - 80,
                       height: 108,
                       isObscure: false,
@@ -82,8 +83,8 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                     // Text field for the job offer location
                     CustomTextField(
                       controller: jobOfferLocation,
-                      title: 'Job Offer Location:',
-                      hintText: 'Entrez la localisation de l\'offre',
+                      title: AppLocalizations.of(context)!.offerLocation,
+                      hintText: AppLocalizations.of(context)!.enterOfferLocation,
                       width: MediaQuery.of(context).size.width - 80,
                       height: 108,
                       isObscure: false,
@@ -94,8 +95,8 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                     // Text field for the main skill tags
                     CustomTextField(
                       controller: mainSkillTags,
-                      title: 'Main Skill Tags:',
-                      hintText: 'Entrez les compétences principales',
+                      title: AppLocalizations.of(context)!.offerMainTag,
+                      hintText: AppLocalizations.of(context)!.enterOfferMainTag,
                       width: MediaQuery.of(context).size.width - 80,
                       height: 108,
                       isObscure: false,
@@ -106,8 +107,8 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                     // Text field for the side skill tags
                     CustomTextField(
                       controller: sideSkillTags,
-                      title: 'Side Skill Tags:',
-                      hintText: 'Entrez les compétences secondaires',
+                      title: AppLocalizations.of(context)!.offerSideTag,
+                      hintText: AppLocalizations.of(context)!.enterOfferSideTag,
                       width: MediaQuery.of(context).size.width - 80,
                       height: 108,
                       isObscure: false,
@@ -126,7 +127,7 @@ class _EditJobOfferPageState extends State<EditJobOfferPage> {
                             debugPrint('Save job offer');
                           },
                           child: Text(
-                            'Save Job Offer',
+                            AppLocalizations.of(context)!.saveOffer,
                             style: GoogleFonts.josefinSans(
                               textStyle: const TextStyle(color: Colors.black, fontSize: 16),
                             ),

@@ -1,9 +1,9 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Custom widgets
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
@@ -24,16 +24,17 @@ class LogIn extends StatefulWidget {
 
 // This is the login page of the app
 class _LogInState extends State<LogIn> {
-  Widget _body = LoadingPage();
+  Widget _body = const LoadingPage();
   bool? _isCompany;
+  String? lang;
 
-  void _setData() async {
+  void _setConnectionData() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('isConnected', true);
     prefs.setBool('isCompany', true);
   }
 
-  Future<bool?> _getData() async {
+  Future<bool?> _getConnectionData() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('isCompany');
   }
@@ -41,7 +42,8 @@ class _LogInState extends State<LogIn> {
   @override
   void initState() {
     super.initState();
-    _setData();
+    _setConnectionData();
+    // _setLanguagePage(lang);
     setState(() {
       _body = _buildLogInPage(context);
     });
@@ -68,11 +70,8 @@ class _LogInState extends State<LogIn> {
                 children: <Widget>[
                   CustomTextField(
                     controller: controller.email,
-                    title: AppLocalizations.of(context)?.email ?? 'Email',
-                    // Use localization or fallback to 'Email'
-                    hintText: AppLocalizations.of(context)?.enteremail ??
-                        'Enter Email',
-                    // Use localization or fallback to 'Enter Email'
+                    title: AppLocalizations.of(context)!.email,
+                    hintText: AppLocalizations.of(context)!.enterEmail,
                     width: MediaQuery.of(context).size.width - 80,
                     height: 108,
                     isObscure: false,
@@ -82,11 +81,8 @@ class _LogInState extends State<LogIn> {
                   const SizedBox(height: 20),
                   CustomTextField(
                     controller: controller.password,
-                    title: AppLocalizations.of(context)?.password ?? 'Password',
-                    // Use localization or fallback to 'Password'
-                    hintText: AppLocalizations.of(context)?.enterpassword ??
-                        'Enter Password',
-                    // Use localization or fallback to 'Enter Password'
+                    title: AppLocalizations.of(context)!.password,
+                    hintText: AppLocalizations.of(context)!.enterPassword,
                     width: MediaQuery.of(context).size.width - 80,
                     height: 108,
                     isObscure: true,
@@ -94,11 +90,11 @@ class _LogInState extends State<LogIn> {
                     isEmail: false,
                   ),
                   const SizedBox(height: 5),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomTextButton(
-                        text: 'Forgot Password ?', // Hardcoded string
+                        text: AppLocalizations.of(context)!.forgotPassword,
                         textWidth: 12,
                         pageName: 'home',
                       ),
@@ -110,8 +106,7 @@ class _LogInState extends State<LogIn> {
                     children: [
                       Center(
                         child: BigButton(
-                          text: AppLocalizations.of(context)?.login ?? 'Login',
-                          // Use localization or fallback to 'Login'
+                          text: AppLocalizations.of(context)!.login,
                           width: 200,
                           height: 50,
                           textWidth: 16,
@@ -119,7 +114,7 @@ class _LogInState extends State<LogIn> {
                               ? 'company_profile'
                               : 'profile',
                           onPressed: () async {
-                            await _getData().then((value) {
+                            await _getConnectionData().then((value) {
                               _isCompany = value;
                             });
                             if (_isCompany == true) {
@@ -137,9 +132,7 @@ class _LogInState extends State<LogIn> {
                     children: [
                       Center(
                         child: CustomTextButton(
-                          text: AppLocalizations.of(context)?.noaccount ??
-                              'No Account',
-                          // Use localization or fallback to 'No Account'
+                          text: AppLocalizations.of(context)!.noAccount,
                           textWidth: 12,
                           pageName: 'home',
                         ),

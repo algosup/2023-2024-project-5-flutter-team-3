@@ -7,7 +7,6 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 
 
-
 // This is the message page, the user will see his messages and click on conversation he wants to go to.
 class MessagePage extends StatelessWidget {
   const MessagePage({super.key});
@@ -16,7 +15,7 @@ class MessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Logo(),
-      body: const Text('messages'),
+      body: const Text('Messages'),
       bottomNavigationBar: CustomBottomNavBar(
         currentRoute: '/job_seeker_message', // Set the current route for MessagePage
         onItemTapped: (index) {
