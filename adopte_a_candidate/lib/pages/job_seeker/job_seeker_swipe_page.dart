@@ -234,8 +234,14 @@ class _SwipePageState extends State<SwipePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag2),
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag3),
                       TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag4),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1OfferMainTag3),
                     ],
                   ),
                   const SizedBox(height: 5),

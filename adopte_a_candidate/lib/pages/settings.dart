@@ -172,7 +172,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   CustomTextButton(
                     text: AppLocalizations.of(context)!.termsOfService,
                     textWidth: 18,
-                    pageName: 'terms',
+                    pageName: 'term_of_use',
                   ),
                 ],
               ),

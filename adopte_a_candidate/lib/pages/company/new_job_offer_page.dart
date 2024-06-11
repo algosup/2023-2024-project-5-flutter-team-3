@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adopte_a_candidate/l10n/app_localizations.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class NewJobOfferPage extends StatefulWidget {
   const NewJobOfferPage({super.key});
@@ -31,7 +32,7 @@ class _NewJobOfferPageState extends State<NewJobOfferPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
                       icon: const Icon(Icons.arrow_back_ios),
@@ -39,17 +40,22 @@ class _NewJobOfferPageState extends State<NewJobOfferPage> {
                         context.goNamed('company_profile');
                       },
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      AppLocalizations.of(context)!.addNewOffer,
-                      style: GoogleFonts.josefinSans(
-                        textStyle: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width - 90,
+                          maxHeight: 100,
+                        ),
+                        child: AutoSizeText(
+                          AppLocalizations.of(context)!.addNewOffer,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.josefinSans(
+                            textStyle: const TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -121,16 +127,18 @@ class _NewJobOfferPageState extends State<NewJobOfferPage> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 255, 213, 194),
+                        backgroundColor:
+                            const Color.fromARGB(255, 255, 213, 194),
                       ),
                       onPressed: () {
                         debugPrint('Add job offer');
                       },
                       child: Text(
-                          AppLocalizations.of(context)!.addOffer,
-                          style: GoogleFonts.josefinSans(
-                            textStyle: const TextStyle(color: Colors.black, fontSize: 16),
-                          ),
+                        AppLocalizations.of(context)!.addOffer,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                              color: Colors.black, fontSize: 16),
+                        ),
                       ),
                     ),
                   ],

@@ -1,6 +1,7 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -130,15 +131,21 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(width: 55),
-                Text(
-                  AppLocalizations.of(context)!.addYourMainSkills,
-                  style: GoogleFonts.josefinSans(
-                    textStyle: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width - 110,
+                      maxHeight: 100,
                     ),
-                  ),
-                ),
+                  child: AutoSizeText(
+                    AppLocalizations.of(context)!.addYourMainSkills,
+                    style: GoogleFonts.josefinSans(
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  )
+                )
               ],
             ),
             ValueListenableBuilder<List<String>>(
@@ -202,15 +209,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const SizedBox(width: 55),
-                  Text(
-                    AppLocalizations.of(context)!.addYourSideSkills,
-                    style: GoogleFonts.josefinSans(
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                  ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width - 110,
+                        maxHeight: 100,
                       ),
-                    ),
-                  ),
+                      child: AutoSizeText(
+                        AppLocalizations.of(context)!.addYourSideSkills,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      )
+                  )
                 ],
               ),
             ),
