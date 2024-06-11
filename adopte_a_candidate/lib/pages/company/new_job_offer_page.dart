@@ -1,3 +1,5 @@
+import 'package:adopte_a_candidate/widgets/cards/card.dart';
+import 'package:adopte_a_candidate/widgets/fields/localization_field.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +75,9 @@ class _NewJobOfferPageState extends State<NewJobOfferPage> {
                   showToggle: false,
                   isEmail: false,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
+                const CardLineHorizontal(), // Displays a horizontal line to comply with the design
+                const SizedBox(height: 10),
                 // Text field for the job offer description
                 CustomTextField(
                   controller: jobOfferDescription,
@@ -85,38 +89,41 @@ class _NewJobOfferPageState extends State<NewJobOfferPage> {
                   showToggle: false,
                   isEmail: false,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
+                const CardLineHorizontal(), // Displays a horizontal line to comply with the design
+                const SizedBox(height: 10),
                 // Text field for the job offer location
-                CustomTextField(
+                LocalizationField(
                   controller: jobOfferLocation,
                   title: AppLocalizations.of(context)!.offerLocation,
                   hintText: AppLocalizations.of(context)!.enterOfferLocation,
                   width: MediaQuery.of(context).size.width - 80,
                   height: 108,
-                  isObscure: false,
-                  showToggle: false,
-                  isEmail: false,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
+                const CardLineHorizontal(), // Displays a horizontal line to comply with the design
+                const SizedBox(height: 10),
                 // Text field for the main skill tags
                 CustomTextField(
                   controller: mainSkillTags,
                   title: AppLocalizations.of(context)!.offerMainTag,
                   hintText: AppLocalizations.of(context)!.enterOfferMainTag,
                   width: MediaQuery.of(context).size.width - 80,
-                  height: 108,
+                  height: 138,
                   isObscure: false,
                   showToggle: false,
                   isEmail: false,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
+                const CardLineHorizontal(), // Displays a horizontal line to comply with the design
+                const SizedBox(height: 10),
                 // Text field for the side skill tags
                 CustomTextField(
                   controller: sideSkillTags,
                   title: AppLocalizations.of(context)!.offerSideTag,
                   hintText: AppLocalizations.of(context)!.enterOfferSideTag,
                   width: MediaQuery.of(context).size.width - 80,
-                  height: 108,
+                  height: 138,
                   isObscure: false,
                   showToggle: false,
                   isEmail: false,

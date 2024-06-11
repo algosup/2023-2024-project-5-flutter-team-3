@@ -280,8 +280,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 );
               },
             ),
-            const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
+            const SizedBox(height: 20),
           ],
         ),
       ),

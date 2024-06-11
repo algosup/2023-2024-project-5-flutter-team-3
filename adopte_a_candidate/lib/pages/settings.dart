@@ -1,3 +1,4 @@
+import 'package:adopte_a_candidate/main.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/delete_button.dart';
 import 'package:adopte_a_candidate/widgets/fields/localization_field.dart';
@@ -29,6 +30,14 @@ class _SettingsPageState extends State<SettingsPage> {
     'English',
     'French',
   ]; // Add more languages as needed
+
+  String getAbbreviation(String language) {
+    if (language == 'English') {
+      return 'en';
+    } else {
+      return 'fr';
+    }
+  }
 
   @override
   void dispose() {
@@ -125,8 +134,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 width: MediaQuery.of(context).size.width - 32,
                 height: 40,
                 onChanged: (String value) {
-                  setState(() {
+                  setState(() async{
                     _selectedLanguage = value;
+                    String language = getAbbreviation(value);
+                    final prefs = await SharedPreferences.getInstance();
+                    prefs.setString('language', language);
+                    MyApp.of(context).setLocale(const Locale.fromSubtags(languageCode: 'language'));
                   });
                 },
               ),

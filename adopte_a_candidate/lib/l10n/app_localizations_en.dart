@@ -68,16 +68,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterOfferLocation => 'Enter the job offer location';
 
   @override
-  String get offerMainTag => 'Required main Skill Tags';
+  String get offerMainTag => 'Add the required skill for the offer (max 5)';
 
   @override
   String get enterOfferMainTag => 'Enter the main skill tags';
 
   @override
-  String get offerSideTag => 'Required side Skill Tags';
+  String get offerSideTag => 'Appreciate side skills for the offer (max 10)';
 
   @override
-  String get enterOfferSideTag => 'Enter the side skill tags';
+  String get enterOfferSideTag => 'Add the appreciate side skills for the offer (max 10)';
 
   @override
   String get addOffer => 'Add job offer';

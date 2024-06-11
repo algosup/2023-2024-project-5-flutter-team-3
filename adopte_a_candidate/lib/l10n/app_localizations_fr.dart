@@ -68,16 +68,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get enterOfferLocation => 'Entrez le lieu de l\'offre d\'emploi';
 
   @override
-  String get offerMainTag => 'Compétences principales';
+  String get offerMainTag => 'Ajoutez les compétences requises (max 5)';
 
   @override
   String get enterOfferMainTag => 'Entrez les compétences principales';
 
   @override
-  String get offerSideTag => 'Compétences secondaires';
+  String get offerSideTag => 'Compétences secondaires appréciées (max 10)';
 
   @override
-  String get enterOfferSideTag => 'Entrez les compétences secondaires';
+  String get enterOfferSideTag => 'Ajoutez les compétences secondaires pour le poste (max 10)';
 
   @override
   String get addOffer => 'Ajouter une offre d\'emploi';
