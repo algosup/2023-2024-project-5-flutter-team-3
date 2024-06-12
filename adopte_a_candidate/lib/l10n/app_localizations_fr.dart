@@ -204,4 +204,64 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get termsOfService => 'Conditions d\'utilisation';
+
+  @override
+  String get swipeExample1SeekerDescription => 'Je suis très motivé et passionné par le développement personnel. Pendant mon temps libre, je pratique le rugby, ce qui m\'a appris le travail d\'équipe, la discipline et la résilience. Je cherche avec enthousiasme de nouvelles expériences et compétences, croyant que les défis sont essentiels pour la croissance personnelle et professionnelle.';
+
+  @override
+  String get swipeExample1SeekerMainTag0 => 'Adaptabilité';
+
+  @override
+  String get swipeExample1SeekerMainTag1 => 'Gestion du temps';
+
+  @override
+  String get swipeExample1SeekerMainTag2 => 'Résolution de problèmes';
+
+  @override
+  String get swipeExample1SeekerMainTag3 => 'Humour';
+
+  @override
+  String get swipeExample1SeekerSideTag0 => 'Rugby';
+
+  @override
+  String get swipeExample1SeekerSideTag1 => 'Livres';
+
+  @override
+  String get swipeExample1SeekerSideTag2 => 'Réseautage';
+
+  @override
+  String get swipeExample1SeekerSideTag3 => 'Empathie';
+
+  @override
+  String get swipeExample1SeekerSideTag4 => 'Patience';
+
+  @override
+  String get swipeExample2SeekerDescription => 'Je suis un développeur de logiciels passionné par la création de solutions innovantes. J\'ai de l\'expérience dans le développement full-stack, travaillant avec une variété de langages de programmation et de technologies. Je suis un joueur d\'équipe qui aime collaborer avec d\'autres pour résoudre des problèmes complexes et fournir des logiciels de haute qualité.';
+
+  @override
+  String get swipeExample2SeekerMainTag0 => 'Résolution de problèmes';
+
+  @override
+  String get swipeExample2SeekerMainTag1 => 'Travail d\'équipe';
+
+  @override
+  String get swipeExample2SeekerMainTag2 => 'Communication';
+
+  @override
+  String get swipeExample2SeekerMainTag3 => 'Programmation';
+
+  @override
+  String get swipeExample2SeekerSideTag0 => 'Créativité';
+
+  @override
+  String get swipeExample2SeekerSideTag1 => 'Motivation';
+
+  @override
+  String get swipeExample2SeekerSideTag2 => 'Dessin';
+
+  @override
+  String get swipeMainSkillsTitle => 'Compétences Principales';
+
+  @override
+  String get swipeSideSkillsTitle => 'Compétences Secondaires';
 }

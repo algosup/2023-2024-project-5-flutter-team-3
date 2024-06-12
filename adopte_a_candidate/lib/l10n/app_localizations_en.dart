@@ -204,4 +204,63 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsOfService => 'Terms of Service';
+
+  @override
+  String get swipeExample1SeekerDescription => 'I am highly motivated and passionate about self-improvement. In my free time, I practice rugby, which has taught me teamwork, discipline, and resilience. I eagerly seek new experiences and skills, believing that challenges are essential for personal and professional growth.';
+
+  @override
+  String get swipeExample1SeekerMainTag0 => 'Adaptability';
+
+  @override
+  String get swipeExample1SeekerMainTag1 => 'Time Management';
+
+  @override
+  String get swipeExample1SeekerMainTag2 => 'Problem Solving';
+
+  @override
+  String get swipeExample1SeekerMainTag3 => 'Humor';
+
+  @override
+  String get swipeExample1SeekerSideTag0 => 'Rugby';
+
+  @override
+  String get swipeExample1SeekerSideTag1 => 'Books';
+
+  @override
+  String get swipeExample1SeekerSideTag2 => 'Networking';
+
+  @override
+  String get swipeExample1SeekerSideTag3 => 'Empathy';
+  @override
+  String get swipeExample1SeekerSideTag4 => 'Patience';
+
+  @override
+  String get swipeExample2SeekerDescription => 'I am a software developer with a passion for creating innovative solutions. I have experience in full-stack development, working with a variety of programming languages and technologies. I am a team player who enjoys collaborating with others to solve complex problems and deliver high-quality software.';
+
+  @override
+  String get swipeExample2SeekerMainTag0 => 'Problem Solving';
+
+  @override
+  String get swipeExample2SeekerMainTag1 => 'Teamwork';
+
+  @override
+  String get swipeExample2SeekerMainTag2 => 'Communication';
+
+  @override
+  String get swipeExample2SeekerMainTag3 => 'Programming';
+
+  @override
+  String get swipeExample2SeekerSideTag0 => 'Creativity';
+
+  @override
+  String get swipeExample2SeekerSideTag1 => 'Motivation';
+
+  @override
+  String get swipeExample2SeekerSideTag2 => 'Drawing';
+
+  @override
+  String get swipeMainSkillsTitle => 'Main Skills';
+
+  @override
+  String get swipeSideSkillsTitle => 'Side Skills';
 }

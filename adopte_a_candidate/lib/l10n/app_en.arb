@@ -267,6 +267,78 @@
   "termsOfService": "Terms of Service",
   "@termsOfService": {
     "description": "Terms of Service button"
+  },
+  "swipeExample1SeekerDescription": "I am highly motivated and passionate about self-improvement. In my free time, I practice rugby, which has taught me teamwork, discipline, and resilience. I eagerly seek new experiences and skills, believing that challenges are essential for personal and professional growth.",
+  "@swipeExample1SeekerDescription": {
+    "description": "Example job seeker description"
+  },
+  "swipeExample1SeekerMainTag0": "Adaptability",
+  "@swipeExample1SeekerMainTag0": {
+    "description": "Example job seeker main tag 0"
+  },
+  "swipeExample1SeekerMainTag1": "Time Management",
+  "@swipeExample1SeekerMainTag1": {
+    "description": "Example job seeker main tag 1"
+  },
+  "swipeExample1SeekerMainTag2": "Problem Solving",
+  "@swipeExample1SeekerMainTag2": {
+    "description": "Example job seeker main tag 2"
+  },
+  "swipeExample1SeekerMainTag3": "Humor",
+  "@swipeExample1SeekerMainTag3": {
+    "description": "Example job seeker main tag 3"
+  },
+  "swipeExample1SeekerSideTag0": "Rugby",
+  "@swipeExample1SeekerSideTag0": {
+    "description": "Example job seeker side tag 0"
+  },
+  "swipeExample1SeekerSideTag1": "Books",
+  "@swipeExample1SeekerSideTag1": {
+    "description": "Example job seeker side tag 1"
+  },
+  "swipeExample1SeekerSideTag2": "Networking",
+  "@swipeExample1SeekerSideTag2": {
+    "description": "Example job seeker side tag 2"
+  },
+  "swipeExample1SeekerSideTag3": "Empathy",
+  "@swipeExample1SeekerSideTag3": {
+    "description": "Example job seeker side tag 3"
+  },
+  "swipeExample1SeekerSideTag4": "Patience",
+  "@swipeExample1SeekerSideTag4": {
+    "description": "Example job seeker side tag 4"
+  },
+  "swipeExample2SeekerDescription": "I am a software developer with a passion for creating innovative solutions. I have experience in full-stack development, working with a variety of programming languages and technologies. I am a team player who enjoys collaborating with others to solve complex problems and deliver high-quality software.",
+  "@swipeExample2SeekerDescription": {
+    "description": "Example job seeker description"
+  },
+  "swipeExample2SeekerMainTag0": "Problem Solving",
+  "@swipeExample2SeekerMainTag0": {
+    "description": "Example job seeker main tag 0"
+  },
+  "swipeExample2SeekerMainTag1": "Teamwork",
+  "@swipeExample2SeekerMainTag1": {
+    "description": "Example job seeker main tag 1"
+  },
+  "swipeExample2SeekerMainTag2": "Communication",
+  "@swipeExample2SeekerMainTag2": {
+    "description": "Example job seeker main tag 2"
+  },
+  "swipeExample2SeekerMainTag3": "Programming",
+  "@swipeExample2SeekerMainTag3": {
+    "description": "Example job seeker main tag 3"
+  },
+  "swipeExample2SeekerSideTag0": "Creativity",
+  "@swipeExample2SeekerSideTag0": {
+    "description": "Example job seeker side tag 0"
+  },
+  "swipeExample2SeekerSideTag1": "Motivation",
+  "@swipeExample2SeekerSideTag1": {
+    "description": "Example job seeker side tag 1"
+  },
+  "swipeExample2SeekerSideTag2": "Drawing",
+  "@swipeExample2SeekerSideTag2": {
+    "description": "Example job seeker side tag 2"
   }
 }
 

@@ -226,6 +226,46 @@ abstract class AppLocalizations {
   String get logout;
 
   String get termsOfService;
+
+  String get swipeExample1SeekerDescription;
+
+  String get swipeExample1SeekerMainTag0;
+
+  String get swipeExample1SeekerMainTag1;
+
+  String get swipeExample1SeekerMainTag2;
+
+  String get swipeExample1SeekerMainTag3;
+
+  String get swipeExample1SeekerSideTag0;
+
+  String get swipeExample1SeekerSideTag1;
+
+  String get swipeExample1SeekerSideTag2;
+
+  String get swipeExample1SeekerSideTag3;
+
+  String get swipeExample1SeekerSideTag4;
+
+  String get swipeExample2SeekerDescription;
+
+  String get swipeExample2SeekerMainTag0;
+
+  String get swipeExample2SeekerMainTag1;
+
+  String get swipeExample2SeekerMainTag2;
+
+  String get swipeExample2SeekerMainTag3;
+
+  String get swipeExample2SeekerSideTag0;
+
+  String get swipeExample2SeekerSideTag1;
+
+  String get swipeExample2SeekerSideTag2;
+
+  String get swipeMainSkillsTitle;
+
+  String get swipeSideSkillsTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

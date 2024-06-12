@@ -4,6 +4,7 @@ import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_swipe_page.dart';
 import 'package:adopte_a_candidate/pages/company/company_profile_page.dart';
 import 'package:adopte_a_candidate/pages/company/new_job_offer_page.dart';
 import 'package:adopte_a_candidate/pages/company/edit_job_offer_page.dart';
+import 'package:adopte_a_candidate/pages/company/company_swipe_page.dart';
 
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
@@ -83,5 +84,12 @@ final GoRouter router = GoRouter(
         builder: (BuildContext context, GoRouterState state) {
           return const TermOfUsePage();
         }),
+    GoRoute(
+        path: '/company/company_swipe_page',
+        name: 'company_swipe',
+        builder: (BuildContext context, GoRouterState state) {
+          return const CompanySwipePage();
+        }
+    )
   ],
 );

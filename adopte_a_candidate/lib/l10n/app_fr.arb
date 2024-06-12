@@ -267,6 +267,78 @@
   "termsOfService": "Conditions d'utilisation",
   "@termsOfService": {
     "description": "Bouton des conditions d'utilisation"
+  },
+  "swipeExample1SeekerDescription": "Je suis très motivé et passionné par le développement personnel. Pendant mon temps libre, je pratique le rugby, ce qui m'a appris le travail d'équipe, la discipline et la résilience. Je cherche avec enthousiasme de nouvelles expériences et compétences, croyant que les défis sont essentiels pour la croissance personnelle et professionnelle.",
+  "@swipeExample1SeekerDescription": {
+    "description": "Description d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerMainTag0": "Adaptabilité",
+  "@swipeExample1SeekerMainTag0": {
+    "description": "Tag principal 0 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerMainTag1": "Gestion du temps",
+  "@swipeExample1SeekerMainTag1": {
+    "description": "Tag principal 1 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerMainTag2": "Résolution de problèmes",
+  "@swipeExample1SeekerMainTag2": {
+    "description": "Tag principal 2 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerMainTag3": "Humour",
+  "@swipeExample1SeekerMainTag3": {
+    "description": "Tag principal 3 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerSideTag0": "Rugby",
+  "@swipeExample1SeekerSideTag0": {
+    "description": "Tag secondaire 0 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerSideTag1": "Livres",
+  "@swipeExample1SeekerSideTag1": {
+    "description": "Tag secondaire 1 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerSideTag2": "Réseautage",
+  "@swipeExample1SeekerSideTag2": {
+    "description": "Tag secondaire 2 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerSideTag3": "Empathie",
+  "@swipeExample1SeekerSideTag3": {
+    "description": "Tag secondaire 3 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample1SeekerSideTag4": "Patience",
+  "@swipeExample1SeekerSideTag4": {
+    "description": "Tag secondaire 4 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerDescription": "Je suis un développeur de logiciels passionné par la création de solutions innovantes. J'ai de l'expérience dans le développement full-stack, travaillant avec une variété de langages de programmation et de technologies. Je suis un joueur d'équipe qui aime collaborer avec d'autres pour résoudre des problèmes complexes et fournir des logiciels de haute qualité.",
+  "@swipeExample2SeekerDescription": {
+    "description": "Description d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerMainTag0": "Résolution de problèmes",
+  "@swipeExample2SeekerMainTag0": {
+    "description": "Tag principal 0 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerMainTag1": "Travail d'équipe",
+  "@swipeExample2SeekerMainTag1": {
+    "description": "Tag principal 1 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerMainTag2": "Communication",
+  "@swipeExample2SeekerMainTag2": {
+    "description": "Tag principal 2 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerMainTag3": "Programmation",
+  "@swipeExample2SeekerMainTag3": {
+    "description": "Tag principal 3 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerSideTag0": "Créativité",
+  "@swipeExample2SeekerSideTag0": {
+    "description": "Tag secondaire 0 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerSideTag1": "Motivation",
+  "@swipeExample2SeekerSideTag1": {
+    "description": "Tag secondaire 1 d'un chercheur d'emploi exemple"
+  },
+  "swipeExample2SeekerSideTag2": "Dessin",
+  "@swipeExample2SeekerSideTag2": {
+    "description": "Tag secondaire 2 d'un chercheur d'emploi exemple"
   }
 }
 

@@ -197,28 +197,6 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
       ),
-      bottomNavigationBar: buildCustomBottomNavBar(context),
-    );
-  }
-
-  Widget buildCustomBottomNavBar(BuildContext context) {
-    return CustomBottomNavBar(
-      currentRoute: '/settings', // Set the current route for SettingsPage
-      onItemTapped: (index) {
-        switch (index) {
-          case 0:
-            context.goNamed('profile'); // Navigate to profile page
-            break;
-          case 1:
-            context.goNamed('swipe'); // Navigate to swipe page
-            break;
-          case 2:
-            context.goNamed('message'); // Navigate to message page
-            break;
-          default:
-            break;
-        }
-      },
     );
   }
 }
