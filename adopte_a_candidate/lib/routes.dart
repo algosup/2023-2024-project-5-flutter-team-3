@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/sign_up',
-  routes: [
+  routes: <RouteBase>[
     GoRoute(
       path: '/sign_up',
       name: 'home',

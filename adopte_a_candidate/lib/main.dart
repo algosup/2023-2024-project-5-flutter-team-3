@@ -20,7 +20,6 @@ void main() async {
 
   // Initialize Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  Get.put(AuthentificationRepository());
 
   // Run the app
   runApp(
