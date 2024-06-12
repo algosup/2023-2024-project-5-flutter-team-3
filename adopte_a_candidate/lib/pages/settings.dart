@@ -133,14 +133,17 @@ class _SettingsPageState extends State<SettingsPage> {
                 items: _languages,
                 width: MediaQuery.of(context).size.width - 32,
                 height: 40,
-                onChanged: (String value) {
-                  setState(() async{
+                onChanged: (String value) async {
+                  setState(() {
                     _selectedLanguage = value;
-                    String language = getAbbreviation(value);
-                    final prefs = await SharedPreferences.getInstance();
-                    prefs.setString('language', language);
-                    MyApp.of(context).setLocale(const Locale.fromSubtags(languageCode: 'language'));
                   });
+                  String language = getAbbreviation(value);
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.setString('language', language);
+                  debugPrint("language set to $language");
+
+                  // Change the app's locale
+                  MyApp.of(context).setLocale(Locale(language));
                 },
               ),
               const SizedBox(height: 20),

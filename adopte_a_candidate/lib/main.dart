@@ -8,46 +8,54 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firestore/firebase_options.dart';
 import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/widgets/loadings/loading_page.dart';
 
 // Routes package
 import 'package:adopte_a_candidate/routes.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  var prefs;
-  SharedPreferences.getInstance().then((value) => prefs = value);
-  String locale = 'en';
-  prefs.getString('language').then((value) {
-    if (value != null) {
-      locale = value;
-    }
-  });
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((value) => Get.put(AuthentificationRepository()));
-  runApp( ChangeNotifierProvider(create: (BuildContext context) { return ProfileState();},
-  child: MyApp(locale: locale)));
+  // Initialize SharedPreferences
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String locale = prefs.getString('language') ?? 'en';
+
+  // Initialize Firebase
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  Get.put(AuthentificationRepository());
+
+  // Run the app
+  runApp(
+    ChangeNotifierProvider(
+      create: (BuildContext context) => ProfileState(),
+      child: MyApp(locale: locale),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
   final String locale;
 
-  MyApp({required this.locale});
+  const MyApp({Key? key, required this.locale}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState(localeLang: Locale(locale));
+  _MyAppState createState() => _MyAppState();
 
-  static _MyAppState of(BuildContext context) => _MyAppState();
+  static _MyAppState of(BuildContext context) {
+    return context.findAncestorStateOfType<_MyAppState>()!;
+  }
 }
 
 class _MyAppState extends State<MyApp> {
-  _MyAppState({this.localeLang});
-  Locale localeLang;
+  late Locale _locale;
 
+  @override
+  void initState() {
+    super.initState();
+    _locale = Locale(widget.locale);
+  }
 
-  void setLocale(Locale value) {
+  void setLocale(Locale newLocale) {
     setState(() {
-      localeLang = value;
+      _locale = newLocale;
     });
   }
 
@@ -56,9 +64,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      locale: localeLang,
+      locale: _locale,
       localizationsDelegates: const [
-        AppLocalizations.delegate, // Include the generated localization delegate
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -69,10 +77,4 @@ class _MyAppState extends State<MyApp> {
       ],
     );
   }
-}
-
-void initializeDataBase(void runApp) async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 }
