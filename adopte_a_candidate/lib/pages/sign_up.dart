@@ -187,9 +187,14 @@ class _AskIfCompanyState extends State<Home> {
                           height: 50,
                           textWidth: 20,
                           onPressed: () {
-                            if (_formKey.currentState!.validate() == true) {
+                            if (_formKey.currentState!.validate() == true &&
+                                (isJobSeeker || isCompany)) {
                               // Add your sign-up logic here, and then navigate to the log_in page
-                              context.go('/log_in');
+                              if(isJobSeeker && !isCompany) {
+                                context.goNamed('job_seeker_swipe');
+                              } else {
+                                context.goNamed('company_swipe');
+                              }
                             } else {
                               // Show error message
                               Get.snackbar(
