@@ -38,24 +38,7 @@ class TermOfUsePage extends StatelessWidget {
               'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/term_of_use', // Set the current route for TermOfUsePage
-        onItemTapped: (index) {
-          switch (index) {
-            case 0:
-              context.goNamed('profile'); // Navigate to profile page
-              break;
-            case 1:
-              context.goNamed('swipe'); // Navigate to swipe page
-              break;
-            case 2:
-              // Already on the term of use page, no navigation needed
-              break;
-            default:
-              break;
-          }
-        },
-      ),
+
     );
   }
 }
