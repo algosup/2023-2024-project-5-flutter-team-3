@@ -1,19 +1,21 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adopte_a_candidate/services/providers/providers.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/cards/card.dart';
 import 'package:provider/provider.dart';
-import '../widgets/fields/container.dart';
-import '../widgets/fields/text_field.dart';
-import '../widgets/logo/logo.dart';
-import '../widgets/navbar/navigation_bar.dart';
-import '../widgets/buttons/modifier_button.dart';
+import '../../widgets/fields/container.dart';
+import '../../widgets/fields/text_field.dart';
+import '../../widgets/logo/logo.dart';
+import '../../widgets/navbar/navigation_bar.dart';
+import '../../widgets/buttons/modifier_button.dart';
 
 // Profile Page, the user will be able to see his profile and modify his information.
 class ProfilePage extends StatefulWidget {
@@ -33,10 +35,6 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isToggledSideSkills = false;
 
   final ValueNotifier<String> _aboutMeTextNotifier = ValueNotifier<String>('');
-  final ValueNotifier<List<String>> _mainSkillsNotifier =
-      ValueNotifier<List<String>>([]);
-  final ValueNotifier<List<String>> _sideSkillsNotifier =
-      ValueNotifier<List<String>>([]);
 
   @override
   void dispose() {
@@ -48,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    var profileState = Provider.of<ProfileState>(context, listen: false);
+    var profileState = Provider.of<ProfileState>(context);
 
     return Scaffold(
       appBar: const Logo(), // Display the logo in the AppBar
@@ -72,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 children: [
                   Text(
-                    'Describe yourself:',
+                    AppLocalizations.of(context)!.describeYourself,
                     style: GoogleFonts.josefinSans(
                       textStyle: const TextStyle(
                         fontSize: 20,
@@ -133,49 +131,58 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(width: 55),
-                Text(
-                  'Add your main skills (max 5):',
-                  style: GoogleFonts.josefinSans(
-                    textStyle: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width - 110,
+                      maxHeight: 100,
                     ),
-                  ),
-                ),
+                  child: AutoSizeText(
+                    AppLocalizations.of(context)!.addYourMainSkills,
+                    style: GoogleFonts.josefinSans(
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  )
+                )
               ],
             ),
             ValueListenableBuilder<List<String>>(
-              valueListenable: _mainSkillsNotifier,
+              valueListenable: ValueNotifier(profileState.mainSkills),
               builder: (context, mainSkills, child) {
                 return Column(
                   children: [
-                    MainTagsContainer(mainSkills: mainSkills),
+                    MainTagsContainer(
+                      mainSkills: mainSkills,
+                      isEditMode: isToggledMainSkills,
+                      removeSkill: (skill) {
+                        profileState.removeMainSkill(skill);
+                      },
+                    ),
                     Visibility(
                       visible: isToggledMainSkills,
                       child: TextField(
                         controller: _controllerMainSkills,
                         decoration: InputDecoration(
-                          hintText: 'Add a skill',
+                          hintText: AppLocalizations.of(context)!.enterMainSkills,
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
-                              if (_mainSkillsNotifier.value.length < 5) {
+                              if (mainSkills.length < 5) {
                                 // Restrict to 5 main skills
                                 final newSkill =
-                                    _controllerMainSkills.text.trim();
+                                _controllerMainSkills.text.trim();
                                 if (newSkill.isNotEmpty &&
-                                    !_mainSkillsNotifier.value
-                                        .contains(newSkill)) {
-                                  _mainSkillsNotifier.value =
-                                      List.from(mainSkills)..add(newSkill);
+                                    !mainSkills.contains(newSkill)) {
+                                  profileState.addMainSkill(newSkill);
                                   _controllerMainSkills.clear();
                                 }
                               } else {
                                 // Show error message if more than 5 skills are added
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          'You can only add up to 5 main skills')),
+                                  SnackBar(
+                                      content: Text(AppLocalizations.of(context)!.errorMainSkills)),
                                 );
                               }
                             },
@@ -202,50 +209,59 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const SizedBox(width: 55),
-                  Text(
-                    'Add your side skills and hobbies \n(max 10):',
-                    style: GoogleFonts.josefinSans(
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                  ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width - 110,
+                        maxHeight: 100,
                       ),
-                    ),
-                  ),
+                      child: AutoSizeText(
+                        AppLocalizations.of(context)!.addYourSideSkills,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      )
+                  )
                 ],
               ),
             ),
             ValueListenableBuilder<List<String>>(
-              valueListenable: _sideSkillsNotifier,
+              valueListenable: ValueNotifier(profileState.sideSkills),
               builder: (context, sideSkills, child) {
                 return Column(
                   children: [
-                    SideSkillsContainer(sideSkills: sideSkills),
+                    SideSkillsContainer(
+                      sideSkills: sideSkills,
+                      isEditMode: isToggledSideSkills,
+                      removeSkill: (skill) {
+                        profileState.removeSideSkill(skill);
+                      },
+                    ),
                     Visibility(
                       visible: isToggledSideSkills,
                       child: TextField(
                         controller: _controllerSideSkills,
                         decoration: InputDecoration(
-                          hintText: 'Add a skill or hobby',
+                          hintText: AppLocalizations.of(context)!.enterSideSkills,
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
-                              if (_sideSkillsNotifier.value.length < 10) {
+                              if (sideSkills.length < 10) {
                                 // Restrict to 10 side skills
                                 final newSkill =
-                                    _controllerSideSkills.text.trim();
+                                _controllerSideSkills.text.trim();
                                 if (newSkill.isNotEmpty &&
-                                    !_sideSkillsNotifier.value
-                                        .contains(newSkill)) {
-                                  _sideSkillsNotifier.value =
-                                      List.from(sideSkills)..add(newSkill);
+                                    !sideSkills.contains(newSkill)) {
+                                  profileState.addSideSkill(newSkill);
                                   _controllerSideSkills.clear();
                                 }
                               } else {
                                 // Show error message if more than 10 skills are added
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          'You can only add up to 10 side skills and hobbies')),
+                                  SnackBar(
+                                      content: Text(AppLocalizations.of(context)!.errorSideSkills)),
                                 );
                               }
                             },
@@ -264,27 +280,25 @@ class _ProfilePageState extends State<ProfilePage> {
                 );
               },
             ),
-            const SizedBox(height: 10),
-            const CardLineHorizontal(), // Displays a horizontal line to comply with the design
+            const SizedBox(height: 20),
           ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/profile', // Set the current route for ProfilePage
+        currentRoute: '/job_seeker_profile', // Set the current route for ProfilePage
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              // Logic for profile page
-              // You're already on the profile page, so no navigation needed
+            // Logic for profile page
+            // You're already on the profile page, so no navigation needed
               break;
             case 1:
-              // Logic for swipe page
-              context.goNamed('swipe'); // Example navigation to the swipe page
+            // Logic for swipe page
+              context.goNamed('job_seeker_swipe'); // Example navigation to the swipe page
               break;
             case 2:
-              // Logic for messages page
-              context.goNamed(
-                  'message'); // Example navigation to the messages page
+            // Logic for messages page
+              context.goNamed('job_seeker_message'); // Example navigation to the messages page
               break;
             default:
               break;

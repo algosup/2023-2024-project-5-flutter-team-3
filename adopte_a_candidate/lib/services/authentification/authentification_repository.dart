@@ -18,17 +18,17 @@ class AuthentificationRepository extends GetxController {
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setInitialScreen);
   }
-  
+
   _setInitialScreen(User? user) {
-    user == null ? Get.offAll(() => const AskIfCompany())
+    user == null ? Get.offAll(() => const Home())
         : Get.offAll(() => const LogIn());
     // TODO change const LogIn to either, swipe page company or swipe page candidate
   }
 
-  Future<void> createUser(String email, String password, String name) async {
+  Future<void> createUser(String email, String password, String name, bool isCompany) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const LogIn()) : Get.to(() => const AskIfCompany());
+      firebaseUser.value != null ? Get.offAll(() => const LogIn()) : Get.to(() => const Home());
     } on FirebaseAuthException catch(e){
       final ex  = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
@@ -80,4 +80,3 @@ class FirebaseAuthService {
     }
   }
 }
-

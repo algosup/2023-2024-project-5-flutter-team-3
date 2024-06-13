@@ -1,9 +1,9 @@
 // Flutter base packages
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Custom Widgets
-import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 
 // This is the message page, the user will see his messages and click on conversation he wants to go to.
@@ -14,7 +14,7 @@ class TermOfUsePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Term of Usage'),
+        title: Text(AppLocalizations.of(context)!.termsOfService),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {

@@ -4,6 +4,7 @@ import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Company profile page
 class CompanyProfilePage extends StatelessWidget {
@@ -26,6 +27,7 @@ class CompanyProfilePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     debugPrint('Settings button pressed');
+                    context.goNamed('settings');
                   },
                   icon: const Icon(Icons.settings),
                 ),
@@ -35,7 +37,7 @@ class CompanyProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'My Job Offers',
+                  AppLocalizations.of(context)!.myOfferTitle,
                   style: GoogleFonts.josefinSans(
                     textStyle: const TextStyle(
                       fontSize: 30,
@@ -68,7 +70,7 @@ class CompanyProfilePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Text(
-                        'Add a new job offer',
+                        AppLocalizations.of(context)!.addOffer,
                         style: GoogleFonts.josefinSans(
                           textStyle: const TextStyle(
                             fontSize: 20,
@@ -94,17 +96,17 @@ class CompanyProfilePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/swipe',
+        currentRoute: '/company_profile',
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              context.goNamed('profile'); // Navigate to profile page
+              // Already on the company profile page
               break;
             case 1:
-            // Already on the swipe page, no navigation needed
+              context.goNamed('company_swipe');
               break;
             case 2:
-              context.goNamed('message'); // Navigate to messages page
+              context.goNamed('company_message'); // Navigate to messages page
               break;
             default:
               break;

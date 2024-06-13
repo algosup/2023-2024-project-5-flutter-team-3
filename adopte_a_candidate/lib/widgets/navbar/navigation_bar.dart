@@ -26,11 +26,11 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   int _getSelectedIndex(String routeName) {
     switch (routeName) {
-      case '/profile':
+      case '/job_seeker_profile' || '/company_profile' || '/profile':
         return 0;
-      case '/swipe':
+      case '/job_seeker_swipe' || '/company_swipe' || '/swipe':
         return 1;
-      case '/message':
+      case '/job_seeker_message' || '/company_message' || '/message':
         return 2;
       default:
         return 0; // Default to the first index if not matched
