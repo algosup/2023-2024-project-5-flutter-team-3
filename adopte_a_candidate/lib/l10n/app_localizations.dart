@@ -269,8 +269,6 @@ abstract class AppLocalizations {
 
   String get swipeSideSkillsTitle;
 
-  String get passwordNotMatch;
-
   String get passwordNotValid;
 
   String get emailNotValid;

@@ -26,9 +26,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get confirmPassword => 'Confirmez votre mot de passe';
 
   @override
-  String get passwordNotMatch => 'Les mots de passe ne correspondent pas';
-
-  @override
   String get isCandidate => 'Je suis un(e) candidat(e)';
 
   @override
