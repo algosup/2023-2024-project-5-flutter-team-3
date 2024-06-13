@@ -269,9 +269,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get swipeSideSkillsTitle => 'Compétences Secondaires';
 
   @override
-  String get passwordNotMatch => 'Les mots de passes ne correspondent pas';
-
-  @override
   String get passwordNotValid => 'Le mot de passe n\'est pas valide';
 
   @override

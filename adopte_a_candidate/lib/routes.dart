@@ -1,3 +1,4 @@
+import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_match.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_profile_page.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_swipe_page.dart';
 
