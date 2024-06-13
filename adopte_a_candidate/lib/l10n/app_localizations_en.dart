@@ -278,4 +278,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loading => 'Loading';
+
+  @override
+  String get congratulations => 'Congratulations';
+
+  @override
+  String get successfulMatch => 'A Successful Match!';
+
+  @override
+  String get matchWithCandidate => 'You have successfully matched with a candidate. You may contact them now.';
+
+  @override
+  String get goToMessages => 'Go to Messages';
+
+  @override
+  String get goToSwipe => 'Go to Swipe';
+
+  @override
+  String get waitForContact => 'You can now wait for the company to contact you.';
+
+  @override
+  String get swipeExample3OfferTitle => 'Tech Lead';
+
+  @override
+  String get swipeExample3OfferDescription => "Lead our tech team as a Tech Lead! Oversee the design, development, and implementation of software solutions. Mentor and guide junior developers, collaborate with cross-functional teams, and ensure high-quality code delivery. Drive innovation and manage projects across all development phases in a fast-paced, dynamic environment.";
+
+  @override
+  String get swipeExample3OfferMainTag3 => 'UI/UX Design';
+
+  @override
+  String get swipeExample3OfferSideTag0 => 'Frontend Development';
+
+  @override
+  String get swipeExample3OfferSideTag2 => 'Backend Development';
 }

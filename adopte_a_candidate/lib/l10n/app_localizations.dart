@@ -276,6 +276,29 @@ abstract class AppLocalizations {
   String get emailAlreadyInUse;
 
   String get loading;
+
+  String get congratulations;
+
+  String get successfulMatch;
+
+  String get matchWithCandidate;
+
+  String get goToMessages;
+
+  String get goToSwipe;
+
+  String get waitForContact;
+
+  String get swipeExample3OfferTitle;
+
+  String get swipeExample3OfferDescription;
+
+  String get swipeExample3OfferMainTag3;
+
+  String get swipeExample3OfferSideTag0;
+
+  String get swipeExample3OfferSideTag2;
+
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

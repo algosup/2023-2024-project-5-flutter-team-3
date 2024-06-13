@@ -35,19 +35,19 @@ class CustomTextButton extends StatelessWidget {
           maxHeight: maxHeight,
         ),
         child: TextButton(
-      onPressed: () {
-        context.goNamed(pageName);
-      },
-      child: AutoSizeText(
-        text,
-        textAlign: TextAlign.center,
-        style: GoogleFonts.josefinSans(
-          textStyle: TextStyle(
-              color: Colors.black,
-              fontSize: textWidth,
-              decoration: TextDecoration.underline),
-        ),
-      ),
-    ));
+          onPressed: () {
+            context.goNamed(pageName);
+          },
+          child: AutoSizeText(
+            text,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.josefinSans(
+              textStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: textWidth,
+                  decoration: TextDecoration.underline),
+            ),
+          ),
+        ));
   }
 }

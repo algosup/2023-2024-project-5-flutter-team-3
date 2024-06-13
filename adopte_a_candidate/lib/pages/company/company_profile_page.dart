@@ -57,12 +57,12 @@ class CompanyProfilePage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: 60,
                 decoration: BoxDecoration(
-                    color: const Color(0xFFF5F5F5),
-                    border: Border.all(
-                        color: const Color(0xffffd5c2),
-                        style: BorderStyle.solid,
-                        width: 2.0),
-                    borderRadius: BorderRadius.circular(20.0),
+                  color: const Color(0xFFF5F5F5),
+                  border: Border.all(
+                      color: const Color(0xffffd5c2),
+                      style: BorderStyle.solid,
+                      width: 2.0),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

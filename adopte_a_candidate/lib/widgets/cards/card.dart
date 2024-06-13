@@ -154,7 +154,8 @@ Widget buildNursePractitionerCard() {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: Text(
-                        AppLocalizations.of(context)!.swipeAppreciatedSkillsTitle,
+                        AppLocalizations.of(context)!
+                            .swipeAppreciatedSkillsTitle,
                         style: GoogleFonts.josefinSans(
                           textStyle: const TextStyle(
                             color: Colors.black,
@@ -310,7 +311,8 @@ Widget buildSoftwareDeveloperCard() {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: Text(
-                        AppLocalizations.of(context)!.swipeAppreciatedSkillsTitle,
+                        AppLocalizations.of(context)!
+                            .swipeAppreciatedSkillsTitle,
                         style: GoogleFonts.josefinSans(
                           textStyle: const TextStyle(
                             color: Colors.black,
@@ -391,8 +393,7 @@ Widget buildTechLeadCard() {
                   children: [
                     Center(
                       child: Text(
-                        'Tech Lead',
-                        //AppLocalizations.of(context)!.swipeExample3OfferTitle,
+                        AppLocalizations.of(context)!.swipeExample3OfferTitle,
                         style: GoogleFonts.josefinSans(
                           textStyle: const TextStyle(
                             color: Colors.black,
@@ -404,15 +405,13 @@ Widget buildTechLeadCard() {
                     ),
                     const SizedBox(height: 5),
                     const CardLineHorizontal(),
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.symmetric(vertical: 10.0),
                       child: Text(
-                        'Lead our tech team as a Tech Lead! Oversee the design, development, and implementation of software solutions. '
-                            'Mentor and guide junior developers, collaborate with cross-functional teams, and ensure high-quality code delivery. '
-                            'Drive innovation and manage projects across all development phases in a fast-paced, dynamic environment.',
-                        //AppLocalizations.of(context)!.swipeExample3OfferDescription,
+                        AppLocalizations.of(context)!
+                            .swipeExample3OfferDescription,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontFamily: 'Josefin Sans',
@@ -437,30 +436,21 @@ Widget buildTechLeadCard() {
                         ),
                       ),
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TagRequiredSkills(
-                            text: 'Flutter'
-                            //AppLocalizations.of(context)!.swipeExample3OfferMainTag0
-                    ),
-                        TagRequiredSkills(
-                            text: 'Dart'
-                            // AppLocalizations.of(context)!.swipeExample3OfferMainTag1
-                          ),
+                        TagRequiredSkills(text: 'Flutter'),
+                        TagRequiredSkills(text: 'Dart'),
                       ],
                     ),
                     const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        const TagRequiredSkills(text: 'Firebase'),
                         TagRequiredSkills(
-                            text: 'Firebase'
-                          //AppLocalizations.of(context)!.swipeExample3OfferMainTag2
-                            ),
-                        TagRequiredSkills(
-                            text: 'UI/UX design'
-                            //AppLocalizations.of(context)!.swipeExample3OfferMainTag3
+                          text: AppLocalizations.of(context)!
+                              .swipeExample3OfferMainTag3,
                         ),
                       ],
                     ),
@@ -470,7 +460,8 @@ Widget buildTechLeadCard() {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: Text(
-                        AppLocalizations.of(context)!.swipeAppreciatedSkillsTitle,
+                        AppLocalizations.of(context)!
+                            .swipeAppreciatedSkillsTitle,
                         style: GoogleFonts.josefinSans(
                           textStyle: const TextStyle(
                             color: Colors.black,
@@ -485,36 +476,31 @@ Widget buildTechLeadCard() {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TagAppreciatedSkills(
-                            text: 'Frontend development'
-                          //AppLocalizations.of(context)!.swipeExample3OfferSideTag0
+                          text: AppLocalizations.of(context)!
+                              .swipeExample3OfferSideTag0,
                         ),
-                        TagAppreciatedSkills(
-                            text: 'Node.js'
-                            //AppLocalizations.of(context)!.swipeExample3OfferSideTag1
-                        ),
+                        const TagAppreciatedSkills(text: 'Node.js'),
                       ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TagAppreciatedSkills(
-                            text: 'Backend development'
-                            //AppLocalizations.of(context)!.swipeExample3OfferSideTag2
-                        ),
-
+                            text: AppLocalizations.of(context)!
+                                .swipeExample3OfferSideTag2),
                       ],
                     ),
                     const SizedBox(height: 5),
                     const CardLineHorizontal(),
                     const SizedBox(height: 2),
-                    Row(
+                    const Row(
                       children: [
-                        const localizationButton(),
+                        localizationButton(),
                         Text(
                           'New York, NY, USA',
                           //AppLocalizations.of(context)!.swipeExample3OfferLocation,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -530,4 +516,3 @@ Widget buildTechLeadCard() {
     },
   );
 }
-

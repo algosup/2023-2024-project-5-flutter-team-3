@@ -11,7 +11,7 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/cards/card.dart';
 import 'package:adopte_a_candidate/widgets/cards/tag.dart';
 import 'package:adopte_a_candidate/widgets/buttons/localization_button.dart';
-
+import 'package:adopte_a_candidate/pages/company/company_match.dart';
 import '../../widgets/buttons/swipe_page_buttons.dart';
 
 // Swipe page, the user can swipe profile or job that he likes
@@ -27,6 +27,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
   Offset _startDragOffset = Offset.zero;
   Offset _currentOffset = Offset.zero;
   bool _isDragging = false;
+  bool _showMatch = false; //
 
   List<Widget> _cards = [];
   int _currentIndex = 0;
@@ -35,8 +36,8 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
   void initState() {
     super.initState();
     _cards = [
-      buildNursePractitionerCard(),
-      buildSoftwareDeveloperCard(),
+      buildNursePractitionerProfileCard(),
+      buildSoftwareDeveloperProfileCard(),
     ];
   }
 
@@ -54,12 +55,10 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
   }
 
   void _onPanEnd(DragEndDetails details) {
-    if (_isSelected() || _isRejected()) {
-      setState(() {
-        _isDragging = false;
-        _currentOffset = Offset.zero;
-        _currentIndex = (_currentIndex + 1) % _cards.length;
-      });
+    if (_isSelected()) {
+      _acceptOffer();
+    } else if (_isRejected()) {
+      _denyOffer();
     } else {
       setState(() {
         _isDragging = false;
@@ -78,17 +77,20 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
 
   void _acceptOffer() {
     print('Offer accepted');
-    // Implement the logic for accepting an offer
     setState(() {
+      _showMatch = true; // Show the match card when an offer is accepted
       _currentIndex = (_currentIndex + 1) % _cards.length;
+      _isDragging = false;
+      _currentOffset = Offset.zero;
     });
   }
 
   void _denyOffer() {
     print('Offer denied');
-    // Implement the logic for denying an offer
     setState(() {
       _currentIndex = (_currentIndex + 1) % _cards.length;
+      _isDragging = false;
+      _currentOffset = Offset.zero;
     });
   }
 
@@ -105,37 +107,60 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
     return Scaffold(
       backgroundColor: color,
       appBar: const Logo(),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Stack(
+      body: Stack(
+        children: [
+          LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  _currentIndex < _cards.length
-                      ? Transform.translate(
-                    offset: offset,
-                    child: Transform.rotate(
-                      angle: rotation,
-                      child: GestureDetector(
-                        onPanStart: _onPanStart,
-                        onPanUpdate: _onPanUpdate,
-                        onPanEnd: _onPanEnd,
-                        child: _cards[_currentIndex],
-                      ),
-                    ),
-                  )
-                      : Container(),
+                  Expanded(
+                    child: _currentIndex < _cards.length
+                        ? Transform.translate(
+                            offset: offset,
+                            child: Transform.rotate(
+                              angle: rotation,
+                              child: GestureDetector(
+                                onPanStart: _onPanStart,
+                                onPanUpdate: _onPanUpdate,
+                                onPanEnd: _onPanEnd,
+                                child: _cards[_currentIndex],
+                              ),
+                            ),
+                          )
+                        : Container(),
+                  ),
+                  buttonsSwipePage(
+                    isDragging: _isDragging,
+                    onAccept: _acceptOffer,
+                    onDeny: _denyOffer,
+                  ),
                 ],
+              );
+            },
+          ),
+          if (_showMatch)
+            Positioned.fill(
+              child: Container(
+                color: Colors.black54,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: MatchCompany(
+                      onDismiss: () {
+                        setState(() {
+                          _showMatch = false;
+                        });
+                      },
+                      onNavigateToMessages: () {
+                        context.goNamed('company_message');
+                      },
+                    ),
+                  ),
+                ),
               ),
-              buttonsSwipePage(
-                isDragging: _isDragging,
-                onAccept: _acceptOffer,
-                onDeny: _denyOffer,
-              ),
-            ],
-          );
-        },
+            ),
+        ],
       ),
       bottomNavigationBar: CustomBottomNavBar(
         currentRoute: '/job_seeker_swipe',
@@ -145,7 +170,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
               context.goNamed('company_profile');
               break;
             case 1:
-            // Already on the swipe page, no navigation needed
+              // Already on the swipe page, no navigation needed
               break;
             case 2:
               context.goNamed('company_message');
@@ -158,7 +183,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
     );
   }
 
-  Widget buildNursePractitionerCard() {
+  Widget buildNursePractitionerProfileCard() {
     return Builder(
       builder: (BuildContext context) {
         return ConstrainedBox(
@@ -181,7 +206,8 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Text(
-                      AppLocalizations.of(context)!.swipeExample1SeekerDescription,
+                      AppLocalizations.of(context)!
+                          .swipeExample1SeekerDescription,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.black,
@@ -211,23 +237,33 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerMainTag0),
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerMainTag1),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerMainTag0),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerMainTag1),
                     ],
                   ),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerMainTag2),
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerMainTag3),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerMainTag2),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerMainTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerMainTag3),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerMainTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -250,15 +286,23 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerSideTag0),
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerSideTag1),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerSideTag0),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerSideTag1),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerSideTag2),
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample1SeekerSideTag3),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerSideTag2),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample1SeekerSideTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -268,7 +312,8 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                     children: [
                       const localizationButton(),
                       Text(
-                        AppLocalizations.of(context)!.swipeExample1OfferLocation,
+                        AppLocalizations.of(context)!
+                            .swipeExample1OfferLocation,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
@@ -285,7 +330,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
     );
   }
 
-  Widget buildSoftwareDeveloperCard() {
+  Widget buildSoftwareDeveloperProfileCard() {
     return Builder(
       builder: (BuildContext context) {
         return ConstrainedBox(
@@ -308,7 +353,8 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Text(
-                      AppLocalizations.of(context)!.swipeExample2OfferDescription,
+                      AppLocalizations.of(context)!
+                          .swipeExample2OfferDescription,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.black,
@@ -338,16 +384,24 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag0),
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag1),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferMainTag0),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferMainTag1),
                     ],
                   ),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag2),
-                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2OfferMainTag3),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferMainTag2),
+                      TagRequiredSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferMainTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -370,14 +424,20 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2OfferSideTag0),
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2OfferSideTag1),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferSideTag0),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferSideTag1),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2OfferSideTag2),
+                      TagAppreciatedSkills(
+                          text: AppLocalizations.of(context)!
+                              .swipeExample2OfferSideTag2),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -387,7 +447,8 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                     children: [
                       const localizationButton(),
                       Text(
-                        AppLocalizations.of(context)!.swipeExample2OfferLocation,
+                        AppLocalizations.of(context)!
+                            .swipeExample2OfferLocation,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,

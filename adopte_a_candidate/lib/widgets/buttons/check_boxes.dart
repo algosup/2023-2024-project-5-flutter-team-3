@@ -19,6 +19,5 @@ Widget buildRoundCheckBox({
     uncheckedColor: uncheckedColor,
     size: size,
     checkedWidget: checkedWidget,
-
   );
 }

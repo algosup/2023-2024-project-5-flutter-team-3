@@ -20,20 +20,24 @@ class AuthentificationRepository extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    user == null ? Get.offAll(() => const Home())
+    user == null
+        ? Get.offAll(() => const Home())
         : Get.offAll(() => const LogIn());
     // TODO change const LogIn to either, swipe page company or swipe page candidate
   }
 
-  Future<void> createUser(String email, String password, String name, bool isCompany) async {
+  Future<void> createUser(
+      String email, String password, String name, bool isCompany) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const LogIn()) : Get.to(() => const Home());
-    } on FirebaseAuthException catch(e){
-      final ex  = SignUpWithEmailAndPasswordFailure.code(e.code);
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      firebaseUser.value != null
+          ? Get.offAll(() => const LogIn())
+          : Get.to(() => const Home());
+    } on FirebaseAuthException catch (e) {
+      final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
-    }
-    catch (_){
+    } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       print('EXCEPTION - ${ex.message}');
       throw ex;
@@ -42,23 +46,20 @@ class AuthentificationRepository extends GetxController {
 
   Future<void> loginWithEmailAndPassword(String email, String password) async {
     try {
-      await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-    }
-    catch (_){}
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } catch (_) {}
   }
 
   Future<void> logout() async => await _auth.signOut();
-
 }
 
-
-
 class FirebaseAuthService {
-  static Future<void> registerUser(String email, String password, String name, bool isCompany) async {
+  static Future<void> registerUser(
+      String email, String password, String name, bool isCompany) async {
     try {
       // Create user with email and password
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );

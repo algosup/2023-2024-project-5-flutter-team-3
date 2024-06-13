@@ -279,4 +279,37 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get loading => 'Chargement';
+
+  @override
+  String get congratulations => 'Félicitations!';
+
+  @override
+  String get successfulMatch => "Vous avez un match !";
+
+  @override
+  String get matchWithCandidate => "Vous avez un match avec un candidat !";
+
+  @override
+  String get goToMessages => "Allez aux messages";
+
+  @override
+  String get goToSwipe => "Retournez Swiper";
+
+  @override
+  String get waitForContact => "Vous pouvez maintenant attendre que l'entreprise vous contacte.";
+
+  @override
+  String get swipeExample3OfferTitle => "Responsable Technique";
+
+  @override
+  String get swipeExample3OfferDescription => "Dirigez notre équipe technique en tant que Tech Lead ! Superviser la conception, le développement et la mise en œuvre de solutions logicielles. Encadrer et guider les développeurs juniors, collaborer avec des équipes interfonctionnelles et assurer une livraison de code de haute qualité. Vous êtes à l'origine de l'innovation et gérez des projets à travers toutes les phases de développement dans un environnement dynamique et en constante évolution.";
+
+  @override
+  String get swipeExample3OfferMainTag3 => "Design UI/UX";
+
+  @override
+  String get swipeExample3OfferSideTag0 => 'Developpement Frontend';
+
+  @override
+  String get swipeExample3OfferSideTag2 => 'Developpement Backend';
 }

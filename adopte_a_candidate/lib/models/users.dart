@@ -1,8 +1,5 @@
-
-
 // This class is the model for the user, principally aimed to the database to store data from the user.
 class UserModel {
-
   final String? ID;
   final String? LANGUAGE;
   final String MAIL;
@@ -10,12 +7,14 @@ class UserModel {
   final String PASSWORD;
   final bool isCompany;
 
-
-
-
   UserModel({
-  this.ID, this.LANGUAGE, required this.MAIL, required this.NAME,
-  required this.PASSWORD, required this.isCompany,});
+    this.ID,
+    this.LANGUAGE,
+    required this.MAIL,
+    required this.NAME,
+    required this.PASSWORD,
+    required this.isCompany,
+  });
 
   toJson() {
     return {
@@ -28,5 +27,3 @@ class UserModel {
     };
   }
 }
-
-

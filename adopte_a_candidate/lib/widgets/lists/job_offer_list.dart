@@ -46,26 +46,26 @@ class _JobOfferListState extends State<JobOfferList> {
     return Expanded(
       child: Column(
         children: [
-          (_isEditable == false)?
-          modifierButton(
-            onTap: () {
-              debugPrint('Modifier button tapped');
-              setState(() {
-                _isEditable = true;
-              });
-            },
-          )
+          (_isEditable == false)
+              ? modifierButton(
+                  onTap: () {
+                    debugPrint('Modifier button tapped');
+                    setState(() {
+                      _isEditable = true;
+                    });
+                  },
+                )
               : ValidButton(
-            onTap: () {
-              debugPrint('Valid button tapped');
-              setState(() {
-                _isEditable = false;
-              });
-            },
-          ),
+                  onTap: () {
+                    debugPrint('Valid button tapped');
+                    setState(() {
+                      _isEditable = false;
+                    });
+                  },
+                ),
           const SizedBox(height: 20),
           Container(
-            height: MediaQuery.of(context).size.height  * 0.42,
+            height: MediaQuery.of(context).size.height * 0.42,
             decoration: BoxDecoration(
                 color: const Color(0xFFF5F5F5),
                 border: Border.all(
@@ -100,17 +100,17 @@ class _JobOfferListState extends State<JobOfferList> {
                           title: Text(jobOffers[index]),
                           trailing: (_isEditable == false)
                               ? IconButton(
-                              icon: const Icon(Icons.arrow_forward_ios),
-                              onPressed: () {
-                                context.goNamed('edit_job_offer');
-                              })
+                                  icon: const Icon(Icons.arrow_forward_ios),
+                                  onPressed: () {
+                                    context.goNamed('edit_job_offer');
+                                  })
                               : IconButton(
-                            icon: const Icon(Icons.highlight_off,
-                                color: Colors.red, size: 35),
-                            onPressed: () {
-                              debugPrint('Delete job offer');
-                            },
-                          ),
+                                  icon: const Icon(Icons.highlight_off,
+                                      color: Colors.red, size: 35),
+                                  onPressed: () {
+                                    debugPrint('Delete job offer');
+                                  },
+                                ),
                         ),
                       ),
                     );

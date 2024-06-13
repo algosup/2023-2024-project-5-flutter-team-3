@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 // Tag widget for both Required Skills and Appreciated Skills
 class Tag extends StatelessWidget {
   final String text;
@@ -123,4 +122,3 @@ class TagProfileSkills extends StatelessWidget {
     );
   }
 }
-

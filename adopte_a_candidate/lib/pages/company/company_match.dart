@@ -1,12 +1,15 @@
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MatchJobSeeker extends StatelessWidget {
-  final VoidCallback onDismiss;
+import '../../l10n/app_localizations.dart';
 
-  const MatchJobSeeker({
+class MatchCompany extends StatelessWidget {
+  final VoidCallback onDismiss;
+  final VoidCallback onNavigateToMessages;
+
+  const MatchCompany({
     required this.onDismiss,
+    required this.onNavigateToMessages,
     super.key,
   });
 
@@ -52,7 +55,7 @@ class MatchJobSeeker extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              AppLocalizations.of(context)!.waitForContact,
+              AppLocalizations.of(context)!.matchWithCandidate,
               textAlign: TextAlign.center,
               style: GoogleFonts.josefinSans(
                 textStyle: const TextStyle(
@@ -63,9 +66,31 @@ class MatchJobSeeker extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                onDismiss();
-              },
+              onPressed: onNavigateToMessages,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 10,
+                ),
+              ),
+              child: Text(
+                AppLocalizations.of(context)!.goToMessages,
+                style: GoogleFonts.josefinSans(
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: onDismiss,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
                 shape: RoundedRectangleBorder(

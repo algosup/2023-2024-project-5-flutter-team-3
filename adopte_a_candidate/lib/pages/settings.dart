@@ -26,7 +26,6 @@ class _SettingsPageState extends State<SettingsPage> {
   final TextEditingController _controllerLanguage = TextEditingController();
   String _selectedLanguage = 'English'; // Default selected language
 
-
   final List<String> _languages = [
     'English',
     'French',
@@ -55,9 +54,9 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _controllerName.text =  "john doe";
-    _controllerEmail.text =  "john.doe@super-mail.com";
-    _controllerLocalization.text= 'Paris, France'; // Default localization
+    _controllerName.text = "john doe";
+    _controllerEmail.text = "john.doe@super-mail.com";
+    _controllerLocalization.text = 'Paris, France'; // Default localization
     return Scaffold(
       appBar: const Logo(),
       body: SingleChildScrollView(

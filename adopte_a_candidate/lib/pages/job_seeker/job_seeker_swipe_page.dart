@@ -2,17 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Widgets package
 import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:adopte_a_candidate/widgets/cards/card.dart';
-import 'package:adopte_a_candidate/widgets/cards/tag.dart';
-import 'package:adopte_a_candidate/widgets/buttons/localization_button.dart';
 
 import '../../widgets/buttons/swipe_page_buttons.dart';
+import 'job_seeker_match.dart';
 
 // Swipe page, the user can swipe profile or job that he likes
 // Swipe page, the user can swipe profile or job that he likes
@@ -27,7 +24,8 @@ class _SwipePageState extends State<SwipePage> {
   Offset _startDragOffset = Offset.zero;
   Offset _currentOffset = Offset.zero;
   bool _isDragging = false;
-  bool _showMatch = false; // Variable to control the visibility of the match card
+  bool _showMatch =
+      false; // Variable to control the visibility of the match card
 
   List<Widget> _cards = [];
   int _currentIndex = 0;
@@ -39,7 +37,6 @@ class _SwipePageState extends State<SwipePage> {
       buildNursePractitionerCard(),
       buildSoftwareDeveloperCard(),
       buildTechLeadCard(),
-
     ];
   }
 
@@ -120,17 +117,17 @@ class _SwipePageState extends State<SwipePage> {
                     children: [
                       _currentIndex < _cards.length
                           ? Transform.translate(
-                        offset: offset,
-                        child: Transform.rotate(
-                          angle: rotation,
-                          child: GestureDetector(
-                            onPanStart: _onPanStart,
-                            onPanUpdate: _onPanUpdate,
-                            onPanEnd: _onPanEnd,
-                            child: _cards[_currentIndex],
-                          ),
-                        ),
-                      )
+                              offset: offset,
+                              child: Transform.rotate(
+                                angle: rotation,
+                                child: GestureDetector(
+                                  onPanStart: _onPanStart,
+                                  onPanUpdate: _onPanUpdate,
+                                  onPanEnd: _onPanEnd,
+                                  child: _cards[_currentIndex],
+                                ),
+                              ),
+                            )
                           : Container(),
                     ],
                   ),
@@ -172,7 +169,7 @@ class _SwipePageState extends State<SwipePage> {
               context.goNamed('job_seeker_profile');
               break;
             case 1:
-            // Already on the swipe page, no navigation needed
+              // Already on the swipe page, no navigation needed
               break;
             case 2:
               context.goNamed('job_seeker_message');
@@ -181,99 +178,6 @@ class _SwipePageState extends State<SwipePage> {
               break;
           }
         },
-      ),
-    );
-  }
-}
-
-
-class MatchJobSeeker extends StatelessWidget {
-  final VoidCallback onDismiss;
-
-  const MatchJobSeeker({
-    required this.onDismiss,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      color: const Color(0xFFFFD5C2),
-      elevation: 10,
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(
-              Icons.check_circle_outline,
-              color: Colors.green,
-              size: 100,
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Congratulations!',
-              style: GoogleFonts.josefinSans(
-                textStyle: const TextStyle(
-                  color: Colors.teal,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              'You have a match!',
-              style: GoogleFonts.josefinSans(
-                textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              'You can now wait for the company to contact you.',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.josefinSans(
-                textStyle: const TextStyle(
-                  color: Colors.black54,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                onDismiss();
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 10,
-                ),
-              ),
-              child: Text(
-                'Back to Swipe',
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
