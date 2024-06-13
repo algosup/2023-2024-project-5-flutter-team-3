@@ -38,9 +38,8 @@ class _SwipePageState extends State<SwipePage> {
     _cards = [
       buildNursePractitionerCard(),
       buildSoftwareDeveloperCard(),
-      buildJobOfferCard1(),
-      buildJobOfferCard2(),
-      buildJobOfferCard3()
+      buildTechLeadCard(),
+
     ];
   }
 
