@@ -268,6 +268,16 @@ abstract class AppLocalizations {
   String get swipeMainSkillsTitle;
 
   String get swipeSideSkillsTitle;
+
+  String get passwordNotMatch;
+
+  String get passwordNotValid;
+
+  String get emailNotValid;
+
+  String get emailAlreadyInUse;
+
+  String get loading;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

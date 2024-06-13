@@ -1,6 +1,7 @@
 // splash_screen.dart
+import 'package:adopte_a_candidate/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,18 +26,23 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: Logo(),
+    return Scaffold(
+      appBar: const Logo(),
       body: Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(height: 20),
-              CircularProgressIndicator(),
-              SizedBox(height: 20),
-              Text('Loading your dream job...'),
-            ],
-          ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const SizedBox(height: 20),
+            const CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFFFD5C2)),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              AppLocalizations.of(context)!.loading,
+              style: const TextStyle(fontSize: 20),
+            ),
+          ],
+        ),
       ),
     );
   }

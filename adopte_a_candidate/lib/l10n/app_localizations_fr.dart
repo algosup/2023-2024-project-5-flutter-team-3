@@ -267,4 +267,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get swipeSideSkillsTitle => 'Compétences Secondaires';
+
+  @override
+  String get passwordNotMatch => 'Les mots de passes ne correspondent pas';
+
+  @override
+  String get passwordNotValid => 'Le mot de passe n\'est pas valide';
+
+  @override
+  String get emailNotValid => 'L\'email n\'est pas valide';
+
+  @override
+  String get emailAlreadyInUse => 'L\'email est déjà utilisé';
+
+  @override
+  String get loading => 'Chargement';
 }
