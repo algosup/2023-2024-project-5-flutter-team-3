@@ -6,7 +6,6 @@ import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
-import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:adopte_a_candidate/widgets/lists/select_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';

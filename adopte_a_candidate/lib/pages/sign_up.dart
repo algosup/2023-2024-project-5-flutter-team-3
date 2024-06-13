@@ -56,7 +56,6 @@ class _AskIfCompanyState extends State<Home> {
     final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!regex.hasMatch(value)) {
       return AppLocalizations.of(context)!.emailNotValid;
-      ;
     }
     return null;
   }
