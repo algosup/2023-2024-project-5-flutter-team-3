@@ -267,8 +267,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get swipeSideSkillsTitle => 'Side Skills';
 
-  @override
-  String get passwordNotMatch => 'Passwords do not match';
+
 
   @override
   String get passwordNotValid => 'Password is not valid';
