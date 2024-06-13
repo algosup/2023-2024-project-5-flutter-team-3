@@ -99,6 +99,8 @@ abstract class AppLocalizations {
 
   String get password;
 
+  String get passwordNotMatch;
+
   String get enterName;
 
   String get enterEmail;

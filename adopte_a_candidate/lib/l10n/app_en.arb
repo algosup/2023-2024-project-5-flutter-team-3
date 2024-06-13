@@ -12,6 +12,10 @@
   "@password": {
     "description": "Password"
   },
+  "passwordNotMatch": "Passwords do not match",
+  "@passwordNotMatch": {
+    "description": "Error message when the passwords do not match"
+  },
   "enterName": "Enter your name",
   "@enterName": {
     "description": "Enter your name"

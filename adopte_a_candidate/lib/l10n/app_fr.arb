@@ -12,6 +12,10 @@
   "@password": {
     "description": "Votre mot de passe"
   },
+  "passwordNotMatch": "Les mots de passe ne correspondent pas",
+    "@passwordNotMatch": {
+        "description": "Message d'erreur lorsque les mots de passe ne correspondent pas"
+    },
   "enterName": "Entrez votre nom",
   "@enterName": {
     "description": "Entrez votre nom"

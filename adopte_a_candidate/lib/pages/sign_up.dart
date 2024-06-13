@@ -73,7 +73,7 @@ class _AskIfCompanyState extends State<Home> {
       return AppLocalizations.of(context)!.confirmPassword;
     }
     if (value != password) {
-      return 'Passwords do not match';
+      return AppLocalizations.of(context)!.passwordNotMatch;
     }
     return null;
   }
