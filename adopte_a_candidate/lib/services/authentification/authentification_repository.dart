@@ -25,7 +25,7 @@ class AuthentificationRepository extends GetxController {
     // TODO change const LogIn to either, swipe page company or swipe page candidate
   }
 
-  Future<void> createUser(String email, String password, String name) async {
+  Future<void> createUser(String email, String password, String name, bool isCompany) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
       firebaseUser.value != null ? Get.offAll(() => const LogIn()) : Get.to(() => const Home());

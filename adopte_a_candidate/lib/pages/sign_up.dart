@@ -21,7 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class _AskIfCompanyState extends State<Home> {
-  bool isJobSeeker = false;
+  bool isJobSeeker = true;
   bool isCompany = false;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -40,6 +40,13 @@ class _AskIfCompanyState extends State<Home> {
         }
       }
     });
+  }
+
+  String? _validateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations.of(context)!.enterName;
+    }
+    return null;
   }
 
   String? _validateEmail(String? value) {
@@ -116,6 +123,7 @@ class _AskIfCompanyState extends State<Home> {
                     isObscure: false,
                     showToggle: false,
                     isEmail: false,
+                    validator: _validateName,
                   ),
                   const SizedBox(height: 15),
                   CustomTextField(
@@ -176,8 +184,7 @@ class _AskIfCompanyState extends State<Home> {
                         height: 50,
                         textWidth: 20,
                         onPressed: () {
-                          if (_formKey.currentState?.validate() == true &&
-                              (isJobSeeker || isCompany)) {
+                          if (_formKey.currentState!.validate() == true){
                             // Add your sign-up logic here, and then navigate to the log_in page
                             context.go('/log_in');
                           } else {
