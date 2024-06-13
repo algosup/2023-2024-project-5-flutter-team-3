@@ -3,6 +3,7 @@ import 'package:adopte_a_candidate/widgets/cards/tag.dart';
 import 'package:adopte_a_candidate/widgets/lists/company_message_list.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Custom Widgets
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
@@ -55,7 +56,7 @@ class CompanyMessageLobbyPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(
-                          'Sorted by:',
+                          AppLocalizations.of(context)!.sortTitle,
                           style: GoogleFonts.josefinSans(
                             textStyle: const TextStyle(
                               fontSize: 16,
@@ -73,29 +74,29 @@ class CompanyMessageLobbyPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: 'Alphabetical'),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Tag(text: AppLocalizations.of(context)!.sort0),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: 'Last message sent'),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Tag(text: AppLocalizations.of(context)!.sort1),
                       ),
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: 'Job title'),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Tag(text: AppLocalizations.of(context)!.sort2),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: 'Last message received'),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Tag(text: AppLocalizations.of(context)!.sort3),
                       ),
                     ],
                   ),

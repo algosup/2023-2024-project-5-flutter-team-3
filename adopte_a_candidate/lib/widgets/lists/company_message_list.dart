@@ -1,19 +1,4 @@
 import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/l10n/app_localizations.dart';
-import 'package:adopte_a_candidate/widgets/buttons/modifier_button.dart';
-import 'package:adopte_a_candidate/widgets/buttons/valid_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

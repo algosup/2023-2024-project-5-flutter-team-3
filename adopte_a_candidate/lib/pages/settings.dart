@@ -1,4 +1,5 @@
 import 'package:adopte_a_candidate/main.dart';
+import 'package:adopte_a_candidate/pages/splash_screen.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/delete_button.dart';
 import 'package:adopte_a_candidate/widgets/fields/localization_field.dart';
@@ -23,8 +24,19 @@ class _SettingsPageState extends State<SettingsPage> {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerLocalization = TextEditingController();
   final TextEditingController _controllerLanguage = TextEditingController();
-  String _selectedLanguage = 'English'; // Default selected language
+  Widget _body = const WaitingPage();
+  String? _selectedLanguage; // Default selected language
 
+
+  void _setLanguage() async{
+    final prefs = await SharedPreferences.getInstance();
+    String lang = prefs.getString('language') ?? 'en';
+    if (lang == 'en') {
+      _selectedLanguage = 'English';
+    } else {
+      _selectedLanguage = 'French';
+    }
+  }
 
   final List<String> _languages = [
     'English',
@@ -53,7 +65,22 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _setLanguage();
+    Future.delayed(Duration.zero, () {
+      setState(() {
+        _body = _buildSettingInPage(context);
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    return _body;
+  }
+
+  Widget _buildSettingInPage(BuildContext context) {
     _controllerName.text =  "john doe";
     _controllerEmail.text =  "john.doe@super-mail.com";
     _controllerLocalization.text= 'Paris, France'; // Default localization
@@ -131,8 +158,8 @@ class _SettingsPageState extends State<SettingsPage> {
               SelectList(
                 controller: _controllerLanguage,
                 title: AppLocalizations.of(context)!.language,
-                defaultItem: _selectedLanguage,
-                selectedItem: _selectedLanguage,
+                defaultItem: _selectedLanguage!,
+                selectedItem: _selectedLanguage!,
                 items: _languages,
                 width: MediaQuery.of(context).size.width - 32,
                 height: 40,

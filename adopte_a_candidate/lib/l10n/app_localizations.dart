@@ -332,6 +332,16 @@ abstract class AppLocalizations {
   String get exampleMessage12;
 
   String get exampleMessage13;
+
+  String get sort0;
+
+  String get sort1;
+
+  String get sort2;
+
+  String get sort3;
+
+  String get sortTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

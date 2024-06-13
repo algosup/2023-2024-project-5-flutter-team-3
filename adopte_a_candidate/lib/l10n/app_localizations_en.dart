@@ -362,4 +362,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exampleMessage13 => 'Them: Sure, thank you so m...';
+
+  @override
+  String get sort0 => 'Alphabetical';
+
+  @override
+  String get sort1 => 'Last message sent';
+
+  @override
+  String get sort2 => 'Job title';
+
+  @override
+  String get sort3 => 'Last message received';
+
+  @override
+  String get sortTitle => 'Sort by:';
 }
