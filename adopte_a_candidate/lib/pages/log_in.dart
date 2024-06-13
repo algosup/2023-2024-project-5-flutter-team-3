@@ -10,7 +10,7 @@ import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
-import 'package:adopte_a_candidate/widgets/loadings/loading_page.dart';
+import 'package:adopte_a_candidate/pages/splash_screen.dart';
 
 // Custom controllers
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
@@ -24,7 +24,7 @@ class LogIn extends StatefulWidget {
 
 // This is the login page of the app
 class _LogInState extends State<LogIn> {
-  Widget _body = const LoadingPage();
+  Widget _body = const WaitingPage();
   bool? _isCompany;
   String? lang;
 
