@@ -9,6 +9,7 @@ import 'package:adopte_a_candidate/pages/company/company_swipe_page.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message.dart';
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
+import 'package:adopte_a_candidate/pages/splash_screen.dart';
 import 'package:adopte_a_candidate/pages/settings.dart';
 import 'package:adopte_a_candidate/pages/term_of_use.dart';
 
@@ -18,6 +19,13 @@ import 'package:flutter/material.dart';
 final GoRouter router = GoRouter(
   initialLocation: '/sign_up',
   routes: <RouteBase>[
+    GoRoute(
+      path: '/splash',
+      name: 'splash',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SplashScreen();
+      },
+    ),
     GoRoute(
       path: '/sign_up',
       name: 'home',
@@ -45,33 +53,29 @@ final GoRouter router = GoRouter(
           return const MessagePage();
         }),
     GoRoute(
-      path: '/job_seeker_profile',
-      name: 'job_seeker_profile',
-      pageBuilder: (BuildContext context, GoRouterState state) {
-        return const MaterialPage(child: ProfilePage());
-      }
-    ),
+        path: '/job_seeker_profile',
+        name: 'job_seeker_profile',
+        pageBuilder: (BuildContext context, GoRouterState state) {
+          return const MaterialPage(child: ProfilePage());
+        }),
     GoRoute(
-      path: '/company_profile',
-      name: 'company_profile',
-      builder: (BuildContext context, GoRouterState state) {
-        return const CompanyProfilePage();
-      }
-    ),
+        path: '/company_profile',
+        name: 'company_profile',
+        builder: (BuildContext context, GoRouterState state) {
+          return const CompanyProfilePage();
+        }),
     GoRoute(
-      path: '/new_job_offer',
-      name: 'new_job_offer',
-      builder: (BuildContext context, GoRouterState state) {
-        return const NewJobOfferPage();
-      }
-    ),
+        path: '/new_job_offer',
+        name: 'new_job_offer',
+        builder: (BuildContext context, GoRouterState state) {
+          return const NewJobOfferPage();
+        }),
     GoRoute(
-      path: '/edit_job_offer',
-      name: 'edit_job_offer',
-      builder: (BuildContext context, GoRouterState state) {
-        return const EditJobOfferPage();
-      }
-    ),
+        path: '/edit_job_offer',
+        name: 'edit_job_offer',
+        builder: (BuildContext context, GoRouterState state) {
+          return const EditJobOfferPage();
+        }),
     GoRoute(
         path: '/settings',
         name: 'settings',
@@ -89,7 +93,6 @@ final GoRouter router = GoRouter(
         name: 'company_swipe',
         builder: (BuildContext context, GoRouterState state) {
           return const CompanySwipePage();
-        }
-    )
+        }),
   ],
 );

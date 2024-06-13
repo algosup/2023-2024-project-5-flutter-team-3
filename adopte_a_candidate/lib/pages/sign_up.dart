@@ -13,7 +13,6 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 // Controllers package
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -49,7 +48,8 @@ class _AskIfCompanyState extends State<Home> {
     }
     final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!regex.hasMatch(value)) {
-      return 'Enter a valid email';
+      return AppLocalizations.of(context)!.enterEmail;
+      ;
     }
     return null;
   }
@@ -66,7 +66,7 @@ class _AskIfCompanyState extends State<Home> {
       return AppLocalizations.of(context)!.confirmPassword;
     }
     if (value != password) {
-      return 'password do not match';
+      return 'Passwords do not match';
     }
     return null;
   }
@@ -215,7 +215,7 @@ class _AskIfCompanyState extends State<Home> {
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

@@ -18,7 +18,7 @@ class AuthentificationRepository extends GetxController {
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setInitialScreen);
   }
-  
+
   _setInitialScreen(User? user) {
     user == null ? Get.offAll(() => const Home())
         : Get.offAll(() => const LogIn());
@@ -80,4 +80,3 @@ class FirebaseAuthService {
     }
   }
 }
-
