@@ -5,6 +5,34 @@ import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 import 'package:go_router/go_router.dart';
 
+class WaitingPage extends StatelessWidget {
+  const WaitingPage({super.key});
+
+  @override
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const Logo(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const SizedBox(height: 20),
+            const CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFFFD5C2)),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              AppLocalizations.of(context)!.loading,
+              style: const TextStyle(fontSize: 20),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
