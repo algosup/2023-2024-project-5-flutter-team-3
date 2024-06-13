@@ -148,7 +148,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
             // Already on the swipe page, no navigation needed
               break;
             case 2:
-              context.goNamed('company_message');
+              context.goNamed('company_message_lobby');
               break;
             default:
               break;
