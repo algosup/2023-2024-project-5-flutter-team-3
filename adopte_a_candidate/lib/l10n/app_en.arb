@@ -1,0 +1,392 @@
+{
+  "@@locale": "en",
+  "name": "Name",
+  "@name": {
+    "description": "Name in the sign up page"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password"
+  },
+  "passwordNotMatch": "Passwords do not match",
+  "@passwordNotMatch": {
+    "description": "Error message when the passwords do not match"
+  },
+  "enterName": "Enter your name",
+  "@enterName": {
+    "description": "Enter your name"
+  },
+  "enterEmail": "Enter your email",
+  "@enterEmail": {
+    "description": "Enter your email"
+  },
+  "enterPassword": "Enter your password",
+  "@enterPassword": {
+    "description": "Enter your password"
+  },
+  "confirmPassword": "Confirm Password",
+  "@confirmPassword": {
+    "description": "Confirm Password"
+  },
+  "isCandidate": "I am a candidate",
+  "@isCandidate": {
+    "description": "Linked to the boxes in the sign up page"
+  },
+  "isCompany": "I am a company (HR)",
+  "@isCompany": {
+    "description": "Linked to the boxes in the sign up page"
+  },
+  "subscribe": "Subscribe",
+  "@subscribe": {
+    "description": "Subscribe button in the sign up page"
+  },
+  "alreadyHaveAccount": "Already have an account? Log in",
+  "@alreadyHaveAccount": {
+    "description": "Already have an account? text"
+  },
+  "forgotPassword": "Forgot password?",
+  "@forgotPassword": {
+    "description": "Forgot password? text"
+  },
+  "login": "Log in",
+  "@login": {
+    "description": "Log in button"
+  },
+  "noAccount": "Don't have an account? Sign up",
+  "@noAccount": {
+    "description": "Don't have an account? text"
+  },
+  "addNewOffer": "Add a new job offer",
+  "@addNewOffer": {
+    "description": "Add a new job offer page title"
+  },
+  "offerTitle": "Job offer title",
+  "@offerTitle": {
+    "description": "Job offer title field"
+  },
+  "enterOfferTitle": "Enter the job offer title",
+  "@enterOfferTitle": {
+    "description": "Enter the job offer title hint text"
+  },
+  "offerDescription": "Job offer description",
+  "@offerDescription": {
+    "description": "Job offer description field"
+  },
+  "enterOfferDescription": "Enter the job offer description",
+  "@enterOfferDescription": {
+    "description": "Enter the job offer description hint text"
+  },
+  "offerLocation": "Job offer location",
+  "@offerLocation": {
+    "description": "Job offer location field"
+  },
+  "enterOfferLocation": "Enter the job offer location",
+  "@enterOfferLocation": {
+    "description": "Enter the job offer location hint text"
+  },
+  "offerMainTag": "Required main Skill Tags",
+  "@offerMainTag": {
+    "description": "Main Skill Tags field"
+  },
+  "enterOfferMainTag": "Enter the main skill tags",
+  "@enterOfferMainTag": {
+    "description": "Enter the main skill tags hint text"
+  },
+  "offerSideTag": "Required side Skill Tags",
+  "@offerSideTag": {
+    "description": "Side Skill Tags field"
+  },
+  "enterOfferSideTag": "Enter the side skill tags",
+  "@enterOfferSideTag": {
+    "description": "Enter the side skill tags hint text"
+  },
+  "addOffer": "Add job offer",
+  "@addOffer": {
+    "description": "Add job offer button"
+  },
+  "editOfferTitle": "Edit job offer",
+  "@editOfferTitle": {
+    "description": "Edit job offer page title"
+  },
+  "saveOffer": "Save job offer",
+  "@saveOffer": {
+    "description": "Save job offer button"
+  },
+  "myOfferTitle": "My job offers",
+  "@myOfferTitle": {
+    "description": "My job offers page title"
+  },
+  "describeYourself": "Describe yourself",
+  "@describeYourself": {
+    "description": "Describe yourself field title"
+  },
+  "enterDescription": "Enter your description",
+  "@enterDescription": {
+    "description": "Enter your description hint text"
+  },
+  "addYourMainSkills": "Add your main skills (max 5)",
+  "@addYourMainSkills": {
+    "description": "Add your main skills field title"
+  },
+  "enterMainSkills": "Add a main skill",
+  "@enterMainSkills": {
+    "description": "Add a main skill hint text"
+  },
+  "errorMainSkills": "You can only add 5 main skills",
+  "@errorMainSkills": {
+    "description": "Error message when trying to add more than 5 main skills"
+  },
+  "addYourSideSkills": "Add your side skills and hobbies (max 10)",
+  "@addYourSideSkills": {
+    "description": "Add your side skills field title"
+  },
+  "enterSideSkills": "Add a side skills or hobby",
+  "@enterSideSkills": {
+    "description": "Enter your side skills hint text"
+  },
+  "errorSideSkills": "You can only add 10 side skills",
+  "@errorSideSkills": {
+    "description": "Error message when trying to add more than 10 side skills"
+  },
+  "swipeExample1OfferTitle": "Nurse Practitioner",
+  "@swipeExampleOfferTitle": {
+    "description": "Example job offer title"
+  },
+  "swipeExample1OfferDescription": "We are looking for a nurse practitioner to join our team. The ideal candidate will have a strong background in nursing and be able to work well in a team environment.",
+  "@swipeExampleOfferDescription": {
+    "description": "Example job offer description"
+  },
+  "swipeRequiredSkillsTitle": "Required Skills",
+  "@swipeRequiredSkillsTitle": {
+    "description": "Required Skills field title"
+  },
+  "swipeExample1OfferMainTag0": "Adaptability",
+  "@swipeExample1OfferMainTag0": {
+    "description": "Example job offer main tag 0"
+  },
+  "swipeExample1OfferMainTag1": "Time Management",
+  "@swipeExample1OfferMainTag1": {
+    "description": "Example job offer main tag 1"
+  },
+  "swipeExample1OfferMainTag2": "Problem Solving",
+  "@swipeExample1OfferMainTag2": {
+    "description": "Example job offer main tag 2"
+  },
+  "swipeExample1OfferMainTag3": "Humor",
+  "@swipeExample1OfferMainTag3": {
+    "description": "Example job offer main tag 3"
+  },
+  "swipeExample1OfferMainTag4": "Respect",
+  "@swipeExample1OfferMainTag4": {
+    "description": "Example job offer main tag 4"
+  },
+  "swipeAppreciatedSkillsTitle": "Appreciated Skills",
+  "@swipeAppreciatedSkillsTitle": {
+    "description": "Appreciated Skills field title"
+  },
+  "swipeExample1OfferSideTag0": "Compassion",
+  "@swipeExample1OfferSideTag0": {
+    "description": "Example job offer side tag 0"
+  },
+  "swipeExample1OfferSideTag1": "Patience",
+  "@swipeExample1OfferSideTag1": {
+    "description": "Example job offer side tag 1"
+  },
+  "swipeExample1OfferSideTag2": "Networking",
+  "@swipeExample1OfferSideTag2": {
+    "description": "Example job offer side tag 2"
+  },
+  "swipeExample1OfferSideTag3": "Empathy",
+  "@swipeExample1OfferSideTag3": {
+    "description": "Example job offer side tag 3"
+  },
+  "swipeExample1OfferLocation": "18100, Vierzon, France",
+  "@swipeExampleOfferLocation": {
+    "description": "Example job offer location"
+  },
+  "swipeExample2OfferTitle": "Software Developer",
+  "@swipeExample2OfferTitle": {
+    "description": "Example job offer title"
+  },
+  "swipeExample2OfferDescription": "Join our tech team as a Software Developer! You’ll design, build, and maintain efficient, reusable, and reliable code. Collaborate with cross-functional teams, troubleshoot, and optimize software solutions. Contribute to all phases of the development lifecycle in a fast-paced and dynamic environment.",
+  "@swipeExample2OfferDescription": {
+    "description": "Example job offer description"
+  },
+  "swipeExample2OfferMainTag0": "Problem Solving",
+  "@swipeExample2OfferMainTag0": {
+    "description": "Example job offer main tag 0"
+  },
+  "swipeExample2OfferMainTag1": "Teamwork",
+  "@swipeExample2OfferMainTag1": {
+    "description": "Example job offer main tag 1"
+  },
+  "swipeExample2OfferMainTag2": "Communication",
+  "@swipeExample2OfferMainTag2": {
+    "description": "Example job offer main tag 2"
+  },
+  "swipeExample2OfferMainTag3": "Programming",
+  "@swipeExample2OfferMainTag3": {
+    "description": "Example job offer main tag 3"
+  },
+  "swipeExample2OfferSideTag0": "Creativity",
+  "@swipeExample2OfferSideTag0": {
+    "description": "Example job offer side tag 0"
+  },
+  "swipeExample2OfferSideTag1": "Attention to Detail",
+  "@swipeExample2OfferSideTag1": {
+    "description": "Example job offer side tag 1"
+  },
+  "swipeExample2OfferSideTag2": "Networking",
+  "@swipeExample2OfferSideTag2": {
+    "description": "Example job offer side tag 2"
+  },
+  "swipeExample2OfferLocation": "10100, Techville, USA",
+  "@swipeExample2OfferLocation": {
+    "description": "Example job offer location"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Settings page title"
+  },
+  "localization": "Localization",
+  "@localization": {
+    "description": "Localization section title"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language field title"
+  },
+  "deleteAccount": "Delete Account",
+  "@deleteAccount": {
+    "description": "Delete Account button"
+  },
+  "logout": "Log out",
+  "@logout": {
+    "description": "Log out button"
+  },
+  "termsOfService": "Terms of Service",
+  "@termsOfService": {
+    "description": "Terms of Service button"
+  },
+  "swipeExample1SeekerDescription": "I am highly motivated and passionate about self-improvement. In my free time, I practice rugby, which has taught me teamwork, discipline, and resilience. I eagerly seek new experiences and skills, believing that challenges are essential for personal and professional growth.",
+  "@swipeExample1SeekerDescription": {
+    "description": "Example job seeker description"
+  },
+  "swipeExample1SeekerMainTag0": "Adaptability",
+  "@swipeExample1SeekerMainTag0": {
+    "description": "Example job seeker main tag 0"
+  },
+  "swipeExample1SeekerMainTag1": "Time Management",
+  "@swipeExample1SeekerMainTag1": {
+    "description": "Example job seeker main tag 1"
+  },
+  "swipeExample1SeekerMainTag2": "Problem Solving",
+  "@swipeExample1SeekerMainTag2": {
+    "description": "Example job seeker main tag 2"
+  },
+  "swipeExample1SeekerMainTag3": "Humor",
+  "@swipeExample1SeekerMainTag3": {
+    "description": "Example job seeker main tag 3"
+  },
+  "swipeExample1SeekerSideTag0": "Rugby",
+  "@swipeExample1SeekerSideTag0": {
+    "description": "Example job seeker side tag 0"
+  },
+  "swipeExample1SeekerSideTag1": "Books",
+  "@swipeExample1SeekerSideTag1": {
+    "description": "Example job seeker side tag 1"
+  },
+  "swipeExample1SeekerSideTag2": "Networking",
+  "@swipeExample1SeekerSideTag2": {
+    "description": "Example job seeker side tag 2"
+  },
+  "swipeExample1SeekerSideTag3": "Empathy",
+  "@swipeExample1SeekerSideTag3": {
+    "description": "Example job seeker side tag 3"
+  },
+  "swipeExample1SeekerSideTag4": "Patience",
+  "@swipeExample1SeekerSideTag4": {
+    "description": "Example job seeker side tag 4"
+  },
+  "swipeExample2SeekerDescription": "I am a software developer with a passion for creating innovative solutions. I have experience in full-stack development, working with a variety of programming languages and technologies. I am a team player who enjoys collaborating with others to solve complex problems and deliver high-quality software.",
+  "@swipeExample2SeekerDescription": {
+    "description": "Example job seeker description"
+  },
+  "swipeExample2SeekerMainTag0": "Problem Solving",
+  "@swipeExample2SeekerMainTag0": {
+    "description": "Example job seeker main tag 0"
+  },
+  "swipeExample2SeekerMainTag1": "Teamwork",
+  "@swipeExample2SeekerMainTag1": {
+    "description": "Example job seeker main tag 1"
+  },
+  "swipeExample2SeekerMainTag2": "Communication",
+  "@swipeExample2SeekerMainTag2": {
+    "description": "Example job seeker main tag 2"
+  },
+  "swipeExample2SeekerMainTag3": "Programming",
+  "@swipeExample2SeekerMainTag3": {
+    "description": "Example job seeker main tag 3"
+  },
+  "swipeExample2SeekerSideTag0": "Creativity",
+  "@swipeExample2SeekerSideTag0": {
+    "description": "Example job seeker side tag 0"
+  },
+  "swipeExample2SeekerSideTag1": "Motivation",
+  "@swipeExample2SeekerSideTag1": {
+    "description": "Example job seeker side tag 1"
+  },
+  "swipeExample2SeekerSideTag2": "Drawing",
+  "@swipeExample2SeekerSideTag2": {
+    "description": "Example job seeker side tag 2"
+  },
+  "swipeExample3OfferTitle": "Tech Lead",
+    "@swipeExample3OfferTitle": {
+        "description": "Example job offer title"
+    },
+  "swipeExample3OfferDescription": "Lead our tech team as a Tech Lead! Oversee the design, development, and implementation of software solutions. Mentor and guide junior developers, collaborate with cross-functional teams, and ensure high-quality code delivery. Drive innovation and manage projects across all development phases in a fast-paced, dynamic environment.",
+    "@swipeExample3OfferDescription": {
+        "description": "Example job offer description"
+    },
+  "swipeExample3OfferMainTag3": "UI/UX Design",
+    "@swipeExample3OfferMainTag3": {
+        "description": "Example job offer main tag 3"
+    },
+  "swipeExample3OfferSideTag0": "Frontend Development",
+    "@swipeExample3OfferSideTag0": {
+        "description": "Example job offer side tag 0"
+    },
+  "swipeExample3OfferSideTag2": "Backend Development",
+    "@swipeExample3OfferSideTag2": {
+        "description": "Example job offer side tag 2"
+    },
+  "congratulations": "Congratulations!",
+    "@congratulations": {
+        "description": "Congratulations! text"
+    },
+  "successfullMatch": "A Successful Match!",
+    "@successfullMatch": {
+        "description": "A Successful Match! text"
+    },
+  "matchWithCandidate": "You have successfully matched with a candidate. You may contact them now.",
+    "@matchWithCandidate": {
+        "description": "You have successfully matched with a candidate. You may contact them now. text"
+    },
+  "goToMessages": "Go to Messages",
+    "@goToMessages": {
+        "description": "Go to Messages button"
+    },
+  "goToSwipe": "Back to Swipe",
+    "@goToSwipe": {
+        "description": "Back to Swipe button"
+    },
+  "waitForContact": "You can now wait for the company to contact you.",
+    "@waitForContact": {
+        "description": "You can now wait for the company to contact you. text"
+    }
+}
+
