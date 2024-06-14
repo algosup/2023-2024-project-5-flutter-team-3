@@ -1,6 +1,8 @@
 import 'package:adopte_a_candidate/pages/change_password.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_profile_page.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_swipe_page.dart';
+import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message_lobby.dart';
+
 
 import 'package:adopte_a_candidate/pages/company/company_profile_page.dart';
 import 'package:adopte_a_candidate/pages/company/new_job_offer_page.dart';
@@ -9,7 +11,7 @@ import 'package:adopte_a_candidate/pages/company/company_swipe_page.dart';
 import 'package:adopte_a_candidate/pages/company/company_message_lobby_page.dart';
 import 'package:adopte_a_candidate/pages/company/company_message_page.dart';
 
-import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message.dart';
+
 import 'package:adopte_a_candidate/pages/sign_up.dart';
 import 'package:adopte_a_candidate/pages/log_in.dart';
 import 'package:adopte_a_candidate/pages/splash_screen.dart';
@@ -53,7 +55,7 @@ final GoRouter router = GoRouter(
         path: '/job_seeker_message',
         name: 'job_seeker_message',
         builder: (BuildContext context, GoRouterState state) {
-          return const MessagePage();
+          return const JobSeekerMessageLobby();
         }),
     GoRoute(
         path: '/job_seeker_profile',
