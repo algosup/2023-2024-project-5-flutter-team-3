@@ -153,7 +153,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                         });
                       },
                       onNavigateToMessages: () {
-                        context.goNamed('company_message');
+                        context.goNamed('company_message_lobby');
                       },
                     ),
                   ),
