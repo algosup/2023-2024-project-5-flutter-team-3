@@ -29,80 +29,14 @@ class JobSeekerMessageLobby extends StatelessWidget {
                 Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Icon(
-                      Icons.work,
+                      Icons.business_center_rounded,
                       color: Color(0xFFFFD5C2),
                       size: 50,
                     ),
                 ),
               ],
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 140,
-              decoration: BoxDecoration(
-                color: const Color(0xFFF5F5F5),
-                border: Border.all(
-                    color: const Color(0xffffd5c2),
-                    style: BorderStyle.solid,
-                    width: 2.0),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text(
-                          AppLocalizations.of(context)!.sortTitle,
-                          style: GoogleFonts.josefinSans(
-                            textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                      ),
-                     const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Icon(
-                          Icons.filter_alt,
-                          color: Color(0xFFFFD5C2),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: AppLocalizations.of(context)!.sort0),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: AppLocalizations.of(context)!.sort1),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: AppLocalizations.of(context)!.sort2),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Tag(text: AppLocalizations.of(context)!.sort3),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+
             const SizedBox(
               height: 10,
             ),

@@ -60,7 +60,7 @@ class _JobSeekerMessageListState extends State<JobSeekerMessageList> {
                   elevation: 0.0,
                   child: GestureDetector(
                     onTap: () {
-                      context.goNamed('job_seeker_message');
+                      context.goNamed('job_seeker_message_conv');
                     },
                     child: Container(
                       decoration: const BoxDecoration(

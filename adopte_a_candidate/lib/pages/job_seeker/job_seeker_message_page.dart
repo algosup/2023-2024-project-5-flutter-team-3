@@ -6,18 +6,18 @@ import 'package:adopte_a_candidate/models/messages.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CompanyMessagePage extends StatefulWidget {
-  const CompanyMessagePage({Key? key}) : super(key: key);
+class JobSeekerMessagePage extends StatefulWidget {
+  const JobSeekerMessagePage({Key? key}) : super(key: key);
 
   @override
-  _CompanyMessagePageState createState() => _CompanyMessagePageState();
+  _JobSeekerMessagePageState createState() => _JobSeekerMessagePageState();
 }
 
-class _CompanyMessagePageState extends State<CompanyMessagePage> {
+class _JobSeekerMessagePageState extends State<JobSeekerMessagePage> {
   List<Message> messages = [
     Message(
       message:
-          'Hello your profile is interesting are you available for a meeting?',
+      'Hello your profile is interesting are you available for a meeting?',
       isYou: true,
     ),
     Message(
@@ -33,8 +33,8 @@ class _CompanyMessagePageState extends State<CompanyMessagePage> {
       isYou: false,
     ),
     Message(
-        message: 'Nice come at 10am at 10 rue de la paix, 75000 Paris',
-        isYou: true,
+      message: 'Nice come at 10am at 10 rue de la paix, 75000 Paris',
+      isYou: true,
     )
   ];
 
@@ -49,7 +49,7 @@ class _CompanyMessagePageState extends State<CompanyMessagePage> {
             children: [
               IconButton(
                 onPressed: () async {
-                  context.goNamed('company_message_lobby');
+                  context.goNamed('job_seeker_message');
                 },
                 icon: const Icon(Icons.arrow_back_ios_new),
               ),
@@ -65,7 +65,7 @@ class _CompanyMessagePageState extends State<CompanyMessagePage> {
                   ),
                   child: Center(
                     child: Text(
-                      'Applicant #9011',
+                      'Company #9011',
                       style: GoogleFonts.josefinSans(
                         textStyle: const TextStyle(
                           fontSize: 24,
@@ -80,7 +80,7 @@ class _CompanyMessagePageState extends State<CompanyMessagePage> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Icon(
-                  Icons.person,
+                  Icons.business_center_rounded,
                   color: Color(0xFFFFD5C2),
                   size: 50,
                 ),
@@ -120,7 +120,7 @@ class _CompanyMessagePageState extends State<CompanyMessagePage> {
                                 child: ConstrainedBox(
                                   constraints: BoxConstraints(
                                     maxWidth:
-                                        MediaQuery.of(context).size.width * 0.6,
+                                    MediaQuery.of(context).size.width * 0.6,
                                   ),
                                   child: AutoSizeText(
                                     messages[index].message,

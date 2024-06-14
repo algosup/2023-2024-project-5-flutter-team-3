@@ -2,6 +2,7 @@ import 'package:adopte_a_candidate/pages/change_password.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_profile_page.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_swipe_page.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message_lobby.dart';
+import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_message_page.dart';
 
 
 import 'package:adopte_a_candidate/pages/company/company_profile_page.dart';
@@ -117,6 +118,12 @@ final GoRouter router = GoRouter(
         name: 'company_message',
         builder: (BuildContext context, GoRouterState state) {
           return const CompanyMessagePage();
+        }),
+    GoRoute(
+        path: '/job_seeker/job_seeker_message_page',
+        name: 'job_seeker_message_conv',
+        builder: (BuildContext context, GoRouterState state) {
+          return const JobSeekerMessagePage();
         }),
   ],
 );
