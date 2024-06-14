@@ -14,6 +14,7 @@ class CompanyMessagePage extends StatefulWidget {
 }
 
 class _CompanyMessagePageState extends State<CompanyMessagePage> {
+  TextEditingController messageText = TextEditingController();
   List<Message> messages = [
     Message(
       message:
@@ -157,16 +158,23 @@ class _CompanyMessagePageState extends State<CompanyMessagePage> {
             ),
             child: Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: messageText,
+                    decoration: const InputDecoration(
                       hintText: 'Type a message',
                     ),
                   ),
                 ),
                 IconButton(
                   onPressed: () {
-                    debugPrint('Send message');
+                    setState(() {
+                      messages.add(Message(
+                        message: messageText.text,
+                        isYou: true,
+                      ));
+                      messageText.clear();
+                    });
                   },
                   icon: const Icon(Icons.send),
                 ),

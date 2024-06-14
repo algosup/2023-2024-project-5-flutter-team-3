@@ -14,6 +14,7 @@ class JobSeekerMessagePage extends StatefulWidget {
 }
 
 class _JobSeekerMessagePageState extends State<JobSeekerMessagePage> {
+  TextEditingController messageText = TextEditingController();
   List<Message> messages = [
     Message(
       message:
@@ -157,16 +158,23 @@ class _JobSeekerMessagePageState extends State<JobSeekerMessagePage> {
             ),
             child: Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: messageText,
+                    decoration: const InputDecoration(
                       hintText: 'Type a message',
                     ),
                   ),
                 ),
                 IconButton(
                   onPressed: () {
-                    debugPrint('Send message');
+                    setState(() {
+                      messages.add(Message(
+                        message: messageText.text,
+                        isYou: true,
+                      ));
+                      messageText.clear();
+                    });
                   },
                   icon: const Icon(Icons.send),
                 ),
