@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // Settings button widget
 class SettingsButton extends StatelessWidget {
   final VoidCallback onPressed;

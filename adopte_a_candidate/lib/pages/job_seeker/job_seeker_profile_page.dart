@@ -94,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           aboutMeTextNotifier: _aboutMeTextNotifier),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(370, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(350, 0, 0, 0),
                       child: Visibility(
                         visible: !isToggledAboutMe,
                         replacement: GestureDetector(
@@ -136,16 +136,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       maxWidth: MediaQuery.of(context).size.width - 110,
                       maxHeight: 100,
                     ),
-                  child: AutoSizeText(
-                    AppLocalizations.of(context)!.addYourMainSkills,
-                    style: GoogleFonts.josefinSans(
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                    child: AutoSizeText(
+                      AppLocalizations.of(context)!.addYourMainSkills,
+                      style: GoogleFonts.josefinSans(
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                  )
-                )
+                    ))
               ],
             ),
             ValueListenableBuilder<List<String>>(
@@ -165,14 +164,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: TextField(
                         controller: _controllerMainSkills,
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.enterMainSkills,
+                          hintText:
+                              AppLocalizations.of(context)!.enterMainSkills,
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
                               if (mainSkills.length < 5) {
                                 // Restrict to 5 main skills
                                 final newSkill =
-                                _controllerMainSkills.text.trim();
+                                    _controllerMainSkills.text.trim();
                                 if (newSkill.isNotEmpty &&
                                     !mainSkills.contains(newSkill)) {
                                   profileState.addMainSkill(newSkill);
@@ -182,7 +182,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 // Show error message if more than 5 skills are added
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                      content: Text(AppLocalizations.of(context)!.errorMainSkills)),
+                                      content: Text(
+                                          AppLocalizations.of(context)!
+                                              .errorMainSkills)),
                                 );
                               }
                             },
@@ -222,8 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                      )
-                  )
+                      ))
                 ],
               ),
             ),
@@ -244,14 +245,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: TextField(
                         controller: _controllerSideSkills,
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.enterSideSkills,
+                          hintText:
+                              AppLocalizations.of(context)!.enterSideSkills,
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
                               if (sideSkills.length < 10) {
                                 // Restrict to 10 side skills
                                 final newSkill =
-                                _controllerSideSkills.text.trim();
+                                    _controllerSideSkills.text.trim();
                                 if (newSkill.isNotEmpty &&
                                     !sideSkills.contains(newSkill)) {
                                   profileState.addSideSkill(newSkill);
@@ -261,7 +263,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 // Show error message if more than 10 skills are added
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                      content: Text(AppLocalizations.of(context)!.errorSideSkills)),
+                                      content: Text(
+                                          AppLocalizations.of(context)!
+                                              .errorSideSkills)),
                                 );
                               }
                             },
@@ -285,20 +289,23 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentRoute: '/job_seeker_profile', // Set the current route for ProfilePage
+        currentRoute:
+            '/job_seeker_profile', // Set the current route for ProfilePage
         onItemTapped: (index) {
           switch (index) {
             case 0:
-            // Logic for profile page
-            // You're already on the profile page, so no navigation needed
+              // Logic for profile page
+              // You're already on the profile page, so no navigation needed
               break;
             case 1:
-            // Logic for swipe page
-              context.goNamed('job_seeker_swipe'); // Example navigation to the swipe page
+              // Logic for swipe page
+              context.goNamed(
+                  'job_seeker_swipe'); // Example navigation to the swipe page
               break;
             case 2:
-            // Logic for messages page
-              context.goNamed('job_seeker_message'); // Example navigation to the messages page
+              // Logic for messages page
+              context.goNamed(
+                  'job_seeker_message'); // Example navigation to the messages page
               break;
             default:
               break;

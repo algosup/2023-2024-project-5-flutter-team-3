@@ -67,7 +67,8 @@ class _LocalizationFieldState extends State<LocalizationField> {
         desiredAccuracy: LocationAccuracy.high);
 
     // Reverse geocode the coordinates to get the city
-    return await placemarkFromCoordinates(position.latitude, position.longitude);
+    return await placemarkFromCoordinates(
+        position.latitude, position.longitude);
   }
 
   void getLocalization() {

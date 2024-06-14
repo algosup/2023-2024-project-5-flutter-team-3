@@ -38,22 +38,22 @@ class MainTagsContainer extends StatelessWidget {
               children: mainSkills.map((skill) {
                 return isEditMode
                     ? Stack(
-                  children: [
-                    TagProfileSkills(text: skill),
-                    Positioned(
-                      top: -5,
-                      right: -5,
-                      child: GestureDetector(
-                        onTap: () => removeSkill(skill),
-                        child: const Icon(
-                          Icons.close,
-                          size: 16,
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
+                        children: [
+                          TagProfileSkills(text: skill),
+                          Positioned(
+                            top: -5,
+                            right: -5,
+                            child: GestureDetector(
+                              onTap: () => removeSkill(skill),
+                              child: const Icon(
+                                Icons.close,
+                                size: 16,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     : TagProfileSkills(text: skill);
               }).toList(),
             ),
@@ -100,22 +100,22 @@ class SideSkillsContainer extends StatelessWidget {
               children: sideSkills.map((skill) {
                 return isEditMode
                     ? Stack(
-                  children: [
-                    TagProfileSkills(text: skill),
-                    Positioned(
-                      top: -5,
-                      right: -5,
-                      child: GestureDetector(
-                        onTap: () => removeSkill(skill),
-                        child: const Icon(
-                          Icons.close,
-                          size: 16,
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
+                        children: [
+                          TagProfileSkills(text: skill),
+                          Positioned(
+                            top: -5,
+                            right: -5,
+                            child: GestureDetector(
+                              onTap: () => removeSkill(skill),
+                              child: const Icon(
+                                Icons.close,
+                                size: 16,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     : TagProfileSkills(text: skill);
               }).toList(),
             ),

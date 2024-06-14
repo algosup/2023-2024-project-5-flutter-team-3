@@ -1,8 +1,14 @@
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
-class DeleteButton extends StatelessWidget{
-  const DeleteButton({required this.text, required this.width, required this.height, required this.textWidth, required this.onPressed, super.key});
+class DeleteButton extends StatelessWidget {
+  const DeleteButton(
+      {required this.text,
+      required this.width,
+      required this.height,
+      required this.textWidth,
+      required this.onPressed,
+      super.key});
 
   final String text;
   final double width;
@@ -11,7 +17,7 @@ class DeleteButton extends StatelessWidget{
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return SizedBox(
       width: width,
       height: height,
@@ -35,4 +41,3 @@ class DeleteButton extends StatelessWidget{
     );
   }
 }
-

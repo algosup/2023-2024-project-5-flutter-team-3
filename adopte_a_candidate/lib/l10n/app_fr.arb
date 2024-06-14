@@ -343,7 +343,51 @@
   "swipeExample2SeekerSideTag2": "Dessin",
   "@swipeExample2SeekerSideTag2": {
     "description": "Tag secondaire 2 d'un chercheur d'emploi exemple"
-  }
+  },
+  "swipeExample3OfferTitle": "Responsable Technique",
+    "@swipeExample3OfferTitle": {
+        "description": "Exemple de titre d'offre d'emploi"
+    },
+  "swipeExample3OfferDescription": "Dirigez notre équipe technique en tant que Tech Lead ! Superviser la conception, le développement et la mise en œuvre de solutions logicielles. Encadrer et guider les développeurs juniors, collaborer avec des équipes interfonctionnelles et assurer une livraison de code de haute qualité. Vous êtes à l'origine de l'innovation et gérez des projets à travers toutes les phases de développement dans un environnement dynamique et en constante évolution.",
+    "@swipeExample3OfferDescription": {
+        "description": "Exemple de description d'offre d'emploi"
+    },
+  "swipeExample3OfferMainTag3": "Design UI / UX",
+    "@swipeExample3OfferMainTag3": {
+        "description": "Exemple de compétence principale 3 pour une offre d'emploi"
+    },
+  "swipeExample3OfferSideTag0": "Developpement Frontend",
+    "@swipeExample3OfferSideTag0": {
+        "description": "Exemple de compétence secondaire 0 pour une offre d'emploi"
+    },
+  "swipeExample3OfferSideTag2": "Development Backend",
+    "@swipeExample3OfferSideTag2": {
+        "description": "Exemple de compétence secondaire 2 pour une offre d'emploi"
+    },
+  "congratulations": "Félicitations !",
+    "@congratulations": {
+        "description": "Message de félicitations"
+    },
+  "successfullMatch": "Vous avez un match !",
+    "@successfullMatch": {
+        "description": "Message de match réussi"
+    },
+  "matchWithCandidate": "Vous avez un match avec un candidat !",
+    "@matchWithCandidate": {
+        "description": "Message de match avec un candidat"
+    },
+  "goToMessages": "Allez aux messages",
+    "@goToMessages": {
+        "description": "Bouton pour aller aux messages"
+    },
+  "goToSwipe": "Retournez Swiper",
+    "@goToSwipe": {
+        "description": "Bouton pour aller à Swipe"
+    },
+  "waitForContact": "Attendez que la compagnie vous contacte",
+    "@waitForContact": {
+        "description": "Message d'attente de contact"
+    }
 }
 
 

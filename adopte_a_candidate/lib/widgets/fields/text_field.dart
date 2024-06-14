@@ -62,8 +62,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           TextFormField(
             obscureText: _isObscure,
-            keyboardType:
-            widget.isEmail ? TextInputType.emailAddress : TextInputType.text,
+            keyboardType: widget.isEmail
+                ? TextInputType.emailAddress
+                : TextInputType.text,
             controller: widget.controller,
             decoration: InputDecoration(
               filled: true,
@@ -75,18 +76,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
-              hintText: widget.hintText, // hintText for the text field, describes what the field is for
+              hintText: widget
+                  .hintText, // hintText for the text field, describes what the field is for
               suffixIcon: widget.showToggle
                   ? IconButton(
-                icon: Icon(
-                  _isObscure ? Icons.visibility : Icons.visibility_off,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _isObscure = !_isObscure;
-                  });
-                },
-              )
+                      icon: Icon(
+                        _isObscure ? Icons.visibility : Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isObscure = !_isObscure;
+                        });
+                      },
+                    )
                   : null,
             ),
             validator: widget.validator,
@@ -96,7 +98,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 }
-
 
 class AboutMeTextField extends StatefulWidget {
   const AboutMeTextField({
@@ -163,7 +164,6 @@ class _AboutMeTextFieldState extends State<AboutMeTextField> {
   }
 }
 
-
 class NonWritableAboutMe extends StatelessWidget {
   const NonWritableAboutMe({
     super.key,
@@ -187,7 +187,8 @@ class NonWritableAboutMe extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
-          profileState.aboutMeTexts.join("\n"), // Use the latest text from the ProfileState
+          profileState.aboutMeTexts
+              .join("\n"), // Use the latest text from the ProfileState
           style: const TextStyle(
             fontSize: 20,
           ),

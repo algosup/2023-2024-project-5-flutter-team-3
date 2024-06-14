@@ -276,6 +276,95 @@ abstract class AppLocalizations {
   String get emailAlreadyInUse;
 
   String get loading;
+
+  String get congratulations;
+
+  String get successfulMatch;
+
+  String get matchWithCandidate;
+
+  String get goToMessages;
+
+  String get goToSwipe;
+
+  String get waitForContact;
+
+  String get swipeExample3OfferTitle;
+
+  String get swipeExample3OfferDescription;
+
+  String get swipeExample3OfferMainTag3;
+
+  String get swipeExample3OfferSideTag0;
+
+  String get swipeExample3OfferSideTag2;
+
+  String get offerName0;
+
+  String get offerName1;
+
+  String get offerName2;
+
+  String get offerName3;
+
+  String get offerName4;
+
+  String get offerName5;
+
+  String get offerName6;
+
+  String get offerName7;
+
+  String get offerName8;
+
+  String get offerName9;
+
+  String get offerName10;
+
+  String get offerName11;
+
+  String get offerName12;
+
+  String get offerName13;
+
+  String get exampleMessage0;
+
+  String get exampleMessage1;
+
+  String get exampleMessage2;
+
+  String get exampleMessage3;
+
+  String get exampleMessage4;
+
+  String get exampleMessage5;
+
+  String get exampleMessage6;
+
+  String get exampleMessage7;
+
+  String get exampleMessage8;
+
+  String get exampleMessage9;
+
+  String get exampleMessage10;
+
+  String get exampleMessage11;
+
+  String get exampleMessage12;
+
+  String get exampleMessage13;
+
+  String get sort0;
+
+  String get sort1;
+
+  String get sort2;
+
+  String get sort3;
+
+  String get sortTitle;
+
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 class ValidButton extends StatelessWidget {
   final VoidCallback onTap;
 
-
   const ValidButton({
     super.key,
     required this.onTap,
@@ -21,9 +20,9 @@ class ValidButton extends StatelessWidget {
           child: GestureDetector(
             onTap: onTap,
             child: SvgPicture.asset(
-                'assets/images/check-circle.svg',
-                height: 30,
-                width: 30,
+              'assets/images/check-circle.svg',
+              height: 30,
+              width: 30,
             ),
           ),
         )

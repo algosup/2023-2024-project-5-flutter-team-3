@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 class modifierButton extends StatelessWidget {
   final VoidCallback onTap;
 
-
   const modifierButton({
     super.key,
     required this.onTap,
