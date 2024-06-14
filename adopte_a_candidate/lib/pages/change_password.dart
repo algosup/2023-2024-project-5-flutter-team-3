@@ -1,11 +1,7 @@
 import 'package:adopte_a_candidate/widgets/buttons/big_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
-import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 
 class ForgotPasswordPage extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:adopte_a_candidate/main.dart';
-import 'package:adopte_a_candidate/pages/splash_screen.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/delete_button.dart';
 import 'package:adopte_a_candidate/widgets/fields/localization_field.dart';

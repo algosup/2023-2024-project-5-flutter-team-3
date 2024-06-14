@@ -516,3 +516,293 @@ Widget buildTechLeadCard() {
     },
   );
 }
+
+Widget buildNursePractitionerProfileCard() {
+  return Builder(
+    builder: (BuildContext context) {
+      return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.75,
+            height: MediaQuery.of(context).size.height * 0.55,
+            decoration: BoxDecoration(
+              color: const Color(0xffffd5c2),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 10.0,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                        AppLocalizations.of(context)!
+                            .swipeExample1SeekerDescription,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: 'Josefin Sans',
+                          fontWeight: FontWeight.w400,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                    const CardLineHorizontal(),
+                    const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: Text(
+                        AppLocalizations.of(context)!.swipeMainSkillsTitle,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            height: 0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerMainTag0),
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerMainTag1),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerMainTag2),
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerMainTag3),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerMainTag3),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    const CardLineHorizontal(),
+                    const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: Text(
+                        AppLocalizations.of(context)!.swipeSideSkillsTitle,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            height: 0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerSideTag0),
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerSideTag1),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerSideTag2),
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample1SeekerSideTag3),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    const CardLineHorizontal(),
+                    const SizedBox(height: 2),
+                    Row(
+                      children: [
+                        const localizationButton(),
+                        Text(
+                          AppLocalizations.of(context)!
+                              .swipeExample1OfferLocation,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+
+Widget buildSoftwareDeveloperProfileCard() {
+  return Builder(
+    builder: (BuildContext context) {
+      return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.75,
+            height: MediaQuery.of(context).size.height * 0.55,
+            decoration: BoxDecoration(
+              color: const Color(0xffffd5c2),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 10.0,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                        AppLocalizations.of(context)!
+                            .swipeExample2SeekerDescription,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: 'Josefin Sans',
+                          fontWeight: FontWeight.w400,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                    const CardLineHorizontal(),
+                    const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: Text(
+                        AppLocalizations.of(context)!.swipeMainSkillsTitle,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            height: 0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerMainTag0),
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerMainTag1),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerMainTag2),
+                        TagRequiredSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerMainTag3),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    const CardLineHorizontal(),
+                    const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: Text(
+                        AppLocalizations.of(context)!.swipeSideSkillsTitle,
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            height: 0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerSideTag0),
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerSideTag1),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TagAppreciatedSkills(
+                            text: AppLocalizations.of(context)!
+                                .swipeExample2SeekerSideTag2),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    const CardLineHorizontal(),
+                    const SizedBox(height: 2),
+                    Row(
+                      children: [
+                        const localizationButton(),
+                        Text(
+                          AppLocalizations.of(context)!
+                              .swipeExample2OfferLocation,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}

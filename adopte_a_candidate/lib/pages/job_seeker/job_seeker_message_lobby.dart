@@ -116,10 +116,10 @@ class JobSeekerMessageLobby extends StatelessWidget {
         onItemTapped: (index) {
           switch (index) {
             case 0:
-              context.goNamed('company_profile'); // Navigate to profile page
+              context.goNamed('job_seeker_profile'); // Navigate to profile page
               break;
             case 1:
-              context.goNamed('company_swipe'); // Navigate to swipe page
+              context.goNamed('job_seeker_swipe'); // Navigate to swipe page
               break;
             case 2:
               // Already on the message page, no navigation needed
