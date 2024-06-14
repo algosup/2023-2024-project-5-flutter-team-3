@@ -24,8 +24,8 @@ For this project, we have to develop the following features:
 
 Once a document is created, it will be available in the redirections below.
 
-- **[Managements Artifacts](./Documents/Management/ManagementArtifacts)**
-- **[Weekly Reports](./Documents/Management/WeeklyReports)**
+- **[Managements Artifacts](./Management/ManagementArtifacts)**
+- **[Weekly Reports](./Management/WeeklyReports)**
 - **[Functional Specifications](./Documents/FunctionalSpecification/FunctionalSpecification.md)**
 - **[Technical Specifications](./Documents/TechnicalSpecification/TechnicalSpecification.md)**
 - **[Test Plan](./Documents/TestPlan)**
