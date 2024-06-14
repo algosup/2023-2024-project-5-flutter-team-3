@@ -94,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           aboutMeTextNotifier: _aboutMeTextNotifier),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(370, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(350, 0, 0, 0),
                       child: Visibility(
                         visible: !isToggledAboutMe,
                         replacement: GestureDetector(

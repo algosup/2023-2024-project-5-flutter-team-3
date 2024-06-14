@@ -95,7 +95,7 @@ class _LogInState extends State<LogIn> {
                       CustomTextButton(
                         text: AppLocalizations.of(context)!.forgotPassword,
                         textWidth: 12,
-                        pageName: 'home',
+                        pageName: 'change_password',
                       ),
                     ],
                   ),

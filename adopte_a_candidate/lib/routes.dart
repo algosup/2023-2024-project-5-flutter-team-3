@@ -1,3 +1,4 @@
+import 'package:adopte_a_candidate/pages/change_password.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_profile_page.dart';
 import 'package:adopte_a_candidate/pages/job_seeker/job_seeker_swipe_page.dart';
 
@@ -102,6 +103,13 @@ final GoRouter router = GoRouter(
         builder: (BuildContext context, GoRouterState state) {
           return const CompanyMessageLobbyPage();
         }),
+    GoRoute(
+      path: '/change_password',
+      name: 'change_password',
+      builder: (BuildContext context, GoRouterState state) {
+        return const ForgotPasswordPage();
+      },
+    ),
     GoRoute(
         path: '/company/company_message_page',
         name: 'company_message',
