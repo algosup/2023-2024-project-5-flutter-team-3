@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 
 // Custom Widgets
-import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
+
 
 // This is the message page, the user will see his messages and click on conversation he wants to go to.
 class TermOfUsePage extends StatelessWidget {
