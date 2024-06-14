@@ -30,9 +30,10 @@ class BigButton extends StatelessWidget {
       width: width,
       height: height,
       child: ElevatedButton(
-        onPressed: onPressed ?? () {
-          context.goNamed(pageName);
-        },
+        onPressed: onPressed ??
+            () {
+              context.goNamed(pageName);
+            },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color.fromARGB(255, 255, 213, 194),
         ),

@@ -343,6 +343,50 @@
   "swipeExample2SeekerSideTag2": "Drawing",
   "@swipeExample2SeekerSideTag2": {
     "description": "Example job seeker side tag 2"
-  }
+  },
+  "swipeExample3OfferTitle": "Tech Lead",
+    "@swipeExample3OfferTitle": {
+        "description": "Example job offer title"
+    },
+  "swipeExample3OfferDescription": "Lead our tech team as a Tech Lead! Oversee the design, development, and implementation of software solutions. Mentor and guide junior developers, collaborate with cross-functional teams, and ensure high-quality code delivery. Drive innovation and manage projects across all development phases in a fast-paced, dynamic environment.",
+    "@swipeExample3OfferDescription": {
+        "description": "Example job offer description"
+    },
+  "swipeExample3OfferMainTag3": "UI/UX Design",
+    "@swipeExample3OfferMainTag3": {
+        "description": "Example job offer main tag 3"
+    },
+  "swipeExample3OfferSideTag0": "Frontend Development",
+    "@swipeExample3OfferSideTag0": {
+        "description": "Example job offer side tag 0"
+    },
+  "swipeExample3OfferSideTag2": "Backend Development",
+    "@swipeExample3OfferSideTag2": {
+        "description": "Example job offer side tag 2"
+    },
+  "congratulations": "Congratulations!",
+    "@congratulations": {
+        "description": "Congratulations! text"
+    },
+  "successfullMatch": "A Successful Match!",
+    "@successfullMatch": {
+        "description": "A Successful Match! text"
+    },
+  "matchWithCandidate": "You have successfully matched with a candidate. You may contact them now.",
+    "@matchWithCandidate": {
+        "description": "You have successfully matched with a candidate. You may contact them now. text"
+    },
+  "goToMessages": "Go to Messages",
+    "@goToMessages": {
+        "description": "Go to Messages button"
+    },
+  "goToSwipe": "Back to Swipe",
+    "@goToSwipe": {
+        "description": "Back to Swipe button"
+    },
+  "waitForContact": "You can now wait for the company to contact you.",
+    "@waitForContact": {
+        "description": "You can now wait for the company to contact you. text"
+    }
 }
 

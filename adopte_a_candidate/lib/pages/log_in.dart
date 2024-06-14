@@ -31,7 +31,7 @@ class _LogInState extends State<LogIn> {
   void _setConnectionData() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('isConnected', true);
-    prefs.setBool('isCompany', true);
+    prefs.setBool('isCompany', false);
   }
 
   Future<bool?> _getConnectionData() async {
@@ -43,7 +43,6 @@ class _LogInState extends State<LogIn> {
   void initState() {
     super.initState();
     _setConnectionData();
-    // _setLanguagePage(lang);
     setState(() {
       _body = _buildLogInPage(context);
     });
@@ -96,7 +95,7 @@ class _LogInState extends State<LogIn> {
                       CustomTextButton(
                         text: AppLocalizations.of(context)!.forgotPassword,
                         textWidth: 12,
-                        pageName: 'home',
+                        pageName: 'change_password',
                       ),
                     ],
                   ),

@@ -11,9 +11,11 @@ class SignUpController extends GetxController {
   final name = TextEditingController();
   final confirmPassword = TextEditingController();
 
-  Future<void> registerUser(String email, String password, String name, bool isCompany) async {
+  Future<void> registerUser(
+      String email, String password, String name, bool isCompany) async {
     try {
-      await AuthentificationRepository().createUser(email, password, name, isCompany);
+      await AuthentificationRepository()
+          .createUser(email, password, name, isCompany);
       Get.snackbar('Success', 'User registered successfully');
     } catch (e) {
       Get.snackbar('Error', e.toString());

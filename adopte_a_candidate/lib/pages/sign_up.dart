@@ -12,6 +12,7 @@ import 'package:adopte_a_candidate/widgets/logo/logo.dart';
 
 // Controllers package
 import 'package:adopte_a_candidate/services/signup/signup_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -56,7 +57,6 @@ class _AskIfCompanyState extends State<Home> {
     final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!regex.hasMatch(value)) {
       return AppLocalizations.of(context)!.emailNotValid;
-      ;
     }
     return null;
   }
@@ -168,14 +168,14 @@ class _AskIfCompanyState extends State<Home> {
                     buildCheckBoxRow(
                       AppLocalizations.of(context)!.isCandidate,
                       isJobSeeker,
-                      (selected) =>
+                          (selected) =>
                           _handleCheckBoxChange(selected, 'jobSeeker'),
                     ),
                     const SizedBox(height: 15),
                     buildCheckBoxRow(
                       AppLocalizations.of(context)!.isCompany,
                       isCompany,
-                      (selected) => _handleCheckBoxChange(selected, 'company'),
+                          (selected) => _handleCheckBoxChange(selected, 'company'),
                     ),
                     const SizedBox(height: 20),
                     Row(
@@ -186,13 +186,17 @@ class _AskIfCompanyState extends State<Home> {
                           width: 200,
                           height: 50,
                           textWidth: 20,
-                          onPressed: () {
+                          onPressed: () async {
                             if (_formKey.currentState!.validate() == true &&
                                 (isJobSeeker || isCompany)) {
                               // Add your sign-up logic here, and then navigate to the log_in page
                               if(isJobSeeker && !isCompany) {
+                                SharedPreferences prefs = await SharedPreferences.getInstance();
+                                await prefs.setBool('isCompany', false);
                                 context.goNamed('job_seeker_swipe');
                               } else {
+                                SharedPreferences prefs = await SharedPreferences.getInstance();
+                                await prefs.setBool('isCompany', true);
                                 context.goNamed('company_swipe');
                               }
                             } else {

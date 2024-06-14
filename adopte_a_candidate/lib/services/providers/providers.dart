@@ -24,7 +24,6 @@ class ProfileState extends ChangeNotifier {
     notifyListeners();
   }
 
-
   void addMainSkill(String skill) {
     if (_mainSkills.length < 5 && !_mainSkills.contains(skill)) {
       _mainSkills.add(skill);
