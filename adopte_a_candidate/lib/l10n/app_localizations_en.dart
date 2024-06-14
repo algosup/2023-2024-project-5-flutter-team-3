@@ -26,9 +26,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmPassword => 'Confirm Password';
 
   @override
-  String get passwordNotMatch => 'Passwords do not match';
-
-  @override
   String get isCandidate => 'I am a candidate';
 
   @override
@@ -311,4 +308,107 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get swipeExample3OfferSideTag2 => 'Backend Development';
+
+  @override
+  String get passwordNotMatch => 'Passwords do not match';
+
+  @override
+  String get offerName0 => 'Nurse offer';
+
+  @override
+  String get offerName1 => 'Plumber offer';
+
+  @override
+  String get offerName2 => 'Electrician offer';
+
+  @override
+  String get offerName3 => 'Teacher offer';
+
+  @override
+  String get offerName4 => 'Doctor offer';
+
+  @override
+  String get offerName5 => 'Engineer offer';
+
+  @override
+  String get offerName6 => 'Nurse offer';
+
+  @override
+  String get offerName7 => 'Intern developer offer';
+
+  @override
+  String get offerName8 => 'Plumber offer';
+
+  @override
+  String get offerName9 => 'Baby-sitter offer';
+
+  @override
+  String get offerName10 => 'Waiter offer';
+
+  @override
+  String get offerName11 => 'QA tester offer';
+
+  @override
+  String get offerName12 => 'Lawyer offer';
+
+  @override
+  String get offerName13 => 'Nurse offer';
+
+  @override
+  String get exampleMessage0 => 'You: Hello, Are you avail...';
+
+  @override
+  String get exampleMessage1 => 'You: Yes, of course! We c...';
+
+  @override
+  String get exampleMessage2 => 'Them: Sure, I\'m really eag...';
+
+  @override
+  String get exampleMessage3 => 'You: If it\'s possible, I\'d...';
+
+  @override
+  String get exampleMessage4 => 'You: Hello, I\'m interested b...';
+
+  @override
+  String get exampleMessage5 => 'Them: Hello, Are you avail...';
+
+  @override
+  String get exampleMessage6 => 'Them: Sure, thank you so m...';
+
+  @override
+  String get exampleMessage7 => 'Them: Yes, of course! We c...';
+
+  @override
+  String get exampleMessage8 => 'Them: Sure, I\'m really eag...';
+
+  @override
+  String get exampleMessage9 => 'You: If it\'s possible, I\'d...';
+
+  @override
+  String get exampleMessage10 => 'Them: Hello, I\'m interested b...';
+
+  @override
+  String get exampleMessage11 => 'You: Hello, your profile is...';
+
+  @override
+  String get exampleMessage12 => 'You: Very well, come on Thu...';
+
+  @override
+  String get exampleMessage13 => 'Them: Sure, thank you so m...';
+
+  @override
+  String get sort0 => 'Alphabetical';
+
+  @override
+  String get sort1 => 'Last message sent';
+
+  @override
+  String get sort2 => 'Job title';
+
+  @override
+  String get sort3 => 'Last message received';
+
+  @override
+  String get sortTitle => 'Sort by:';
+
 }

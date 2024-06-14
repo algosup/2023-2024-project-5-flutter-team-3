@@ -106,7 +106,7 @@ class CompanyProfilePage extends StatelessWidget {
               context.goNamed('company_swipe');
               break;
             case 2:
-              context.goNamed('company_message'); // Navigate to messages page
+              context.goNamed('company_message_lobby'); // Navigate to messages page
               break;
             default:
               break;

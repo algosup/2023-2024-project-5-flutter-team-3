@@ -173,7 +173,7 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
               // Already on the swipe page, no navigation needed
               break;
             case 2:
-              context.goNamed('company_message');
+              context.goNamed('company_message_lobby');
               break;
             default:
               break;
@@ -353,8 +353,8 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Text(
-                      AppLocalizations.of(context)!
-                          .swipeExample2OfferDescription,
+
+                      AppLocalizations.of(context)!.swipeExample2SeekerDescription,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.black,
@@ -384,24 +384,16 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferMainTag0),
-                      TagRequiredSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferMainTag1),
+                       TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerMainTag0),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerMainTag1),
                     ],
                   ),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagRequiredSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferMainTag2),
-                      TagRequiredSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferMainTag3),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerMainTag2),
+                      TagRequiredSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerMainTag3),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -424,20 +416,15 @@ class _CompanySwipePageState extends State<CompanySwipePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferSideTag0),
-                      TagAppreciatedSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferSideTag1),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerSideTag0),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerSideTag1),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TagAppreciatedSkills(
-                          text: AppLocalizations.of(context)!
-                              .swipeExample2OfferSideTag2),
+                      TagAppreciatedSkills(text: AppLocalizations.of(context)!.swipeExample2SeekerSideTag2),
+
                     ],
                   ),
                   const SizedBox(height: 5),

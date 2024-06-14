@@ -1,4 +1,5 @@
 import 'package:adopte_a_candidate/main.dart';
+import 'package:adopte_a_candidate/pages/splash_screen.dart';
 import 'package:adopte_a_candidate/widgets/buttons/text_buttons.dart';
 import 'package:adopte_a_candidate/widgets/buttons/delete_button.dart';
 import 'package:adopte_a_candidate/widgets/fields/localization_field.dart';
@@ -6,7 +7,6 @@ import 'package:adopte_a_candidate/widgets/fields/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
-import 'package:adopte_a_candidate/widgets/navbar/navigation_bar.dart';
 import 'package:adopte_a_candidate/widgets/lists/select_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,19 +24,36 @@ class _SettingsPageState extends State<SettingsPage> {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerLocalization = TextEditingController();
   final TextEditingController _controllerLanguage = TextEditingController();
-  String _selectedLanguage = 'English'; // Default selected language
+  String? _selectedLanguage;
+  final List<String> _languages = ['English', 'French'];
 
-  final List<String> _languages = [
-    'English',
-    'French',
-  ]; // Add more languages as needed
+  @override
+  void initState() {
+    super.initState();
+    _setLanguage();
+    _loadUserData();
+  }
+
+  Future<void> _setLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    String lang = prefs.getString('language') ?? 'en';
+    setState(() {
+      _selectedLanguage = lang == 'en' ? 'English' : 'French';
+    });
+  }
 
   String getAbbreviation(String language) {
-    if (language == 'English') {
-      return 'en';
-    } else {
-      return 'fr';
-    }
+    return language == 'English' ? 'en' : 'fr';
+  }
+
+  Future<void> _loadUserData() async {
+    // Simulate a delay to mimic a network request
+    await Future.delayed(Duration.zero);
+    setState(() {
+      _controllerName.text = "john doe";
+      _controllerEmail.text = "john.doe@super-mail.com";
+      _controllerLocalization.text = 'Paris, France';
+    });
   }
 
   @override
@@ -54,9 +71,6 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _controllerName.text = "john doe";
-    _controllerEmail.text = "john.doe@super-mail.com";
-    _controllerLocalization.text = 'Paris, France'; // Default localization
     return Scaffold(
       appBar: const Logo(),
       body: SingleChildScrollView(
@@ -71,13 +85,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   IconButton(
                     onPressed: () async {
-                      bool? _isCompany;
-                      await _getData().then((value) {
-                        _isCompany = value;
-                      });
-                      if (_isCompany == null) {
+                      bool? isCompany = await _getData();
+                      if (isCompany == null) {
                         context.goNamed('log_in');
-                      } else if (_isCompany == true) {
+                      } else if (isCompany) {
                         context.goNamed('company_profile');
                       } else {
                         context.goNamed('job_seeker_profile');
@@ -131,8 +142,8 @@ class _SettingsPageState extends State<SettingsPage> {
               SelectList(
                 controller: _controllerLanguage,
                 title: AppLocalizations.of(context)!.language,
-                defaultItem: _selectedLanguage,
-                selectedItem: _selectedLanguage,
+                defaultItem: _selectedLanguage!,
+                selectedItem: _selectedLanguage!,
                 items: _languages,
                 width: MediaQuery.of(context).size.width - 32,
                 height: 40,
@@ -143,7 +154,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   String language = getAbbreviation(value);
                   final prefs = await SharedPreferences.getInstance();
                   await prefs.setString('language', language);
-                  debugPrint("language set to $language");
 
                   // Change the app's locale
                   MyApp.of(context).setLocale(Locale(language));

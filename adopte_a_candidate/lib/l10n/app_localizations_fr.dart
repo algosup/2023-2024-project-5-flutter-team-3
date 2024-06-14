@@ -26,9 +26,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get confirmPassword => 'Confirmez votre mot de passe';
 
   @override
-  String get passwordNotMatch => 'Les mots de passe ne correspondent pas';
-
-  @override
   String get isCandidate => 'Je suis un(e) candidat(e)';
 
   @override
@@ -268,6 +265,7 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get swipeSideSkillsTitle => 'Compétences Secondaires';
 
+
   @override
   String get passwordNotValid => 'Le mot de passe n\'est pas valide';
 
@@ -312,4 +310,107 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get swipeExample3OfferSideTag2 => 'Developpement Backend';
+
+  @override
+  String get passwordNotMatch => 'Les mots de passe ne correspondent pas';
+
+  @override
+  String get offerName0 => 'Offre d\'infirmière';
+
+  @override
+  String get offerName1 => 'Offre de plombier';
+
+  @override
+  String get offerName2 => 'Offre d\'électricien';
+
+  @override
+  String get offerName3 => 'Offre d\'enseignant';
+
+  @override
+  String get offerName4 => 'Offre de médecin';
+
+  @override
+  String get offerName5 => 'Offre d\'ingénieur';
+
+  @override
+  String get offerName6 => 'Offre d\'infirmière';
+
+  @override
+  String get offerName7 => 'Offre de développeur stagiaire';
+
+  @override
+  String get offerName8 => 'Offre de plombier';
+
+  @override
+  String get offerName9 => 'Offre de baby-sitter';
+
+  @override
+  String get offerName10 => 'Offre de serveur';
+
+  @override
+  String get offerName11 => 'Offre de testeur QA';
+
+  @override
+  String get offerName12 => 'Offre d\'avocat';
+
+  @override
+  String get offerName13 => 'Offre d\'infirmière';
+
+  @override
+  String get exampleMessage0 => 'Vous: Bonjour, êtes-vous dispon...';
+
+  @override
+  String get exampleMessage1 => 'Vous: Oui, bien sûr! Nous pouvo...';
+
+  @override
+  String get exampleMessage2 => 'Lui: Bien sûr, je suis vraiment...';
+
+  @override
+  String get exampleMessage3 => 'Vous: Si possible, j\'aimerais...';
+
+  @override
+  String get exampleMessage4 => 'Vous: Bonjour, je suis intéress...';
+
+  @override
+  String get exampleMessage5 => 'Lui: Bonjour, êtes-vous dispon...';
+
+  @override
+  String get exampleMessage6 => 'Lui: Bien sûr, merci beaucoup...';
+
+  @override
+  String get exampleMessage7 => 'Lui: Oui, bien sûr! Nous pouvo...';
+
+  @override
+  String get exampleMessage8 => 'Lui: Bien sûr, je suis vraiment...';
+
+  @override
+  String get exampleMessage9 => 'Vous: Si possible, j\'aimerais...';
+
+  @override
+  String get exampleMessage10 => 'Lui: Bonjour, je suis intéress...';
+
+  @override
+  String get exampleMessage11 => 'Vous: Bonjour, votre profil est...';
+
+  @override
+  String get exampleMessage12 => 'Vous: Très bien, venez jeudi...';
+
+  @override
+  String get exampleMessage13 => 'Lui: Bien sûr, merci beaucoup...';
+
+  @override
+  String get sort0 => 'Alphabétique';
+
+  @override
+  String get sort1 => 'Dernier message envoyé';
+
+  @override
+  String get sort2 => 'Titre du poste';
+
+  @override
+  String get sort3 => 'Dernier message reçu';
+
+  @override
+  String get sortTitle => 'Trier par:';
+
 }

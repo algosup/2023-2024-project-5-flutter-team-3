@@ -1,5 +1,4 @@
 // splash_screen.dart
-import 'package:adopte_a_candidate/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:adopte_a_candidate/l10n/app_localizations.dart';
 import 'package:adopte_a_candidate/widgets/logo/logo.dart';
