@@ -2,37 +2,66 @@
 
 ## Project Description
 
-For the final project of the 2023-2024 school year, we are working for a company named **[We Are Evolution](https://www.we-are-evolution.com)**, which is an employer branding agency. The goal of this project is to create a mobile/computer application, in Flutter, that will directly links the job seekers with the companies, in a Tinder-like way. The application will be named **Adopte un candidat** or **Adopt a candidate** in English.
+For the final project of the 2023-2024 school year, we are working for **[We Are Evolution](https://www.we-are-evolution.com)**, an employer branding agency. Our goal is to develop a mobile and desktop application using **Flutter** that connects job seekers with companies in a Tinder-like manner. The application is named **Adopte un candidat** (Adopt a Candidate).
 
 ## Key Features
 
-For this project, we have to develop the following features:
+Our application includes the following features:
 
-- **User Registration**: The user can register with an email address and a password. 📝
-- **Swapping System**: The user can swipe right or left to like or dislike a candidate / a company. 👍👎
-  - Everything is anonymous to avoid any discrimination. 🎭
-- **Matching System**: If two users like each other, they will be matched.🤝
-- **Chat System**: Once matched, the users can chat with each other. 💬
+- **User Registration**: Users can register with an email address and password. 📝
+- **Swiping System**: Users can swipe right or left to like or dislike a candidate or company. 👍👎
+- All interactions are anonymous to prevent discrimination. 🎭
+- **Matching System**: Users are matched if both parties like each other. 🤝
+- **Chat System**: Matched users can chat with each other. 💬
 
 ## Technologies Used
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 
-- **[Flutter](https://flutter.dev/)**: Flutter is Google’s UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
+- **[Flutter](https://flutter.dev/)**: Flutter is Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
+
+### Dependencies Version
+
+- **[Flutter](https://flutter.dev/)**: 3.22.2
+- **[Dart](https://dart.dev/)**: 3.4.3
+- **[DevTools](https://flutter.dev/docs/development/tools/devtools)**: 2.43.3
+
+## Credentials
+
+No specific credentials are needed to test the app on both the Job Seeker and Company sides. Simply create an account by selecting the appropriate option.
+
+## Backend
+
+- [**Firebase**](https://firebase.google.com/): Firebase is a platform developed by Google for creating mobile and web applications.
+
+Refer to the [**Firebase Documentation**](./Documents/Firebase/Firebase.md) for more information and the **[Technical Specifications](./Documents/TechnicalSpecification/TechnicalSpecification.md)** for the installation process.
 
 ## Documentation
 
 Once a document is created, it will be available in the redirections below.
 
-- **[Managements Artifacts](./Management/ManagementArtifacts)**
+- **[Management Artifacts](./Management/ManagementArtifacts)**
 - **[Weekly Reports](./Management/WeeklyReports)**
 - **[Functional Specifications](./Documents/FunctionalSpecification/FunctionalSpecification.md)**
 - **[Technical Specifications](./Documents/TechnicalSpecification/TechnicalSpecification.md)**
 - **[Test Plan](./Documents/TestPlan)**
 - **User Manual:**
-  - **[English Version](./UserManualEN.pdf)**
-  - **[French Version](./UserManualFR.pdf)**
-    NB: The User Manual is also as a tutorial in the application.
+  - **[English Version](User_manual.pdf)**
+  - **[French Version](Guide_d'utilisation.pdf)**
+
+
+## Device Tested
+
+The application has been tested on the following devices:
+
+- External Devices
+  - iPhone 13 - iOS 15.6.1
+  - Redmi 10 - MIUI 14.0.5
+- iOS Simulator
+  - iPhone 15 - iOS 17.4
+- Android Studio
+  - Pixel A3
+  - "Medium Phone" - Android 14.0
 
 ## Team Members
 
